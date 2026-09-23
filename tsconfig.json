@@ -12,5 +12,5 @@
     "noEmit": true,
     "types": ["bun-types"]
   },
-  "include": ["contracts", "adapters", "core", "observatory/scripts"]
+  "include": ["contracts", "adapters", "core", "observatory/scripts", "evaluation"]
 }

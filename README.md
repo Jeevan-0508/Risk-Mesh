@@ -25,7 +25,7 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + two golden cases (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10; laya-typed is a real, live SHADOW connection as of 2026-09-23, see below) + learning/knowledge lifecycle engines (Phases 12-13, with the PROVISIONAL-forever guard LEARNING_MODEL.md requires) + Observatory (Phase 19 slice, live at the link above)
+## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + two golden cases (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10; all 3 Laya checkpoints are real, live SHADOW connections as of 2026-09-23, see below) + System-1 Arena (`evaluation/system1-arena/`, live as of 2026-09-23) + learning/knowledge lifecycle engines (Phases 12-13, with the PROVISIONAL-forever guard LEARNING_MODEL.md requires) + Observatory (Phase 19 slice, live at the link above)
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements
@@ -39,11 +39,13 @@ Five adapters are implemented and tested against real captured or hash-verified 
 against its real FastAPI backend), fraud-watch (real on-disk simulation state), risk-swarm (real
 captured council runs), and FOMO/freight-risk-atlas (both read via risk-swarm's own hash-verified
 snapshot sync, so MESH never re-syncs from those two repos directly). Laya and Jev are registered
-in `adapters/model-registry/`: `laya-typed` is a real, live connection (the actual `laya` PyPI
-package calling the real `convaiinnovations/laya-typed-decisions` checkpoint on HuggingFace,
-status `SHADOW` — connected and real, not yet authoritative for routing); the other two Laya
-checkpoints and Jev stay honestly `UNAVAILABLE` (Jev's real identity — TypeSafe AI, invite-only —
-was researched and confirmed, access simply isn't obtainable here). See
+in `adapters/model-registry/`: all 3 registered Laya checkpoints (`laya-typed`, `laya-english`,
+`laya-multilingual`) are real, live connections (the actual `laya` PyPI package calling their real
+`convaiinnovations/*` checkpoints on HuggingFace, status `SHADOW` — connected and real, not yet
+authoritative for routing); Jev stays honestly `UNAVAILABLE` (its real identity — TypeSafe AI,
+invite-only — was researched and confirmed, access simply isn't obtainable here). A real
+System-1 Arena (`evaluation/system1-arena/`) calls 2+ of these independently for the same case and
+builds a real `Disagreement` when they don't agree, never averaging it away. See
 [`docs/MODEL_ARENA.md`](docs/MODEL_ARENA.md) for the full status. No fabricated results exist
 anywhere in this repo.
 
@@ -114,16 +116,28 @@ adapters/freight-risk-atlas/
 
 adapters/model-registry/
   registry.ts       the 5 real ModelProfile entries from docs/MODEL_ARENA.md (3 Laya checkpoints +
-                     jev + open-jev); laya-typed is status:'SHADOW', provenance.source:'LIVE' — the
-                     other 4 stay status:'UNAVAILABLE'
+                     jev + open-jev); all 3 Laya checkpoints are status:'SHADOW',
+                     provenance.source:'LIVE' — jev/open-jev stay status:'UNAVAILABLE'
   laya-runtime.ts   real Laya inference: spawns scripts/laya_infer.py (the actual laya PyPI
                      package) as a subprocess, plus a pure fixture-testable raw-to-ModelResult mapper
-  client.ts      callModel() has exactly one success path (laya-typed); everything else still
-                 UNAVAILABLE, never a fabricated ModelResult (spec §9/§10)
+  client.ts      callModel() succeeds for any SHADOW Laya checkpoint (looked up from the registry,
+                 not hardcoded); jev/open-jev/unknown ids still fail closed to UNAVAILABLE, never a
+                 fabricated ModelResult (spec §9/§10)
   adapter.ts     composes registry+client: assessModelCall(), registryStatusSummary()
   live-smoke.ts  opt-in real end-to-end call (bun run laya:smoke), not part of bun test
+  __fixtures__/  3 real captured inference calls (one per Laya checkpoint), see PROVENANCE.md there
   *.test.ts      real subprocess calls are dependency-injected out in tests (fixture-backed), so
                  the default suite stays fast/green without needing torch/uv/network installed
+
+evaluation/system1-arena/
+  compare.ts     compareModelResults() — pure comparison over 2+ ModelResults for the same case;
+                 agreement gets a score, disagreement becomes a real Disagreement object (§35),
+                 never averaged or majority-voted away
+  run.ts         runSystem1Arena(modelIds, input, deps?) — calls assessModelCall() once per
+                 model_id, structurally independent (no model ever sees another's result); needs
+                 2+ real ok:true results or fails closed with the real per-model failure reasons
+  *.test.ts      10 tests: pure comparison logic, plus a genuine 2- and 3-model arena run against
+                 the real Laya checkpoints via injected fixture-backed runners
 
 core/
   store.ts             generic in-memory MeshStore<T> (add/get/list/replace, rejects duplicate ids)
@@ -165,12 +179,13 @@ established in `risk-swarm/src/core/domain/model.ts`.
 
 ```
 bun install
-bun test         # 167/167 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
+bun test         # 182/182 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
                  # fraud-watch's real MO records, 10 exercise risk-swarm's real council output, 23
                  # exercise trust/arbitration, 2 are end-to-end golden cases, 5 exercise the shared
                  # snapshot-verification helper, 8 exercise FOMO, 8 exercise freight-risk-atlas,
-                 # 23 exercise the model registry incl. laya-typed's real (fixture-backed) success
-                 # path and the pure entropy/mapping helpers against a real captured fixture,
+                 # 28 exercise the model registry incl. all 3 Laya checkpoints' real (fixture-backed)
+                 # success paths and the pure entropy/mapping helpers against real captured fixtures,
+                 # 10 exercise the System-1 Arena's comparison logic and a genuine multi-model run,
                  # 11 exercise the learning ledger's lifecycle state machine including the
                  # PROVISIONAL-forever guard, 7 exercise the knowledge ledger's lifecycle state machine)
 bun x tsc -b --noEmit

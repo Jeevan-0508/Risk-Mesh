@@ -40,7 +40,12 @@ export function councilPositionsToModelResults(result: CouncilResult, args: MapA
     decision: entry.position.stance,
     probabilities: null,
     confidence: entry.position.confidence,
+    /** risk-swarm's council has no probability distribution to compute entropy from. */
+    uncertainty: null,
+    /** risk-swarm agents aren't typed to Laya's choice/score/noul taxonomy. */
+    primitive: null,
     latency_ms: entry.ms,
+    raw_output: entry as unknown as Record<string, unknown>,
   }));
 }
 

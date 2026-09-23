@@ -7,16 +7,27 @@ describe('MODEL_REGISTRY', () => {
     expect(MODEL_REGISTRY.map((m) => m.model_id)).toEqual(['laya-english', 'laya-multilingual', 'laya-typed', 'jev', 'open-jev']);
   });
 
-  it('every entry is honestly NOT_CONNECTED with provenance.source UNAVAILABLE, never a fabricated ACTIVE status', () => {
+  it('every entry except laya-typed is honestly UNAVAILABLE with provenance.source UNAVAILABLE, never a fabricated LIVE status', () => {
     for (const entry of MODEL_REGISTRY) {
-      expect(entry.status).toBe('NOT_CONNECTED');
+      if (entry.model_id === 'laya-typed') continue;
+      expect(entry.status).toBe('UNAVAILABLE');
       expect(entry.provenance.source).toBe('UNAVAILABLE');
     }
   });
 
-  it('every entry has an empty benchmark_results array — no invented numbers', () => {
+  it('laya-typed is the one real SHADOW entry, backed by a LIVE provenance and a real captured fixture reference', () => {
+    const laya = findModelProfile('laya-typed');
+    expect(laya?.status).toBe('SHADOW');
+    expect(laya?.provenance.source).toBe('LIVE');
+    expect(laya?.license).toBe('apache-2.0');
+  });
+
+  it('every benchmark_results entry is tagged SELF_REPORTED, THIRD_PARTY, or MESH_MEASURED - none MESH_MEASURED yet', () => {
     for (const entry of MODEL_REGISTRY) {
-      expect(entry.benchmark_results).toEqual([]);
+      for (const b of entry.benchmark_results) {
+        expect(['SELF_REPORTED', 'THIRD_PARTY', 'MESH_MEASURED']).toContain(b.kind);
+        expect(b.kind).not.toBe('MESH_MEASURED');
+      }
     }
   });
 

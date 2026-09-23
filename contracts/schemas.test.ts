@@ -238,7 +238,7 @@ describe('Experiment', () => {
 describe('ModelProfile', () => {
   it('tags every benchmark result SELF_REPORTED, THIRD_PARTY, or MESH_MEASURED (§10, §49)', () => {
     const profile = base({
-      status: 'NOT_CONNECTED', provider: 'convaiinnovations', checkpoint: 'convaiinnovations/laya',
+      status: 'UNAVAILABLE', provider: 'convaiinnovations', checkpoint: 'convaiinnovations/laya',
       license: null, runtime: null, parameter_count: 421_000_000, context_limit: null,
       supported_languages: ['en'], question_types: ['choice', 'score', 'noul'], calibration_method: null,
       benchmark_results: [{ metric: 'accuracy', value: 0.9, dataset: 'model-card', dataset_version: 'unknown', kind: 'SELF_REPORTED' }],
@@ -249,7 +249,7 @@ describe('ModelProfile', () => {
 
   it('rejects a benchmark result with an invented kind label', () => {
     const profile = base({
-      status: 'NOT_CONNECTED', provider: 'convaiinnovations', checkpoint: 'convaiinnovations/laya',
+      status: 'UNAVAILABLE', provider: 'convaiinnovations', checkpoint: 'convaiinnovations/laya',
       license: null, runtime: null, parameter_count: null, context_limit: null,
       supported_languages: [], question_types: [], calibration_method: null,
       benchmark_results: [{ metric: 'accuracy', value: 0.9, dataset: 'model-card', dataset_version: 'unknown', kind: 'MARKETING' }],

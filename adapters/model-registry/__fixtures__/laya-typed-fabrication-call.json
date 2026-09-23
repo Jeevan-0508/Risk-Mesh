@@ -1,0 +1,43 @@
+{
+  "input": {
+    "checkpoint": "convaiinnovations/laya-typed-decisions",
+    "state": "Carrier submitted a POD photo for a missing trailer claim. The photo EXIF timestamp is 11 days after the reported pickup date, and the trailer's GPS ping history shows no movement for 6 days before the claim was filed.",
+    "questions": {
+      "fabrication_call": {
+        "type": "choice",
+        "instructions": "Is this delivery documentation consistent with legitimate delivery, or does it show signs of fabrication?",
+        "criteria": {
+          "consistent": "Evidence lines up with a legitimate delivery.",
+          "fabricated": "Evidence shows signs of fabricated/falsified documentation.",
+          "inconclusive": "Not enough signal either way."
+        }
+      }
+    }
+  },
+  "output": {
+    "load_seconds": 15.303102970123291,
+    "infer_seconds": 0.4464874267578125,
+    "result": {
+      "model": "laya-rl-agent",
+      "answers": {
+        "fabrication_call": {
+          "type": "choice",
+          "choice": "inconclusive",
+          "probabilities": {
+            "consistent": 0.3191,
+            "fabricated": 0.2475,
+            "inconclusive": 0.4334
+          },
+          "confidence": 0.0238,
+          "action": {
+            "act_probability": 1.0
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 105,
+        "output_tokens": 0
+      }
+    }
+  }
+}

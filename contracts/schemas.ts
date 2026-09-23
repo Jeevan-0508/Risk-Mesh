@@ -156,6 +156,9 @@ export type Decision = z.infer<typeof Decision>;
 // 6. Model result (§11)
 // ---------------------------------------------------------------------------------------------
 
+export const ModelPrimitive = z.enum(['choice', 'score', 'noul']);
+export type ModelPrimitive = z.infer<typeof ModelPrimitive>;
+
 export const ModelResult = MeshBase.extend({
   status: z.enum(['RECORDED', 'SUPERSEDED']),
   case_id: MeshId,
@@ -164,7 +167,18 @@ export const ModelResult = MeshBase.extend({
   decision: z.string().min(1),
   probabilities: z.record(z.number().min(0).max(1)).nullable(),
   confidence: z.number().min(0).max(1).nullable(),
+  /** MESH-computed normalized Shannon entropy of `probabilities` (System-1 directive §7) — a real
+   * derived statistic, not a native model field. `null` when `probabilities` is null (nothing to
+   * compute from) rather than invented. Never a arithmetic negation of `confidence`: that would
+   * misrepresent a derived number as if the model reported a second, independent signal. */
+  uncertainty: z.number().min(0).max(1).nullable(),
+  /** The model's own question-type taxonomy where the model has one (e.g. Laya's choice/score/noul),
+   * `null` for a model that doesn't distinguish. */
+  primitive: ModelPrimitive.nullable(),
   latency_ms: z.number().nonnegative().nullable(),
+  /** The full, untruncated raw answer object the runtime returned, for traceability (System-1
+   * directive §7's "preserve raw decision"). `null` only when no live call was ever made. */
+  raw_output: z.record(z.unknown()).nullable(),
 });
 export type ModelResult = z.infer<typeof ModelResult>;
 
@@ -366,7 +380,14 @@ export const BenchmarkResult = z.object({
 export type BenchmarkResult = z.infer<typeof BenchmarkResult>;
 
 export const ModelProfile = MeshBase.extend({
-  status: z.enum(['ACTIVE', 'DEPRECATED', 'NOT_CONNECTED']),
+  /** System-1 directive's richer enum, replacing the original ACTIVE/DEPRECATED/NOT_CONNECTED:
+   * LIVE = connected AND cleared by policy to influence real decisions (none yet — MESH-wide
+   * routing stays in shadow mode until the directive's stop-conditions are met);
+   * SHADOW = connected, real inference confirmed, but only feeding shadow-mode observation;
+   * UNAVAILABLE = no working connection (the old NOT_CONNECTED, renamed to match the
+   * directive's vocabulary); DISABLED = intentionally turned off by an operator; ERROR = a
+   * configured connection that failed; DEPRECATED = retired. */
+  status: z.enum(['LIVE', 'SHADOW', 'UNAVAILABLE', 'DISABLED', 'ERROR', 'DEPRECATED']),
   provider: z.string().min(1),
   checkpoint: z.string().min(1),
   license: z.string().min(1).nullable(),

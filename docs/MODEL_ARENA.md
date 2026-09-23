@@ -8,8 +8,10 @@ checkpoints (`laya-typed`, `laya-english`, `laya-multilingual`) now make real, l
 actual `laya` PyPI package against their real `convaiinnovations/*` checkpoints (Apache-2.0,
 public on HuggingFace) - see `adapters/model-registry/laya-runtime.ts`, `scripts/laya_infer.py`,
 and the three captured fixtures + `PROVENANCE.md` in `adapters/model-registry/__fixtures__/`.
-Their status is `SHADOW`, not `LIVE`: the connections are real, but MESH-wide routing does not act
-on their results yet (no routing policy, no calibration data exist yet - see below).
+Their status is `SHADOW`, not `LIVE`: the connections are real, and a shadow-mode routing
+recommendation now exists (`decideSystem1Action()`, see below), but nothing in this repo wires it
+into a case's real, authoritative `Decision` yet - it is a recommendation for the Observatory to
+compare against MESH's actual decisions, not a live routing policy.
 
 Jev was researched this session and confirmed real: "Jev" by TypeSafe AI, a "System-1"
 typed-decision model, referenced directly in Laya's own model card benchmark table ("TypeSafe Jev
@@ -74,6 +76,35 @@ because they are good typed-decision models on their own.
   (`run.test.ts`): a genuine 2-model disagreement, a genuine agreement path, a 3-model comparison,
   and the "only 1 of N requested models is actually connected" failure path with `jev`.
 
+## System-1 shadow routing (`core/arbitration-engine.ts`'s `decideSystem1Action()`, live as of 2026-09-23)
+
+A sibling to `decideArbitrationAction()`, not a replacement: Laya's registry status is `SHADOW`,
+so this function's output is a shadow-mode recommendation for the Observatory to compare against
+MESH's real decisions - nothing in this repo wires it into a case's authoritative `Decision` yet.
+Deliberately takes only `contracts/schemas` types (never `evaluation/system1-arena`'s own types),
+matching `core/`'s existing import direction (it imports nothing from `adapters/` or `evaluation/`
+anywhere in this repo).
+
+Routing table, first matching branch wins, most disqualifying first:
+
+| condition | action |
+|---|---|
+| `caseRisk === 'HIGH'` | `REQUIRE_DEEP_REVIEW` - checked first, overrides any model signal |
+| no results at all | `HUMAN_REVIEW` |
+| 2+ models agree (a real Arena comparison) | `ACCEPT_SYSTEM1` |
+| 2+ models disagree, swarm reachable | `ESCALATE_TO_SWARM` |
+| 2+ models disagree, swarm not connected | `HUMAN_REVIEW` |
+| 1 model, confident (`uncertainty <= 0.7`, `ASSUMED` ceiling) | `ACCEPT` |
+| 1 model, uncertain, Jev reachable | `CALL_JEV` |
+| 1 model, uncertain, Jev unavailable, swarm reachable | `ESCALATE_TO_SWARM` |
+| 1 model, uncertain, nothing reachable | `HUMAN_REVIEW` |
+
+`caseRisk`, `jevAvailable` are honest parameters, not hard-coded: this repo has no risk-scoring
+field anywhere in `contracts/schemas.ts` (checked directly), and Jev is `UNAVAILABLE` everywhere
+today - both stay at their default (`STANDARD`/`false`) in every real case in this repo, exactly
+like `ArbitrationContext.swarmAvailable`'s own established precedent. 21 tests in
+`core/arbitration-engine.test.ts` exercise every branch above directly.
+
 ## What connecting the next model actually requires
 
 1. **Jev**: either an invite arrives (build the real HTTP client behind `JEV_API_KEY`, matching
@@ -82,10 +113,6 @@ because they are good typed-decision models on their own.
 2. **Calibration** (§8/§14): MESH has no held-out domain dataset yet. Every Laya entry's
    `known_limitations` already states `calibration = INSUFFICIENT_DATA` rather than inventing a
    number - this has to be built from real MESH cases, which do not exist yet either.
-3. **System-1 routing** (`core/arbitration-engine.ts`, next slice): Laya confident -> ACCEPT;
-   uncertain -> escalate (Jev unavailable, so no CALL_JEV path yet); models agree -> ACCEPT_SYSTEM1;
-   models disagree -> ESCALATE_TO_SWARM; high-risk cases -> REQUIRE_DEEP_REVIEW regardless of any
-   model's output.
 
 ## Arena mechanics (contract-level design, now implemented for Laya-family models)
 

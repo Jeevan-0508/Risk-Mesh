@@ -25,7 +25,7 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + two golden cases (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10; all 3 Laya checkpoints are real, live SHADOW connections as of 2026-09-23, see below) + System-1 Arena (`evaluation/system1-arena/`, live as of 2026-09-23) + learning/knowledge lifecycle engines (Phases 12-13, with the PROVISIONAL-forever guard LEARNING_MODEL.md requires) + Observatory (Phase 19 slice, live at the link above)
+## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + two golden cases (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10; all 3 Laya checkpoints are real, live SHADOW connections as of 2026-09-23, see below) + System-1 Arena (`evaluation/system1-arena/`, live as of 2026-09-23) + System-1 shadow routing (`decideSystem1Action()`, 2026-09-23) + learning/knowledge lifecycle engines (Phases 12-13, with the PROVISIONAL-forever guard LEARNING_MODEL.md requires) + Observatory (Phase 19 slice, live at the link above)
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements
@@ -145,7 +145,10 @@ core/
   evidence-fabric.ts    Evidence Fabric (§5) — enforced UNVERIFIED→VERIFIED→SUPERSEDED-style status machine
   case-engine.ts        Case Engine (§4) — id-only references, enforced OPEN→INVESTIGATING→DECIDED→CLOSED lifecycle
   trust-engine.ts       computeTrustVerdict() (§34) — declared reason table, every threshold marked ASSUMED
-  arbitration-engine.ts decideArbitrationAction() (§12) — verdict + context -> action + non-empty rationale
+  arbitration-engine.ts decideArbitrationAction() (§12) — verdict + context -> action + non-empty rationale;
+                        decideSystem1Action() (System-1 directive) — a shadow-mode-only sibling: Laya/Arena
+                        signals -> a recommended action, never wired into a case's real Decision yet
+                        (laya-typed/-english/-multilingual are SHADOW, not LIVE-authoritative)
   learning-ledger.ts    Learning Ledger (§27/§29) lifecycle state machine only — CANDIDATE->VERIFIED->
                         VALIDATED->ADOPTED, REJECTED from any of the first three, SUPERSEDED/DECAYED
                         only from ADOPTED. No transition judges lesson content (docs/LEARNING_MODEL.md)
@@ -179,15 +182,16 @@ established in `risk-swarm/src/core/domain/model.ts`.
 
 ```
 bun install
-bun test         # 182/182 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
-                 # fraud-watch's real MO records, 10 exercise risk-swarm's real council output, 23
-                 # exercise trust/arbitration, 2 are end-to-end golden cases, 5 exercise the shared
-                 # snapshot-verification helper, 8 exercise FOMO, 8 exercise freight-risk-atlas,
-                 # 28 exercise the model registry incl. all 3 Laya checkpoints' real (fixture-backed)
-                 # success paths and the pure entropy/mapping helpers against real captured fixtures,
-                 # 10 exercise the System-1 Arena's comparison logic and a genuine multi-model run,
-                 # 11 exercise the learning ledger's lifecycle state machine including the
-                 # PROVISIONAL-forever guard, 7 exercise the knowledge ledger's lifecycle state machine)
+bun test         # 192/192 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
+                 # fraud-watch's real MO records, 10 exercise risk-swarm's real council output, 33
+                 # exercise trust/arbitration incl. decideSystem1Action's shadow-mode routing, 2 are
+                 # end-to-end golden cases, 5 exercise the shared snapshot-verification helper, 8
+                 # exercise FOMO, 8 exercise freight-risk-atlas, 28 exercise the model registry incl.
+                 # all 3 Laya checkpoints' real (fixture-backed) success paths and the pure
+                 # entropy/mapping helpers against real captured fixtures, 10 exercise the System-1
+                 # Arena's comparison logic and a genuine multi-model run, 11 exercise the learning
+                 # ledger's lifecycle state machine including the PROVISIONAL-forever guard, 7
+                 # exercise the knowledge ledger's lifecycle state machine)
 bun x tsc -b --noEmit
 ```
 

@@ -139,6 +139,10 @@ export type Behavior = z.infer<typeof Behavior>;
 export const ArbitrationAction = z.enum([
   'ACCEPT', 'CONDITIONAL', 'ESCALATE_TO_SWARM', 'REQUEST_MORE_EVIDENCE',
   'REQUEST_REPLAY', 'HUMAN_REVIEW', 'ABSTAIN',
+  // System-1 directive additions (2026-09-23): reachable only via decideSystem1Action() in
+  // core/arbitration-engine.ts, a shadow-mode-only sibling to decideArbitrationAction() — Laya's
+  // registry status is SHADOW, so nothing in this repo wires these into a case's real Decision yet.
+  'ACCEPT_SYSTEM1', 'CALL_JEV', 'REQUIRE_DEEP_REVIEW',
 ]);
 export type ArbitrationAction = z.infer<typeof ArbitrationAction>;
 

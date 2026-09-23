@@ -8,7 +8,8 @@
   "scripts": {
     "test": "bun test",
     "test:watch": "bun test --watch",
-    "typecheck": "tsc -b --noEmit"
+    "typecheck": "tsc -b --noEmit",
+    "observatory:capture": "bun run observatory/scripts/capture-golden-events.ts"
   },
   "dependencies": {
     "zod": "^3.23.8"

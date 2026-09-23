@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RISK//MESH — Observatory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A replay of two real golden cases through RISK//MESH's contracts, evidence and learning ledgers. Not a live feed.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="orb-canvas"></canvas>
+<div class="overlay">
+  <header>
+    <div>
+      <h1>RISK//MESH — OBSERVATORY</h1>
+      <div class="tag">A replay of two real golden cases (real ledger events from a passing test run) through the contract, evidence, replay and learning ledgers. DEC-001 is risk-replay's own seeded demo decision — SIMULATED throughout, not a real incident. This is not a live cross-system feed; MESH has no production traffic yet.</div>
+    </div>
+    <a class="back" href="https://github.com/Jeevan-0508/Risk-Mesh" target="_blank" rel="noopener">← Risk-Mesh repo</a>
+  </header>
+  <div class="tabs">
+    <button id="tab-0" class="active">Golden Case 1 · Fragile Under Replay</button>
+    <button id="tab-1">Golden Case 2 · Lesson Stays PROVISIONAL Forever</button>
+    <button id="tab-replay">↻ Replay</button>
+  </div>
+  <div class="case-summary" id="case-summary"></div>
+  <div class="terminal-wrap">
+    <div class="terminal" id="terminal"></div>
+  </div>
+  <footer>generated at build time from <code>core/__golden__/scenarios.ts</code> · <a href="data/golden-cases.js" target="_blank">raw data</a></footer>
+</div>
+<script type="importmap">
+  { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module" src="orb.js"></script>
+</body>
+</html>

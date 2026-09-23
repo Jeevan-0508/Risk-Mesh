@@ -5,6 +5,12 @@
 **The connective fabric between independent risk systems — contracts, evidence, provenance and
 arbitration, not another engine.**
 
+Live demos of the systems MESH connects (MESH itself is a backend contract/evidence layer with no
+UI of its own): [fraud-watch](https://jeevan-0508.github.io/fraud-watch/) ·
+[risk-replay](https://jeevan-0508.github.io/risk-replay/) ·
+[risk-swarm](https://jeevan-0508.github.io/risk-swarm/) ·
+[policy-audit](https://jeevan-0508.github.io/policy-audit/).
+
 RISK//MESH does not simulate fraud, run counterfactual replay, or classify governance evidence —
 [fraud-watch](https://github.com/Jeevan-0508/fraud-watch),
 [risk-replay](https://github.com/Jeevan-0508/risk-replay), and

@@ -1,0 +1,61 @@
+{
+  "signals": [
+    {
+      "category": "Corporate Insolvency",
+      "title": "Betz insolvency exposes structural weaknesses in Germany’s transport market - Trans.INFO",
+      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBGQTJVX2Uxajk1OU95QjlCanZtR01rZ0k4T0k1SDdNTDBlM3B6d3RLMVpXc056eTlkOFJOYWtkMktmdzFTbnJ6X1RtYi04Ymo3SVZTZFRmcw?oc=5",
+      "source": "Trans.INFO",
+      "pub_date": "Fri, 10 Apr 2026 07:00:00 GMT",
+      "severity": "medium",
+      "found_at": "2026-09-03T12:54:42.455900+00:00"
+    },
+    {
+      "category": "Corporate Insolvency",
+      "title": "Helrom to be liquidated: missed opportunities prove fatal - RailFreight.com",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQMWd5SUtZcC1BUmVvdkxPU1BPdWJDWUpNMGpua3pKMDl5ZFhJZkJSaVNacWhIUktHVjhVajdNQ3RWTGFJSFZ1Y0lfM0Z6RmxoYW9yOTBfSmZ4OV8xbVZaZ21yZ25jN1A5UUN5djBTV3d3aTJpdUVVTHRSNEJvVzBRcg?oc=5",
+      "source": "RailFreight.com",
+      "pub_date": "Fri, 29 May 2026 07:00:00 GMT",
+      "severity": "medium",
+      "found_at": "2026-09-03T12:54:42.455900+00:00"
+    },
+    {
+      "category": "Corporate Insolvency",
+      "title": "Textile company ZEGO, which was affected by a cyberattack that halted production for six weeks, has filed for bankruptcy. - GIGAZINE",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9TNnVWOERuUGlyLUxQQTY1a0hZb3oycWFlRGV1UWw1Q2M3NWJlNW1RSHpkSzNMc3Z0NV9LeG9HQlFvTTZPc3ZvbDh1M1BEY2RfbzNDellVbmVFRkZwOVR3YTVQX1RqVnFvZ2c?oc=5",
+      "source": "GIGAZINE",
+      "pub_date": "Tue, 14 Jul 2026 07:00:00 GMT",
+      "severity": "high",
+      "found_at": "2026-09-03T12:54:42.455900+00:00"
+    },
+    {
+      "category": "Corporate Insolvency",
+      "title": "Bankruptcy after 60 years 🤖🇩🇪 Why the German robotics pioneer ek robotics stumbled 📉💸 - Xpert.Digital - Konrad Wolfenstein",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE05THJXWUZYYm1jMnBONGlWQ3g4QmNydnJKSkwtWGdONXFna0ZyZlQ3YjBTRWZ6X0NSZ2E0bklFWlZLUFFoeXVZZUdNaExxaTh2Mld0dmR2OFVEMmpGcUxv?oc=5",
+      "source": "Xpert.Digital - Konrad Wolfenstein",
+      "pub_date": "Sat, 04 Apr 2026 07:00:00 GMT",
+      "severity": "high",
+      "found_at": "2026-09-03T12:54:42.455900+00:00"
+    },
+    {
+      "category": "Corporate Insolvency",
+      "title": "Duvenbeck hit by its biggest crisis yet: automotive logistics turmoil puts company up for sale - Trans.INFO",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBoRXk5Slp1MTRVbGpaTGRNejBHNmFlNFA5cEZqN05Bb1lVSkljRzJ2QlkyT1d0WlA3R0xsRld6SUZVNHQ3V0cyX3dwTTB2bG1hTVNOVFA2UDVRbVE5aGlhVXJxOA?oc=5",
+      "source": "Trans.INFO",
+      "pub_date": "Wed, 15 Apr 2026 07:00:00 GMT",
+      "severity": "medium",
+      "found_at": "2026-09-03T12:54:42.455900+00:00"
+    }
+  ],
+  "runs": [
+    {
+      "timestamp": "2026-09-03T12:54:42.455900+00:00",
+      "new_signals": 59,
+      "total_signals": 59
+    },
+    {
+      "timestamp": "2026-09-03T13:40:55.046124+00:00",
+      "new_signals": 63,
+      "total_signals": 122
+    }
+  ]
+}

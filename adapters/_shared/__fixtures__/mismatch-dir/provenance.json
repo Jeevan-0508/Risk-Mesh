@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "synced_at": "2026-09-12T19:09:48.281Z",
+  "synced_by": "scripts/sync-snapshots.mjs",
+  "sources": [
+    {
+      "key": "fomo",
+      "upstream_repo": "FOMO",
+      "upstream_url": "https://github.com/Jeevan-0508/FOMO",
+      "commit": "451c5c989df259553e0acc9f041dea274e929857",
+      "note": "DELIBERATELY WRONG sha256, to exercise the hash-mismatch failure path in a test. Not a real capture.",
+      "files": [
+        {
+          "upstream_path": "data/signals.json",
+          "path": "fomo/signals.json",
+          "bytes": 999,
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "synced_at": "2026-09-12T19:09:48.281Z",
+  "synced_by": "scripts/sync-snapshots.mjs",
+  "sources": [
+    {
+      "key": "fomo",
+      "upstream_repo": "FOMO",
+      "upstream_url": "https://github.com/Jeevan-0508/FOMO",
+      "commit": "451c5c989df259553e0acc9f041dea274e929857",
+      "note": "TRIMMED FIXTURE (5 signals, 2 runs) of the real synced fomo/signals.json for testing. sha256 below is recomputed for this trimmed file, not the same as risk-swarm's real provenance.json (which hashes the full 874-signal file).",
+      "files": [
+        {
+          "upstream_path": "data/signals.json",
+          "path": "fomo/signals.json",
+          "bytes": 3037,
+          "sha256": "0c5ffa62b633fa5afc01add78182e74b2cbace0754f1649696b819604e3fd536"
+        }
+      ]
+    },
+    {
+      "key": "freight-risk-atlas",
+      "upstream_repo": "freight-risk-atlas",
+      "upstream_url": "https://github.com/Jeevan-0508/freight-risk-atlas",
+      "commit": "fc1a66dc387bdd410eeaaf55220882097eeaef0b",
+      "note": "TRIMMED FIXTURE (meta + first 2 of 12 patterns) of the real synced freight-risk-atlas/taxonomy.json for testing. sha256 below is recomputed for this trimmed file.",
+      "files": [
+        {
+          "upstream_path": "data/taxonomy.json",
+          "path": "freight-risk-atlas/taxonomy.json",
+          "bytes": 17432,
+          "sha256": "7b10df55856a97dcc1a8bc516cca064b4e330e765878a7344729140a165bfdfd"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test';
-import { LearningLedger, IllegalLessonTransitionError } from './learning-ledger';
+import { LearningLedger, IllegalLessonTransitionError, ProvisionalLessonError } from './learning-ledger';
 import { Ledger } from './ledger';
 import type { Lesson } from '../contracts/schemas';
 
@@ -26,9 +26,9 @@ describe('LearningLedger', () => {
     expect(() => learning.propose(makeLesson({ status: 'VERIFIED' }))).toThrow();
   });
 
-  it('allows the full real path CANDIDATE -> VERIFIED -> VALIDATED -> ADOPTED', () => {
+  it('allows the full real path CANDIDATE -> VERIFIED -> VALIDATED -> ADOPTED for a non-SIMULATED lesson', () => {
     const learning = new LearningLedger(new Ledger());
-    learning.propose(makeLesson());
+    learning.propose(makeLesson({ provenance: { source: 'SNAPSHOT', system: 'test', retrieved_at: AT, upstream_ref: null, note: null } }));
     learning.transition('lesson-1', 'VERIFIED', 'source case outcome confirmed real, not simulated', AT);
     learning.transition('lesson-1', 'VALIDATED', 'no contradiction against adopted knowledge', AT);
     const final = learning.transition('lesson-1', 'ADOPTED', 'benchmark run clean', AT);
@@ -67,13 +67,30 @@ describe('LearningLedger', () => {
 
   it('allows ADOPTED -> SUPERSEDED and ADOPTED -> DECAYED, never back to VALIDATED', () => {
     const learning = new LearningLedger(new Ledger());
-    learning.propose(makeLesson());
+    learning.propose(makeLesson({ provenance: { source: 'SNAPSHOT', system: 'test', retrieved_at: AT, upstream_ref: null, note: null } }));
     learning.transition('lesson-1', 'VERIFIED', 'ok', AT);
     learning.transition('lesson-1', 'VALIDATED', 'ok', AT);
     learning.transition('lesson-1', 'ADOPTED', 'ok', AT);
     const superseded = learning.transition('lesson-1', 'SUPERSEDED', 'newer lesson replaces this', AT);
     expect(superseded.status).toBe('SUPERSEDED');
     expect(() => learning.transition('lesson-1', 'VALIDATED', 'reconsidered', AT)).toThrow(IllegalLessonTransitionError);
+  });
+
+  it('blocks ADOPTED forever for a lesson learned from a SIMULATED case, even after VALIDATED (LEARNING_MODEL.md\'s PROVISIONAL rule)', () => {
+    const learning = new LearningLedger(new Ledger());
+    learning.propose(makeLesson({ provenance: { source: 'SIMULATED', system: 'test', retrieved_at: AT, upstream_ref: null, note: null } }));
+    learning.transition('lesson-1', 'VERIFIED', 'ok', AT);
+    learning.transition('lesson-1', 'VALIDATED', 'ok', AT);
+    expect(() => learning.transition('lesson-1', 'ADOPTED', 'benchmark clean', AT)).toThrow(ProvisionalLessonError);
+  });
+
+  it('does not block ADOPTED for a lesson learned from a non-SIMULATED case (e.g. SNAPSHOT)', () => {
+    const learning = new LearningLedger(new Ledger());
+    learning.propose(makeLesson({ provenance: { source: 'SNAPSHOT', system: 'test', retrieved_at: AT, upstream_ref: null, note: null } }));
+    learning.transition('lesson-1', 'VERIFIED', 'ok', AT);
+    learning.transition('lesson-1', 'VALIDATED', 'ok', AT);
+    const adopted = learning.transition('lesson-1', 'ADOPTED', 'benchmark clean', AT);
+    expect(adopted.status).toBe('ADOPTED');
   });
 
   it('list(caseId) filters by source_case_id', () => {

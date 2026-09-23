@@ -6,6 +6,12 @@
  * `evidence-fabric.ts`/`case-engine.ts` already are, enforcing which `LessonStatus` may move to
  * which and nothing more. No transition here inspects lesson content or decides it was "correct" —
  * that judgement is exactly the runtime this phase deliberately defers.
+ *
+ * One exception, because it is a concrete rule quoted directly in LEARNING_MODEL.md rather than a
+ * judgement call: "a lesson learned from a simulated case is PROVISIONAL forever, never promoted to
+ * ADOPTED knowledge that changes live routing." That needs no benchmark or outcome data to enforce —
+ * only the lesson's own `provenance.source`, already on every MESH object — so `transition()` blocks
+ * CANDIDATE/VERIFIED/VALIDATED → ADOPTED whenever `provenance.source === 'SIMULATED'`.
  */
 import type { Lesson, LessonStatus } from '../contracts/schemas';
 import { MeshStore } from './store';
@@ -24,6 +30,12 @@ const ALLOWED_LESSON_TRANSITIONS: Record<LessonStatus, LessonStatus[]> = {
 export class IllegalLessonTransitionError extends Error {
   constructor(from: LessonStatus, to: LessonStatus) {
     super(`Lesson cannot move from ${from} to ${to} — allowed from ${from}: [${ALLOWED_LESSON_TRANSITIONS[from].join(', ') || 'none, terminal'}].`);
+  }
+}
+
+export class ProvisionalLessonError extends Error {
+  constructor(id: string) {
+    super(`Lesson ${id} was learned from a SIMULATED case and is PROVISIONAL forever (LEARNING_MODEL.md) — it can never move to ADOPTED, only REJECTED or stay VALIDATED.`);
   }
 }
 
@@ -57,6 +69,7 @@ export class LearningLedger {
     const current = this.store.require(id);
     const allowed = ALLOWED_LESSON_TRANSITIONS[current.status];
     if (!allowed.includes(to)) throw new IllegalLessonTransitionError(current.status, to);
+    if (to === 'ADOPTED' && current.provenance.source === 'SIMULATED') throw new ProvisionalLessonError(id);
     const next: Lesson = { ...current, status: to };
     this.store.replace(id, next);
     this.ledger.append({

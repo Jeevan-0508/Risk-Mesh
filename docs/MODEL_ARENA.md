@@ -163,6 +163,22 @@ rule the calibration pipeline follows, applied to the write path instead of the 
 correct `OutcomeEngine` does not quietly answer the question `runSystem1Calibration()`'s docs
 above explicitly decline to answer. 5 tests in `outcome-engine.test.ts`.
 
+## Adaptive routing (`evaluation/calibration/adaptive-routing.ts`, live as of 2026-09-23)
+
+The last slice in the System-1 directive plan. `proposeUncertaintyCeiling()` picks a new
+candidate for `SYSTEM1_THRESHOLDS.uncertaintyCeiling` from real `{uncertainty, correct}` pairs
+using Youden's J statistic - a standard, named threshold-selection technique from ROC analysis,
+not a formula invented for this file. It cannot reuse the calibration pipeline's own
+`{confidence, correct}` samples: `contracts/schemas.ts` documents `ModelResult.uncertainty` as
+never an arithmetic negation of `confidence` (it is normalized Shannon entropy, a different
+statistic), so this needed its own real sample shape. This module only proposes a ceiling; it
+never writes back into `SYSTEM1_THRESHOLDS` itself - the same no-repo-mutation-without-a-human-
+step rule that already applies to adapters, applied here to a shared constant instead of an
+external repo. `proposeSystem1ThresholdAdaptation()` called with nothing - this repo's real
+state today - returns `INSUFFICIENT_DATA`, for the same reason `runSystem1Calibration()` does:
+zero real `Outcome` records exist anywhere to pair with a real `ModelResult.uncertainty`. 5
+tests in `adaptive-routing.test.ts`, including two hand-verified Youden's J arithmetic checks.
+
 ## What connecting the next model actually requires
 
 1. **Jev**: either an invite arrives (build the real HTTP client behind `JEV_API_KEY`, matching
@@ -173,6 +189,9 @@ above explicitly decline to answer. 5 tests in `outcome-engine.test.ts`.
    result yet - Fraud Watch integration and System-1 Observability (above) supply a real case
    source and real model calls, but not real outcomes, so calibration stays `INSUFFICIENT_DATA`
    until real cases accumulate real, recorded results.
+3. **Adaptive routing** (see above): the proposal math exists now too, gated the same way -
+   `SYSTEM1_THRESHOLDS.uncertaintyCeiling` stays its ASSUMED 0.7 until real outcomes accumulate
+   and a human reviews and adopts a real proposed change.
 
 ## Arena mechanics (contract-level design, now implemented for Laya-family models)
 

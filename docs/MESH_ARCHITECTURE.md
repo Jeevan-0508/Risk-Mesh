@@ -82,6 +82,21 @@ outcome, so a mistaken correction can itself be corrected; unlike `CaseEngine.tr
 it carries no transition-guard table, because `OutcomeStatus`'s two values both always move to
 `AMENDED` — a guard that can never reject anything would be dead code, not safety.
 
+### Adaptive routing (`evaluation/calibration/adaptive-routing.ts` — IMPLEMENTED, proposal-only)
+
+The last slice in the System-1 directive's plan. `proposeUncertaintyCeiling()` picks a candidate
+for `SYSTEM1_THRESHOLDS.uncertaintyCeiling` from real `{uncertainty, correct}` pairs using
+Youden's J statistic — a standard, named threshold-selection technique from ROC analysis, not a
+formula invented for this file. It cannot reuse the calibration pipeline's own
+`{confidence, correct}` samples: `ModelResult.uncertainty` is documented as never an arithmetic
+negation of `confidence` (it is normalized Shannon entropy, a different statistic), so this
+needed its own real sample shape. It only PROPOSES a ceiling and never writes back into
+`SYSTEM1_THRESHOLDS` itself — the same "no repo mutation without a human step" rule (§0) that
+already governs adapters, applied here to a shared constant instead of an external repo.
+`proposeSystem1ThresholdAdaptation()` called with nothing — this repo's real state today —
+returns `INSUFFICIENT_DATA`, same as `runSystem1Calibration()`: zero real `Outcome` records
+exist anywhere to pair with a real `ModelResult.uncertainty`.
+
 ### Adapters (Phases 5-9 — PLANNED, scoped by the audit)
 
 Each adapter is **read-only against the source repo** and follows the `riskos.ts` precedent already

@@ -84,12 +84,16 @@ data, and if a value can't be honestly known it is `null` with an explanation, n
 | risk-os | Read the existing `src/domain/types.ts` risk-register model (already typed) | PLANNED |
 | Laya / Jev | HTTP/local-runtime adapters against real checkpoints — **cannot be built against fabricated responses**; blocked until credentials/runtime exist | BLOCKED, NOT_CONNECTED |
 
-### Trust & arbitration (Phase 11 — PLANNED)
+### Trust & arbitration (Phase 11 — IMPLEMENTED)
 
-Deterministic function over: adapter outputs, evidence completeness, historical calibration (requires
-enough MESH-measured outcomes to exist — none yet), novelty, replay stability (from the risk-replay
-adapter). Output is one of `ACCEPT | CONDITIONAL | ESCALATE_TO_SWARM | REQUEST_MORE_EVIDENCE |
-REQUEST_REPLAY | HUMAN_REVIEW | ABSTAIN`, each with a stated reason.
+`core/trust-engine.ts` computes a `TrustVerdict` from `TrustDrivers` (§34): a declared-order reason
+table, same convention as fraud-watch's own `CLASSIFICATION_REASONS`, with every threshold marked
+`ASSUMED` because no MESH-measured historical outcomes exist yet anywhere in this ecosystem.
+`core/arbitration-engine.ts` turns that verdict plus `ArbitrationContext` (is risk-swarm actually
+reachable, has replay already run, is there a nameable evidence gap) into one `ACCEPT | CONDITIONAL |
+ESCALATE_TO_SWARM | REQUEST_MORE_EVIDENCE | REQUEST_REPLAY | HUMAN_REVIEW | ABSTAIN`, always with a
+non-empty rationale (§12). `swarmAvailable` defaults to what's actually true today — `false` — rather
+than assuming a connection that doesn't exist.
 
 ### Ledger (Phase 4 — IMPLEMENTED)
 

@@ -13,7 +13,7 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + a first golden case (Phase 20 slice)
+## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + trust/arbitration engines (Phase 11) + a first golden case (Phase 20 slice)
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements
@@ -61,6 +61,8 @@ core/
   ledger.ts             append-only event ledger (§42) — no update/delete method exists on the class
   evidence-fabric.ts    Evidence Fabric (§5) — enforced UNVERIFIED→VERIFIED→SUPERSEDED-style status machine
   case-engine.ts        Case Engine (§4) — id-only references, enforced OPEN→INVESTIGATING→DECIDED→CLOSED lifecycle
+  trust-engine.ts       computeTrustVerdict() (§34) — declared reason table, every threshold marked ASSUMED
+  arbitration-engine.ts decideArbitrationAction() (§12) — verdict + context -> action + non-empty rationale
   __golden__/           first golden case (§48): wires all of the above over a real risk-replay fixture
 ```
 
@@ -85,8 +87,8 @@ established in `risk-swarm/src/core/domain/model.ts`.
 
 ```
 bun install
-bun test         # 71/71 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
-                 # fraud-watch's real MO records, 1 is an end-to-end golden case)
+bun test         # 94/94 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
+                 # fraud-watch's real MO records, 23 exercise trust/arbitration, 1 is an end-to-end golden case)
 bun x tsc -b --noEmit
 ```
 

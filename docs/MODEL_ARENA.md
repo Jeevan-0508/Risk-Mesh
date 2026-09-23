@@ -138,17 +138,30 @@ the first fixture. 8 tests in `fraud-watch-cases.test.ts` cover the state-mappin
 question fixture match, the input-translation shape, agreement -> `ACCEPT_SYSTEM1`, disagreement ->
 `ESCALATE_TO_SWARM`, and the fails-closed path with fewer than 2 real models.
 
+## Calibration pipeline (`evaluation/calibration/pipeline.ts`, live as of 2026-09-23)
+
+The pure math a real calibration check needs (Brier score + a 10-bucket reliability diagram over
+`{confidence, correct}` samples) is built and tested - against a clearly-synthetic verification
+dataset, not MESH data - but has **no real call site**: this repo has zero real `Outcome` records
+anywhere (`contracts/schemas.ts` section 11 already has the field a calibration check would need,
+`matches_prediction`, but a direct search for it and `actual_result` outside the schema file and
+tests finds nothing real constructing one - not even the two golden cases carry one). Building a
+bridge from `ModelResult` to `Outcome` today would mean inventing an assumption spec §8/§14 does
+not state (whether one case's `Outcome.matches_prediction` describes each individual System-1
+model's own correctness, or only the case's final Decision) - the same reason
+`docs/MESH_ARCHITECTURE.md` already declines to write the learning ledger's validation machinery.
+`runSystem1Calibration()` called with no arguments - this repo's real state today - returns
+`INSUFFICIENT_DATA, sampleSize: 0`, not a fabricated number. 6 tests in `pipeline.test.ts`.
+
 ## What connecting the next model actually requires
 
 1. **Jev**: either an invite arrives (build the real HTTP client behind `JEV_API_KEY`, matching
    `.env.example`), or Jev stays `UNAVAILABLE` indefinitely and the arena runs Laya-checkpoint-only
    (still a real arena, as above).
-2. **Calibration** (§8/§14): MESH has no held-out domain dataset yet. Every Laya entry's
-   `known_limitations` already states `calibration = INSUFFICIENT_DATA` rather than inventing a
-   number - this has to be built from real MESH cases, which do not exist yet either. Fraud Watch
-   integration (above) supplies a real case source, but not real outcomes - it is still the
-   simulation's own labels that would be needed to calibrate against, and those remain fabricated
-   by definition, not measured.
+2. **Calibration** (§8/§14, see above): the math exists now, but real MESH `Outcome` records do
+   not - Fraud Watch integration and System-1 Observability (above) supply a real case source and
+   real model calls, but not real outcomes, so this stays `INSUFFICIENT_DATA` until real cases with
+   real, human-confirmed results accumulate.
 
 ## Arena mechanics (contract-level design, now implemented for Laya-family models)
 

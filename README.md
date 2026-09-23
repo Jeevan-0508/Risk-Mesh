@@ -2,13 +2,16 @@
 
 # RISK//MESH
 
+**by [Jeevan Siddhabhaktula](https://github.com/Jeevan-0508)**
+
 **The connective fabric between independent risk systems — contracts, evidence, provenance and
 arbitration, not another engine.**
 
 MESH itself has one small UI of its own - **[Observatory](https://jeevan-0508.github.io/Risk-Mesh/)**
 ([`observatory/`](observatory/) source), a replay (not a live feed)
 of its two real golden cases, plus two real System-1 Arena runs against real fraud-watch MOs,
-through a particle-orb + terminal-log visualization, see
+through a particle-orb + terminal-log visualization, plus a bring-your-own-key **Ask MESH**
+panel grounded only in that same real case data (never a live cross-repo feed), see
 [`docs/MESH_ARCHITECTURE.md`](docs/MESH_ARCHITECTURE.md#observatory-phase-19--small-slice-implemented-a-live-cross-system-dashboard-still-planned)
 for exactly what it does and doesn't show.
 
@@ -203,6 +206,10 @@ bun test         # 200/200 passing (12 exercise risk-replay's real client/mappin
 bun x tsc -b --noEmit
 ```
 
+## Author
+
+**Jeevan Siddhabhaktula** ([github.com/Jeevan-0508](https://github.com/Jeevan-0508))
+
 ## License
 
-MIT
+MIT, Copyright (c) 2026 Jeevan Siddhabhaktula (see [LICENSE](LICENSE))

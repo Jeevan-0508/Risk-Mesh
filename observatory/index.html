@@ -23,16 +23,39 @@
     <button id="tab-2">System-1 · fraud-watch MO-0001</button>
     <button id="tab-3">System-1 · fraud-watch MO-0002</button>
     <button id="tab-replay">↻ Replay</button>
+    <button id="ask-toggle" aria-expanded="false">✦ Ask MESH</button>
   </div>
   <div class="case-summary" id="case-summary"></div>
+  <div class="ask-panel" id="ask-panel" hidden>
+    <p class="ask-disclosure">Ask about the 4 real cases shown above. Bring your own API key (OpenAI or OpenRouter):
+      it is sent directly from your browser to that provider only, stored only in this browser's
+      <code>localStorage</code>, never sent to this site or to Jeevan. MESH is not a live feed connected to
+      Jeevan's other risk projects; every answer here is grounded only in the real case data this page replays,
+      nothing else.</p>
+    <div class="ask-config">
+      <select id="ask-provider">
+        <option value="openai">OpenAI</option>
+        <option value="openrouter">OpenRouter</option>
+      </select>
+      <input id="ask-key" type="password" placeholder="paste API key" autocomplete="off">
+      <input id="ask-model" type="text" placeholder="model (e.g. gpt-4o-mini)" autocomplete="off">
+      <button id="ask-clear-key" type="button">clear key</button>
+    </div>
+    <div class="ask-qa">
+      <input id="ask-question" type="text" placeholder="e.g. why did Golden Case 2 stay PROVISIONAL forever?" autocomplete="off">
+      <button id="ask-submit" type="button">Ask</button>
+    </div>
+    <div class="ask-response" id="ask-response"></div>
+  </div>
   <div class="terminal-wrap">
     <div class="terminal" id="terminal"></div>
   </div>
-  <footer>generated at build time from <code>core/__golden__/scenarios.ts</code> (<a href="data/golden-cases.js" target="_blank">raw data</a>) and <code>evaluation/system1-arena/fraud-watch-cases.ts</code> (<a href="data/system1-cases.js" target="_blank">raw data</a>)</footer>
+  <footer>generated at build time from <code>core/__golden__/scenarios.ts</code> (<a href="data/golden-cases.js" target="_blank">raw data</a>) and <code>evaluation/system1-arena/fraud-watch-cases.ts</code> (<a href="data/system1-cases.js" target="_blank">raw data</a>) &middot; RISK//MESH by <a href="https://github.com/Jeevan-0508" target="_blank">Jeevan Siddhabhaktula</a></footer>
 </div>
 <script type="importmap">
   { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
 </script>
 <script type="module" src="orb.js"></script>
+<script type="module" src="ask-mesh.js"></script>
 </body>
 </html>

@@ -193,6 +193,16 @@ consistent with its documented lower accuracy) and both honestly route to `HUMAN
 adjusted for visual variety. `decideSystem1Action()`'s output is a SHADOW recommendation only;
 nothing in this repo wires it into a case's authoritative Decision yet.
 
+Observatory also has a small **Ask MESH** panel (`observatory/ask-mesh.js`), a bring-your-own-key
+Q&A box, same BYOK pattern risk-swarm's Model Config screen already established (key typed once,
+kept only in this browser's `localStorage`, sent directly to OpenAI or OpenRouter, never to this
+site). It is not a chat over live MESH state - there is no live state yet - it is a small system
+prompt that hands the model the exact same case/event data the terminal above it already replays,
+nothing more, and is explicitly told to say so rather than invent an answer or claim a live
+connection to Jeevan's other repos that does not exist. Unverified end-to-end in this session (no
+API key available here); needs a real key in a real browser to confirm the request/response round
+trip actually works.
+
 ## What is explicitly NOT being built yet
 
 - No model is being fine-tuned (§54) — not applicable until far later, if ever.

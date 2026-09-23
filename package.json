@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "license": "MIT",
+  "author": "Jeevan Siddhabhaktula",
   "type": "module",
   "description": "RISK//MESH - the connective contract, evidence and provenance layer between independent risk systems",
   "scripts": {

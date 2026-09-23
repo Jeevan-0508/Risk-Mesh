@@ -54,5 +54,29 @@ header .back:hover { background: rgba(246, 214, 138, 0.08); }
 
 @keyframes fadein { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
 
+.ask-panel {
+  padding: 10px 28px 0; max-width: 640px; display: flex; flex-direction: column; gap: 8px;
+}
+.ask-disclosure { font-size: 0.68rem; color: #8a7350; line-height: 1.5; margin: 0; }
+.ask-disclosure code { color: #b7a377; }
+.ask-config, .ask-qa { display: flex; gap: 6px; flex-wrap: wrap; }
+.ask-panel select, .ask-panel input, .ask-panel button {
+  background: rgba(20, 16, 8, 0.7); border: 1px solid #4a3a1e; color: #e8d9b8; font-family: inherit;
+  font-size: 0.72rem; padding: 6px 10px; border-radius: 3px;
+}
+.ask-panel input { flex: 1; min-width: 140px; }
+.ask-panel button {
+  color: #c9a55c; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer;
+}
+.ask-panel button:hover { background: rgba(246, 214, 138, 0.08); }
+.ask-panel button:disabled { opacity: 0.45; cursor: default; }
+.ask-qa input { min-width: 260px; }
+.ask-response {
+  font-size: 0.78rem; line-height: 1.55; color: #d8c79a; white-space: pre-wrap;
+  min-height: 1.2em;
+}
+.ask-response.loading { color: #8a7350; }
+.ask-response.error { color: #ff9c9c; }
+
 footer { text-align: right; padding: 0 28px 14px; font-size: 0.65rem; color: #5a4c30; }
 footer a { color: #8a7350; }

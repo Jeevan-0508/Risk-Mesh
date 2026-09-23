@@ -1,0 +1,1 @@
+{"decision_id":"DEC-001","model":"fraud-v3.2","policy":"policy-17","baseline_score":0.834,"outcome":"BLOCK","boundary_margin":-0.014,"zone":"BLOCK","replayability":"REPLAYABLE","evidence_count":4,"decision_critical_variables":["E1","E2","E3","E4"],"governance_affected_controls":["C-17"],"integrity_status":"VERIFIED"}

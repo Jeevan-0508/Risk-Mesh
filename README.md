@@ -13,7 +13,7 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + a first golden case (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters
+## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + a first golden case (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10, honestly NOT_CONNECTED)
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements
@@ -27,7 +27,8 @@ Five adapters are implemented and tested against real captured or hash-verified 
 against its real FastAPI backend), fraud-watch (real on-disk simulation state), risk-swarm (real
 captured council runs), and FOMO/freight-risk-atlas (both read via risk-swarm's own hash-verified
 snapshot sync, so MESH never re-syncs from those two repos directly). Laya and Jev are
-`NOT_CONNECTED` everywhere in this repo and in the ecosystem — no fabricated results exist for either.
+registered in `adapters/model-registry/` (5 real checkpoints, architecture-only) but `NOT_CONNECTED`
+everywhere in this repo and in the ecosystem — no fabricated results exist for either.
 
 ## What's here
 
@@ -94,6 +95,14 @@ adapters/freight-risk-atlas/
   adapter.ts     composes client+map: assessTaxonomy()
   *.test.ts      8 tests, all fixture-based against the real trimmed 2-pattern fixture
 
+adapters/model-registry/
+  registry.ts    the 5 real ModelProfile entries from docs/MODEL_ARENA.md (3 Laya checkpoints + jev
+                 + open-jev), every one status:'NOT_CONNECTED', provenance.source:'UNAVAILABLE'
+  client.ts      callModel() has no success path at all — always NOT_CONNECTED or UNAVAILABLE,
+                 never a fabricated ModelResult (spec §9/§10)
+  adapter.ts     composes registry+client: assessModelCall(), registryStatusSummary()
+  *.test.ts      11 tests, all fixture-free (nothing to fetch — asserts the honest-failure shape)
+
 core/
   store.ts             generic in-memory MeshStore<T> (add/get/list/replace, rejects duplicate ids)
   ledger.ts             append-only event ledger (§42) — no update/delete method exists on the class
@@ -125,10 +134,11 @@ established in `risk-swarm/src/core/domain/model.ts`.
 
 ```
 bun install
-bun test         # 125/125 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
+bun test         # 136/136 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
                  # fraud-watch's real MO records, 10 exercise risk-swarm's real council output, 23
                  # exercise trust/arbitration, 1 is an end-to-end golden case, 5 exercise the shared
-                 # snapshot-verification helper, 8 exercise FOMO, 8 exercise freight-risk-atlas)
+                 # snapshot-verification helper, 8 exercise FOMO, 8 exercise freight-risk-atlas,
+                 # 11 exercise the model registry's honest-failure paths)
 bun x tsc -b --noEmit
 ```
 

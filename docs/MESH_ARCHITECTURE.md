@@ -84,7 +84,7 @@ data, and if a value can't be honestly known it is `null` with an explanation, n
 | freight-risk-atlas | Read risk-swarm's own hash-verified `public/snapshots/freight-risk-atlas/taxonomy.json` via the same shared helper; `taxonomyVersionRecord()` feeds `CandidateMo.taxonomy_version`/`taxonomy_hash` (§17) from risk-swarm's already-verified sha256 | **IMPLEMENTED** — `adapters/freight-risk-atlas/{client,map,adapter}.ts`, tested against a real trimmed 2-pattern fixture |
 | policy-audit | Read exported evidence/control/finding objects (must confirm policy-audit has an export path — not yet verified in Phase 0) | PLANNED |
 | risk-os | Read the existing `src/domain/types.ts` risk-register model (already typed) | PLANNED |
-| Laya / Jev | HTTP/local-runtime adapters against real checkpoints — **cannot be built against fabricated responses**; blocked until credentials/runtime exist | BLOCKED, NOT_CONNECTED |
+| Laya / Jev | HTTP/local-runtime adapters against real checkpoints — **cannot be built against fabricated responses**; blocked until credentials/runtime exist | **Registry IMPLEMENTED** — `adapters/model-registry/{registry,client,adapter}.ts`: 5 real `ModelProfile` entries (3 Laya checkpoints + jev + open-jev), every one `NOT_CONNECTED`; `callModel()` has no success path. Live call itself stays BLOCKED, NOT_CONNECTED |
 
 ### Trust & arbitration (Phase 11 — IMPLEMENTED)
 

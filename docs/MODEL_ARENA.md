@@ -20,7 +20,7 @@ provenance`.
 **Only `MESH_MEASURED` entries may ever be used for routing decisions** — this is a routing-layer rule
 to enforce once a router exists (Phase 11+), not yet code, since there is no measured data.
 
-## Planned registry entries (architecture-only, no live numbers)
+## Registry entries — IMPLEMENTED (`adapters/model-registry/registry.ts`), still architecture-only
 
 | model_id | provider | checkpoint | status |
 |---|---|---|---|

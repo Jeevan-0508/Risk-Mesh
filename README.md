@@ -13,7 +13,7 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phase 1 (contracts) + first Phase 7 slice (risk-replay adapter, live-verified)
+## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + a first golden case (Phase 20 slice)
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements
@@ -46,6 +46,13 @@ adapters/risk-replay/
   *.test.ts      12 tests: fixture-based mapping (always run), a deterministic UNAVAILABLE path
                  (no server needed), and a live path that runs a real counterfactual when
                  RISK_REPLAY_API_BASE_URL points at a running backend
+
+core/
+  store.ts             generic in-memory MeshStore<T> (add/get/list/replace, rejects duplicate ids)
+  ledger.ts             append-only event ledger (§42) — no update/delete method exists on the class
+  evidence-fabric.ts    Evidence Fabric (§5) — enforced UNVERIFIED→VERIFIED→SUPERSEDED-style status machine
+  case-engine.ts        Case Engine (§4) — id-only references, enforced OPEN→INVESTIGATING→DECIDED→CLOSED lifecycle
+  __golden__/           first golden case (§48): wires all of the above over a real risk-replay fixture
 ```
 
 ### Running the risk-replay adapter's live test
@@ -69,7 +76,7 @@ established in `risk-swarm/src/core/domain/model.ts`.
 
 ```
 bun install
-bun test         # 39/39 passing (12 of them exercise the real risk-replay client/mapping code)
+bun test         # 58/58 passing (12 exercise the real risk-replay client/mapping code, 1 is an end-to-end golden case)
 bun x tsc -b --noEmit
 ```
 

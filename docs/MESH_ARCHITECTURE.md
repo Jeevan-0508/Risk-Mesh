@@ -52,18 +52,22 @@ schema extends a common `MeshBase` shape: `id`, `schema_version`, `created_at`, 
 `provenance`, `status`. See `contracts/schemas.ts` and its tests for the authoritative definition —
 this document does not restate field lists that can drift from the code.
 
-### Evidence Fabric (Phase 2 — PLANNED)
+### Evidence Fabric (Phase 2 — IMPLEMENTED)
 
-Evidence enters through an adapter, never as a bare model output. The status machine
-(`UNVERIFIED | VERIFIED | CONTRADICTED | SUPERSEDED | REJECTED`) is enforced by the `Evidence` schema
-already defined in Phase 1; the fabric itself (storage + status transition rules + provenance chain
-lookups) is not yet built.
+`core/evidence-fabric.ts`. Evidence enters only through `add()`; `transition()` enforces a real state
+machine (`UNVERIFIED → VERIFIED|CONTRADICTED|REJECTED`, `VERIFIED → CONTRADICTED|SUPERSEDED`,
+`CONTRADICTED → SUPERSEDED|REJECTED`, `SUPERSEDED`/`REJECTED` terminal) — an illegal jump (e.g.
+UNVERIFIED straight to SUPERSEDED, or any move out of a terminal state) throws
+`IllegalTransitionError` rather than silently succeeding. Every add/transition writes a ledger event.
 
-### Case engine (Phase 3 — PLANNED)
+### Case engine (Phase 3 — IMPLEMENTED)
 
-A case aggregates evidence, decisions, disagreements, challenges, replays and outcomes by id
-reference, never by copying the underlying record. Reconstructing a case means resolving those ids
-back through each adapter (or the ledger, for anything the adapter no longer has live).
+`core/case-engine.ts`. A case stores only ids (`evidence_ids`, `decision_ids`, `disagreement_ids`,
+`challenge_ids`, `replay_ids`, `lesson_ids`, `outcome_id`) — `attach*()` methods are idempotent and
+append-only, and `transitionStatus()` enforces the real lifecycle
+(`OPEN → INVESTIGATING → DECIDED → CLOSED`, with `REOPENED` re-entering at `INVESTIGATING`, never
+skipping back to `DECIDED`). Reconstructing a case means resolving those ids back through the
+evidence fabric / other stores — never copying the underlying record into the case itself.
 
 ### Adapters (Phases 5-9 — PLANNED, scoped by the audit)
 
@@ -87,9 +91,21 @@ enough MESH-measured outcomes to exist — none yet), novelty, replay stability 
 adapter). Output is one of `ACCEPT | CONDITIONAL | ESCALATE_TO_SWARM | REQUEST_MORE_EVIDENCE |
 REQUEST_REPLAY | HUMAN_REVIEW | ABSTAIN`, each with a stated reason.
 
-### Ledger (Phase 4 — PLANNED)
+### Ledger (Phase 4 — IMPLEMENTED)
 
-Append-only event log per MESH spec §42. Corrections are new events, not edits.
+`core/ledger.ts`. Append-only event log per MESH spec §42 — there is no `update`/`delete` method on
+the class at all (a test asserts this directly, not just by convention). Every ledger event is one of
+the 17 types spec §42 names; `Ledger.forCase(id)` and `.ofType(type)` are the two query shapes built
+so far.
+
+### First golden case (Phase 20, one slice — IMPLEMENTED)
+
+`core/__golden__/dec-001-fragile-replay.test.ts` wires all of the above together over one real
+captured risk-replay decision (`DEC-001`, risk-replay's own seeded demo data, explicitly labelled
+`SIMULATED`): create a case, add its real evidence via the risk-replay adapter mapping, attach a real
+counterfactual-derived `Replay` (status `FRAGILE`), then reconstruct the case and confirm the ledger
+trail matches exactly what happened. This is the first (very small) proof that the connective tissue
+actually connects, not just that each piece has its own unit tests.
 
 ### Memory / Learning (Phases 12-13 — PLANNED)
 

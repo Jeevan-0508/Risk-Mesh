@@ -7,7 +7,7 @@
 **The connective fabric between independent risk systems — contracts, evidence, provenance and
 arbitration, not another engine.**
 
-MESH itself has one small UI of its own - **[Observatory](https://jeevan-0508.github.io/Risk-Mesh/)**
+MESH itself has one small UI of its own - **[Observatory](https://jeevan-0508.github.io/Risk-Mesh/observatory/)**
 ([`observatory/`](observatory/) source), a replay (not a live feed)
 of its two real golden cases, plus two real System-1 Arena runs against real fraud-watch MOs,
 through a particle-orb + terminal-log visualization, plus a bring-your-own-key **Ask MESH**

@@ -57,6 +57,7 @@ header .back:hover { background: rgba(246, 214, 138, 0.08); }
 .ask-panel {
   padding: 10px 28px 0; max-width: 640px; display: flex; flex-direction: column; gap: 8px;
 }
+.ask-panel[hidden] { display: none; }
 .ask-disclosure { font-size: 0.68rem; color: #8a7350; line-height: 1.5; margin: 0; }
 .ask-disclosure code { color: #b7a377; }
 .ask-config, .ask-qa { display: flex; gap: 6px; flex-wrap: wrap; }

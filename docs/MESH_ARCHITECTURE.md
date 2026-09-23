@@ -104,7 +104,7 @@ the class at all (a test asserts this directly, not just by convention). Every l
 the 17 types spec §42 names; `Ledger.forCase(id)` and `.ofType(type)` are the two query shapes built
 so far.
 
-### First golden case (Phase 20, one slice — IMPLEMENTED)
+### Golden cases (Phase 20, two slices — IMPLEMENTED)
 
 `core/__golden__/dec-001-fragile-replay.test.ts` wires all of the above together over one real
 captured risk-replay decision (`DEC-001`, risk-replay's own seeded demo data, explicitly labelled
@@ -112,6 +112,13 @@ captured risk-replay decision (`DEC-001`, risk-replay's own seeded demo data, ex
 counterfactual-derived `Replay` (status `FRAGILE`), then reconstruct the case and confirm the ledger
 trail matches exactly what happened. This is the first (very small) proof that the connective tissue
 actually connects, not just that each piece has its own unit tests.
+
+A second golden case, `dec-001-lesson-provisional.test.ts`, continues from the same real replay
+finding into a proposed `Lesson`, walks it CANDIDATE -> VERIFIED -> VALIDATED via
+`LearningLedger`, then asserts that attempting VALIDATED -> ADOPTED throws `ProvisionalLessonError`
+- proving the connective tissue actually enforces LEARNING_MODEL.md's PROVISIONAL-forever rule end
+to end, not just in the guard's own unit test. It also asserts `KnowledgeLedger.record()` is
+correctly never called, since no ADOPTED lesson exists to promote from.
 
 ### Memory / Learning (Phases 12-13 lifecycle engines — IMPLEMENTED; validation/benchmark content — PLANNED)
 

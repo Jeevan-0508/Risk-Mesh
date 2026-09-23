@@ -1,0 +1,165 @@
+{
+  "question": "lion vs tiger?",
+  "positions": {
+    "ATHENA": {
+      "position": {
+        "stance": "tiger",
+        "confidence": 0.8,
+        "reasoning_summary": "evidence favors tiger",
+        "claims": [],
+        "evidence_ids": [
+          "EV-001"
+        ],
+        "evidence_requests": [],
+        "assumptions": [],
+        "agent": "ATHENA"
+      },
+      "provider": "llm:athena-model",
+      "degraded": false,
+      "degraded_reason": null,
+      "ms": 2,
+      "est_tokens": 396
+    },
+    "ARES": {
+      "position": {
+        "stance": "tiger",
+        "confidence": 0.7,
+        "reasoning_summary": "tiger wins the contest",
+        "claims": [],
+        "evidence_ids": [
+          "EV-001"
+        ],
+        "evidence_requests": [],
+        "assumptions": [],
+        "agent": "ARES"
+      },
+      "provider": "llm:ares-model",
+      "degraded": false,
+      "degraded_reason": null,
+      "ms": 2,
+      "est_tokens": 403
+    },
+    "HADES": {
+      "position": {
+        "stance": "lion",
+        "confidence": 0.55,
+        "reasoning_summary": "pride support changes the outcome",
+        "claims": [],
+        "evidence_ids": [
+          "EV-002"
+        ],
+        "evidence_requests": [],
+        "assumptions": [],
+        "agent": "HADES"
+      },
+      "provider": "gemini:hades-model",
+      "degraded": false,
+      "degraded_reason": null,
+      "ms": 1,
+      "est_tokens": 424
+    }
+  },
+  "disagreement": {
+    "independent_count": 3,
+    "stances": {
+      "ATHENA": "tiger",
+      "ARES": "tiger",
+      "HADES": "lion"
+    },
+    "distinct_stances": [
+      "tiger",
+      "lion"
+    ],
+    "confidence_variance": 0.2935435239509036,
+    "agreement": "majority"
+  },
+  "verdict": {
+    "verdict": {
+      "verdict_type": "MAJORITY",
+      "answer": "tiger",
+      "confidence": 0.6,
+      "rationale": [
+        "two of three favor tiger"
+      ],
+      "minority_view": "HADES argues pride support favors lion",
+      "unresolved": [],
+      "cited_evidence_ids": [
+        "EV-001",
+        "EV-002"
+      ]
+    },
+    "provider": "llm:zeus-model",
+    "degraded": false,
+    "degraded_reason": null
+  },
+  "trace": [
+    {
+      "kind": "summoned",
+      "detail": "3 Olympians summoned for: \"lion vs tiger?\"",
+      "at": "2026-09-23T04:54:27.378Z"
+    },
+    {
+      "kind": "agent_called",
+      "agent": "ATHENA",
+      "detail": "ATHENA reasoning independently over 2 evidence item(s) via openai/athena-model — request started",
+      "at": "2026-09-23T04:54:27.378Z"
+    },
+    {
+      "kind": "agent_called",
+      "agent": "ARES",
+      "detail": "ARES reasoning independently over 2 evidence item(s) via openrouter/ares-model — request started",
+      "at": "2026-09-23T04:54:27.378Z"
+    },
+    {
+      "kind": "agent_called",
+      "agent": "HADES",
+      "detail": "HADES reasoning independently over 2 evidence item(s) via google/hades-model — request started",
+      "at": "2026-09-23T04:54:27.378Z"
+    },
+    {
+      "kind": "position_ready",
+      "agent": "ATHENA",
+      "detail": "ATHENA → \"tiger\" (80% confidence, llm:athena-model) — provider response received in 0.0s",
+      "at": "2026-09-23T04:54:27.380Z"
+    },
+    {
+      "kind": "position_ready",
+      "agent": "ARES",
+      "detail": "ARES → \"tiger\" (70% confidence, llm:ares-model) — provider response received in 0.0s",
+      "at": "2026-09-23T04:54:27.380Z"
+    },
+    {
+      "kind": "position_ready",
+      "agent": "HADES",
+      "detail": "HADES → \"lion\" (55% confidence, gemini:hades-model) — provider response received in 0.0s",
+      "at": "2026-09-23T04:54:27.380Z"
+    },
+    {
+      "kind": "disagreement_assessed",
+      "detail": "majority across 3 independent position(s): tiger, lion",
+      "at": "2026-09-23T04:54:27.380Z"
+    },
+    {
+      "kind": "zeus_called",
+      "agent": "ZEUS",
+      "detail": "Zeus synthesizing a verdict from structured positions and the disagreement assessment via openai/zeus-model",
+      "at": "2026-09-23T04:54:27.380Z"
+    },
+    {
+      "kind": "verdict_ready",
+      "agent": "ZEUS",
+      "detail": "MAJORITY: \"tiger\" (60%)",
+      "at": "2026-09-23T04:54:27.381Z"
+    }
+  ],
+  "model_diversity": {
+    "active_agents": 4,
+    "providers": 3,
+    "families": [
+      "gpt",
+      "varies (gateway to many open-weight and proprietary models)",
+      "gemini"
+    ],
+    "label": "high"
+  }
+}

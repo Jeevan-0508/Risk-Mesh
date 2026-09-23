@@ -1,0 +1,155 @@
+{
+  "question": "lion vs tiger?",
+  "positions": {
+    "ATHENA": {
+      "position": {
+        "stance": "tiger",
+        "confidence": 0.8,
+        "reasoning_summary": "a",
+        "claims": [],
+        "evidence_ids": [],
+        "evidence_requests": [],
+        "assumptions": [],
+        "agent": "ATHENA"
+      },
+      "provider": "llm:athena-model",
+      "degraded": false,
+      "degraded_reason": null,
+      "ms": 0,
+      "est_tokens": 389
+    },
+    "ARES": {
+      "position": {
+        "stance": "insufficient_evidence",
+        "confidence": 0.3,
+        "reasoning_summary": "No model configured for this agent; 2 evidence item(s) were retrieved but not independently reasoned over.",
+        "claims": [],
+        "evidence_ids": [],
+        "evidence_requests": [],
+        "assumptions": [],
+        "agent": "ARES"
+      },
+      "provider": "llm:ares-model",
+      "degraded": true,
+      "degraded_reason": "provider returned HTTP 429",
+      "ms": 0,
+      "est_tokens": 363
+    },
+    "HADES": {
+      "position": {
+        "stance": "tiger",
+        "confidence": 0.65,
+        "reasoning_summary": "a",
+        "claims": [],
+        "evidence_ids": [],
+        "evidence_requests": [],
+        "assumptions": [],
+        "agent": "HADES"
+      },
+      "provider": "gemini:hades-model",
+      "degraded": false,
+      "degraded_reason": null,
+      "ms": 0,
+      "est_tokens": 414
+    }
+  },
+  "disagreement": {
+    "independent_count": 2,
+    "stances": {
+      "ATHENA": "tiger",
+      "ARES": "insufficient_evidence",
+      "HADES": "tiger"
+    },
+    "distinct_stances": [
+      "tiger"
+    ],
+    "confidence_variance": 0.21428571428571433,
+    "agreement": "strong_consensus"
+  },
+  "verdict": {
+    "verdict": {
+      "verdict_type": "CONSENSUS",
+      "answer": "tiger",
+      "confidence": 0.7,
+      "rationale": [
+        "two independent agents agree; the third was unreachable"
+      ],
+      "minority_view": null,
+      "unresolved": [],
+      "cited_evidence_ids": []
+    },
+    "provider": "llm:zeus-model",
+    "degraded": false,
+    "degraded_reason": null
+  },
+  "trace": [
+    {
+      "kind": "summoned",
+      "detail": "3 Olympians summoned for: \"lion vs tiger?\"",
+      "at": "2026-09-23T04:54:27.381Z"
+    },
+    {
+      "kind": "agent_called",
+      "agent": "ATHENA",
+      "detail": "ATHENA reasoning independently over 2 evidence item(s) via openai/athena-model — request started",
+      "at": "2026-09-23T04:54:27.381Z"
+    },
+    {
+      "kind": "agent_called",
+      "agent": "ARES",
+      "detail": "ARES reasoning independently over 2 evidence item(s) via openrouter/ares-model — request started",
+      "at": "2026-09-23T04:54:27.381Z"
+    },
+    {
+      "kind": "agent_called",
+      "agent": "HADES",
+      "detail": "HADES reasoning independently over 2 evidence item(s) via google/hades-model — request started",
+      "at": "2026-09-23T04:54:27.381Z"
+    },
+    {
+      "kind": "position_ready",
+      "agent": "ATHENA",
+      "detail": "ATHENA → \"tiger\" (80% confidence, llm:athena-model) — provider response received in 0.0s",
+      "at": "2026-09-23T04:54:27.382Z"
+    },
+    {
+      "kind": "agent_degraded",
+      "agent": "ARES",
+      "detail": "ARES could not reason independently: provider returned HTTP 429 (elapsed 0.0s)",
+      "at": "2026-09-23T04:54:27.382Z"
+    },
+    {
+      "kind": "position_ready",
+      "agent": "HADES",
+      "detail": "HADES → \"tiger\" (65% confidence, gemini:hades-model) — provider response received in 0.0s",
+      "at": "2026-09-23T04:54:27.382Z"
+    },
+    {
+      "kind": "disagreement_assessed",
+      "detail": "strong_consensus across 2 independent position(s): tiger",
+      "at": "2026-09-23T04:54:27.382Z"
+    },
+    {
+      "kind": "zeus_called",
+      "agent": "ZEUS",
+      "detail": "Zeus synthesizing a verdict from structured positions and the disagreement assessment via openai/zeus-model",
+      "at": "2026-09-23T04:54:27.382Z"
+    },
+    {
+      "kind": "verdict_ready",
+      "agent": "ZEUS",
+      "detail": "CONSENSUS: \"tiger\" (70%)",
+      "at": "2026-09-23T04:54:27.382Z"
+    }
+  ],
+  "model_diversity": {
+    "active_agents": 4,
+    "providers": 3,
+    "families": [
+      "gpt",
+      "varies (gateway to many open-weight and proprietary models)",
+      "gemini"
+    ],
+    "label": "high"
+  }
+}

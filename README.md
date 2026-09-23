@@ -13,7 +13,7 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + a first golden case (Phase 20 slice)
+## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + a first golden case (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements
@@ -23,8 +23,10 @@ plan to avoid duplicating that work. See [`docs/MESH_ARCHITECTURE.md`](docs/MESH
 [`docs/MODEL_ARENA.md`](docs/MODEL_ARENA.md), and
 [`docs/LEARNING_MODEL.md`](docs/LEARNING_MODEL.md) for the rest.
 
-Two adapters are implemented and tested against real captured data: risk-replay (live-verified
-against its real FastAPI backend) and fraud-watch (real on-disk simulation state). Laya and Jev are
+Five adapters are implemented and tested against real captured or hash-verified data: risk-replay (live-verified
+against its real FastAPI backend), fraud-watch (real on-disk simulation state), risk-swarm (real
+captured council runs), and FOMO/freight-risk-atlas (both read via risk-swarm's own hash-verified
+snapshot sync, so MESH never re-syncs from those two repos directly). Laya and Jev are
 `NOT_CONNECTED` everywhere in this repo and in the ecosystem — no fabricated results exist for either.
 
 ## What's here
@@ -67,6 +69,31 @@ adapters/risk-swarm/
                  own test suite (majority-disagreement + degraded-agent scenarios)
   *.test.ts      10 tests, all fixture-based
 
+adapters/_shared/
+  snapshot-provenance.ts  readVerifiedSnapshotFile(): shared read+verify step reused by fomo/ and
+                 freight-risk-atlas/ - reads risk-swarm's own provenance.json, recomputes sha256 with
+                 the same call its sync-snapshots.mjs uses, fails closed on any mismatch
+  __fixtures__/  real data, trimmed: first 5 of FOMO's real 874 synced signals, first 2 of
+                 freight-risk-atlas's real 12 taxonomy patterns; a dedicated mismatch-dir fixture
+                 exercises the hash-mismatch failure path (see PROVENANCE.md there)
+  *.test.ts      5 tests
+
+adapters/fomo/
+  client.ts      readFomoSnapshot(): reads FOMO's real synced signals via the shared helper above,
+                 not by re-syncing from FOMO's own repo directly
+  map.ts         fomoSignalToMeshSignal(): every mapped Signal is unconditionally status:'RAW' (§24,
+                 Rule 4) - promotion to Evidence stays the Evidence Fabric's job, never this adapter's
+  adapter.ts     composes client+map: assessFomoSignals()
+  *.test.ts      8 tests, all fixture-based against the real trimmed signals.json fixture
+
+adapters/freight-risk-atlas/
+  client.ts      readTaxonomySnapshot(): reads the real synced taxonomy.json via the shared helper
+  map.ts         taxonomyVersionRecord() feeds CandidateMo.taxonomy_version/taxonomy_hash (§17) from
+                 risk-swarm's already-verified sha256, never re-hashed independently;
+                 findPatternById()/findPatternsByCategory() are plain lookups, no fuzzy matching
+  adapter.ts     composes client+map: assessTaxonomy()
+  *.test.ts      8 tests, all fixture-based against the real trimmed 2-pattern fixture
+
 core/
   store.ts             generic in-memory MeshStore<T> (add/get/list/replace, rejects duplicate ids)
   ledger.ts             append-only event ledger (§42) — no update/delete method exists on the class
@@ -98,9 +125,10 @@ established in `risk-swarm/src/core/domain/model.ts`.
 
 ```
 bun install
-bun test         # 104/104 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
+bun test         # 125/125 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
                  # fraud-watch's real MO records, 10 exercise risk-swarm's real council output, 23
-                 # exercise trust/arbitration, 1 is an end-to-end golden case)
+                 # exercise trust/arbitration, 1 is an end-to-end golden case, 5 exercise the shared
+                 # snapshot-verification helper, 8 exercise FOMO, 8 exercise freight-risk-atlas)
 bun x tsc -b --noEmit
 ```
 

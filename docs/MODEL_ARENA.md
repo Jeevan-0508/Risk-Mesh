@@ -105,6 +105,39 @@ today - both stay at their default (`STANDARD`/`false`) in every real case in th
 like `ArbitrationContext.swarmAvailable`'s own established precedent. 21 tests in
 `core/arbitration-engine.test.ts` exercise every branch above directly.
 
+## Fraud Watch integration (`evaluation/system1-arena/fraud-watch-cases.ts`, live as of 2026-09-23)
+
+The first real call site for `decideSystem1Action()`: a full pipeline from a real fraud-watch
+`Behavior` (MESH's own upstream simulation, spec §16) to a shadow routing recommendation.
+
+- `CARRIER_BEHAVIOR_QUESTION` - a real captured `LayaQuestion` (`carrier_behavior_call`, type
+  `choice`, criteria `normal`/`investigate`/`inconclusive`), matching exactly what was sent to the
+  checkpoint below.
+- `behaviorToLayaState(behavior)` - a pure mapper from `Behavior` to a Laya `state` string. Passes
+  only `behavior.description` (MESH-tested, ground-truth-free) plus one static framing sentence.
+  Deliberately excludes fraud-watch's own `confidence`, `confidenceBand`, `noveltyScore`, and
+  `investigation` fields: those are fraud-watch's own pre-computed judgment about the same signals,
+  and handing them to Laya would be asking it to grade someone else's conclusion instead of forming
+  an independent read from the raw signal. `Behavior.simulated: true` is a provenance flag, not a
+  fraud/no-fraud verdict - there is no such verdict field anywhere in `FraudWatchMoRecord`. Tested
+  directly with a "never leaks" assertion in `fraud-watch-cases.test.ts`.
+- `arenaComparisonToSystem1Input(results, comparison)` - translates `evaluation/`'s `ArenaComparison`
+  into `core/`'s plain `System1Input` shape. This is the seam the shadow-routing section above
+  described but had no caller for; it exists here rather than in `core/` to keep `core/`'s import
+  direction unchanged (still nothing imported from `adapters/` or `evaluation/`).
+- `evaluateBehaviorViaSystem1(behavior, modelIds, context, deps?)` - the end-to-end pipeline:
+  `Behavior` -> `behaviorToLayaState` -> `runSystem1Arena` -> `compareModelResults` ->
+  `arenaComparisonToSystem1Input` -> `decideSystem1Action`.
+
+Verified this session against real fraud-watch MO-0001 data (signature
+`EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED`), run through the
+real `laya-typed-decisions` checkpoint (`laya-typed-fraud-watch-mo0001-call.json`): a genuinely
+leaning result (`choice: investigate`, `confidence: 0.1494`, probabilities
+`{normal: 0.1513, investigate: 0.6042, inconclusive: 0.2445}`), not the near-uniform split seen in
+the first fixture. 8 tests in `fraud-watch-cases.test.ts` cover the state-mapping exclusion, the
+question fixture match, the input-translation shape, agreement -> `ACCEPT_SYSTEM1`, disagreement ->
+`ESCALATE_TO_SWARM`, and the fails-closed path with fewer than 2 real models.
+
 ## What connecting the next model actually requires
 
 1. **Jev**: either an invite arrives (build the real HTTP client behind `JEV_API_KEY`, matching
@@ -112,7 +145,10 @@ like `ArbitrationContext.swarmAvailable`'s own established precedent. 21 tests i
    (still a real arena, as above).
 2. **Calibration** (§8/§14): MESH has no held-out domain dataset yet. Every Laya entry's
    `known_limitations` already states `calibration = INSUFFICIENT_DATA` rather than inventing a
-   number - this has to be built from real MESH cases, which do not exist yet either.
+   number - this has to be built from real MESH cases, which do not exist yet either. Fraud Watch
+   integration (above) supplies a real case source, but not real outcomes - it is still the
+   simulation's own labels that would be needed to calibrate against, and those remain fabricated
+   by definition, not measured.
 
 ## Arena mechanics (contract-level design, now implemented for Laya-family models)
 

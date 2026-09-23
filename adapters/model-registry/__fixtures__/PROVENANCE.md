@@ -64,3 +64,32 @@ HF_HUB_DISABLE_SYMLINKS=1 USE_TF=0 uv run --with laya python <script calling bot
   split are accuracy 0.362 (`laya`) and 0.342 (`laya-multilingual`), versus 0.766 for `laya-typed`
   - recorded in `registry.ts`'s `known_limitations` for both, not omitted. These two entries exist
   to make the Arena real, not because they are good typed-decision models.
+
+
+## laya-typed x fraud-watch MO-0001 capture (2026-09-23, same session, Fraud Watch integration slice)
+
+One real inference call against the already-cached `convaiinnovations/laya-typed-decisions`
+checkpoint (load_seconds=14.48, much faster than the first cold-load this session since the
+weights were already in the local HF cache), with a genuinely new state/question pair built from
+a real fraud-watch MO record (`adapters/fraud-watch/__fixtures__/world-state.mos.json`'s MO-0001)
+rather than reusing the earlier carrier-fraud POD-photo scenario:
+
+- `laya-typed-fraud-watch-mo0001-call.json` - state is MO-0001's real, already-tested
+  `Behavior.description` text (`fraud-watch MO MO-0001: signature
+  EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED
+  (truckId=TRU-023, driverId=DRI-023, trailerId=TRA-023, carrierId=CAR-007)`, produced by
+  `adapters/fraud-watch/map.ts`'s `moRecordToBehavior`, already covered by its own tests) plus one
+  static framing sentence - not a new interpretation of the signal codes, nothing invented.
+  Deliberately excludes fraud-watch's own `confidence`/`confidenceBand`/`noveltyScore`/
+  `investigation` fields: those are fraud-watch's own engine's pre-computed judgment about these
+  same signals, and including them would hand Laya someone else's conclusion instead of an
+  independent read. There is no fraud/no-fraud ground-truth label anywhere in a fraud-watch MO
+  record for this to leak even by accident (checked directly against `FraudWatchMoRecord`'s type).
+- New question `carrier_behavior_call` (normal / investigate / inconclusive), tailored to MOs
+  rather than reusing the POD-photo scenario's `fabrication_call` question verbatim - a different
+  real question, not the same one restated.
+- Laya's real answer: `choice: "investigate"`, `confidence: 0.1494`,
+  probabilities `{normal: 0.1513, investigate: 0.6042, inconclusive: 0.2445}` - a real, meaningfully
+  leaning result (not near-uniform like the first fixture), genuinely worth noting rather than
+  glossed over: this is the first captured case where Laya's own answer leans clearly one way on a
+  MESH-real (if simulated) case.

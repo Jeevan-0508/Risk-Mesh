@@ -25,7 +25,7 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + two golden cases (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10; all 3 Laya checkpoints are real, live SHADOW connections as of 2026-09-23, see below) + System-1 Arena (`evaluation/system1-arena/`, live as of 2026-09-23) + System-1 shadow routing (`decideSystem1Action()`, 2026-09-23) + learning/knowledge lifecycle engines (Phases 12-13, with the PROVISIONAL-forever guard LEARNING_MODEL.md requires) + Observatory (Phase 19 slice, live at the link above)
+## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + two golden cases (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10; all 3 Laya checkpoints are real, live SHADOW connections as of 2026-09-23, see below) + System-1 Arena (`evaluation/system1-arena/`, live as of 2026-09-23) + System-1 shadow routing (`decideSystem1Action()`, 2026-09-23) + a real fraud-watch-to-System-1 integration (`evaluation/system1-arena/fraud-watch-cases.ts`, 2026-09-23) + learning/knowledge lifecycle engines (Phases 12-13, with the PROVISIONAL-forever guard LEARNING_MODEL.md requires) + Observatory (Phase 19 slice, live at the link above)
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements
@@ -130,14 +130,20 @@ adapters/model-registry/
                  the default suite stays fast/green without needing torch/uv/network installed
 
 evaluation/system1-arena/
-  compare.ts     compareModelResults() — pure comparison over 2+ ModelResults for the same case;
-                 agreement gets a score, disagreement becomes a real Disagreement object (§35),
-                 never averaged or majority-voted away
-  run.ts         runSystem1Arena(modelIds, input, deps?) — calls assessModelCall() once per
-                 model_id, structurally independent (no model ever sees another's result); needs
-                 2+ real ok:true results or fails closed with the real per-model failure reasons
-  *.test.ts      10 tests: pure comparison logic, plus a genuine 2- and 3-model arena run against
-                 the real Laya checkpoints via injected fixture-backed runners
+  compare.ts          compareModelResults() — pure comparison over 2+ ModelResults for the same
+                       case; agreement gets a score, disagreement becomes a real Disagreement
+                       object (§35), never averaged or majority-voted away
+  run.ts              runSystem1Arena(modelIds, input, deps?) — calls assessModelCall() once per
+                       model_id, structurally independent (no model ever sees another's result);
+                       needs 2+ real ok:true results or fails closed with the real per-model
+                       failure reasons
+  fraud-watch-cases.ts a real fraud-watch Behavior -> Laya/Arena call -> decideSystem1Action()
+                       recommendation, end to end — the first real call site for System-1 shadow
+                       routing; never exposes fraud-watch's own confidence/investigation fields to
+                       Laya, only the same description text a human reviewer would see
+  *.test.ts           18 tests: pure comparison logic, a genuine 2- and 3-model arena run against
+                       the real Laya checkpoints via injected fixture-backed runners, and the
+                       fraud-watch integration end to end against a real captured MO-0001 fixture
 
 core/
   store.ts             generic in-memory MeshStore<T> (add/get/list/replace, rejects duplicate ids)
@@ -182,16 +188,17 @@ established in `risk-swarm/src/core/domain/model.ts`.
 
 ```
 bun install
-bun test         # 192/192 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
+bun test         # 200/200 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
                  # fraud-watch's real MO records, 10 exercise risk-swarm's real council output, 33
                  # exercise trust/arbitration incl. decideSystem1Action's shadow-mode routing, 2 are
                  # end-to-end golden cases, 5 exercise the shared snapshot-verification helper, 8
                  # exercise FOMO, 8 exercise freight-risk-atlas, 28 exercise the model registry incl.
                  # all 3 Laya checkpoints' real (fixture-backed) success paths and the pure
-                 # entropy/mapping helpers against real captured fixtures, 10 exercise the System-1
-                 # Arena's comparison logic and a genuine multi-model run, 11 exercise the learning
-                 # ledger's lifecycle state machine including the PROVISIONAL-forever guard, 7
-                 # exercise the knowledge ledger's lifecycle state machine)
+                 # entropy/mapping helpers against real captured fixtures, 18 exercise the System-1
+                 # Arena (comparison logic, a genuine multi-model run, and the real fraud-watch ->
+                 # System-1 integration end to end), 11 exercise the learning ledger's lifecycle
+                 # state machine including the PROVISIONAL-forever guard, 7 exercise the knowledge
+                 # ledger's lifecycle state machine)
 bun x tsc -b --noEmit
 ```
 

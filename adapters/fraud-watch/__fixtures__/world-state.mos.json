@@ -1,0 +1,401 @@
+{
+  "moEngine": {
+    "mos": [
+      [
+        "MO-0001",
+        {
+          "id": "MO-0001",
+          "confidence": 13,
+          "baseConfidence": 13,
+          "baseSignalSum": 1.1,
+          "indexScaleNote": {
+            "value": 13,
+            "saturated": false,
+            "floored": false,
+            "reason": null
+          },
+          "investigationAdjustment": 0,
+          "investigation": {
+            "findings": [],
+            "completed": [],
+            "effortSeconds": 0
+          },
+          "confidenceBand": "MINIMAL",
+          "status": "NEW",
+          "classification": "EMERGING_BEHAVIOR",
+          "noveltyScore": 100,
+          "recurrenceCount": 1,
+          "signature": "EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED",
+          "entities": {
+            "truckId": "TRU-023",
+            "driverId": "DRI-023",
+            "trailerId": "TRA-023",
+            "carrierId": "CAR-007",
+            "facilityId": null
+          },
+          "sites": [],
+          "unsitedSignalCount": 4,
+          "siteSpread": "UNSITED",
+          "signals": [
+            "SIG-000014",
+            "SIG-000013",
+            "SIG-000018",
+            "SIG-000017"
+          ],
+          "activeSignals": [
+            "SIG-000018"
+          ],
+          "timeline": [
+            {
+              "t": 43244,
+              "type": "MANIFEST_CHANGED"
+            },
+            {
+              "t": 43500,
+              "type": "EQUIPMENT_CARRIER_MISMATCH"
+            },
+            {
+              "t": 45183,
+              "type": "HANDOVER_GAP"
+            },
+            {
+              "t": 45300,
+              "type": "FALSE_MILESTONE_STAMP"
+            }
+          ],
+          "resemblanceRevisions": [],
+          "classificationRevisions": [],
+          "evidence": [
+            {
+              "signalId": "SIG-000014",
+              "signalType": "MANIFEST_CHANGED",
+              "contribution": 1.3,
+              "reliability": 0.65,
+              "at": 43244,
+              "facilityId": null,
+              "facilityName": null
+            },
+            {
+              "signalId": "SIG-000013",
+              "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+              "contribution": 2.1,
+              "reliability": 0.7,
+              "at": 43500,
+              "facilityId": null,
+              "facilityName": null
+            },
+            {
+              "signalId": "SIG-000018",
+              "signalType": "HANDOVER_GAP",
+              "contribution": 1.1,
+              "reliability": 0.55,
+              "at": 45183,
+              "facilityId": null,
+              "facilityName": null
+            },
+            {
+              "signalId": "SIG-000017",
+              "signalType": "FALSE_MILESTONE_STAMP",
+              "contribution": 1.7,
+              "reliability": 0.55,
+              "at": 45300,
+              "facilityId": null,
+              "facilityName": null
+            }
+          ],
+          "firstObserved": 43244,
+          "openedAt": 45300,
+          "lastObserved": 52200,
+          "autoFaded": false,
+          "resolutionReason": null,
+          "classificationReason": "NO_RESEMBLANCE",
+          "classificationReasonNote": "no documented pattern shares a single keyword with any of this case’s signal types.",
+          "classificationDetail": {
+            "classification": "EMERGING_BEHAVIOR",
+            "reason": "NO_RESEMBLANCE",
+            "reasonNote": "no documented pattern shares a single keyword with any of this case’s signal types.",
+            "topVotes": 0,
+            "topKeywords": [],
+            "priorCount": 0,
+            "voteFloorConsulted": false,
+            "voteFloor": null,
+            "voteFloorUnit": null,
+            "sightingFloorConsulted": false,
+            "sightingFloor": 3,
+            "declaredBy": "moEngine.DISCOVERY_THRESHOLDS"
+          },
+          "classificationDerivedAt": 45300,
+          "classificationBasis": {
+            "vocabularyOver": "the case's whole evidence record, re-derived whenever the record gains a signal type",
+            "sightingsOver": "the signal-type combination the case OPENED with, counted at that moment",
+            "note": "The two halves of this badge do not share a basis. What the case resembles is re-voted over its growing record; how often the combination has been seen is the count taken when it opened, because re-signaturing a case later would re-count a history that already happened."
+          },
+          "title": "Unclassified correlated anomaly",
+          "category": "unclassified",
+          "relatedPattern": null,
+          "relatedHistoricalPatterns": [],
+          "resemblanceCoverage": {
+            "voted": 0,
+            "shown": 0,
+            "withheld": 0,
+            "votedOver": "each pattern's name, category and aliases",
+            "voteUnit": "distinct keywords shared, counted once each",
+            "vocabulary": {
+              "types": 4,
+              "lookedUp": 4,
+              "lookedUpTypes": [
+                "EQUIPMENT_CARRIER_MISMATCH",
+                "FALSE_MILESTONE_STAMP",
+                "HANDOVER_GAP",
+                "MANIFEST_CHANGED"
+              ],
+              "declined": 0,
+              "declinedTypes": [],
+              "note": "Voted over all 4 signal types on this case; none was skipped."
+            },
+            "note": "No documented pattern shares a keyword with this signal combination. Voted over all 4 signal types on this case; none was skipped."
+          },
+          "resemblanceNotes": [
+            "No documented pattern shares a keyword with this signal combination — zero votes, which is a gap in what the taxonomy's vocabulary covers, not a finding that the behaviour is new. Nothing here compares the case's signal types against the pattern's documented indicators. Resemblance is a keyword vote over the pattern's name, category and aliases, and a vote count cannot produce a difference. A section headed \"What makes this different\" listing resemblance sentences stated a comparison nobody made."
+          ],
+          "falsePositives": {
+            "patternId": null,
+            "patternName": null,
+            "items": [],
+            "documented": 0,
+            "note": "This case resembles no documented pattern, so no documented legitimate explanations are quoted here. That is an absence of a documented pattern, not a finding that there is no innocent explanation — a case nothing in the taxonomy matches is the one an innocent explanation is hardest to look up."
+          },
+          "patternCountermeasures": {
+            "patternId": null,
+            "patternName": null,
+            "picks": [],
+            "coverage": {
+              "shown": 0,
+              "documented": 0,
+              "byBucket": {}
+            },
+            "note": "This case resembles no documented pattern, so the taxonomy documents no countermeasures for it. That is an absence of a documented pattern, not a finding that nothing should be done."
+          },
+          "resemblanceBasis": {
+            "types": [
+              "EQUIPMENT_CARRIER_MISMATCH",
+              "FALSE_MILESTONE_STAMP",
+              "HANDOVER_GAP",
+              "MANIFEST_CHANGED"
+            ],
+            "over": "the case's whole evidence record, including signals whose weight has decayed out of the correlation index",
+            "note": "What this case resembles is voted over every signal type its record holds. The correlation index beside it is computed over the signals still ACTIVE, so the two figures do not share a basis and a decayed signal still counts here."
+          },
+          "resemblanceRevisedAt": 45300
+        }
+      ],
+      [
+        "MO-0002",
+        {
+          "id": "MO-0002",
+          "confidence": 41,
+          "baseConfidence": 41,
+          "baseSignalSum": 3.3999999999999995,
+          "indexScaleNote": {
+            "value": 41,
+            "saturated": false,
+            "floored": false,
+            "reason": null
+          },
+          "investigationAdjustment": 0,
+          "investigation": {
+            "findings": [],
+            "completed": [],
+            "effortSeconds": 0
+          },
+          "confidenceBand": "ELEVATED",
+          "status": "NEW",
+          "classification": "EMERGING_BEHAVIOR",
+          "noveltyScore": 100,
+          "recurrenceCount": 1,
+          "signature": "ACCOUNT_TAKEOVER+EQUIPMENT_CARRIER_MISMATCH+MANIFEST_CHANGED",
+          "entities": {
+            "truckId": "TRU-014",
+            "driverId": "DRI-014",
+            "trailerId": "TRA-014",
+            "carrierId": "CAR-008",
+            "facilityId": null
+          },
+          "sites": [
+            {
+              "facilityId": "FAC-001",
+              "facilityName": "North Gate",
+              "signalCount": 2
+            }
+          ],
+          "unsitedSignalCount": 3,
+          "siteSpread": "PARTLY_UNSITED",
+          "signals": [
+            "SIG-000022",
+            "SIG-000029",
+            "SIG-000028",
+            "SIG-000033",
+            "SIG-000032"
+          ],
+          "activeSignals": [
+            "SIG-000032",
+            "SIG-000033"
+          ],
+          "timeline": [
+            {
+              "t": 48300,
+              "type": "ACCOUNT_TAKEOVER"
+            },
+            {
+              "t": 54750,
+              "type": "MANIFEST_CHANGED"
+            },
+            {
+              "t": 54900,
+              "type": "EQUIPMENT_CARRIER_MISMATCH"
+            },
+            {
+              "t": 61187,
+              "type": "MANIFEST_CHANGED"
+            },
+            {
+              "t": 61200,
+              "type": "EQUIPMENT_CARRIER_MISMATCH"
+            }
+          ],
+          "resemblanceRevisions": [],
+          "classificationRevisions": [],
+          "evidence": [
+            {
+              "signalId": "SIG-000022",
+              "signalType": "ACCOUNT_TAKEOVER",
+              "contribution": 1.8,
+              "reliability": 0.6,
+              "at": 48300,
+              "facilityId": null,
+              "facilityName": null
+            },
+            {
+              "signalId": "SIG-000029",
+              "signalType": "MANIFEST_CHANGED",
+              "contribution": 1.3,
+              "reliability": 0.65,
+              "at": 54750,
+              "facilityId": "FAC-001",
+              "facilityName": "North Gate"
+            },
+            {
+              "signalId": "SIG-000028",
+              "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+              "contribution": 2.1,
+              "reliability": 0.7,
+              "at": 54900,
+              "facilityId": "FAC-001",
+              "facilityName": "North Gate"
+            },
+            {
+              "signalId": "SIG-000033",
+              "signalType": "MANIFEST_CHANGED",
+              "contribution": 1.3,
+              "reliability": 0.65,
+              "at": 61187,
+              "facilityId": null,
+              "facilityName": null
+            },
+            {
+              "signalId": "SIG-000032",
+              "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+              "contribution": 2.1,
+              "reliability": 0.7,
+              "at": 61200,
+              "facilityId": null,
+              "facilityName": null
+            }
+          ],
+          "firstObserved": 48300,
+          "openedAt": 54900,
+          "lastObserved": 64500,
+          "autoFaded": false,
+          "resolutionReason": null,
+          "classificationReason": "NO_RESEMBLANCE",
+          "classificationReasonNote": "no documented pattern shares a single keyword with any of this case’s signal types.",
+          "classificationDetail": {
+            "classification": "EMERGING_BEHAVIOR",
+            "reason": "NO_RESEMBLANCE",
+            "reasonNote": "no documented pattern shares a single keyword with any of this case’s signal types.",
+            "topVotes": 0,
+            "topKeywords": [],
+            "priorCount": 0,
+            "voteFloorConsulted": false,
+            "voteFloor": null,
+            "voteFloorUnit": null,
+            "sightingFloorConsulted": false,
+            "sightingFloor": 3,
+            "declaredBy": "moEngine.DISCOVERY_THRESHOLDS"
+          },
+          "classificationDerivedAt": 54900,
+          "classificationBasis": {
+            "vocabularyOver": "the case's whole evidence record, re-derived whenever the record gains a signal type",
+            "sightingsOver": "the signal-type combination the case OPENED with, counted at that moment",
+            "note": "The two halves of this badge do not share a basis. What the case resembles is re-voted over its growing record; how often the combination has been seen is the count taken when it opened, because re-signaturing a case later would re-count a history that already happened."
+          },
+          "title": "Unclassified correlated anomaly",
+          "category": "unclassified",
+          "relatedPattern": null,
+          "relatedHistoricalPatterns": [],
+          "resemblanceCoverage": {
+            "voted": 0,
+            "shown": 0,
+            "withheld": 0,
+            "votedOver": "each pattern's name, category and aliases",
+            "voteUnit": "distinct keywords shared, counted once each",
+            "vocabulary": {
+              "types": 3,
+              "lookedUp": 3,
+              "lookedUpTypes": [
+                "ACCOUNT_TAKEOVER",
+                "EQUIPMENT_CARRIER_MISMATCH",
+                "MANIFEST_CHANGED"
+              ],
+              "declined": 0,
+              "declinedTypes": [],
+              "note": "Voted over all 3 signal types on this case; none was skipped."
+            },
+            "note": "No documented pattern shares a keyword with this signal combination. Voted over all 3 signal types on this case; none was skipped."
+          },
+          "resemblanceNotes": [
+            "No documented pattern shares a keyword with this signal combination — zero votes, which is a gap in what the taxonomy's vocabulary covers, not a finding that the behaviour is new. Nothing here compares the case's signal types against the pattern's documented indicators. Resemblance is a keyword vote over the pattern's name, category and aliases, and a vote count cannot produce a difference. A section headed \"What makes this different\" listing resemblance sentences stated a comparison nobody made."
+          ],
+          "falsePositives": {
+            "patternId": null,
+            "patternName": null,
+            "items": [],
+            "documented": 0,
+            "note": "This case resembles no documented pattern, so no documented legitimate explanations are quoted here. That is an absence of a documented pattern, not a finding that there is no innocent explanation — a case nothing in the taxonomy matches is the one an innocent explanation is hardest to look up."
+          },
+          "patternCountermeasures": {
+            "patternId": null,
+            "patternName": null,
+            "picks": [],
+            "coverage": {
+              "shown": 0,
+              "documented": 0,
+              "byBucket": {}
+            },
+            "note": "This case resembles no documented pattern, so the taxonomy documents no countermeasures for it. That is an absence of a documented pattern, not a finding that nothing should be done."
+          },
+          "resemblanceBasis": {
+            "types": [
+              "ACCOUNT_TAKEOVER",
+              "EQUIPMENT_CARRIER_MISMATCH",
+              "MANIFEST_CHANGED"
+            ],
+            "over": "the case's whole evidence record, including signals whose weight has decayed out of the correlation index",
+            "note": "What this case resembles is voted over every signal type its record holds. The correlation index beside it is computed over the signals still ACTIVE, so the two figures do not share a basis and a decayed signal still counts here."
+          },
+          "resemblanceRevisedAt": 54900
+        }
+      ]
+    ]
+  }
+}

@@ -256,8 +256,11 @@ export type CandidateMo = z.infer<typeof CandidateMo>;
 // 11. Outcome
 // ---------------------------------------------------------------------------------------------
 
+export const OutcomeStatus = z.enum(['RECORDED', 'AMENDED']);
+export type OutcomeStatus = z.infer<typeof OutcomeStatus>;
+
 export const Outcome = MeshBase.extend({
-  status: z.enum(['RECORDED', 'AMENDED']),
+  status: OutcomeStatus,
   case_id: MeshId,
   decision_id: MeshId,
   observed_at: IsoTimestamp,

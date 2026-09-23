@@ -153,15 +153,26 @@ model's own correctness, or only the case's final Decision) - the same reason
 `runSystem1Calibration()` called with no arguments - this repo's real state today - returns
 `INSUFFICIENT_DATA, sampleSize: 0`, not a fabricated number. 6 tests in `pipeline.test.ts`.
 
+## Outcome evaluation (`core/outcome-engine.ts`, live as of 2026-09-23)
+
+`OutcomeEngine.record()` is the one real place in this repo where an `Outcome` object can actually
+be stored and linked to its case, and it deliberately does not close the `ModelResult → Outcome`
+gap described above: `matches_prediction` stays whatever the caller passes in, never a value this
+engine derives from a `ModelResult` or a `Decision`. That is the same "no un-spec'd assumption"
+rule the calibration pipeline follows, applied to the write path instead of the read path - a
+correct `OutcomeEngine` does not quietly answer the question `runSystem1Calibration()`'s docs
+above explicitly decline to answer. 5 tests in `outcome-engine.test.ts`.
+
 ## What connecting the next model actually requires
 
 1. **Jev**: either an invite arrives (build the real HTTP client behind `JEV_API_KEY`, matching
    `.env.example`), or Jev stays `UNAVAILABLE` indefinitely and the arena runs Laya-checkpoint-only
    (still a real arena, as above).
-2. **Calibration** (§8/§14, see above): the math exists now, but real MESH `Outcome` records do
-   not - Fraud Watch integration and System-1 Observability (above) supply a real case source and
-   real model calls, but not real outcomes, so this stays `INSUFFICIENT_DATA` until real cases with
-   real, human-confirmed results accumulate.
+2. **Calibration** (§8/§14, see above): the math exists now, and `OutcomeEngine` can now record a
+   real `Outcome` once one exists, but no case in this repo has been through a real human-confirmed
+   result yet - Fraud Watch integration and System-1 Observability (above) supply a real case
+   source and real model calls, but not real outcomes, so calibration stays `INSUFFICIENT_DATA`
+   until real cases accumulate real, recorded results.
 
 ## Arena mechanics (contract-level design, now implemented for Laya-family models)
 

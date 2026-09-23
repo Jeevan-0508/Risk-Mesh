@@ -69,6 +69,19 @@ append-only, and `transitionStatus()` enforces the real lifecycle
 skipping back to `DECIDED`). Reconstructing a case means resolving those ids back through the
 evidence fabric / other stores — never copying the underlying record into the case itself.
 
+### Outcome engine (spec section 11 — IMPLEMENTED)
+
+`core/outcome-engine.ts`. Records a real, observed `Outcome` and links it back to its case in the
+same call via `CaseEngine.setOutcome()` — the first real caller `setOutcome` has had since Phase 3
+shipped (confirmed by grep: before this engine, its only caller anywhere in this repo was its own
+unit test). `matches_prediction` is always the caller's own input, never computed here — whether a
+case's `Decision.action` turned out "correct" against a free-text `actual_result` has no
+spec-declared formula, the same reason the calibration pipeline below declines to build that
+bridge itself. `amend()` moves `RECORDED → AMENDED` and may be applied again to an already-amended
+outcome, so a mistaken correction can itself be corrected; unlike `CaseEngine.transitionStatus()`,
+it carries no transition-guard table, because `OutcomeStatus`'s two values both always move to
+`AMENDED` — a guard that can never reject anything would be dead code, not safety.
+
 ### Adapters (Phases 5-9 — PLANNED, scoped by the audit)
 
 Each adapter is **read-only against the source repo** and follows the `riskos.ts` precedent already

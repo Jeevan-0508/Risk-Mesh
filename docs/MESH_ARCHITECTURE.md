@@ -113,11 +113,15 @@ counterfactual-derived `Replay` (status `FRAGILE`), then reconstruct the case an
 trail matches exactly what happened. This is the first (very small) proof that the connective tissue
 actually connects, not just that each piece has its own unit tests.
 
-### Memory / Learning (Phases 12-13 — PLANNED)
+### Memory / Learning (Phase 12 lifecycle engine — IMPLEMENTED; validation/benchmark content — PLANNED)
 
-Full lifecycle from spec §27-§29. Deliberately deferred: a learning system needs real outcome data to
+Full lifecycle from spec §27-§29. `core/learning-ledger.ts` implements just the state machine
+(`LessonStatus`: CANDIDATE -> VERIFIED -> VALIDATED -> ADOPTED, REJECTED from any of the first three,
+SUPERSEDED/DECAYED only from ADOPTED) - the same honest scope `case-engine.ts`/`evidence-fabric.ts`
+already established, no transition inspects or judges lesson content. Deliberately still deferred: a
+learning system needs real outcome data to
 learn from, and MESH has produced zero real cases yet. Building the validation/decay machinery before
-there is anything to validate would be speculative code with no way to test it meaningfully.
+there is anything real to validate would be speculative code with no way to test it meaningfully.
 
 ### Observatory (Phase 19 — PLANNED)
 

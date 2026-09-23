@@ -1,6 +1,6 @@
 # LEARNING MODEL
 
-## Why this is designed but not built yet
+## Status: the lifecycle state machine is IMPLEMENTED (`core/learning-ledger.ts`); validation/benchmark/decay content is not
 
 MESH spec §27 is explicit that learning runs `CASE → DECISION → OUTCOME → ERROR ANALYSIS → LESSON
 CANDIDATE → VALIDATION → BENCHMARK → APPROVED LESSON → KNOWLEDGE VERSION`. Every stage after
@@ -21,10 +21,11 @@ CASE → DECISION → OUTCOME → LESSON (status: CANDIDATE)
 ```
 
 States mirror §29 exactly: `CANDIDATE | VERIFIED | VALIDATED | ADOPTED | SUPERSEDED | REJECTED |
-DECAYED`. A `Lesson` object cannot skip from `CANDIDATE` to `ADOPTED` — the schema records
-`validation_status` as one field, but the *transition rules* (which state may move to which) are a
-Phase-12 runtime concern, not yet implemented; recording that gap explicitly rather than letting the
-schema imply more control than exists.
+DECAYED`. A `Lesson` object cannot skip from `CANDIDATE` to `ADOPTED` — `core/learning-ledger.ts`
+now enforces exactly this diagram as real transition rules (9 tests), the same honest scope as
+`case-engine.ts`'s `OPEN -> INVESTIGATING -> DECIDED -> CLOSED`. It does not decide *whether* a
+lesson deserves to move forward — that judgement (source-outcome-is-real, contradiction-check,
+benchmark-run, below) is still not implemented, deliberately.
 
 ## What "validation" will require, concretely
 

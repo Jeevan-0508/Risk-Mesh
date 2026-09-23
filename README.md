@@ -13,7 +13,7 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + a first golden case (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10, honestly NOT_CONNECTED) + learning ledger lifecycle engine (Phase 12)
+## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + a first golden case (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10, honestly NOT_CONNECTED) + learning/knowledge lifecycle engines (Phases 12-13)
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements
@@ -113,6 +113,9 @@ core/
   learning-ledger.ts    Learning Ledger (§27/§29) lifecycle state machine only — CANDIDATE->VERIFIED->
                         VALIDATED->ADOPTED, REJECTED from any of the first three, SUPERSEDED/DECAYED
                         only from ADOPTED. No transition judges lesson content (docs/LEARNING_MODEL.md)
+  knowledge-ledger.ts   Knowledge (§28/§51) lifecycle state machine; transition table explicitly
+                        labeled ASSUMED in its own comment (no diagram exists in this repo for it,
+                        unlike Lesson's) — modelled on evidence-fabric.ts's closest precedent
   __golden__/           first golden case (§48): wires all of the above over a real risk-replay fixture
 ```
 
@@ -137,12 +140,13 @@ established in `risk-swarm/src/core/domain/model.ts`.
 
 ```
 bun install
-bun test         # 145/145 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
+bun test         # 152/152 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
                  # fraud-watch's real MO records, 10 exercise risk-swarm's real council output, 23
                  # exercise trust/arbitration, 1 is an end-to-end golden case, 5 exercise the shared
                  # snapshot-verification helper, 8 exercise FOMO, 8 exercise freight-risk-atlas,
                  # 11 exercise the model registry's honest-failure paths, 9 exercise the learning
-                 # ledger's lifecycle state machine)
+                 # ledger's lifecycle state machine, 7 exercise the knowledge ledger's lifecycle
+                 # state machine)
 bun x tsc -b --noEmit
 ```
 

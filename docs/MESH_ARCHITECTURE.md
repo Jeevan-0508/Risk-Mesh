@@ -77,7 +77,7 @@ data, and if a value can't be honestly known it is `null` with an explanation, n
 
 | Adapter | Mechanism | Status |
 |---|---|---|
-| risk-swarm | Read risk-swarm's own snapshot files + council/decision output (risk-swarm already exports some of this) | PLANNED |
+| risk-swarm | No fetch step — risk-swarm has no server and pushes no persisted council/decision export (runs in-browser against a user's own BYOK key). Type-level mirror of `CouncilResult` + pure mapping functions taking an already-produced result and an explicit `provenanceSource` | **IMPLEMENTED** — `adapters/risk-swarm/{types,map,adapter}.ts`, tested against real captures of risk-swarm's own `runCouncil()` (majority-disagreement + degraded-agent scenarios, same fetch-mock technique as its own test suite) |
 | risk-replay | HTTP calls to the real FastAPI backend (`backend/app/api/main.py`) | **IMPLEMENTED, live-verified** — `adapters/risk-replay/{client,map,adapter}.ts`, run `bun test` with `RISK_REPLAY_API_BASE_URL` set to a running instance |
 | fraud-watch | Read `data/world-state.json` directly (fraud-watch is static, no server); map real `moEngine.mos` records to `Behavior` (§16), not to `CandidateMo` (§17) — that earlier "candidate-MO shape doesn't exist" note was wrong, `moEngine.mos` was already there, just under `Behavior`'s vocabulary rather than `CandidateMo`'s | **IMPLEMENTED** — `adapters/fraud-watch/{client,map,adapter}.ts`, tested against a real captured `world-state.json` (fraud-watch@880a12f); every output `Behavior` is unconditionally `simulated: true` |
 | policy-audit | Read exported evidence/control/finding objects (must confirm policy-audit has an export path — not yet verified in Phase 0) | PLANNED |

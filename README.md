@@ -13,7 +13,7 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + trust/arbitration engines (Phase 11) + a first golden case (Phase 20 slice)
+## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + a first golden case (Phase 20 slice)
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements
@@ -56,6 +56,17 @@ adapters/fraud-watch/
   __fixtures__/  a real captured data/world-state.json (see PROVENANCE.md there)
   *.test.ts      13 tests, all fixture-based (no server exists to be live against)
 
+adapters/risk-swarm/
+  types.ts       type-level mirror of risk-swarm's real CouncilResult/OlympianPosition/etc — no
+                 client.ts: risk-swarm has no server and pushes no persisted council export anywhere
+  map.ts         pure translation, caller supplies the CouncilResult + an honest provenanceSource;
+                 councilToDisagreement() fails closed rather than counting a degraded fallback as
+                 independent (mirrors risk-swarm's own DisagreementAssessment doc comment)
+  adapter.ts     composes map.ts: assessCouncilResult()
+  __fixtures__/  real captures of risk-swarm's own runCouncil(), same fetch-mock technique as its
+                 own test suite (majority-disagreement + degraded-agent scenarios)
+  *.test.ts      10 tests, all fixture-based
+
 core/
   store.ts             generic in-memory MeshStore<T> (add/get/list/replace, rejects duplicate ids)
   ledger.ts             append-only event ledger (§42) — no update/delete method exists on the class
@@ -87,8 +98,9 @@ established in `risk-swarm/src/core/domain/model.ts`.
 
 ```
 bun install
-bun test         # 94/94 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
-                 # fraud-watch's real MO records, 23 exercise trust/arbitration, 1 is an end-to-end golden case)
+bun test         # 104/104 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
+                 # fraud-watch's real MO records, 10 exercise risk-swarm's real council output, 23
+                 # exercise trust/arbitration, 1 is an end-to-end golden case)
 bun x tsc -b --noEmit
 ```
 

@@ -45,6 +45,10 @@ header .back:hover { background: rgba(246, 214, 138, 0.08); }
 .terminal-line.LESSON_STATUS_CHANGED .type,
 .terminal-line.LESSON_VALIDATED .type { color: #c9a5ff; }
 .terminal-line.BLOCKED .type { color: #ff6767; }
+.terminal-line.BEHAVIOR_OBSERVED .type { color: #7fd1ff; }
+.terminal-line.MODEL_CALLED .type { color: #8fe0a0; }
+.terminal-line.ARENA_COMPARED .type { color: #ffb454; }
+.terminal-line.SYSTEM1_ROUTED .type { color: #c9a5ff; }
 .terminal-line .detail { color: #d8c79a; }
 .terminal-line.BLOCKED .detail { color: #ff9c9c; }
 

@@ -5,9 +5,10 @@
 **The connective fabric between independent risk systems — contracts, evidence, provenance and
 arbitration, not another engine.**
 
-MESH itself has one small UI of its own — **[Observatory](https://jeevan-0508.github.io/Risk-Mesh/)**
+MESH itself has one small UI of its own - **[Observatory](https://jeevan-0508.github.io/Risk-Mesh/)**
 ([`observatory/`](observatory/) source), a replay (not a live feed)
-of its two real golden cases through a particle-orb + terminal-log visualization, see
+of its two real golden cases, plus two real System-1 Arena runs against real fraud-watch MOs,
+through a particle-orb + terminal-log visualization, see
 [`docs/MESH_ARCHITECTURE.md`](docs/MESH_ARCHITECTURE.md#observatory-phase-19--small-slice-implemented-a-live-cross-system-dashboard-still-planned)
 for exactly what it does and doesn't show.
 
@@ -25,7 +26,7 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + two golden cases (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10; all 3 Laya checkpoints are real, live SHADOW connections as of 2026-09-23, see below) + System-1 Arena (`evaluation/system1-arena/`, live as of 2026-09-23) + System-1 shadow routing (`decideSystem1Action()`, 2026-09-23) + a real fraud-watch-to-System-1 integration (`evaluation/system1-arena/fraud-watch-cases.ts`, 2026-09-23) + learning/knowledge lifecycle engines (Phases 12-13, with the PROVISIONAL-forever guard LEARNING_MODEL.md requires) + Observatory (Phase 19 slice, live at the link above)
+## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + two golden cases (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10; all 3 Laya checkpoints are real, live SHADOW connections as of 2026-09-23, see below) + System-1 Arena (`evaluation/system1-arena/`, live as of 2026-09-23) + System-1 shadow routing (`decideSystem1Action()`, 2026-09-23) + a real fraud-watch-to-System-1 integration (`evaluation/system1-arena/fraud-watch-cases.ts`, 2026-09-23) + learning/knowledge lifecycle engines (Phases 12-13, with the PROVISIONAL-forever guard LEARNING_MODEL.md requires) + Observatory (Phase 19 slice, live at the link above, now also replaying a real System-1 Arena run against real fraud-watch MOs)
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements

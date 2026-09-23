@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import goldenCases from './data/golden-cases.js';
+import system1Cases from './data/system1-cases.js';
 
 // --- Particle-sphere "orb": a glowing network, pulsing when a real ledger event is revealed ---
 
@@ -143,10 +144,17 @@ animate();
 
 const terminalEl = document.getElementById('terminal');
 const summaryEl = document.getElementById('case-summary');
-const tabs = [document.getElementById('tab-0'), document.getElementById('tab-1')];
+const tabs = [
+  document.getElementById('tab-0'),
+  document.getElementById('tab-1'),
+  document.getElementById('tab-2'),
+  document.getElementById('tab-3'),
+];
 const replayBtn = document.getElementById('tab-replay');
 
-let data = goldenCases;
+// One flat list: golden cases first (unchanged tab-0/tab-1), System-1 cases appended (tab-2/tab-3)
+// — same replay driver for both, since both are real captured event arrays of the same shape.
+const allCases = [...goldenCases.cases, ...system1Cases.cases];
 let activeCase = 0;
 let playToken = 0;
 
@@ -167,7 +175,7 @@ async function playCase(idx) {
   playToken += 1;
   const myToken = playToken;
   tabs.forEach((t, i) => t.classList.toggle('active', i === idx));
-  const c = data.cases[idx];
+  const c = allCases[idx];
   summaryEl.textContent = `case_id=${c.case_id} — ${c.summary}`;
   terminalEl.innerHTML = '';
 
@@ -187,7 +195,7 @@ async function playCase(idx) {
     await sleep(400);
     const line = document.createElement('div');
     line.className = 'terminal-line BLOCKED';
-    line.innerHTML = `<span class="ts">${fmtTime(data.cases[idx].events.at(-1).at)}</span><span class="type">BLOCKED ${c.blocked_attempt.from} → ${c.blocked_attempt.to}</span><span class="detail">${c.blocked_attempt.message}</span>`;
+    line.innerHTML = `<span class="ts">${fmtTime(allCases[idx].events.at(-1).at)}</span><span class="type">BLOCKED ${c.blocked_attempt.from} → ${c.blocked_attempt.to}</span><span class="detail">${c.blocked_attempt.message}</span>`;
     terminalEl.appendChild(line);
     terminalEl.scrollTop = terminalEl.scrollHeight;
     window.__orbBlockedFlash();
@@ -196,8 +204,7 @@ async function playCase(idx) {
 
 function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
 
-tabs[0].addEventListener('click', () => playCase(0));
-tabs[1].addEventListener('click', () => playCase(1));
+tabs.forEach((tab, i) => tab.addEventListener('click', () => playCase(i)));
 replayBtn.addEventListener('click', () => playCase(activeCase));
 
 load();

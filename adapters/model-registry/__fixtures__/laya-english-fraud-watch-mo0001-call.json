@@ -1,0 +1,43 @@
+{
+  "input": {
+    "checkpoint": "convaiinnovations/laya",
+    "state": "fraud-watch MO MO-0001: signature EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED (truckId=TRU-023, driverId=DRI-023, trailerId=TRA-023, carrierId=CAR-007). This case comes from fraud-watch's simulated carrier-fraud environment (spec §16): the signature lists which anomaly signal types fired for this carrier/driver/trailer combination. No fraud-watch investigation judgment or confidence score is included in this description - only the raw signal types and entity identifiers.",
+    "questions": {
+      "carrier_behavior_call": {
+        "type": "choice",
+        "instructions": "Given this carrier's flagged operational signals, does the underlying pattern look like normal operations, or does it show signs meriting closer fraud investigation?",
+        "criteria": {
+          "normal": "The pattern of signals is consistent with normal carrier operations.",
+          "investigate": "The pattern of signals shows signs meriting closer fraud investigation.",
+          "inconclusive": "Not enough signal either way."
+        }
+      }
+    }
+  },
+  "output": {
+    "load_seconds": 15.844794750213623,
+    "infer_seconds": 0.705878496170044,
+    "result": {
+      "model": "laya-rl-agent",
+      "answers": {
+        "carrier_behavior_call": {
+          "type": "choice",
+          "choice": "investigate",
+          "probabilities": {
+            "normal": 0.2296,
+            "investigate": 0.4958,
+            "inconclusive": 0.2745
+          },
+          "confidence": 0.0528,
+          "action": {
+            "act_probability": 1.0
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 214,
+        "output_tokens": 0
+      }
+    }
+  }
+}

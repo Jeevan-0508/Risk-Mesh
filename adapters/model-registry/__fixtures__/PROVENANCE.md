@@ -93,3 +93,30 @@ rather than reusing the earlier carrier-fraud POD-photo scenario:
   leaning result (not near-uniform like the first fixture), genuinely worth noting rather than
   glossed over: this is the first captured case where Laya's own answer leans clearly one way on a
   MESH-real (if simulated) case.
+
+## System-1 Observatory capture (2026-09-23, same session, System-1 Observability slice)
+
+Five more real inference calls, extending the Fraud Watch capture above to a genuine 3-checkpoint
+Arena run against two real fraud-watch MOs, for the Observatory's new System-1 tabs:
+
+- `laya-english-fraud-watch-mo0001-call.json`, `laya-multilingual-fraud-watch-mo0001-call.json` -
+  the same real MO-0001 state as the `laya-typed` capture above (byte-verified equal, both produced
+  by the same `behaviorToLayaState()`), run against the other two Laya checkpoints.
+- `laya-typed-fraud-watch-mo0002-call.json`, `laya-english-fraud-watch-mo0002-call.json`,
+  `laya-multilingual-fraud-watch-mo0002-call.json` - a second real fraud-watch MO (MO-0002,
+  signature `ACCOUNT_TAKEOVER+EQUIPMENT_CARRIER_MISMATCH+MANIFEST_CHANGED`), all three checkpoints.
+- Real answers: MO-0001 - `laya-typed: investigate (0.1494)`, `laya-english: investigate (0.0528)`,
+  `laya-multilingual: normal (0.0694)`. MO-0002 - `laya-typed: investigate (0.1158)`,
+  `laya-english: investigate (0.0599)`, `laya-multilingual: normal (0.1945)`. Both real Arena
+  comparisons disagree (not all three choices equal) - genuinely, not staged for visual variety:
+  `laya-multilingual` lands on `normal` while the other two lean `investigate` on both real cases,
+  consistent with its documented lower accuracy versus the fine-tuned `laya-typed` checkpoint. With
+  `swarmAvailable` defaulting to `false` everywhere in this repo today (no real call site sets it
+  otherwise), `decideSystem1Action()`'s honest output for both is `HUMAN_REVIEW`, not
+  `ESCALATE_TO_SWARM` - this is presented in the Observatory as the real result, not adjusted to
+  show a more varied-looking demo.
+- The state text sent for this capture was verified byte-for-byte equal to
+  `behaviorToLayaState()`'s real output before running (a first draft of the capture harness used
+  the ASCII words "spec section 16" instead of the real function's unicode "spec §16" -  caught
+  before treating the result as a fixture, and the affected calls were rerun with the corrected
+  text so what shipped is a genuine match, not a close paraphrase).

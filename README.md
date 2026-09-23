@@ -5,13 +5,14 @@
 **The connective fabric between independent risk systems — contracts, evidence, provenance and
 arbitration, not another engine.**
 
-MESH itself has one small UI of its own — [`observatory/`](observatory/), a replay (not a live feed)
+MESH itself has one small UI of its own — **[Observatory](https://jeevan-0508.github.io/Risk-Mesh/)**
+([`observatory/`](observatory/) source), a replay (not a live feed)
 of its two real golden cases through a particle-orb + terminal-log visualization, see
 [`docs/MESH_ARCHITECTURE.md`](docs/MESH_ARCHITECTURE.md#observatory-phase-19--small-slice-implemented-a-live-cross-system-dashboard-still-planned)
 for exactly what it does and doesn't show.
 
-Live demos of the systems MESH connects (it is otherwise a backend contract/evidence layer with no
-UI of its own): [fraud-watch](https://jeevan-0508.github.io/fraud-watch/) ·
+Live demos of the systems MESH connects (it otherwise has no UI beyond that replay, being a backend
+contract/evidence layer): [fraud-watch](https://jeevan-0508.github.io/fraud-watch/) ·
 [risk-replay](https://jeevan-0508.github.io/risk-replay/) ·
 [risk-swarm](https://jeevan-0508.github.io/risk-swarm/) ·
 [policy-audit](https://jeevan-0508.github.io/policy-audit/).

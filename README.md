@@ -13,7 +13,7 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + a first golden case (Phase 20 slice)
+## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + a first golden case (Phase 20 slice)
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements
@@ -23,7 +23,8 @@ plan to avoid duplicating that work. See [`docs/MESH_ARCHITECTURE.md`](docs/MESH
 [`docs/MODEL_ARENA.md`](docs/MODEL_ARENA.md), and
 [`docs/LEARNING_MODEL.md`](docs/LEARNING_MODEL.md) for the rest.
 
-**Nothing beyond `contracts/` is implemented yet.** No adapter is connected. Laya and Jev are
+Two adapters are implemented and tested against real captured data: risk-replay (live-verified
+against its real FastAPI backend) and fraud-watch (real on-disk simulation state). Laya and Jev are
 `NOT_CONNECTED` everywhere in this repo and in the ecosystem — no fabricated results exist for either.
 
 ## What's here
@@ -46,6 +47,14 @@ adapters/risk-replay/
   *.test.ts      12 tests: fixture-based mapping (always run), a deterministic UNAVAILABLE path
                  (no server needed), and a live path that runs a real counterfactual when
                  RISK_REPLAY_API_BASE_URL points at a running backend
+
+adapters/fraud-watch/
+  client.ts      reads fraud-watch's real data/world-state.json directly (static app, no server)
+  map.ts         maps fraud-watch's 4-value classification vocabulary onto MESH's 8-value
+                 BehaviorKind; only maps what genuinely means the same thing, documents the rest
+  adapter.ts     composes client+map: assessFraudWatchBehaviors(), every output simulated:true
+  __fixtures__/  a real captured data/world-state.json (see PROVENANCE.md there)
+  *.test.ts      13 tests, all fixture-based (no server exists to be live against)
 
 core/
   store.ts             generic in-memory MeshStore<T> (add/get/list/replace, rejects duplicate ids)
@@ -76,7 +85,8 @@ established in `risk-swarm/src/core/domain/model.ts`.
 
 ```
 bun install
-bun test         # 58/58 passing (12 exercise the real risk-replay client/mapping code, 1 is an end-to-end golden case)
+bun test         # 71/71 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
+                 # fraud-watch's real MO records, 1 is an end-to-end golden case)
 bun x tsc -b --noEmit
 ```
 

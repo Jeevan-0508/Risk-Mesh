@@ -13,7 +13,7 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phase 1 of 20 — contracts only
+## Status: Phase 1 (contracts) + first Phase 7 slice (risk-replay adapter, live-verified)
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements
@@ -36,7 +36,30 @@ contracts/
   validate.ts    validateMeshObject(kind, candidate) — one dispatch point, not 17 imports
   index.ts       barrel export
   *.test.ts      30 tests: required fields, status enums, the honesty rule on Provenance.source
+
+adapters/risk-replay/
+  client.ts      real HTTP client for risk-replay's FastAPI backend (fetch, fail-closed → UNAVAILABLE)
+  map.ts         translates risk-replay's real wire vocabulary into MESH contracts; refuses to guess
+                 a mapping where the two systems' MutationType enums don't actually agree
+  adapter.ts     composes client+map into one entry point: assessReplayStability()
+  __fixtures__/  real captured responses from a live local instance (see PROVENANCE.md there)
+  *.test.ts      12 tests: fixture-based mapping (always run), a deterministic UNAVAILABLE path
+                 (no server needed), and a live path that runs a real counterfactual when
+                 RISK_REPLAY_API_BASE_URL points at a running backend
 ```
+
+### Running the risk-replay adapter's live test
+
+```
+# in a clone of risk-replay:
+cd backend && uv run uvicorn app.api.main:app --port 8811
+
+# in risk-mesh:
+RISK_REPLAY_API_BASE_URL=http://127.0.0.1:8811 bun test adapters/risk-replay
+```
+
+Without the env var set, the live test prints why it's skipping and passes — it never fabricates a
+result to look connected (§58).
 
 ## Tech stack
 
@@ -46,7 +69,7 @@ established in `risk-swarm/src/core/domain/model.ts`.
 
 ```
 bun install
-bun test         # 30/30 passing
+bun test         # 39/39 passing (12 of them exercise the real risk-replay client/mapping code)
 bun x tsc -b --noEmit
 ```
 

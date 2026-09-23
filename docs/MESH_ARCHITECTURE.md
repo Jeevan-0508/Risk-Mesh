@@ -74,7 +74,7 @@ data, and if a value can't be honestly known it is `null` with an explanation, n
 | Adapter | Mechanism | Status |
 |---|---|---|
 | risk-swarm | Read risk-swarm's own snapshot files + council/decision output (risk-swarm already exports some of this) | PLANNED |
-| risk-replay | HTTP calls to the real FastAPI backend (`backend/app/api/main.py`) — the only adapter that can be a live API integration | PLANNED |
+| risk-replay | HTTP calls to the real FastAPI backend (`backend/app/api/main.py`) | **IMPLEMENTED, live-verified** — `adapters/risk-replay/{client,map,adapter}.ts`, run `bun test` with `RISK_REPLAY_API_BASE_URL` set to a running instance |
 | fraud-watch | Read `data/{fraud-data.json, simulation-log.jsonl, world-state.json}`; candidate-MO shape does not exist in fraud-watch today and would need to be added there first, or derived by the adapter from simulation-log entries — open design question, not solved by this doc | PLANNED |
 | policy-audit | Read exported evidence/control/finding objects (must confirm policy-audit has an export path — not yet verified in Phase 0) | PLANNED |
 | risk-os | Read the existing `src/domain/types.ts` risk-register model (already typed) | PLANNED |

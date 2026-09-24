@@ -212,63 +212,112 @@ function buildResultCard(provider, model, answer) {
 }
 
 function wire() {
-  const toggleBtn = document.getElementById("ask-toggle");
-  const panel = document.getElementById("ask-panel");
+  const settingsToggle = document.getElementById("ask-settings-toggle");
+  const settings = document.getElementById("ask-settings");
   const providerSel = document.getElementById("ask-provider");
   const keyInput = document.getElementById("ask-key");
   const modelInput = document.getElementById("ask-model");
   const clearBtn = document.getElementById("ask-clear-key");
   const questionInput = document.getElementById("ask-question");
   const submitBtn = document.getElementById("ask-submit");
-  const responseEl = document.getElementById("ask-response");
-  if (!toggleBtn || !panel) return; // ask-mesh.js loaded without its DOM -- do nothing, never throw
+  const answerEl = document.getElementById("tab-content-answer");
+  const infoToggle = document.getElementById("info-toggle");
+  const infoPanel = document.getElementById("info-panel");
+  const exampleBtns = document.querySelectorAll(".ask-example");
+  if (!submitBtn || !questionInput) return; // ask-mesh.js loaded without its DOM -- do nothing, never throw
 
   const allCases = [...goldenCases.cases, ...system1Cases.cases];
   const context = buildMeshContext(allCases);
   const registryContext = buildRegistryContext(repoRegistry.repositories);
 
   const prefs = restorePrefs();
-  if (prefs.provider) providerSel.value = prefs.provider;
-  if (prefs.model) modelInput.value = prefs.model;
+  if (prefs.provider && providerSel) providerSel.value = prefs.provider;
+  if (prefs.model && modelInput) modelInput.value = prefs.model;
   const loadKeyForProvider = () => {
+    if (!providerSel || !keyInput) return;
     const keys = restoreKeys();
     keyInput.value = keys[providerSel.value] || "";
   };
   loadKeyForProvider();
 
-  toggleBtn.addEventListener("click", () => {
-    const open = panel.hidden;
-    panel.hidden = !open;
-    toggleBtn.setAttribute("aria-expanded", String(open));
+  if (settingsToggle && settings) {
+    settingsToggle.addEventListener("click", () => {
+      const open = settings.hidden;
+      settings.hidden = !open;
+      settingsToggle.classList.toggle("active", open);
+    });
+  }
+
+  exampleBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      questionInput.value = btn.textContent;
+      questionInput.focus();
+    });
   });
 
-  providerSel.addEventListener("change", () => {
-    loadKeyForProvider();
-    persistPrefs({ provider: providerSel.value, model: modelInput.value });
+  // --- Info panel: collapsible tabs, graph stays visible beside/behind it (section 10). ---
+  function setActiveTab(tabName) {
+    document.querySelectorAll(".info-tabs button").forEach((b) => {
+      b.classList.toggle("active", b.dataset.tab === tabName);
+    });
+    document.querySelectorAll(".info-tab-content").forEach((c) => {
+      c.classList.toggle("active", c.id === "tab-content-" + tabName);
+    });
+  }
+  function openInfoPanel(tabName) {
+    if (infoPanel) infoPanel.classList.add("open");
+    if (infoToggle) infoToggle.classList.add("active");
+    if (tabName) setActiveTab(tabName);
+  }
+  if (infoToggle && infoPanel) {
+    infoToggle.addEventListener("click", () => {
+      const open = infoPanel.classList.toggle("open");
+      infoToggle.classList.toggle("active", open);
+    });
+  }
+  document.querySelectorAll(".info-tabs button").forEach((b) => {
+    b.addEventListener("click", () => setActiveTab(b.dataset.tab));
   });
-  modelInput.addEventListener("change", () => {
-    persistPrefs({ provider: providerSel.value, model: modelInput.value });
-  });
-  keyInput.addEventListener("change", () => {
-    persistKey(providerSel.value, keyInput.value.trim());
-  });
-  clearBtn.addEventListener("click", () => {
-    clearKey(providerSel.value);
-    keyInput.value = "";
-  });
+
+  if (providerSel) {
+    providerSel.addEventListener("change", () => {
+      loadKeyForProvider();
+      persistPrefs({ provider: providerSel.value, model: modelInput.value });
+    });
+  }
+  if (modelInput) {
+    modelInput.addEventListener("change", () => {
+      persistPrefs({ provider: providerSel.value, model: modelInput.value });
+    });
+  }
+  if (keyInput) {
+    keyInput.addEventListener("change", () => {
+      persistKey(providerSel.value, keyInput.value.trim());
+    });
+  }
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      clearKey(providerSel.value);
+      keyInput.value = "";
+    });
+  }
 
   async function submit() {
     const question = questionInput.value.trim();
-    const key = keyInput.value.trim();
+    const key = keyInput ? keyInput.value.trim() : "";
     if (!question) return;
+    if (!answerEl) return;
     if (!key) {
-      responseEl.className = "ask-response error";
-      responseEl.textContent = "Paste an API key above first -- it is used directly from your browser, never sent to this site.";
+      answerEl.className = "info-tab-content active error";
+      answerEl.textContent = "Paste an API key (⚙ above) first -- it is used directly from your browser, never sent to this site.";
+      openInfoPanel("answer");
       return;
     }
     submitBtn.disabled = true;
-    responseEl.className = "ask-response loading";
-    responseEl.textContent = "Asking...";
+    answerEl.className = "info-tab-content active loading";
+    answerEl.textContent = "Querying MESH's own knowledge graph...";
+    openInfoPanel("answer");
+    if (window.__orbAskStart) window.__orbAskStart();
     try {
       const provider = providerSel.value;
       const model = modelInput.value.trim() || DEFAULT_MODEL[provider];
@@ -280,14 +329,15 @@ function wire() {
         context: context,
         registryContext: registryContext,
       });
-      responseEl.className = "ask-response";
-      responseEl.innerHTML = "";
-      responseEl.appendChild(buildResultCard(provider, model, answer));
+      answerEl.className = "info-tab-content active";
+      answerEl.innerHTML = "";
+      answerEl.appendChild(buildResultCard(provider, model, answer));
     } catch (err) {
-      responseEl.className = "ask-response error";
-      responseEl.textContent = err instanceof Error ? err.message : "something went wrong";
+      answerEl.className = "info-tab-content active error";
+      answerEl.textContent = err instanceof Error ? err.message : "something went wrong";
     } finally {
       submitBtn.disabled = false;
+      if (window.__orbAskEnd) window.__orbAskEnd();
     }
   }
 

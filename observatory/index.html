@@ -4,70 +4,81 @@
 <meta charset="utf-8">
 <title>RISK//MESH — Observatory</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="A replay of two real golden cases through RISK//MESH's contracts/evidence/learning ledgers, plus two real System-1 Arena runs against real fraud-watch cases. Not a live feed.">
+<meta name="description" content="A living neural graph of RISK//MESH's real repository connections, real replayed cases and real model availability. Not a live feed.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <canvas id="orb-canvas"></canvas>
 <div id="graph-labels"></div>
-<div class="shell">
-  <nav class="rail">
-    <div class="rail-brand">RISK//MESH</div>
-    <div class="rail-tag">Observatory: a real replay, not a live feed. The graph on the right is real repository/case data, not decoration.</div>
-    <div class="rail-section-label">Cases</div>
-    <button id="tab-0" class="active">Golden Case 1 · Fragile Under Replay</button>
-    <button id="tab-1">Golden Case 2 · Lesson Stays PROVISIONAL Forever</button>
-    <button id="tab-2">System-1 · fraud-watch MO-0001</button>
-    <button id="tab-3">System-1 · fraud-watch MO-0002</button>
-    <button id="tab-replay">↻ Replay</button>
-    <div class="rail-section-label">Runtime status</div>
-    <div class="status-panel" id="status-panel"></div>
-    <a class="back" href="https://github.com/Jeevan-0508/Risk-Mesh" target="_blank" rel="noopener">← Risk-Mesh repo</a>
-  </nav>
-  <main class="main">
-    <header>
-      <h1>RISK//MESH — OBSERVATORY</h1>
-      <div class="tag">A replay of two real golden cases (real ledger events from a passing test run) through the contract, evidence, replay and learning ledgers, plus two real System-1 Arena runs (real Laya inference, real fraud-watch MOs) through <code>decideSystem1Action()</code>'s shadow routing. DEC-001 is risk-replay's own seeded demo decision — SIMULATED throughout, not a real incident. System-1's output is a SHADOW recommendation only, not a live authoritative Decision. This is not a live cross-system feed; MESH has no production traffic yet.</div>
-    </header>
-    <section class="hero-ask">
-      <div class="hero-ask-head" id="hero-ask-head">
-        <h2>✦ Ask MESH</h2>
-        <span class="hint">grounded only in the real data replayed below and the real registry to the left</span>
-        <button id="ask-toggle" aria-expanded="false">Open</button>
-      </div>
-      <div class="ask-panel" id="ask-panel" hidden>
-        <p class="ask-disclosure">Ask about the 4 real cases shown below, or about which of Jeevan's other risk
-          projects MESH actually reads. Bring your own API key (OpenAI or OpenRouter): it is sent directly from your
-          browser to that provider only, stored only in this browser's <code>localStorage</code>, never sent to this
-          site or to Jeevan. Every answer here is grounded only in the real case data this page replays plus a real
-          <a href="data/repo-registry.js" target="_blank">repository registry</a> of MESH's actual per-repo
-          connection status (LIVE, SNAPSHOT, or UNAVAILABLE); MESH is not a live feed connected to everything, and
-          will say so rather than guess.</p>
-        <div class="ask-config">
-          <select id="ask-provider">
-            <option value="openai">OpenAI</option>
-            <option value="openrouter">OpenRouter</option>
-          </select>
-          <input id="ask-key" type="password" placeholder="paste API key" autocomplete="off">
-          <input id="ask-model" type="text" placeholder="model (e.g. gpt-4o-mini)" autocomplete="off">
-          <button id="ask-clear-key" type="button">clear key</button>
-        </div>
-        <div class="ask-qa">
-          <input id="ask-question" type="text" placeholder="e.g. why did Golden Case 2 stay PROVISIONAL forever?" autocomplete="off">
-          <button id="ask-submit" type="button">Ask</button>
-        </div>
-        <div class="ask-response" id="ask-response"></div>
-      </div>
-    </section>
-    <div class="case-summary" id="case-summary"></div>
-    <div class="terminal-wrap">
-      <div class="terminal" id="terminal"></div>
-    </div>
-    <footer>generated at build time from <code>core/__golden__/scenarios.ts</code> (<a href="data/golden-cases.js" target="_blank">raw data</a>) and <code>evaluation/system1-arena/fraud-watch-cases.ts</code> (<a href="data/system1-cases.js" target="_blank">raw data</a>) &middot; RISK//MESH by <a href="https://github.com/Jeevan-0508" target="_blank">Jeevan Siddhabhaktula</a></footer>
-  </main>
+
+<div class="hud-top">
+  <span class="hud-wordmark">RISK // MESH</span>
+  <div id="hud-status"></div>
 </div>
+<div id="hud-foot"></div>
+<a class="repo-link" href="https://github.com/Jeevan-0508/Risk-Mesh" target="_blank" rel="noopener">repo ↗</a>
+
+<div id="node-inspector" hidden></div>
+
+<button id="info-toggle" type="button">EXPLAIN ▾</button>
+<div class="info-panel" id="info-panel">
+  <div class="info-tabs">
+    <button type="button" class="active" data-tab="answer">Answer</button>
+    <button type="button" data-tab="evidence">Evidence</button>
+    <button type="button" data-tab="reasoning">Reasoning</button>
+    <button type="button" data-tab="provenance">Provenance</button>
+  </div>
+  <div class="info-body">
+    <div class="info-tab-content active" id="tab-content-answer">
+      <div class="info-empty">Ask MESH a question below, or click a case pill to replay one of the 4 real investigations traced through the graph.</div>
+    </div>
+    <div class="info-tab-content" id="tab-content-evidence"></div>
+    <div class="info-tab-content" id="tab-content-reasoning"></div>
+    <div class="info-tab-content" id="tab-content-provenance"></div>
+  </div>
+</div>
+
+<div class="case-pills">
+  <button id="tab-0" class="active">Golden 1</button>
+  <button id="tab-1">Golden 2</button>
+  <button id="tab-2">MO-0001</button>
+  <button id="tab-3">MO-0002</button>
+  <button id="tab-replay" title="replay">↻</button>
+</div>
+<div class="case-summary-line" id="case-summary"></div>
+
+<div class="ask-wrap">
+  <div class="ask-title">ASK MESH</div>
+  <div class="ask-row">
+    <input id="ask-question" type="text" placeholder="What do you want to investigate?" autocomplete="off">
+    <button id="ask-submit" type="button">⟶ INVESTIGATE</button>
+    <button id="ask-settings-toggle" type="button" title="provider settings">⚙</button>
+  </div>
+  <div class="ask-examples">
+    <button type="button" class="ask-example">What did we actually find in MO-0001?</button>
+    <button type="button" class="ask-example">Why did Golden Case 2 stay PROVISIONAL forever?</button>
+    <button type="button" class="ask-example">Which sources are actually live right now?</button>
+    <button type="button" class="ask-example">Find a contradiction between the two System-1 cases.</button>
+  </div>
+  <div class="ask-settings" id="ask-settings" hidden>
+    <select id="ask-provider">
+      <option value="openai">OpenAI</option>
+      <option value="openrouter">OpenRouter</option>
+    </select>
+    <input id="ask-key" type="password" placeholder="paste API key" autocomplete="off">
+    <input id="ask-model" type="text" placeholder="model (e.g. gpt-4o-mini)" autocomplete="off">
+    <button id="ask-clear-key" type="button">clear key</button>
+  </div>
+  <div class="ask-disclosure">Bring your own key (OpenAI/OpenRouter) — sent directly from your browser to that provider only, stored only in this browser, never sent to this site or to Jeevan. Grounded only in the real case data replayed here and the real <a href="data/repo-registry.js" target="_blank" style="color:inherit">repository registry</a>.</div>
+</div>
+
 <script type="importmap">
-  { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
 </script>
 <script type="module" src="orb.js"></script>
 <script type="module" src="ask-mesh.js"></script>

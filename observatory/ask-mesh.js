@@ -185,159 +185,80 @@ async function askProvider(opts) {
   return text.trim();
 }
 
-// Renders a real answer inside a small structured card (provider/model badge + body), never
-// innerHTML-injecting the model's own text -- built from DOM nodes so nothing it says can be
-// mistaken for markup this page controls.
-function buildResultCard(provider, model, answer) {
-  const card = document.createElement("div");
-  card.className = "result-card";
-
-  const head = document.createElement("div");
-  head.className = "result-head";
-  const badge = document.createElement("span");
-  badge.className = "badge";
-  badge.textContent = "ANSWER";
-  const meta = document.createElement("span");
-  meta.textContent = provider + " / " + model;
-  head.appendChild(badge);
-  head.appendChild(meta);
-
-  const body = document.createElement("div");
-  body.className = "result-body";
-  body.textContent = answer;
-
-  card.appendChild(head);
-  card.appendChild(body);
-  return card;
-}
-
 function wire() {
-  const settingsToggle = document.getElementById("ask-settings-toggle");
-  const settings = document.getElementById("ask-settings");
+  const toggleBtn = document.getElementById("ask-toggle");
+  const panel = document.getElementById("ask-panel");
   const providerSel = document.getElementById("ask-provider");
   const keyInput = document.getElementById("ask-key");
   const modelInput = document.getElementById("ask-model");
   const clearBtn = document.getElementById("ask-clear-key");
   const questionInput = document.getElementById("ask-question");
   const submitBtn = document.getElementById("ask-submit");
-  const answerEl = document.getElementById("tab-content-answer");
-  const infoToggle = document.getElementById("info-toggle");
-  const infoPanel = document.getElementById("info-panel");
-  const exampleBtns = document.querySelectorAll(".ask-example");
-  if (!submitBtn || !questionInput) return; // ask-mesh.js loaded without its DOM -- do nothing, never throw
+  const responseEl = document.getElementById("ask-response");
+  if (!toggleBtn || !panel) return; // ask-mesh.js loaded without its DOM -- do nothing, never throw
 
   const allCases = [...goldenCases.cases, ...system1Cases.cases];
   const context = buildMeshContext(allCases);
   const registryContext = buildRegistryContext(repoRegistry.repositories);
 
   const prefs = restorePrefs();
-  if (prefs.provider && providerSel) providerSel.value = prefs.provider;
-  if (prefs.model && modelInput) modelInput.value = prefs.model;
+  if (prefs.provider) providerSel.value = prefs.provider;
+  if (prefs.model) modelInput.value = prefs.model;
   const loadKeyForProvider = () => {
-    if (!providerSel || !keyInput) return;
     const keys = restoreKeys();
     keyInput.value = keys[providerSel.value] || "";
   };
   loadKeyForProvider();
 
-  if (settingsToggle && settings) {
-    settingsToggle.addEventListener("click", () => {
-      const open = settings.hidden;
-      settings.hidden = !open;
-      settingsToggle.classList.toggle("active", open);
-    });
-  }
-
-  exampleBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      questionInput.value = btn.textContent;
-      questionInput.focus();
-    });
+  toggleBtn.addEventListener("click", () => {
+    const open = panel.hidden;
+    panel.hidden = !open;
+    toggleBtn.setAttribute("aria-expanded", String(open));
   });
 
-  // --- Info panel: collapsible tabs, graph stays visible beside/behind it (section 10). ---
-  function setActiveTab(tabName) {
-    document.querySelectorAll(".info-tabs button").forEach((b) => {
-      b.classList.toggle("active", b.dataset.tab === tabName);
-    });
-    document.querySelectorAll(".info-tab-content").forEach((c) => {
-      c.classList.toggle("active", c.id === "tab-content-" + tabName);
-    });
-  }
-  function openInfoPanel(tabName) {
-    if (infoPanel) infoPanel.classList.add("open");
-    if (infoToggle) infoToggle.classList.add("active");
-    if (tabName) setActiveTab(tabName);
-  }
-  if (infoToggle && infoPanel) {
-    infoToggle.addEventListener("click", () => {
-      const open = infoPanel.classList.toggle("open");
-      infoToggle.classList.toggle("active", open);
-    });
-  }
-  document.querySelectorAll(".info-tabs button").forEach((b) => {
-    b.addEventListener("click", () => setActiveTab(b.dataset.tab));
+  providerSel.addEventListener("change", () => {
+    loadKeyForProvider();
+    persistPrefs({ provider: providerSel.value, model: modelInput.value });
   });
-
-  if (providerSel) {
-    providerSel.addEventListener("change", () => {
-      loadKeyForProvider();
-      persistPrefs({ provider: providerSel.value, model: modelInput.value });
-    });
-  }
-  if (modelInput) {
-    modelInput.addEventListener("change", () => {
-      persistPrefs({ provider: providerSel.value, model: modelInput.value });
-    });
-  }
-  if (keyInput) {
-    keyInput.addEventListener("change", () => {
-      persistKey(providerSel.value, keyInput.value.trim());
-    });
-  }
-  if (clearBtn) {
-    clearBtn.addEventListener("click", () => {
-      clearKey(providerSel.value);
-      keyInput.value = "";
-    });
-  }
+  modelInput.addEventListener("change", () => {
+    persistPrefs({ provider: providerSel.value, model: modelInput.value });
+  });
+  keyInput.addEventListener("change", () => {
+    persistKey(providerSel.value, keyInput.value.trim());
+  });
+  clearBtn.addEventListener("click", () => {
+    clearKey(providerSel.value);
+    keyInput.value = "";
+  });
 
   async function submit() {
     const question = questionInput.value.trim();
-    const key = keyInput ? keyInput.value.trim() : "";
+    const key = keyInput.value.trim();
     if (!question) return;
-    if (!answerEl) return;
     if (!key) {
-      answerEl.className = "info-tab-content active error";
-      answerEl.textContent = "Paste an API key (⚙ above) first -- it is used directly from your browser, never sent to this site.";
-      openInfoPanel("answer");
+      responseEl.className = "ask-response error";
+      responseEl.textContent = "Paste an API key above first -- it is used directly from your browser, never sent to this site.";
       return;
     }
     submitBtn.disabled = true;
-    answerEl.className = "info-tab-content active loading";
-    answerEl.textContent = "Querying MESH's own knowledge graph...";
-    openInfoPanel("answer");
-    if (window.__orbAskStart) window.__orbAskStart();
+    responseEl.className = "ask-response loading";
+    responseEl.textContent = "Asking...";
     try {
-      const provider = providerSel.value;
-      const model = modelInput.value.trim() || DEFAULT_MODEL[provider];
       const answer = await askProvider({
-        provider: provider,
+        provider: providerSel.value,
         key: key,
-        model: model,
+        model: modelInput.value.trim(),
         question: question,
         context: context,
         registryContext: registryContext,
       });
-      answerEl.className = "info-tab-content active";
-      answerEl.innerHTML = "";
-      answerEl.appendChild(buildResultCard(provider, model, answer));
+      responseEl.className = "ask-response";
+      responseEl.textContent = answer;
     } catch (err) {
-      answerEl.className = "info-tab-content active error";
-      answerEl.textContent = err instanceof Error ? err.message : "something went wrong";
+      responseEl.className = "ask-response error";
+      responseEl.textContent = err instanceof Error ? err.message : "something went wrong";
     } finally {
       submitBtn.disabled = false;
-      if (window.__orbAskEnd) window.__orbAskEnd();
     }
   }
 

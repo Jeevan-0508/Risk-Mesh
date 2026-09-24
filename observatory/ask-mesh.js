@@ -1,5 +1,6 @@
 import goldenCases from "./data/golden-cases.js";
 import system1Cases from "./data/system1-cases.js";
+import repoRegistry from "./data/repo-registry.js";
 
 // --- Ask MESH: a bring-your-own-key Q&A panel grounded ONLY in the same real case data ---
 // --- orb.js already replays in the terminal log above. No live connection, no fabrication. ---
@@ -90,19 +91,35 @@ export function buildMeshContext(cases) {
   return lines.join("\n");
 }
 
-function buildSystemPrompt(context) {
+function buildRegistryContext(repos) {
+  const lines = [];
+  for (const r of repos) {
+    lines.push('- ' + r.name + ' (' + r.domain + '): status=' + r.status + ', source=' + r.source_type + '.');
+    if (r.capabilities && r.capabilities.length > 0) {
+      lines.push('  Can answer: ' + r.capabilities.join('; ') + '.');
+    } else {
+      lines.push('  No MESH adapter reads this repository yet -- do not claim any connection to it.');
+    }
+  }
+  return lines.join(String.fromCharCode(10));
+}
+
+function buildSystemPrompt(context, registryContext) {
   return [
-    "You are answering visitor questions on the RISK//MESH Observatory page, a small demo site for a personal project by Jeevan Siddhabhaktula. Answer ONLY from the CASE DATA below, which is the complete, real ledger-event data this same page replays in its terminal log (two golden test cases and two System-1 Arena runs against real fraud-watch cases). If a question cannot be answered from this data, say so plainly instead of guessing.",
+    "You are answering visitor questions on the RISK//MESH Observatory page, a small demo site for a personal project by Jeevan Siddhabhaktula. Answer ONLY from the CASE DATA and REPOSITORY REGISTRY below. The CASE DATA is the complete, real ledger-event data this same page replays in its terminal log (two golden test cases and two System-1 Arena runs against real fraud-watch cases). The REPOSITORY REGISTRY is the real, current, honest connection status of every project MESH knows about. If a question cannot be answered from this data, say so plainly instead of guessing.",
     "",
-    "Be accurate about what RISK//MESH actually is: a connective contract, evidence and provenance layer over several independent risk projects, not a live, always-on feed across all of them. Its real connections today are a live model registry (Laya), file-snapshot adapters for two other projects, and case data read from a third one; it is not connected to everything live and must never be described that way, even if asked. This page is a replay of a past test run, not a live system, and DEC-001 mentioned in the case data is a seeded demo decision from a sibling project, not a real incident.",
+    "Be accurate about what RISK//MESH actually is: a connective contract, evidence and provenance layer over several independent risk projects, not a live, always-on feed across all of them. Use the REPOSITORY REGISTRY below as the source of truth for which repositories are actually connected (LIVE, SNAPSHOT, or FIXTURE) versus UNAVAILABLE -- never claim a live connection to an UNAVAILABLE repository, even if asked. This page is a replay of a past test run, not a live system, and DEC-001 mentioned in the case data is a seeded demo decision from a sibling project, not a real incident.",
+    "",
+    "REPOSITORY REGISTRY:",
+    registryContext,
     "",
     "CASE DATA:",
     context,
-  ].join("\n");
+  ].join(String.fromCharCode(10));
 }
 
 async function askProvider(opts) {
-  const provider = opts.provider, key = opts.key, model = opts.model, question = opts.question, context = opts.context;
+  const provider = opts.provider, key = opts.key, model = opts.model, question = opts.question, context = opts.context, registryContext = opts.registryContext;
   const endpoint = PROVIDER_ENDPOINT[provider];
   const res = await fetch(endpoint, {
     method: "POST",
@@ -112,7 +129,7 @@ async function askProvider(opts) {
       temperature: 0,
       max_tokens: 500,
       messages: [
-        { role: "system", content: buildSystemPrompt(context) },
+        { role: "system", content: buildSystemPrompt(context, registryContext) },
         { role: "user", content: question },
       ],
     }),
@@ -147,6 +164,7 @@ function wire() {
 
   const allCases = [...goldenCases.cases, ...system1Cases.cases];
   const context = buildMeshContext(allCases);
+  const registryContext = buildRegistryContext(repoRegistry.repositories);
 
   const prefs = restorePrefs();
   if (prefs.provider) providerSel.value = prefs.provider;
@@ -197,6 +215,7 @@ function wire() {
         model: modelInput.value.trim(),
         question: question,
         context: context,
+        registryContext: registryContext,
       });
       responseEl.className = "ask-response";
       responseEl.textContent = answer;

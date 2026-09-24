@@ -13,8 +13,8 @@ const base = (overrides: Record<string, unknown> = {}) => ({
 });
 
 describe('validateMeshObject', () => {
-  it('covers all 17 contract kinds from spec §3', () => {
-    expect(MESH_OBJECT_KINDS.length).toBe(17);
+  it('covers all 17 contract kinds from spec §3, plus the repository registry (Ask MESH directive)', () => {
+    expect(MESH_OBJECT_KINDS.length).toBe(18);
   });
 
   it('rejects garbage for every kind rather than silently coercing it', () => {

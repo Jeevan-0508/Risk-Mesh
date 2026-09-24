@@ -408,3 +408,41 @@ export const ModelProfile = MeshBase.extend({
   known_limitations: z.array(z.string().min(1)),
 });
 export type ModelProfile = z.infer<typeof ModelProfile>;
+
+// ---------------------------------------------------------------------------------------------
+// 18. Repository source (Ask MESH Knowledge Fabric directive, 2026-09-23)
+// ---------------------------------------------------------------------------------------------
+
+/**
+ * Whether MESH can actually read a given repository's knowledge right now, and how - the
+ * connection-mechanism question, distinct from the six-value trust label above, which is about
+ * a piece of already-retrieved data's honesty, not about whether a retrieval path exists at all.
+ * LIVE = MESH reads this source's own current file/backend at query time, no frozen copy.
+ * SNAPSHOT = MESH reads a hash-verified frozen copy (see adapters/_shared/snapshot-provenance.ts),
+ * accurate as of captured_at, not the repository's current HEAD.
+ * FIXTURE = MESH has real captured data but only replays a fixed fixture (tests/demos), never a
+ * live or hash-verified pipeline.
+ * UNAVAILABLE = no MESH adapter reads this repository at all yet, or its adapter has no client of
+ * its own and needs a caller-supplied result MESH does not currently have.
+ */
+export const RepositorySourceStatus = z.enum(['LIVE', 'SNAPSHOT', 'FIXTURE', 'UNAVAILABLE']);
+export type RepositorySourceStatus = z.infer<typeof RepositorySourceStatus>;
+
+export const RepositorySource = MeshBase.extend({
+  status: RepositorySourceStatus,
+  repository_id: z.string().min(1),
+  name: z.string().min(1),
+  purpose: z.string().min(1),
+  domain: z.string().min(1),
+  capabilities: z.array(z.string().min(1)),
+  source_type: z.enum(['file-read', 'snapshot-file', 'http-client', 'translation-only', 'not-integrated']),
+  snapshot_path: z.string().min(1).nullable(),
+  snapshot_hash: z.string().min(1).nullable(),
+  version: z.string().min(1).nullable(),
+  captured_at: IsoTimestamp.nullable(),
+  /** Reuses the existing spec §58 six-value honesty label (never a duplicate second trust enum):
+   * what trust level the data this source actually feeds carries, once retrieved. */
+  trust_status: ProvenanceSource,
+  repo_url: z.string().min(1).nullable(),
+});
+export type RepositorySource = z.infer<typeof RepositorySource>;

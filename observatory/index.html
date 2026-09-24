@@ -27,11 +27,13 @@
   </div>
   <div class="case-summary" id="case-summary"></div>
   <div class="ask-panel" id="ask-panel" hidden>
-    <p class="ask-disclosure">Ask about the 4 real cases shown above. Bring your own API key (OpenAI or OpenRouter):
-      it is sent directly from your browser to that provider only, stored only in this browser's
-      <code>localStorage</code>, never sent to this site or to Jeevan. MESH is not a live feed connected to
-      Jeevan's other risk projects; every answer here is grounded only in the real case data this page replays,
-      nothing else.</p>
+    <p class="ask-disclosure">Ask about the 4 real cases shown above, or about which of Jeevan's other risk
+      projects MESH actually reads. Bring your own API key (OpenAI or OpenRouter): it is sent directly from your
+      browser to that provider only, stored only in this browser's <code>localStorage</code>, never sent to this
+      site or to Jeevan. Every answer here is grounded only in the real case data this page replays plus a real
+      <a href="data/repo-registry.js" target="_blank">repository registry</a> of MESH's actual per-repo
+      connection status (LIVE, SNAPSHOT, or UNAVAILABLE); MESH is not a live feed connected to everything, and
+      will say so rather than guess.</p>
     <div class="ask-config">
       <select id="ask-provider">
         <option value="openai">OpenAI</option>

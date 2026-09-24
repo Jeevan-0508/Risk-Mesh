@@ -198,10 +198,44 @@ Q&A box, same BYOK pattern risk-swarm's Model Config screen already established 
 kept only in this browser's `localStorage`, sent directly to OpenAI or OpenRouter, never to this
 site). It is not a chat over live MESH state - there is no live state yet - it is a small system
 prompt that hands the model the exact same case/event data the terminal above it already replays,
-nothing more, and is explicitly told to say so rather than invent an answer or claim a live
-connection to Jeevan's other repos that does not exist. Unverified end-to-end in this session (no
-API key available here); needs a real key in a real browser to confirm the request/response round
-trip actually works.
+plus a real **Repository Registry** (see below), and is explicitly told to say so rather than
+invent an answer or claim a live connection to a repo the registry marks UNAVAILABLE.
+
+Live-browser-verified against the deployed page (`https://jeevan-0508.github.io/Risk-Mesh/observatory/`):
+the panel toggle, provider switch, per-provider key persistence in `localStorage`, missing-key error
+render, and Enter-to-submit all work correctly. Two real bugs were found and fixed this way and are
+not repeats of scaffolding: the README's Observatory link pointed at the Jekyll-rendered repo root
+instead of `/observatory/` (GitHub Pages serves the Actions-deployed artifact only at that path);
+and `.ask-panel[hidden]` was missing from `observatory/style.css`, so a class-selector `display: flex`
+rule beat the browser's default `[hidden]` rule on specificity and the panel was visible on load
+despite `hidden=true` being correctly set. A real `fetch()` call to OpenAI/OpenRouter and its
+catch/error-render path were exercised and confirmed not to crash, but a full successful round trip
+with a real key could not be confirmed from this session's sandboxed browser tool (outbound
+third-party `fetch()` appears blocked there) - needs Jeevan's own key in his own browser to close out
+with certainty; this is a sandbox limitation, not a known code defect.
+
+### Repository Registry (Phase 20 IMPLEMENTED - the first Knowledge Fabric slice)
+
+`adapters/repo-registry/registry.ts` is a real, honest `RepositorySource[]` inventory of every
+repository MESH is meant to know about (a new `repository-source` MESH object kind, contract in
+`contracts/schemas.ts`), each with a real `status` (`LIVE | SNAPSHOT | FIXTURE | UNAVAILABLE`) rather
+than an assumed one: `fraud-watch` is `LIVE` (a real file-read adapter exists); `freight-risk-atlas`
+and `FOMO` are `SNAPSHOT` (real hash-verified syncs already captured in
+`risk-swarm/public/snapshots/provenance.json`); `risk-swarm` and `risk-replay` are `UNAVAILABLE` but
+still carry real, non-empty `capabilities` describing the partial adapters that already exist for
+them (a translation-only mapper with no live caller, and a live-verified HTTP client whose backend
+isn't reachable from the static deployed page, respectively); the remaining five repos
+(`freight-fraud-taxonomy`, `policy-audit`, `eu-ai-act-scanner`, `ruleshift`, `risk-ring`) are
+`UNAVAILABLE` with no adapter and empty `capabilities`. `gdpr-compliance-scanner`, named in the
+original directive, does not exist as a local repo and was correctly excluded rather than fabricated.
+
+`observatory/scripts/capture-repo-registry.ts` (`bun run observatory:capture:registry`) writes this
+same registry to `observatory/data/repo-registry.js` for the browser, and Ask MESH's system prompt
+now includes a real, always-in-sync REPOSITORY REGISTRY section built from it - not a hand-written
+paragraph that can silently drift out of date. `policy-audit`'s registry entry flags an unverified
+next-adapter candidate: its git remote is actually `ai-governance-control-room`, and
+`risk-swarm`'s own provenance already has a real hash-verified sync of that repo's
+`frameworks.json`/`controls.json` that no risk-mesh adapter reads yet.
 
 ## What is explicitly NOT being built yet
 

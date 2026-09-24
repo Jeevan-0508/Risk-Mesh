@@ -72,6 +72,36 @@ function persistPrefs(prefs) {
   }
 }
 
+// The real fraud-watch investigation record for a System-1 case -- deliberately never shown to
+// Laya during the blind test replayed above (see evaluation/system1-arena/fraud-watch-cases.ts),
+// but real, and the direct answer to "what did we actually find". Same FraudWatchMoRecord fields
+// adapters/fraud-watch/client.ts already parses; nothing re-derived, scored, or guessed here.
+function groundTruthLines(gt) {
+  const lines = [];
+  lines.push(
+    "- GROUND TRUTH (fraud-watch's own investigation record, never shown to Laya above): status=" +
+      gt.status + ", classification=" + gt.classification + ", confidence=" + gt.confidence +
+      " (" + gt.confidenceBand + "), noveltyScore=" + gt.noveltyScore + ".",
+  );
+  lines.push("  signature: " + gt.signature + ".");
+  const entityParts = [];
+  for (const k of Object.keys(gt.entities)) {
+    if (gt.entities[k]) entityParts.push(k + "=" + gt.entities[k]);
+  }
+  lines.push("  entities: " + (entityParts.length > 0 ? entityParts.join(", ") : "none recorded") + ".");
+  lines.push(
+    "  timeline: " + gt.timeline.map((e) => e.type + "@t=" + e.t).join(" -> ") + ".",
+  );
+  lines.push(
+    "  evidence: " +
+      gt.evidence
+        .map((e) => e.signalType + " (contribution=" + e.contribution + ", reliability=" + e.reliability + ")")
+        .join("; ") +
+      ".",
+  );
+  return lines;
+}
+
 // The complete, real event data this same page replays in the terminal above -- nothing else is
 // ever fed to the model. If a question needs something outside this block, the system prompt
 // tells the model to say so rather than guess.
@@ -85,6 +115,9 @@ export function buildMeshContext(cases) {
     }
     if (c.blocked_attempt) {
       lines.push("- BLOCKED " + c.blocked_attempt.from + " -> " + c.blocked_attempt.to + ": " + c.blocked_attempt.message);
+    }
+    if (c.ground_truth) {
+      lines.push(...groundTruthLines(c.ground_truth));
     }
     lines.push("");
   }
@@ -109,6 +142,8 @@ function buildSystemPrompt(context, registryContext) {
     "You are answering visitor questions on the RISK//MESH Observatory page, a small demo site for a personal project by Jeevan Siddhabhaktula. Answer ONLY from the CASE DATA and REPOSITORY REGISTRY below. The CASE DATA is the complete, real ledger-event data this same page replays in its terminal log (two golden test cases and two System-1 Arena runs against real fraud-watch cases). The REPOSITORY REGISTRY is the real, current, honest connection status of every project MESH knows about. If a question cannot be answered from this data, say so plainly instead of guessing.",
     "",
     "Be accurate about what RISK//MESH actually is: a connective contract, evidence and provenance layer over several independent risk projects, not a live, always-on feed across all of them. Use the REPOSITORY REGISTRY below as the source of truth for which repositories are actually connected (LIVE, SNAPSHOT, or FIXTURE) versus UNAVAILABLE -- never claim a live connection to an UNAVAILABLE repository, even if asked. This page is a replay of a past test run, not a live system, and DEC-001 mentioned in the case data is a seeded demo decision from a sibling project, not a real incident.",
+    "",
+    "For each fraud-watch System-1 case, the CASE DATA has TWO layers, and a question like \"what did we actually find\" or \"what happened\" is asking about the second one, not the first: (1) BEHAVIOR_OBSERVED/MODEL_CALLED/ARENA_COMPARED/SYSTEM1_ROUTED events are what Laya was shown and scored -- deliberately just a classification, confidence band and novelty score, no fraud-watch judgment, by design (a blind test). (2) The GROUND TRUTH line is fraud-watch's own real investigation record for that case (signature, entities, timeline, evidence, and real status) which was never shown to Laya. When asked what a case actually was, lead with GROUND TRUTH, and separately note how Laya scored it blind if useful context.",
     "",
     "REPOSITORY REGISTRY:",
     registryContext,

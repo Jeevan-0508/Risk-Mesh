@@ -83,6 +83,23 @@ async function buildCase(moId: string, title: string) {
     `fraud-watch ${record.id} (classification=${record.classification}, confidenceBand=${record.confidenceBand}, noveltyScore=${record.noveltyScore}) mapped to Behavior ${behavior.id} — no fraud-watch judgment field carried into what Laya sees below.`,
   );
 
+  // Real fraud-watch ground truth, deliberately withheld from Laya above (see this file's own
+  // BEHAVIOR_OBSERVED note and evaluation/system1-arena/fraud-watch-cases.ts's top comment) but
+  // real and worth surfacing to a human asking what the case actually is, not just how Laya scored
+  // it blind. Same FraudWatchMoRecord fields adapters/fraud-watch/client.ts already parses -
+  // nothing re-derived or guessed here.
+  const groundTruth = {
+    status: record.status,
+    classification: record.classification,
+    confidence: record.confidence,
+    confidenceBand: record.confidenceBand,
+    noveltyScore: record.noveltyScore,
+    signature: record.signature,
+    entities: record.entities,
+    timeline: record.timeline,
+    evidence: record.evidence,
+  };
+
   const context = { swarmAvailable: false, jevAvailable: false, caseRisk: 'STANDARD' as const };
   const outcome = await evaluateBehaviorViaSystem1(
     behavior,
@@ -93,7 +110,7 @@ async function buildCase(moId: string, title: string) {
 
   if (!outcome.ok) {
     pushEvent('SYSTEM1_ROUTED', caseId, `Arena failed closed: ${outcome.reason}`);
-    return { title, case_id: caseId, summary: `fraud-watch ${moId}: Arena failed closed.`, events, blocked_attempt: null };
+    return { title, case_id: caseId, summary: `fraud-watch ${moId}: Arena failed closed.`, events, blocked_attempt: null, ground_truth: groundTruth };
   }
 
   for (const result of outcome.arena.results) {
@@ -129,7 +146,7 @@ async function buildCase(moId: string, title: string) {
     ? `fraud-watch ${moId}: 3 models agreed, System-1 shadow-recommends ${outcome.system1Decision.action}.`
     : `fraud-watch ${moId}: 3 models disagreed, System-1 shadow-recommends ${outcome.system1Decision.action}.`;
 
-  return { title, case_id: caseId, summary, events, blocked_attempt: null };
+  return { title, case_id: caseId, summary, events, blocked_attempt: null, ground_truth: groundTruth };
 }
 
 const case1 = await buildCase('MO-0001', 'System-1 Case 1 · fraud-watch MO-0001');

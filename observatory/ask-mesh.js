@@ -185,6 +185,32 @@ async function askProvider(opts) {
   return text.trim();
 }
 
+// Renders a real answer inside a small structured card (provider/model badge + body), never
+// innerHTML-injecting the model's own text -- built from DOM nodes so nothing it says can be
+// mistaken for markup this page controls.
+function buildResultCard(provider, model, answer) {
+  const card = document.createElement("div");
+  card.className = "result-card";
+
+  const head = document.createElement("div");
+  head.className = "result-head";
+  const badge = document.createElement("span");
+  badge.className = "badge";
+  badge.textContent = "ANSWER";
+  const meta = document.createElement("span");
+  meta.textContent = provider + " / " + model;
+  head.appendChild(badge);
+  head.appendChild(meta);
+
+  const body = document.createElement("div");
+  body.className = "result-body";
+  body.textContent = answer;
+
+  card.appendChild(head);
+  card.appendChild(body);
+  return card;
+}
+
 function wire() {
   const toggleBtn = document.getElementById("ask-toggle");
   const panel = document.getElementById("ask-panel");
@@ -244,16 +270,19 @@ function wire() {
     responseEl.className = "ask-response loading";
     responseEl.textContent = "Asking...";
     try {
+      const provider = providerSel.value;
+      const model = modelInput.value.trim() || DEFAULT_MODEL[provider];
       const answer = await askProvider({
-        provider: providerSel.value,
+        provider: provider,
         key: key,
-        model: modelInput.value.trim(),
+        model: model,
         question: question,
         context: context,
         registryContext: registryContext,
       });
       responseEl.className = "ask-response";
-      responseEl.textContent = answer;
+      responseEl.innerHTML = "";
+      responseEl.appendChild(buildResultCard(provider, model, answer));
     } catch (err) {
       responseEl.className = "ask-response error";
       responseEl.textContent = err instanceof Error ? err.message : "something went wrong";

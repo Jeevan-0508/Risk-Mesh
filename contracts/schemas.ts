@@ -269,6 +269,24 @@ export const Outcome = MeshBase.extend({
 });
 export type Outcome = z.infer<typeof Outcome>;
 
+/**
+ * Human assessment of one named model result against one recorded case outcome. This is separate
+ * from Outcome.matches_prediction, which describes the case's authoritative Decision and cannot
+ * safely be copied onto every model that contributed to the case.
+ */
+export const ModelOutcomeAssessment = MeshBase.extend({
+  status: z.literal('CONFIRMED'),
+  case_id: MeshId,
+  model_result_id: MeshId,
+  outcome_id: MeshId,
+  reviewed_at: IsoTimestamp,
+  reviewer: z.string().min(1),
+  /** The reviewer explicitly judged this model's own prediction against the linked actual result. */
+  correct: z.boolean(),
+  rationale: z.string().min(1),
+});
+export type ModelOutcomeAssessment = z.infer<typeof ModelOutcomeAssessment>;
+
 // ---------------------------------------------------------------------------------------------
 // 12. Lesson (§27, §29)
 // ---------------------------------------------------------------------------------------------

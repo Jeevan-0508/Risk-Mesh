@@ -18,11 +18,10 @@
  * that to Phase 17, well past where this repo is today), not something a pure function does
  * silently on every import.
  *
- * There is no real call site for this today, for the same reason `runSystem1Calibration()` has
- * none: this repo has zero real `Outcome` records anywhere, so there are zero real
- * `{uncertainty, correct}` pairs to feed it - a sample needs a real `ModelResult.uncertainty` AND a
- * real, human-confirmed `Outcome.matches_prediction` for the same case. `core/outcome-engine.ts`
- * can now record the second half, but nothing in this repo has produced one yet.
+ * There is no record-backed caller for this today: a routing sample should pair one real
+ * `ModelResult.uncertainty` with a separate, human-confirmed `ModelOutcomeAssessment` for that
+ * exact model result. The case-level `Outcome.matches_prediction` must not be reused for this
+ * purpose. No real MESH Outcome/assessment records exist yet.
  */
 import { SYSTEM1_THRESHOLDS } from '../../core/arbitration-engine';
 import { CALIBRATION_THRESHOLDS } from './pipeline';

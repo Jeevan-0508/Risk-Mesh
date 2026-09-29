@@ -4,18 +4,10 @@
  * samples - built and tested now, with an honest `INSUFFICIENT_DATA` gate for the fact this repo
  * has zero real samples to feed it.
  *
- * There is no real call site for this today. MESH's own `Outcome` type (`contracts/schemas.ts`,
- * section 11) already has the field a calibration check would need (`matches_prediction`), but
- * nothing anywhere in this repo ever constructs a real `Outcome` record (checked directly: a
- * search for `matches_prediction`/`actual_result` outside `contracts/schemas.ts` and test files
- * finds nothing) - not even the two golden cases carry one. Building a bridge from `ModelResult`
- * to `Outcome` today would mean inventing an assumption spec §8/§14 does not state (whether one
- * case's `Outcome.matches_prediction` describes each individual System-1 model's own correctness,
- * or only the case's final Decision) - exactly the kind of speculative code `docs/MESH_ARCHITECTURE.md`
- * already declines to write for the learning ledger's validation machinery, for the same reason:
- * there is nothing real yet to validate that assumption against. This module stops at the honest
- * boundary: the math is real and tested against a clearly-synthetic verification dataset, and the
- * gate that would keep it from lying about today's real (zero) sample count is real too.
+ * `from-records.ts` now supplies an explicit bridge using separate human assessments for each
+ * model result. No real MESH outcomes/assessments have been entered yet, so that report remains
+ * honestly `INSUFFICIENT_DATA`. This module stays pure: it never infers model correctness from the
+ * case-level `Outcome.matches_prediction` field.
  */
 
 export type CalibrationSample = {
@@ -94,12 +86,9 @@ export function computeCalibration(
 }
 
 /**
- * The real call site, today: this repo has zero real samples (see this file's top comment), so
- * calling this with nothing produces the honest `INSUFFICIENT_DATA` result rather than silently
- * having no caller at all. Once a real bridge from `ModelResult` + `Outcome` to
- * `CalibrationSample[]` is designed (needs a spec answer to the per-model-vs-per-case question
- * above first), that bridge's real output replaces the empty array here - this function's shape
- * does not need to change when that happens.
+ * Low-level entry point for already-vetted samples. Applications with MESH records should use
+ * `runCalibrationFromRecords()` in `from-records.ts`, which enforces provenance and explicit
+ * per-model human assessments before reaching this calculation.
  */
 export function runSystem1Calibration(samples: CalibrationSample[] = []): CalibrationResult {
   return computeCalibration(samples);

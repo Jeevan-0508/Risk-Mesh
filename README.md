@@ -29,14 +29,14 @@ test suites. MESH's job is the layer none of them have a reason to own: a shared
 system's records can be mapped into, an evidence/provenance model with an honest six-value trust
 label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
 
-## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + two golden cases (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10; all 3 Laya checkpoints are real, live SHADOW connections as of 2026-09-23, see below) + System-1 Arena (`evaluation/system1-arena/`, live as of 2026-09-23) + System-1 shadow routing (`decideSystem1Action()`, 2026-09-23) + a real fraud-watch-to-System-1 integration (`evaluation/system1-arena/fraud-watch-cases.ts`, 2026-09-23) + a calibration pipeline (`evaluation/calibration/pipeline.ts`, real math, honestly `INSUFFICIENT_DATA` today) + an outcome engine (`core/outcome-engine.ts`, 2026-09-23, gives `CaseEngine.setOutcome()` its first real caller) + adaptive routing (`evaluation/calibration/adaptive-routing.ts`, 2026-09-23, proposes a `SYSTEM1_THRESHOLDS.uncertaintyCeiling` via Youden's J, never auto-applies it - the final slice in the System-1 directive's plan; still no real MESH `Outcome` records exist yet, so calibration and adaptive routing both stay `INSUFFICIENT_DATA` until one is recorded) + learning/knowledge lifecycle engines (Phases 12-13, with the PROVISIONAL-forever guard LEARNING_MODEL.md requires) + Observatory (Phase 19 slice, live at the link above, now also replaying a real System-1 Arena run against real fraud-watch MOs)
+## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + two golden cases (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10; all 3 Laya checkpoints are real, live SHADOW connections as of 2026-09-23, see below) + System-1 Arena (`evaluation/system1-arena/`, live as of 2026-09-23) + System-1 shadow routing (`decideSystem1Action()`, 2026-09-23) + a real fraud-watch-to-System-1 integration (`evaluation/system1-arena/fraud-watch-cases.ts`, 2026-09-23) + a calibration pipeline (`evaluation/calibration/pipeline.ts`) with a provenance-gated, per-model report from explicit human assessments (`evaluation/calibration/from-records.ts`, still honestly `INSUFFICIENT_DATA` until real records exist) + an outcome engine (`core/outcome-engine.ts`, 2026-09-23, gives `CaseEngine.setOutcome()` its first real caller) + adaptive routing (`evaluation/calibration/adaptive-routing.ts`, 2026-09-23, proposes a `SYSTEM1_THRESHOLDS.uncertaintyCeiling` via Youden's J, never auto-applies it - still no real MESH `Outcome` records exist, so no real calibration or adaptive proposal can be produced) + learning/knowledge lifecycle engines (Phases 12-13, with the PROVISIONAL-forever guard LEARNING_MODEL.md requires) + Observatory (Phase 19 slice, live at the link above, now also replaying a real System-1 Arena run against real fraud-watch MOs)
 
 See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
 code of every repo in the ecosystem — including a major finding that risk-swarm already implements
 evidence tiering, disagreement-as-signal, and provenance-hashed cross-repo sync, which reshaped this
 plan to avoid duplicating that work. See [`docs/MESH_ARCHITECTURE.md`](docs/MESH_ARCHITECTURE.md),
 [`docs/INTEGRATION_MATRIX.md`](docs/INTEGRATION_MATRIX.md),
-[`docs/MODEL_ARENA.md`](docs/MODEL_ARENA.md), and
+[`docs/MODEL_ARENA.md`](docs/MODEL_ARENA.md), [`docs/CALIBRATION.md`](docs/CALIBRATION.md), and
 [`docs/LEARNING_MODEL.md`](docs/LEARNING_MODEL.md) for the rest.
 
 Five adapters are implemented and tested against real captured or hash-verified data: risk-replay (live-verified
@@ -57,10 +57,11 @@ anywhere in this repo.
 
 ```
 contracts/
-  schemas.ts     17 zod schemas from spec §3 (Case, Evidence, Signal, Behavior, Decision,
-                 ModelResult, Disagreement, Challenge, Replay, CandidateMo, Outcome, Lesson,
-                 Knowledge, Review, Trust, Experiment, ModelProfile)
-  validate.ts    validateMeshObject(kind, candidate) — one dispatch point, not 17 imports
+  schemas.ts     19 zod schemas from spec §3 (Case, Evidence, Signal, Behavior, Decision,
+                 ModelResult, Disagreement, Challenge, Replay, CandidateMo, Outcome,
+                 ModelOutcomeAssessment, Lesson, Knowledge, Review, Trust, Experiment,
+                 ModelProfile, RepositorySource)
+  validate.ts    validateMeshObject(kind, candidate) — one dispatch point for all MESH schemas
   index.ts       barrel export
   *.test.ts      30 tests: required fields, status enums, the honesty rule on Provenance.source
 
@@ -148,6 +149,11 @@ evaluation/system1-arena/
   *.test.ts           18 tests: pure comparison logic, a genuine 2- and 3-model arena run against
                        the real Laya checkpoints via injected fixture-backed runners, and the
                        fraud-watch integration end to end against a real captured MO-0001 fixture
+
+evaluation/calibration/
+  pipeline.ts         Brier score + reliability buckets, with an explicit minimum-sample gate
+  from-records.ts     provenance-checked, per-model calibration from confirmed human assessments;
+                       it excludes simulated cases and never copies case-level correctness labels
 
 core/
   store.ts             generic in-memory MeshStore<T> (add/get/list/replace, rejects duplicate ids)

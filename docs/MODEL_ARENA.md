@@ -138,30 +138,29 @@ the first fixture. 8 tests in `fraud-watch-cases.test.ts` cover the state-mappin
 question fixture match, the input-translation shape, agreement -> `ACCEPT_SYSTEM1`, disagreement ->
 `ESCALATE_TO_SWARM`, and the fails-closed path with fewer than 2 real models.
 
-## Calibration pipeline (`evaluation/calibration/pipeline.ts`, live as of 2026-09-23)
+## Calibration pipeline (`evaluation/calibration/`, record bridge added 2026-09-29)
 
-The pure math a real calibration check needs (Brier score + a 10-bucket reliability diagram over
-`{confidence, correct}` samples) is built and tested - against a clearly-synthetic verification
-dataset, not MESH data - but has **no real call site**: this repo has zero real `Outcome` records
-anywhere (`contracts/schemas.ts` section 11 already has the field a calibration check would need,
-`matches_prediction`, but a direct search for it and `actual_result` outside the schema file and
-tests finds nothing real constructing one - not even the two golden cases carry one). Building a
-bridge from `ModelResult` to `Outcome` today would mean inventing an assumption spec §8/§14 does
-not state (whether one case's `Outcome.matches_prediction` describes each individual System-1
-model's own correctness, or only the case's final Decision) - the same reason
-`docs/MESH_ARCHITECTURE.md` already declines to write the learning ledger's validation machinery.
-`runSystem1Calibration()` called with no arguments - this repo's real state today - returns
-`INSUFFICIENT_DATA, sampleSize: 0`, not a fabricated number. 6 tests in `pipeline.test.ts`.
+The pure math in `pipeline.ts` computes a Brier score and 10-bucket reliability diagram over
+`{confidence, correct}` samples. `from-records.ts` now supplies the real record bridge without
+guessing what an `Outcome` means for each model: it requires a separate `ModelOutcomeAssessment`
+where a human explicitly judges one named `ModelResult` against one recorded `Outcome`. It also
+checks the assessment, model result, outcome, and case provenance and only admits `LIVE` or
+`SNAPSHOT` records. Reports remain separate by model/checkpoint so unlike confidence scales are
+never pooled. Simulated Fraud Watch labels are excluded by the case provenance gate.
+
+The record path exists, but the repository still has no real MESH Outcome or human model assessment
+records to feed it. `runCalibrationFromRecords()` therefore returns `INSUFFICIENT_DATA` per model
+until eligible assessments accumulate. `Outcome.matches_prediction` remains a case-level judgment
+and is never treated as a model-level label. See [`CALIBRATION.md`](CALIBRATION.md) for the record
+shape, eligibility rules, and caller example. The 30-sample floor is still an assumed rule of
+thumb, not a MESH-measured threshold.
 
 ## Outcome evaluation (`core/outcome-engine.ts`, live as of 2026-09-23)
 
-`OutcomeEngine.record()` is the one real place in this repo where an `Outcome` object can actually
-be stored and linked to its case, and it deliberately does not close the `ModelResult → Outcome`
-gap described above: `matches_prediction` stays whatever the caller passes in, never a value this
-engine derives from a `ModelResult` or a `Decision`. That is the same "no un-spec'd assumption"
-rule the calibration pipeline follows, applied to the write path instead of the read path - a
-correct `OutcomeEngine` does not quietly answer the question `runSystem1Calibration()`'s docs
-above explicitly decline to answer. 5 tests in `outcome-engine.test.ts`.
+`OutcomeEngine.record()` stores an `Outcome` and links it to the case; the new calibration path
+consumes that record alongside `ModelOutcomeAssessment` records. `matches_prediction` remains the
+caller's case-level judgment, never a value the engine derives from a `ModelResult` or `Decision`.
+5 tests in `outcome-engine.test.ts`.
 
 ## Adaptive routing (`evaluation/calibration/adaptive-routing.ts`, live as of 2026-09-23)
 
@@ -174,21 +173,22 @@ never an arithmetic negation of `confidence` (it is normalized Shannon entropy, 
 statistic), so this needed its own real sample shape. This module only proposes a ceiling; it
 never writes back into `SYSTEM1_THRESHOLDS` itself - the same no-repo-mutation-without-a-human-
 step rule that already applies to adapters, applied here to a shared constant instead of an
-external repo. `proposeSystem1ThresholdAdaptation()` called with nothing - this repo's real
-state today - returns `INSUFFICIENT_DATA`, for the same reason `runSystem1Calibration()` does:
-zero real `Outcome` records exist anywhere to pair with a real `ModelResult.uncertainty`. 5
-tests in `adaptive-routing.test.ts`, including two hand-verified Youden's J arithmetic checks.
+external repo. `proposeSystem1ThresholdAdaptation()` is still a low-level function over vetted
+samples; there is not yet a record-backed path from `ModelOutcomeAssessment` to uncertainty
+samples. Such a path must use the assessment for that exact `ModelResult`, never the case-level
+`Outcome.matches_prediction`. No real MESH outcomes or assessments exist yet. 5 tests in
+`adaptive-routing.test.ts`, including two hand-verified Youden's J arithmetic checks.
 
 ## What connecting the next model actually requires
 
 1. **Jev**: either an invite arrives (build the real HTTP client behind `JEV_API_KEY`, matching
    `.env.example`), or Jev stays `UNAVAILABLE` indefinitely and the arena runs Laya-checkpoint-only
    (still a real arena, as above).
-2. **Calibration** (§8/§14, see above): the math exists now, and `OutcomeEngine` can now record a
-   real `Outcome` once one exists, but no case in this repo has been through a real human-confirmed
-   result yet - Fraud Watch integration and System-1 Observability (above) supply a real case
-   source and real model calls, but not real outcomes, so calibration stays `INSUFFICIENT_DATA`
-   until real cases accumulate real, recorded results.
+2. **Calibration** (§8/§14, see above): the math and provenance-gated record bridge exist, and
+   `OutcomeEngine` can record a real `Outcome`, but no case in this repo has a real human-confirmed
+   outcome/assessment yet - Fraud Watch integration and System-1 Observability (above) supply a
+   simulated case source and real model calls, but not real outcomes, so calibration stays
+   `INSUFFICIENT_DATA` until real cases accumulate real, recorded results.
 3. **Adaptive routing** (see above): the proposal math exists now too, gated the same way -
    `SYSTEM1_THRESHOLDS.uncertaintyCeiling` stays its ASSUMED 0.7 until real outcomes accumulate
    and a human reviews and adopts a real proposed change.

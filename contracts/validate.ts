@@ -7,7 +7,8 @@ import * as schemas from './schemas';
 
 export const MESH_OBJECT_KINDS = [
   'case', 'evidence', 'signal', 'behavior', 'decision', 'model-result', 'disagreement',
-  'challenge', 'replay', 'candidate-mo', 'outcome', 'lesson', 'knowledge', 'review',
+  'challenge', 'replay', 'candidate-mo', 'outcome', 'model-outcome-assessment',
+  'lesson', 'knowledge', 'review',
   'trust', 'experiment', 'model-profile', 'repository-source',
 ] as const;
 export type MeshObjectKind = typeof MESH_OBJECT_KINDS[number];
@@ -24,6 +25,7 @@ const SCHEMA_OF_KIND: Record<MeshObjectKind, z.ZodTypeAny> = {
   replay: schemas.Replay,
   'candidate-mo': schemas.CandidateMo,
   outcome: schemas.Outcome,
+  'model-outcome-assessment': schemas.ModelOutcomeAssessment,
   lesson: schemas.Lesson,
   knowledge: schemas.Knowledge,
   review: schemas.Review,

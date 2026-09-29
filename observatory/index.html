@@ -43,6 +43,31 @@
       <label class="handoff-consent"><input id="ask-include-handoff" type="checkbox" disabled> Include this handoff context in Ask MESH. The selected provider receives the source excerpts and the synthetic-context label directly.</label>
       <div id="ask-handoff-status" class="handoff-status" aria-live="polite">No handoff loaded.</div>
     </div>
+    <section class="handoff-import proposal-panel" id="mesh-proposal-panel" hidden>
+      <h3>Prepare a pending knowledge review proposal</h3>
+      <p class="ask-disclosure">This is a separate, local human-authored step. Do not copy an LLM answer as independent review. Only IDs from external source records can be cited. Simulator candidates are omitted. Downloading creates no MESH knowledge, validation, approval, or write-back; the proposal remains pending independent review.</p>
+      <label class="ask-disclosure">Author attribution (self-declared, not identity-verified)
+        <input id="mesh-proposal-author" type="text" maxlength="120" autocomplete="off">
+      </label>
+      <label class="ask-disclosure">Proposed statement
+        <textarea id="mesh-proposal-statement" rows="3" maxlength="1000" placeholder="State one reviewable claim. Do not present the model's conclusion as a fact."></textarea>
+      </label>
+      <label class="ask-disclosure">Your assessment of the cited records
+        <select id="mesh-proposal-assessment">
+          <option value="supports">Supports the statement</option>
+          <option value="contradicts">Contradicts the statement</option>
+          <option value="mixed">Mixed support and contradiction</option>
+          <option value="insufficient">Evidence is insufficient</option>
+        </select>
+      </label>
+      <label class="ask-disclosure">Rationale and remaining uncertainty
+        <textarea id="mesh-proposal-rationale" rows="4" maxlength="3000" placeholder="Explain your assessment and what remains unknown."></textarea>
+      </label>
+      <div class="ask-disclosure">External source records. Select how each relates to this statement; these selections are human assertions, not verification.</div>
+      <div id="mesh-proposal-sources" class="proposal-source-list"></div>
+      <button id="mesh-proposal-download" type="button">Download pending review proposal</button>
+      <div id="mesh-proposal-status" class="handoff-status" aria-live="polite">No proposal created.</div>
+    </section>
     <div class="ask-config">
       <select id="ask-provider">
         <option value="openai">OpenAI</option>

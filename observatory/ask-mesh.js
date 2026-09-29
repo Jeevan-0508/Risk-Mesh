@@ -1,6 +1,7 @@
 import goldenCases from "./data/golden-cases.js";
 import system1Cases from "./data/system1-cases.js";
 import repoRegistry from "./data/repo-registry.js";
+import { createKnowledgeReviewProposal } from "./knowledge-review-proposal.js";
 
 // --- Ask MESH: a BYOK Q&A panel grounded in the fixed replay fixture and, only with explicit consent, ---
 // --- a locally imported unreviewed Risk Replay handoff. No hidden uploads or live repo connection. ---
@@ -283,6 +284,50 @@ async function askProvider(opts) {
   return text.trim();
 }
 
+function renderProposalSourceRows(container, handoff) {
+  container.replaceChildren();
+  for (const source of handoff.capture.research.source_records) {
+    const row = document.createElement("div");
+    row.className = "proposal-source-row";
+
+    const details = document.createElement("details");
+    details.className = "proposal-source-label";
+    const summary = document.createElement("summary");
+    summary.textContent = `${source.title || "Untitled source"} — ${source.provider} · ${source.evidence_id}`;
+    details.append(summary);
+    const excerpt = document.createElement("pre");
+    excerpt.textContent = source.excerpt;
+    details.append(excerpt);
+    if (source.injection_suspected || source.caveats.length > 0) {
+      const caveats = document.createElement("p");
+      const caveatText = source.caveats.length > 0 ? source.caveats.join("; ") : "";
+      caveats.textContent = [
+        source.injection_suspected ? "Prompt-injection-like content was flagged; treat as untrusted data." : "",
+        caveatText,
+      ].filter(Boolean).join(" ");
+      details.append(caveats);
+    }
+
+    const relation = document.createElement("select");
+    relation.dataset.evidenceId = source.evidence_id;
+    relation.setAttribute("aria-label", `Relationship for source ${source.evidence_id}`);
+    for (const [value, label] of [
+      ["", "Not cited"],
+      ["supports", "Supports"],
+      ["contradicts", "Contradicts"],
+      ["context_only", "Context only"],
+    ]) {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = label;
+      relation.append(option);
+    }
+
+    row.append(details, relation);
+    container.append(row);
+  }
+}
+
 function wire() {
   const toggleBtn = document.getElementById("ask-toggle");
   const panel = document.getElementById("ask-panel");
@@ -296,6 +341,14 @@ function wire() {
   const handoffFileInput = document.getElementById("ask-handoff-file");
   const includeHandoffInput = document.getElementById("ask-include-handoff");
   const handoffStatus = document.getElementById("ask-handoff-status");
+  const proposalPanel = document.getElementById("mesh-proposal-panel");
+  const proposalSources = document.getElementById("mesh-proposal-sources");
+  const proposalAuthor = document.getElementById("mesh-proposal-author");
+  const proposalStatement = document.getElementById("mesh-proposal-statement");
+  const proposalAssessment = document.getElementById("mesh-proposal-assessment");
+  const proposalRationale = document.getElementById("mesh-proposal-rationale");
+  const proposalDownload = document.getElementById("mesh-proposal-download");
+  const proposalStatus = document.getElementById("mesh-proposal-status");
   if (!toggleBtn || !panel) return; // ask-mesh.js loaded without its DOM -- do nothing, never throw
 
   const allCases = [...goldenCases.cases, ...system1Cases.cases];
@@ -308,6 +361,14 @@ function wire() {
       importedHandoff = null;
       includeHandoffInput.checked = false;
       includeHandoffInput.disabled = true;
+      if (proposalAuthor) proposalAuthor.value = "";
+      if (proposalStatement) proposalStatement.value = "";
+      if (proposalAssessment) proposalAssessment.value = "supports";
+      if (proposalRationale) proposalRationale.value = "";
+      if (proposalPanel && proposalSources) {
+        proposalPanel.hidden = true;
+        proposalSources.replaceChildren();
+      }
       handoffStatus.className = "handoff-status";
       const file = handoffFileInput.files && handoffFileInput.files[0];
       if (!file) {
@@ -329,6 +390,14 @@ function wire() {
         }
         importedHandoff = validation.handoff;
         includeHandoffInput.disabled = false;
+        if (proposalPanel && proposalSources) {
+          renderProposalSourceRows(proposalSources, importedHandoff);
+          proposalPanel.hidden = false;
+          if (proposalStatus) {
+            proposalStatus.className = "handoff-status";
+            proposalStatus.textContent = "No proposal created. Source records remain unverified; simulator hypothesis fields are excluded.";
+          }
+        }
         const sourceCount = importedHandoff.capture.research.source_records.length;
         const candidateAttached = importedHandoff.capture.hypothesis_context !== null;
         handoffStatus.textContent = `Validated envelope · ${sourceCount} external source record(s) · synthetic hypothesis ${candidateAttached ? "attached separately" : "not attached"} · still unreviewed and not replayed.`;
@@ -336,6 +405,44 @@ function wire() {
         handoffStatus.className = "handoff-status error";
         handoffStatus.textContent = error instanceof Error ? `Could not read handoff JSON: ${error.message}` : "Could not read handoff JSON.";
       }
+    });
+  }
+
+  if (proposalDownload && proposalStatus && proposalSources) {
+    proposalDownload.addEventListener("click", () => {
+      if (!importedHandoff) {
+        proposalStatus.className = "handoff-status error";
+        proposalStatus.textContent = "Load a valid Risk Replay handoff first.";
+        return;
+      }
+      const evidenceReferences = [...proposalSources.querySelectorAll("select[data-evidence-id]")]
+        .filter((select) => select.value)
+        .map((select) => ({ evidence_id: select.dataset.evidenceId, relationship: select.value }));
+      const result = createKnowledgeReviewProposal(importedHandoff, {
+        created_at: new Date().toISOString(),
+        author_name: proposalAuthor?.value || "",
+        statement: proposalStatement?.value || "",
+        assessment: proposalAssessment?.value || "",
+        rationale: proposalRationale?.value || "",
+        evidence_references: evidenceReferences,
+      });
+      if (!result.ok) {
+        proposalStatus.className = "handoff-status error";
+        proposalStatus.textContent = result.error;
+        return;
+      }
+
+      const blob = new Blob([JSON.stringify(result.proposal, null, 2)], { type: "application/json" });
+      const objectUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = objectUrl;
+      link.download = `mesh-knowledge-review-proposal-${result.proposal.created_at.slice(0, 10)}.json`;
+      document.body.append(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 0);
+      proposalStatus.className = "handoff-status";
+      proposalStatus.textContent = "Downloaded pending proposal. It is not validated or adopted knowledge, and no write-back occurred.";
     });
   }
 

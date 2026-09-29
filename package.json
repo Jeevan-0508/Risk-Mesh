@@ -9,6 +9,7 @@
   "scripts": {
     "test": "bun test",
     "test:watch": "bun test --watch",
+    "test:handoff": "node --test observatory/ask-mesh-handoff.test.mjs",
     "typecheck": "tsc -b --noEmit",
     "observatory:capture": "bun run observatory/scripts/capture-golden-events.ts",
     "observatory:capture:system1": "bun run observatory/scripts/capture-system1-events.ts",

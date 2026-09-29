@@ -2,7 +2,7 @@ import goldenCases from "./data/golden-cases.js";
 import system1Cases from "./data/system1-cases.js";
 import repoRegistry from "./data/repo-registry.js";
 
-// --- Ask MESH: a bring-your-own-key Q&A panel grounded ONLY in the same real case data ---
+// --- Ask MESH: a bring-your-own-key Q&A panel grounded ONLY in the same replay fixture data ---
 // --- orb.js already replays in the terminal log above. No live connection, no fabrication. ---
 
 const KEYS_STORAGE_KEY = "risk-mesh:ask-mesh-keys";
@@ -72,14 +72,13 @@ function persistPrefs(prefs) {
   }
 }
 
-// The real fraud-watch investigation record for a System-1 case -- deliberately never shown to
-// Laya during the blind test replayed above (see evaluation/system1-arena/fraud-watch-cases.ts),
-// but real, and the direct answer to "what did we actually find". Same FraudWatchMoRecord fields
-// adapters/fraud-watch/client.ts already parses; nothing re-derived, scored, or guessed here.
+// The Fraud Watch simulator's answer key for a System-1 case -- deliberately never shown to
+// Laya during the blind replay. It describes only the generated simulation world, not an actual
+// carrier, incident, investigation, or externally verified event.
 function groundTruthLines(gt) {
   const lines = [];
   lines.push(
-    "- GROUND TRUTH (fraud-watch's own investigation record, never shown to Laya above): status=" +
+    "- SIMULATION GROUND TRUTH (Fraud Watch answer key; synthetic and not a real-world investigation): status=" +
       gt.status + ", classification=" + gt.classification + ", confidence=" + gt.confidence +
       " (" + gt.confidenceBand + "), noveltyScore=" + gt.noveltyScore + ".",
   );
@@ -102,13 +101,14 @@ function groundTruthLines(gt) {
   return lines;
 }
 
-// The complete, real event data this same page replays in the terminal above -- nothing else is
+// The complete, fixed replay-fixture data this same page displays above -- nothing else is
 // ever fed to the model. If a question needs something outside this block, the system prompt
 // tells the model to say so rather than guess.
 export function buildMeshContext(cases) {
   const lines = [];
   for (const c of cases) {
     lines.push("### " + c.title + " (case_id=" + c.case_id + ")");
+    lines.push("- data_class: simulation_test_fixture (synthetic/demo data; not real-world incident evidence)");
     lines.push(c.summary);
     for (const ev of c.events) {
       lines.push("- [" + ev.at + "] " + ev.type + ": " + ev.detail);
@@ -137,13 +137,13 @@ function buildRegistryContext(repos) {
   return lines.join(String.fromCharCode(10));
 }
 
-function buildSystemPrompt(context, registryContext) {
+export function buildSystemPrompt(context, registryContext) {
   return [
-    "You are answering visitor questions on the RISK//MESH Observatory page, a small demo site for a personal project by Jeevan Siddhabhaktula. Answer ONLY from the CASE DATA and REPOSITORY REGISTRY below. The CASE DATA is the complete, real ledger-event data this same page replays in its terminal log (two golden test cases and two System-1 Arena runs against real fraud-watch cases). The REPOSITORY REGISTRY is the real, current, honest connection status of every project MESH knows about. If a question cannot be answered from this data, say so plainly instead of guessing.",
+    "You are answering visitor questions on the RISK//MESH Observatory page, a small demo site for a personal project by Jeevan Siddhabhaktula. Answer ONLY from the CASE DATA and REPOSITORY REGISTRY below. The CASE DATA is a fixed replay fixture: two golden test cases and two Fraud Watch simulator cases. Its simulation answer keys are synthetic and are not real incident or investigation evidence. The REPOSITORY REGISTRY records the connection status represented by this page. If a question cannot be answered from this data, say 'I don't know' or 'evidence is insufficient' instead of guessing.",
     "",
-    "Be accurate about what RISK//MESH actually is: a connective contract, evidence and provenance layer over several independent risk projects, not a live, always-on feed across all of them. Use the REPOSITORY REGISTRY below as the source of truth for which repositories are actually connected (LIVE, SNAPSHOT, or FIXTURE) versus UNAVAILABLE -- never claim a live connection to an UNAVAILABLE repository, even if asked. This page is a replay of a past test run, not a live system, and DEC-001 mentioned in the case data is a seeded demo decision from a sibling project, not a real incident.",
+    "Be accurate about what RISK//MESH actually is: a connective contract, evidence and provenance layer over several independent risk projects, not a live, always-on feed across all of them. Use the REPOSITORY REGISTRY below as the source for the connection status represented here (LIVE, SNAPSHOT, or FIXTURE versus UNAVAILABLE); never claim a live connection to an UNAVAILABLE repository. This page is a replay of a past test run, not a live system. DEC-001 is a seeded demo decision, and every Fraud Watch ground-truth label in this fixture describes only the simulator's generated world. Never present those labels as real-world facts or extrapolate them to actual carriers, incidents, prevalence, or fraud patterns.",
     "",
-    "For each fraud-watch System-1 case, the CASE DATA has TWO layers, and a question like \"what did we actually find\" or \"what happened\" is asking about the second one, not the first: (1) BEHAVIOR_OBSERVED/MODEL_CALLED/ARENA_COMPARED/SYSTEM1_ROUTED events are what Laya was shown and scored -- deliberately just a classification, confidence band and novelty score, no fraud-watch judgment, by design (a blind test). (2) The GROUND TRUTH line is fraud-watch's own real investigation record for that case (signature, entities, timeline, evidence, and real status) which was never shown to Laya. When asked what a case actually was, lead with GROUND TRUTH, and separately note how Laya scored it blind if useful context.",
+    "For each Fraud Watch System-1 simulator case, the CASE DATA has two layers: (1) BEHAVIOR_OBSERVED/MODEL_CALLED/ARENA_COMPARED/SYSTEM1_ROUTED events describe what Laya received during this blind replay, and (2) SIMULATION GROUND TRUTH is the simulator's generated answer key, never shown to Laya. Both layers are synthetic test data. When asked what a case actually was, say only what the simulation generated; explicitly state that this does not establish what happened in the real world. Treat Laya's classification, confidence band, and novelty score as model outputs, not verified facts.",
     "",
     "REPOSITORY REGISTRY:",
     registryContext,
@@ -268,4 +268,4 @@ function wire() {
   });
 }
 
-wire();
+if (typeof document !== "undefined") wire();

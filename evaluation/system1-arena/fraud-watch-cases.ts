@@ -1,6 +1,6 @@
 /**
- * Fraud Watch integration (System-1 directive step 6): wires a real fraud-watch-sourced `Behavior`
- * (`adapters/fraud-watch/`, real on-disk simulation state, Phase 5) into the System-1 Arena and
+ * Fraud Watch integration (System-1 directive step 6): wires a simulator-sourced `Behavior`
+ * (`adapters/fraud-watch/`, on-disk generated simulation state, Phase 5) into the System-1 Arena and
  * `decideSystem1Action()` - the first real call site for the shadow routing recommendation added
  * in the previous slice. Per spec §16, `Behavior.simulated` is always `true` for a fraud-watch
  * source; this module never exposes fraud-watch's own pre-computed judgment about the same
@@ -19,9 +19,9 @@ import type { LayaQuestion } from '../../adapters/model-registry/laya-runtime';
 import type { Behavior, ModelResult } from '../../contracts/schemas';
 
 /**
- * A real, captured question (see `adapters/model-registry/__fixtures__/laya-typed-fraud-watch-mo0001-call.json`),
- * not restated from the earlier POD-photo scenario's `fabrication_call` - MOs are a different real
- * question from a document-fabrication call.
+ * A captured question (see `adapters/model-registry/__fixtures__/laya-typed-fraud-watch-mo0001-call.json`),
+ * not restated from the earlier POD-photo scenario's `fabrication_call` - MOs are a different
+ * simulated-case question from a document-fabrication call.
  */
 export const CARRIER_BEHAVIOR_QUESTION: LayaQuestion = {
   type: 'choice',
@@ -34,7 +34,7 @@ export const CARRIER_BEHAVIOR_QUESTION: LayaQuestion = {
 };
 
 /**
- * Builds a Laya-callable state string from a real fraud-watch-sourced `Behavior` - `description`
+ * Builds a Laya-callable state string from a simulator-sourced `Behavior` - `description`
  * only, plus one static framing sentence (not a new interpretation of the signal codes). See this
  * file's own top comment for exactly what is deliberately excluded and why.
  */
@@ -63,7 +63,7 @@ export type FraudWatchSystem1Result =
   | { ok: false; reason: string; arena: ArenaRunResult };
 
 /**
- * End to end: a real fraud-watch `Behavior` -> a real Laya/Arena call -> a real shadow-mode
+ * End to end: a simulated fraud-watch `Behavior` -> a Laya/Arena call -> a shadow-mode
  * `decideSystem1Action` recommendation. `context` is required, not defaulted, so a caller cannot
  * accidentally forget it is choosing `swarmAvailable`/`jevAvailable`/`caseRisk` - every real call
  * site in this repo today passes the honest defaults (`false`/`false`/`'STANDARD'`), matching

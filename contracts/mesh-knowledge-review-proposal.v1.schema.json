@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Jeevan-0508/Risk-Mesh/contracts/mesh-knowledge-review-proposal.v1.schema.json",
+  "title": "MESH pending knowledge review proposal",
+  "description": "A local human-authored proposal only. It is not validated or adopted knowledge and cannot write back to MESH. Semantic evidence-ID membership must be checked against the original unreviewed Risk Replay handoff. Fraud Watch candidate fields are intentionally absent.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "created_at",
+    "status",
+    "knowledge_status",
+    "writeback",
+    "human_authorship",
+    "source_capture",
+    "proposal",
+    "synthetic_hypothesis",
+    "epistemic_limits"
+  ],
+  "properties": {
+    "schema_version": { "const": "mesh-knowledge-review-proposal.v1" },
+    "kind": { "const": "mesh_knowledge_review_proposal" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "status": { "const": "pending_independent_review" },
+    "knowledge_status": { "const": "not_created" },
+    "writeback": { "const": "none" },
+    "human_authorship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["display_name", "identity_basis"],
+      "properties": {
+        "display_name": { "type": "string", "minLength": 1 },
+        "identity_basis": { "const": "self_declared_unverified" }
+      }
+    },
+    "source_capture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["handoff_schema_version", "handoff_created_at", "swarm_repository", "swarm_revision", "swarm_run_id"],
+      "properties": {
+        "handoff_schema_version": { "const": "risk-replay-research-handoff.v1" },
+        "handoff_created_at": { "type": "string", "format": "date-time" },
+        "swarm_repository": { "const": "Jeevan-0508/risk-swarm" },
+        "swarm_revision": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^[0-9a-f]{40}$" }
+          ]
+        },
+        "swarm_run_id": { "type": "string" }
+      }
+    },
+    "proposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statement", "assessment", "rationale", "evidence_references"],
+      "properties": {
+        "statement": { "type": "string", "minLength": 12, "maxLength": 1000 },
+        "assessment": { "enum": ["supports", "contradicts", "mixed", "insufficient"] },
+        "rationale": { "type": "string", "minLength": 12, "maxLength": 3000 },
+        "evidence_references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["evidence_id", "relationship", "content_hash", "content_hash_algorithm"],
+            "properties": {
+              "evidence_id": { "type": "string", "minLength": 1 },
+              "relationship": { "enum": ["supports", "contradicts", "context_only"] },
+              "content_hash": { "type": "string", "minLength": 1 },
+              "content_hash_algorithm": { "enum": ["sha256", "fnv1a"] }
+            }
+          }
+        }
+      }
+    },
+    "synthetic_hypothesis": { "const": "excluded" },
+    "epistemic_limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_authenticity", "claim_entailment", "source_independence", "human_identity", "validation"],
+      "properties": {
+        "source_authenticity": { "const": "unverified" },
+        "claim_entailment": { "const": "not_established" },
+        "source_independence": { "const": "not_established" },
+        "human_identity": { "const": "not_verified" },
+        "validation": { "const": "not_performed" }
+      }
+    }
+  }
+}

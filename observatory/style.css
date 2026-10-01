@@ -61,7 +61,7 @@ header .back:hover { background: rgba(246, 214, 138, 0.08); }
 .ask-disclosure { font-size: 0.68rem; color: #8a7350; line-height: 1.5; margin: 0; }
 .ask-disclosure code { color: #b7a377; }
 .ask-config, .ask-qa { display: flex; gap: 6px; flex-wrap: wrap; }
-.ask-panel select, .ask-panel input, .ask-panel button {
+.ask-panel select, .ask-panel input, .ask-panel button, .ask-panel textarea {
   background: rgba(20, 16, 8, 0.7); border: 1px solid #4a3a1e; color: #e8d9b8; font-family: inherit;
   font-size: 0.72rem; padding: 6px 10px; border-radius: 3px;
 }
@@ -72,6 +72,21 @@ header .back:hover { background: rgba(246, 214, 138, 0.08); }
 .ask-panel button:hover { background: rgba(246, 214, 138, 0.08); }
 .ask-panel button:disabled { opacity: 0.45; cursor: default; }
 .ask-qa input { min-width: 260px; }
+.handoff-import { border: 1px solid #4a3a1e; background: rgba(20, 16, 8, 0.55); border-radius: 3px; padding: 9px 10px; display: flex; flex-direction: column; gap: 7px; }
+.handoff-import input[type="file"] { display: block; width: 100%; margin-top: 5px; }
+.handoff-consent { display: flex; align-items: flex-start; gap: 7px; color: #b7a377; font-size: 0.68rem; line-height: 1.4; }
+.handoff-consent input { flex: 0 0 auto; min-width: 0; margin-top: 1px; }
+.handoff-status { font-size: 0.68rem; color: #8fe0a0; line-height: 1.4; }
+.handoff-status.error { color: #ff9c9c; }
+.proposal-panel h3 { margin: 0; color: #d8c79a; font-size: 0.78rem; font-weight: 600; }
+.proposal-panel label { display: flex; flex-direction: column; gap: 4px; }
+.proposal-panel textarea { width: 100%; resize: vertical; box-sizing: border-box; line-height: 1.45; }
+.proposal-panel input, .proposal-panel select { width: 100%; box-sizing: border-box; }
+.proposal-source-list { display: flex; flex-direction: column; gap: 6px; max-height: 220px; overflow: auto; }
+.proposal-source-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 0.45fr); align-items: center; gap: 8px; border-top: 1px solid rgba(74, 58, 30, 0.65); padding-top: 6px; }
+.proposal-source-label { min-width: 0; color: #b7a377; font-size: 0.66rem; line-height: 1.4; overflow-wrap: anywhere; }
+.proposal-source-label code { color: #8a7350; }
+.proposal-status.error { color: #ff9c9c; }
 .ask-response {
   font-size: 0.78rem; line-height: 1.55; color: #d8c79a; white-space: pre-wrap;
   min-height: 1.2em;

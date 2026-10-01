@@ -9,9 +9,9 @@ arbitration, not another engine.**
 
 MESH itself has one small UI of its own - **[Observatory](https://jeevan-0508.github.io/Risk-Mesh/observatory/)**
 ([`observatory/`](observatory/) source), a replay (not a live feed)
-of its two real golden cases, plus two real System-1 Arena runs against real fraud-watch MOs,
+of two seeded golden test cases plus two System-1 Arena replays over synthetic Fraud Watch simulator cases,
 through a particle-orb + terminal-log visualization, plus a bring-your-own-key **Ask MESH**
-panel grounded only in that same real case data (never a live cross-repo feed), see
+panel grounded only in those demo/test records (never a live cross-repo feed), see
 [`docs/MESH_ARCHITECTURE.md`](docs/MESH_ARCHITECTURE.md#observatory-phase-19--small-slice-implemented-a-live-cross-system-dashboard-still-planned)
 for exactly what it does and doesn't show.
 

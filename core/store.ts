@@ -20,29 +20,31 @@ export class MeshStore<T extends { id: string }> {
 
   add(item: T): T {
     if (this.items.has(item.id)) throw new DuplicateIdError(item.id);
-    this.items.set(item.id, item);
-    return item;
+    this.items.set(item.id, structuredClone(item));
+    return structuredClone(item);
   }
 
   get(id: string): T | undefined {
-    return this.items.get(id);
+    const item = this.items.get(id);
+    return item === undefined ? undefined : structuredClone(item);
   }
 
   require(id: string): T {
     const item = this.items.get(id);
     if (!item) throw new NotFoundError(id);
-    return item;
+    return structuredClone(item);
   }
 
   list(): T[] {
-    return [...this.items.values()];
+    return structuredClone([...this.items.values()]);
   }
 
   /** Replaces the stored item wholesale. Callers decide what "wholesale" means (e.g. a new status). */
   replace(id: string, next: T): T {
     this.require(id);
-    this.items.set(id, next);
-    return next;
+    if (next.id !== id) throw new Error('A replacement cannot change object identity');
+    this.items.set(id, structuredClone(next));
+    return structuredClone(next);
   }
 
   size(): number {

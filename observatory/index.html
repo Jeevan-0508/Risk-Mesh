@@ -27,15 +27,50 @@
   </div>
   <div class="case-summary" id="case-summary"></div>
   <div class="ask-panel" id="ask-panel" hidden>
-    <p class="ask-disclosure">Ask about the 4 real cases shown above, or about which of Jeevan's other risk
+    <p class="ask-disclosure">Ask about the four synthetic replay cases shown above, or about which of Jeevan's other risk
       projects MESH actually reads. Bring your own API key (OpenAI or OpenRouter): it is sent directly from your
-      browser to that provider only, stored only in this browser's <code>localStorage</code>, never sent to this
-      site or to Jeevan. Every answer here is grounded only in the real case data this page replays plus a real
+      browser to that provider only, kept only in this page's memory, never sent to this
+      site or to Jeevan. The Fraud Watch ground-truth labels describe simulator-generated cases, not real incidents.
+      Every answer here is grounded only in the fixed replay fixture plus a
       <a href="data/repo-registry.js" target="_blank">repository registry</a> of MESH's actual per-repo
       connection status (LIVE, SNAPSHOT, or UNAVAILABLE); MESH is not a live feed connected to everything, and
       will say so rather than guess.</p>
+    <div class="handoff-import">
+      <p class="ask-disclosure">Optional local handoff: select an unreviewed <code>risk-replay-research-handoff.v1</code> JSON file. It remains in this browser. Source records are unverified provider-returned content; any Fraud Watch candidate remains synthetic hypothesis context and is never evidence. Nothing from the file is sent to an AI provider unless the checkbox below is selected.</p>
+      <label class="ask-disclosure">Risk Replay handoff JSON (maximum 2 MB)
+        <input id="ask-handoff-file" type="file" accept=".json,application/json">
+      </label>
+      <label class="handoff-consent"><input id="ask-include-handoff" type="checkbox" disabled> Include this handoff context in Ask MESH. The selected provider receives the source excerpts and the synthetic-context label directly.</label>
+      <div id="ask-handoff-status" class="handoff-status" aria-live="polite">No handoff loaded.</div>
+    </div>
+    <section class="handoff-import proposal-panel" id="mesh-proposal-panel" hidden>
+      <h3>Prepare a pending knowledge review proposal</h3>
+      <p class="ask-disclosure">This is a separate, local human-authored step. Do not copy an LLM answer as independent review. Only IDs from external source records can be cited. Simulator candidates are omitted. Downloading creates no MESH knowledge, validation, approval, or write-back; the proposal remains pending independent review.</p>
+      <label class="ask-disclosure">Author attribution (self-declared, not identity-verified)
+        <input id="mesh-proposal-author" type="text" maxlength="120" autocomplete="off">
+      </label>
+      <label class="ask-disclosure">Proposed statement
+        <textarea id="mesh-proposal-statement" rows="3" maxlength="1000" placeholder="State one reviewable claim. Do not present the model's conclusion as a fact."></textarea>
+      </label>
+      <label class="ask-disclosure">Your assessment of the cited records
+        <select id="mesh-proposal-assessment">
+          <option value="supports">Supports the statement</option>
+          <option value="contradicts">Contradicts the statement</option>
+          <option value="mixed">Mixed support and contradiction</option>
+          <option value="insufficient">Evidence is insufficient</option>
+        </select>
+      </label>
+      <label class="ask-disclosure">Rationale and remaining uncertainty
+        <textarea id="mesh-proposal-rationale" rows="4" maxlength="3000" placeholder="Explain your assessment and what remains unknown."></textarea>
+      </label>
+      <div class="ask-disclosure">External source records. Select how each relates to this statement; these selections are human assertions, not verification.</div>
+      <div id="mesh-proposal-sources" class="proposal-source-list"></div>
+      <button id="mesh-proposal-download" type="button">Download pending review proposal</button>
+      <div id="mesh-proposal-status" class="handoff-status" aria-live="polite">No proposal created.</div>
+    </section>
     <div class="ask-config">
       <select id="ask-provider">
+          <option value="local">Repository records (local, no API key)</option>
         <option value="openai">OpenAI</option>
         <option value="openrouter">OpenRouter</option>
       </select>

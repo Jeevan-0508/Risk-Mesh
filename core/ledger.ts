@@ -29,19 +29,19 @@ export class Ledger {
   append(event: Omit<LedgerEvent, 'event_id'>): LedgerEvent {
     this.sequence += 1;
     const stamped: LedgerEvent = { ...event, event_id: `evt-${this.sequence}` };
-    this.events.push(stamped);
-    return stamped;
+    this.events.push(structuredClone(stamped));
+    return structuredClone(stamped);
   }
 
   list(): readonly LedgerEvent[] {
-    return this.events;
+    return structuredClone(this.events);
   }
 
   forCase(caseId: string): LedgerEvent[] {
-    return this.events.filter((e) => e.case_id === caseId);
+    return structuredClone(this.events.filter((e) => e.case_id === caseId));
   }
 
   ofType(type: LedgerEventType): LedgerEvent[] {
-    return this.events.filter((e) => e.type === type);
+    return structuredClone(this.events.filter((e) => e.type === type));
   }
 }

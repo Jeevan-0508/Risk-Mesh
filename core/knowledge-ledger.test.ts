@@ -1,70 +1,49 @@
 import { describe, expect, it } from 'bun:test';
 import { KnowledgeLedger, IllegalKnowledgeTransitionError } from './knowledge-ledger';
 import { Ledger } from './ledger';
-import type { Knowledge } from '../contracts/schemas';
+import { validationFixture, VERIFIED_AT as AT } from './__fixtures__/validation-fixture';
 
-const AT = '2026-09-23T10:00:00.000Z';
-const makeKnowledge = (overrides: Partial<Knowledge> = {}): Knowledge => ({
-  id: 'know-1', schema_version: '1.0', created_at: AT, source: 'test', status: 'ACTIVE',
-  provenance: { source: 'SIMULATED', system: 'test', retrieved_at: AT, upstream_ref: null, note: null },
-  statement: 'Double brokering on lane X correlates with rate undercuts > 15%', version: 1,
-  last_confirmed: AT, confidence: 0.7, validation_count: 1, contradiction_count: 0,
-  decay_policy: 'stale after 90 days without reconfirmation',
-  ...overrides,
-});
-
-describe('KnowledgeLedger', () => {
-  it('record() writes a KNOWLEDGE_ADOPTED ledger event', () => {
-    const ledger = new Ledger();
-    const knowledge = new KnowledgeLedger(ledger);
-    knowledge.record(makeKnowledge());
-    expect(ledger.ofType('KNOWLEDGE_ADOPTED').length).toBe(1);
+function setup() {
+  const fixture = validationFixture(); const ledger = new Ledger();
+  const knowledge = new KnowledgeLedger(ledger); const permit = fixture.permit();
+  return { knowledge, ledger, permit };
+}
+describe('KnowledgeLedger controlled adoption', () => {
+  it('records approved claims with unknown probability and bound provenance', () => {
+    const { knowledge, ledger, permit } = setup(); const item = knowledge.recordApproved(permit);
+    expect(item.confidence).toBeNull(); expect(item.validation_count).toBe(2);
+    expect(item.provenance.upstream_ref).toBe(permit.validation_bundle_sha256);
+    expect(ledger.ofType('KNOWLEDGE_ADOPTED')).toHaveLength(1);
   });
-
-  it('record() rejects a knowledge version that does not start ACTIVE', () => {
-    const knowledge = new KnowledgeLedger(new Ledger());
-    expect(() => knowledge.record(makeKnowledge({ status: 'STALE' }))).toThrow();
+  it('rejects bare records, invented confidence and claim substitution', () => {
+    const { knowledge, permit } = setup(); const item = knowledge.recordApproved(permit);
+    const other = new KnowledgeLedger(new Ledger());
+    expect(() => other.record(item)).toThrow('permit');
+    expect(() => other.record({ ...item, confidence: .99 }, permit)).toThrow('calibrated');
+    expect(() => other.record({ ...item, statement: 'A substituted claim.' }, permit)).toThrow('another');
+    expect(() => other.record({ ...item, provenance: { ...item.provenance, source: 'SIMULATED' } }, permit)).toThrow('Synthetic');
   });
-
-  it('allows ACTIVE -> STALE -> ACTIVE (reconfirmed) and ACTIVE -> SUPERSEDED', () => {
-    const knowledge = new KnowledgeLedger(new Ledger());
-    knowledge.record(makeKnowledge());
-    knowledge.transition('know-1', 'STALE', 'no reconfirmation in 90 days', AT);
-    const reconfirmed = knowledge.transition('know-1', 'ACTIVE', 'reconfirmed by a new case', AT);
-    expect(reconfirmed.status).toBe('ACTIVE');
-    const superseded = knowledge.transition('know-1', 'SUPERSEDED', 'replaced by v2', AT);
-    expect(superseded.status).toBe('SUPERSEDED');
+  it('requires newer validation for reconfirmation and keeps rejected mutations atomic', () => {
+    const { knowledge, ledger, permit } = setup(); knowledge.recordApproved(permit);
+    knowledge.transition('know-1', 'STALE', 'source changed', AT);
+    expect(() => knowledge.transition('know-1', 'ACTIVE', 'reuse old review', AT, permit)).toThrow('newer');
+    expect(knowledge.get('know-1')?.status).toBe('STALE');
+    expect(ledger.ofType('KNOWLEDGE_STATUS_CHANGED')).toHaveLength(1);
   });
-
-  it('rejects any transition out of the terminal SUPERSEDED status', () => {
-    const knowledge = new KnowledgeLedger(new Ledger());
-    knowledge.record(makeKnowledge());
-    knowledge.transition('know-1', 'SUPERSEDED', 'replaced', AT);
-    expect(() => knowledge.transition('know-1', 'ACTIVE', 'reconsidered', AT)).toThrow(IllegalKnowledgeTransitionError);
+  it('records contradictions and never silently restores contradicted knowledge', () => {
+    const { knowledge, permit } = setup(); knowledge.recordApproved(permit);
+    expect(knowledge.recordContradiction('know-1', 'source disagrees', AT).contradiction_count).toBe(1);
+    expect(() => knowledge.transition('know-1', 'ACTIVE', 'ignore', AT, permit)).toThrow(IllegalKnowledgeTransitionError);
+    knowledge.transition('know-1', 'SUPERSEDED', 'reviewed replacement', AT);
+    expect(() => knowledge.recordContradiction('know-1', 'late change', AT)).toThrow(IllegalKnowledgeTransitionError);
+    expect(knowledge.get('know-1')?.contradiction_count).toBe(1);
   });
-
-  it('CONTRADICTED may only move to SUPERSEDED, never silently back to ACTIVE', () => {
-    const knowledge = new KnowledgeLedger(new Ledger());
-    knowledge.record(makeKnowledge());
-    knowledge.transition('know-1', 'CONTRADICTED', 'a newer case directly contradicts this', AT);
-    expect(() => knowledge.transition('know-1', 'ACTIVE', 'ignore the contradiction', AT)).toThrow(IllegalKnowledgeTransitionError);
-    const superseded = knowledge.transition('know-1', 'SUPERSEDED', 'replaced after review', AT);
-    expect(superseded.status).toBe('SUPERSEDED');
-  });
-
-  it('recordContradiction() increments contradiction_count and transitions to CONTRADICTED, as one signal never silently absorbed', () => {
-    const knowledge = new KnowledgeLedger(new Ledger());
-    knowledge.record(makeKnowledge({ contradiction_count: 0 }));
-    const contradicted = knowledge.recordContradiction('know-1', 'FFT-002 case directly contradicts this claim', AT);
-    expect(contradicted.status).toBe('CONTRADICTED');
-    expect(contradicted.contradiction_count).toBe(1);
-  });
-
-  it('transition() writes a KNOWLEDGE_STATUS_CHANGED ledger event for every status change', () => {
-    const ledger = new Ledger();
-    const knowledge = new KnowledgeLedger(ledger);
-    knowledge.record(makeKnowledge());
-    knowledge.transition('know-1', 'STALE', 'no reconfirmation', AT);
-    expect(ledger.ofType('KNOWLEDGE_STATUS_CHANGED').length).toBe(1);
+  it('protects stored objects and audit history from caller mutation', () => {
+    const { knowledge, ledger, permit } = setup(); const item = knowledge.recordApproved(permit);
+    item.status = 'SUPERSEDED'; item.provenance.upstream_ref = 'forged';
+    knowledge.list()[0]!.statement = 'forged'; ledger.list()[0]!.detail = 'forged';
+    expect(knowledge.get('know-1')?.status).toBe('ACTIVE');
+    expect(knowledge.get('know-1')?.statement).toBe(permit.candidate.statement);
+    expect(ledger.list()[0]!.detail).toContain(permit.validation_bundle_sha256);
   });
 });

@@ -91,7 +91,8 @@ export function buildLessonProvisionalScenario(caseId = 'case-dec-001-lesson'): 
 
   learning.propose(lesson);
   learning.transition(lesson.id, 'VERIFIED', 'reviewed by golden case', AT);
-  learning.transition(lesson.id, 'VALIDATED', 'root cause confirmed against the real replay finding', AT);
+  // A simulator regression finding has no real outcome or independent approvals. It remains VERIFIED
+  // only as a replay observation; the production validation gate must refuse promotion.
 
   return { ...base, learning, knowledge, lesson };
 }

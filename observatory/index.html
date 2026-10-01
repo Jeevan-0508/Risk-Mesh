@@ -29,7 +29,7 @@
   <div class="ask-panel" id="ask-panel" hidden>
     <p class="ask-disclosure">Ask about the four synthetic replay cases shown above, or about which of Jeevan's other risk
       projects MESH actually reads. Bring your own API key (OpenAI or OpenRouter): it is sent directly from your
-      browser to that provider only, stored only in this browser's <code>localStorage</code>, never sent to this
+      browser to that provider only, kept only in this page's memory, never sent to this
       site or to Jeevan. The Fraud Watch ground-truth labels describe simulator-generated cases, not real incidents.
       Every answer here is grounded only in the fixed replay fixture plus a
       <a href="data/repo-registry.js" target="_blank">repository registry</a> of MESH's actual per-repo
@@ -70,6 +70,7 @@
     </section>
     <div class="ask-config">
       <select id="ask-provider">
+          <option value="local">Repository records (local, no API key)</option>
         <option value="openai">OpenAI</option>
         <option value="openrouter">OpenRouter</option>
       </select>

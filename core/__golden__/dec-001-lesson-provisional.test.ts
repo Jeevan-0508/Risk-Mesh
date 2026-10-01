@@ -22,12 +22,12 @@ describe('golden case: DEC-001 lesson stays PROVISIONAL forever (risk-replay dem
   it('walks CASE -> EVIDENCE -> REPLAY -> LESSON, and blocks ADOPTED at the real guard', () => {
     const { ledger, mesh_case, learning, knowledge, lesson } = buildLessonProvisionalScenario();
 
-    expect(learning.get(lesson.id)?.status).toBe('VALIDATED');
+    expect(learning.get(lesson.id)?.status).toBe('VERIFIED');
 
     expect(() => learning.transition(lesson.id, 'ADOPTED', 'attempting promotion', AT))
       .toThrow(ProvisionalLessonError);
     // The guard fails before any mutation or ledger event — the lesson stays exactly where it was.
-    expect(learning.get(lesson.id)?.status).toBe('VALIDATED');
+    expect(learning.get(lesson.id)?.status).toBe('VERIFIED');
 
     // No ADOPTED lesson exists to promote, so KnowledgeLedger.record() is correctly never called —
     // asserting an empty knowledge store here is the honest alternative to fabricating a Knowledge
@@ -40,7 +40,7 @@ describe('golden case: DEC-001 lesson stays PROVISIONAL forever (risk-replay dem
       'EVIDENCE_ADDED', 'EVIDENCE_ADDED', 'EVIDENCE_ADDED', 'EVIDENCE_ADDED',
       'EVIDENCE_ADDED', 'EVIDENCE_ADDED', 'EVIDENCE_ADDED', 'EVIDENCE_ADDED',
       'REPLAY',
-      'LESSON_PROPOSED', 'LESSON_STATUS_CHANGED', 'LESSON_VALIDATED',
+      'LESSON_PROPOSED', 'LESSON_STATUS_CHANGED',
     ]);
   });
 });

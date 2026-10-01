@@ -1,3 +1,6 @@
+import repositoryState from "./data/repository-state.js";
+import { queryRepositoryState, formatRepositoryAnswer } from "./repository-query.js";
+import { validateInvestigationHandoff, buildInvestigationContext } from "./investigation-handoff.js";
 import goldenCases from "./data/golden-cases.js";
 import system1Cases from "./data/system1-cases.js";
 import repoRegistry from "./data/repo-registry.js";
@@ -20,38 +23,12 @@ const DEFAULT_MODEL = {
 
 // Guarded localStorage, same discipline as risk-swarm app/lib/models.ts: a full or hostile
 // storage degrades to doing nothing, never to crashing the panel.
-function restoreKeys() {
-  try {
-    const raw = window.localStorage.getItem(KEYS_STORAGE_KEY);
-    if (!raw) return {};
-    const parsed = JSON.parse(raw);
-    const out = {};
-    for (const p of Object.keys(PROVIDER_ENDPOINT)) {
-      if (typeof parsed[p] === "string" && parsed[p]) out[p] = parsed[p];
-    }
-    return out;
-  } catch {
-    return {};
-  }
-}
-function persistKey(provider, key) {
-  try {
-    const keys = restoreKeys();
-    keys[provider] = key;
-    window.localStorage.setItem(KEYS_STORAGE_KEY, JSON.stringify(keys));
-  } catch {
-    // a key that cannot be saved is a convenience lost, not a reason to fail the panel
-  }
-}
-function clearKey(provider) {
-  try {
-    const keys = restoreKeys();
-    delete keys[provider];
-    window.localStorage.setItem(KEYS_STORAGE_KEY, JSON.stringify(keys));
-  } catch {
-    // nothing to do
-  }
-}
+// Keys are memory-only. Remove credentials persisted by previous releases.
+const sessionKeys = {};
+function restoreKeys() { return { ...sessionKeys }; }
+function persistKey(provider, key) { if (Object.hasOwn(PROVIDER_ENDPOINT, provider)) sessionKeys[provider] = key; }
+function clearKey(provider) { delete sessionKeys[provider]; }
+if (typeof window !== "undefined") { try { window.localStorage.removeItem(KEYS_STORAGE_KEY); } catch {} }
 function restorePrefs() {
   try {
     const raw = window.localStorage.getItem(PREFS_STORAGE_KEY);
@@ -212,6 +189,8 @@ export function validateRiskReplayHandoff(value) {
   return { ok: true, handoff: value };
 }
 
+export { validateInvestigationHandoff, buildInvestigationContext };
+
 export function buildRiskReplayContext(handoff) {
   const capture = handoff.capture;
   const lines = [
@@ -257,6 +236,7 @@ async function askProvider(opts) {
   const endpoint = PROVIDER_ENDPOINT[provider];
   const res = await fetch(endpoint, {
     method: "POST",
+    signal: AbortSignal.timeout(45_000),
     headers: { "content-type": "application/json", authorization: "Bearer " + key },
     body: JSON.stringify({
       model: model || DEFAULT_MODEL[provider],
@@ -355,10 +335,12 @@ function wire() {
   const context = buildMeshContext(allCases);
   const registryContext = buildRegistryContext(repoRegistry.repositories);
   let importedHandoff = null;
+  let importedInvestigation = null;
 
   if (handoffFileInput && includeHandoffInput && handoffStatus) {
     handoffFileInput.addEventListener("change", async () => {
       importedHandoff = null;
+      importedInvestigation = null;
       includeHandoffInput.checked = false;
       includeHandoffInput.disabled = true;
       if (proposalAuthor) proposalAuthor.value = "";
@@ -384,8 +366,15 @@ function wire() {
         const parsed = JSON.parse(await file.text());
         const validation = validateRiskReplayHandoff(parsed);
         if (!validation.ok) {
-          handoffStatus.className = "handoff-status error";
-          handoffStatus.textContent = validation.error;
+          const investigation = validateInvestigationHandoff(parsed);
+          if (!investigation.ok) {
+            handoffStatus.className = "handoff-status error";
+            handoffStatus.textContent = `${validation.error} ${investigation.error}`;
+            return;
+          }
+          importedInvestigation = investigation.handoff;
+          includeHandoffInput.disabled = false;
+          handoffStatus.textContent = `Validated frozen investigation · ${investigation.handoff.snapshot.capture.research.source_records.length} external source record(s) · proposal promotion prohibited.`;
           return;
         }
         importedHandoff = validation.handoff;
@@ -447,7 +436,7 @@ function wire() {
   }
 
   const prefs = restorePrefs();
-  if (prefs.provider) providerSel.value = prefs.provider;
+  if (prefs.provider && ["local", ...Object.keys(PROVIDER_ENDPOINT)].includes(prefs.provider)) providerSel.value = prefs.provider;
   if (prefs.model) modelInput.value = prefs.model;
   const loadKeyForProvider = () => {
     const keys = restoreKeys();
@@ -480,6 +469,11 @@ function wire() {
     const question = questionInput.value.trim();
     const key = keyInput.value.trim();
     if (!question) return;
+    const local = queryRepositoryState(question, repositoryState, importedInvestigation || importedHandoff);
+    const localText = formatRepositoryAnswer(local);
+    if (providerSel.value === 'local') {
+      responseEl.className = 'ask-response'; responseEl.textContent = localText; return;
+    }
     if (!key) {
       responseEl.className = "ask-response error";
       responseEl.textContent = "Paste an API key above first -- it is used directly from your browser, never sent to this site.";
@@ -494,12 +488,15 @@ function wire() {
         key: key,
         model: modelInput.value.trim(),
         question: question,
-        context: context,
+        context: context + "\nREPOSITORY QUERY RESULT (authored snapshot records; no empirical truth assertion):\n" + formatRepositoryAnswer(queryRepositoryState(question, repositoryState, importedInvestigation || importedHandoff)),
         registryContext: registryContext,
-        handoffContext: importedHandoff && includeHandoffInput?.checked ? buildRiskReplayContext(importedHandoff) : "No imported handoff was supplied.",
+        handoffContext: includeHandoffInput?.checked
+          ? importedInvestigation ? buildInvestigationContext(importedInvestigation)
+            : importedHandoff ? buildRiskReplayContext(importedHandoff) : "No imported handoff was supplied."
+          : "No imported handoff was supplied.",
       });
       responseEl.className = "ask-response";
-      responseEl.textContent = answer;
+      responseEl.textContent = localText + "\n\nMODEL INTERPRETATION — unverified inference, not factual authority\n" + answer;
     } catch (err) {
       responseEl.className = "ask-response error";
       responseEl.textContent = err instanceof Error ? err.message : "something went wrong";

@@ -30,6 +30,7 @@ export class OutcomeEngine {
    * two ledger entries for one recorded outcome would be a duplicate, not an audit trail.
    */
   record(outcome: Outcome): Outcome {
+    if (!this.caseEngine.get(outcome.case_id)) throw new Error('Cannot record outcome for a missing case');
     const stored = this.store.add(outcome);
     this.caseEngine.setOutcome(outcome.case_id, outcome.id, outcome.observed_at);
     return stored;
@@ -56,7 +57,8 @@ export class OutcomeEngine {
     const current = this.store.require(id);
     const next: Outcome = { ...current, ...patch, status: 'AMENDED' };
     this.store.replace(id, next);
-    this.ledger.append({ type: 'OUTCOME', at, case_id: current.case_id, ref_id: id, detail: `outcome amended: ${reason}` });
+    this.ledger.append({ type: 'OUTCOME', at, case_id: current.case_id, ref_id: id,
+      detail: JSON.stringify({ action: 'outcome_amended', reason, previous: current, next }) });
     return next;
   }
 }

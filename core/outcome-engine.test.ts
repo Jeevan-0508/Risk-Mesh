@@ -22,6 +22,11 @@ const makeOutcome = (overrides: Partial<Outcome> = {}): Outcome => ({
 });
 
 describe('OutcomeEngine', () => {
+  it('rejects missing case outcomes without leaving an orphan', () => {
+    const ledger = new Ledger(); const engine = new OutcomeEngine(ledger, new CaseEngine(ledger));
+    expect(() => engine.record(makeOutcome())).toThrow('missing case');
+    expect(engine.list()).toEqual([]); expect(ledger.list()).toEqual([]);
+  });
   it('record() stores the outcome and links it to its case via CaseEngine.setOutcome', () => {
     const ledger = new Ledger();
     const caseEngine = new CaseEngine(ledger);
@@ -62,6 +67,9 @@ describe('OutcomeEngine', () => {
     expect(amended.status).toBe('AMENDED');
     expect(amended.actual_result).toBe('Corrected: trailer never left the yard.');
     expect(ledger.ofType('OUTCOME').length).toBe(2);
+    const history = JSON.parse(ledger.ofType('OUTCOME')[1]!.detail);
+    expect(history.previous.actual_result).toBe(makeOutcome().actual_result);
+    expect(history.next.actual_result).toBe(amended.actual_result);
   });
 
   it('amend() can be applied again to an already-AMENDED outcome (a correction can itself be corrected)', () => {

@@ -1,21 +1,9 @@
-/**
- * The Learning Ledger (spec §27, §29). Per `docs/LEARNING_MODEL.md`: MESH has processed zero real
- * cases as of this phase, so validation/benchmark/decay content cannot honestly be built yet — that
- * would mean testing it against fabricated outcomes, exactly the self-deception §7/§58 warn against.
- * What *can* be built now, honestly, is the lifecycle itself: the same kind of pure state machine
- * `evidence-fabric.ts`/`case-engine.ts` already are, enforcing which `LessonStatus` may move to
- * which and nothing more. No transition here inspects lesson content or decides it was "correct" —
- * that judgement is exactly the runtime this phase deliberately defers.
- *
- * One exception, because it is a concrete rule quoted directly in LEARNING_MODEL.md rather than a
- * judgement call: "a lesson learned from a simulated case is PROVISIONAL forever, never promoted to
- * ADOPTED knowledge that changes live routing." That needs no benchmark or outcome data to enforce —
- * only the lesson's own `provenance.source`, already on every MESH object — so `transition()` blocks
- * CANDIDATE/VERIFIED/VALIDATED → ADOPTED whenever `provenance.source === 'SIMULATED'`.
- */
+/** Synthetic lessons remain provisional. Real-world validation requires configured independent
+ * signed human review and a subsequent regression receipt; model agreement is insufficient. */
 import type { Lesson, LessonStatus } from '../contracts/schemas';
 import { MeshStore } from './store';
 import { Ledger } from './ledger';
+import { requireValidationPermit, type ValidationPermit } from './controlled-validation';
 
 const ALLOWED_LESSON_TRANSITIONS: Record<LessonStatus, LessonStatus[]> = {
   CANDIDATE: ['VERIFIED', 'REJECTED'],
@@ -35,7 +23,7 @@ export class IllegalLessonTransitionError extends Error {
 
 export class ProvisionalLessonError extends Error {
   constructor(id: string) {
-    super(`Lesson ${id} was learned from a SIMULATED case and is PROVISIONAL forever (LEARNING_MODEL.md) — it can never move to ADOPTED, only REJECTED or stay VALIDATED.`);
+    super(`Lesson ${id} has synthetic, mocked or unavailable provenance and remains provisional; VALIDATED and ADOPTED are prohibited.`);
   }
 }
 
@@ -65,11 +53,14 @@ export class LearningLedger {
     return caseId ? all.filter((l) => l.source_case_id === caseId) : all;
   }
 
-  transition(id: string, to: LessonStatus, reason: string, at: string): Lesson {
+  transition(id: string, to: LessonStatus, reason: string, at: string, permit?: ValidationPermit): Lesson {
     const current = this.store.require(id);
+    if ((to === 'VALIDATED' || to === 'ADOPTED') && ['SIMULATED', 'MOCKED', 'UNAVAILABLE'].includes(current.provenance.source)) throw new ProvisionalLessonError(id);
     const allowed = ALLOWED_LESSON_TRANSITIONS[current.status];
     if (!allowed.includes(to)) throw new IllegalLessonTransitionError(current.status, to);
-    if (to === 'ADOPTED' && current.provenance.source === 'SIMULATED') throw new ProvisionalLessonError(id);
+    if (to === 'VALIDATED' || to === 'ADOPTED') {
+      requireValidationPermit(permit, { id: current.id, version: current.version, statement: current.root_cause });
+    }
     const next: Lesson = { ...current, status: to };
     this.store.replace(id, next);
     this.ledger.append({

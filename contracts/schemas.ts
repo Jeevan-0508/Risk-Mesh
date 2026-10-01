@@ -319,7 +319,8 @@ export const Knowledge = MeshBase.extend({
   statement: z.string().min(1),
   version: z.number().int().positive(),
   last_confirmed: IsoTimestamp,
-  confidence: z.number().min(0).max(1),
+  /** Human approval does not yield a calibrated probability. Unknown stays null. */
+  confidence: z.number().min(0).max(1).nullable(),
   validation_count: z.number().int().nonnegative(),
   contradiction_count: z.number().int().nonnegative(),
   decay_policy: z.string().min(1),

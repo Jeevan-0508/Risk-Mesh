@@ -43,7 +43,7 @@ const output = {
       summary: case2.mesh_case.summary,
       events: case2.ledger.forCase(case2.mesh_case.id),
       blocked_attempt: {
-        from: 'VALIDATED',
+        from: 'VERIFIED',
         to: 'ADOPTED',
         message: blockedMessage,
       },

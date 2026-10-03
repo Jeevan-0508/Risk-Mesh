@@ -1,57 +1,44 @@
-<p align="center"><img src="assets/jk-brand-banner.png" alt="Jeevan Siddhabhaktula: Risk. Governance. AI." width="280"></p>
-
 # RISK//MESH
 
-**by [Jeevan Siddhabhaktula](https://github.com/Jeevan-0508)**
+**A risk-intelligence fabric connecting evidence, models, investigations, decisions and outcomes without hiding provenance or disagreement.**
 
-**The connective fabric between independent risk systems — contracts, evidence, provenance and
-arbitration, not another engine.**
+**[OPEN OBSERVATORY](https://jeevan-0508.github.io/Risk-Mesh/observatory/)** ·
+[ARCHITECTURE](docs/MESH_ARCHITECTURE.md) · [CAPABILITY STATUS](docs/INTEGRATION_MATRIX.md)
 
-MESH itself has one small UI of its own - **[Observatory](https://jeevan-0508.github.io/Risk-Mesh/observatory/)**
-([`observatory/`](observatory/) source), a replay (not a live feed)
-of its two real golden cases, plus two real System-1 Arena runs against real fraud-watch MOs,
-through a particle-orb + terminal-log visualization, plus a bring-your-own-key **Ask MESH**
-panel grounded only in that same real case data (never a live cross-repo feed), see
-[`docs/MESH_ARCHITECTURE.md`](docs/MESH_ARCHITECTURE.md#observatory-phase-19--small-slice-implemented-a-live-cross-system-dashboard-still-planned)
-for exactly what it does and doesn't show.
+The Observatory is the strongest visual proof: a neural particle-orb and ledger log replaying two
+captured golden cases plus two captured System-1 Arena runs. It is a replay, not a live feed; it
+does not claim production traffic or live cross-repository telemetry.
 
-Live demos of the systems MESH connects (it otherwise has no UI beyond that replay, being a backend
-contract/evidence layer): [fraud-watch](https://jeevan-0508.github.io/fraud-watch/) ·
+Related demos: [fraud-watch](https://jeevan-0508.github.io/fraud-watch/) ·
 [risk-replay](https://jeevan-0508.github.io/risk-replay/) ·
 [risk-swarm](https://jeevan-0508.github.io/risk-swarm/) ·
 [policy-audit](https://jeevan-0508.github.io/policy-audit/).
 
-RISK//MESH does not simulate fraud, run counterfactual replay, or classify governance evidence —
-[fraud-watch](https://github.com/Jeevan-0508/fraud-watch),
-[risk-replay](https://github.com/Jeevan-0508/risk-replay), and
-[policy-audit](https://github.com/Jeevan-0508/policy-audit) already do those, well, with their own
-test suites. MESH's job is the layer none of them have a reason to own: a shared contract every
-system's records can be mapped into, an evidence/provenance model with an honest six-value trust
-label, and (once real cases exist) a trust/arbitration layer that reasons *across* systems.
+## Capability status
 
-## Status: Phases 1-4 (contracts, evidence fabric, case engine, ledger) + risk-replay adapter (Phase 7) + fraud-watch adapter (Phase 5) + risk-swarm adapter (Phase 6) + trust/arbitration engines (Phase 11) + two golden cases (Phase 20 slice) + FOMO and freight-risk-atlas snapshot adapters + model registry (Phases 8-10; all 3 Laya checkpoints are real, live SHADOW connections as of 2026-09-23, see below) + System-1 Arena (`evaluation/system1-arena/`, live as of 2026-09-23) + System-1 shadow routing (`decideSystem1Action()`, 2026-09-23) + a real fraud-watch-to-System-1 integration (`evaluation/system1-arena/fraud-watch-cases.ts`, 2026-09-23) + a calibration pipeline (`evaluation/calibration/pipeline.ts`) with a provenance-gated, per-model report from explicit human assessments (`evaluation/calibration/from-records.ts`, still honestly `INSUFFICIENT_DATA` until real records exist) + an outcome engine (`core/outcome-engine.ts`, 2026-09-23, gives `CaseEngine.setOutcome()` its first real caller) + adaptive routing (`evaluation/calibration/adaptive-routing.ts`, 2026-09-23, proposes a `SYSTEM1_THRESHOLDS.uncertaintyCeiling` via Youden's J, never auto-applies it - still no real MESH `Outcome` records exist, so no real calibration or adaptive proposal can be produced) + learning/knowledge lifecycle engines (Phases 12-13, with the PROVISIONAL-forever guard LEARNING_MODEL.md requires) + Observatory (Phase 19 slice, live at the link above, now also replaying a real System-1 Arena run against real fraud-watch MOs)
+| Component | Status | Reality proven by the current code |
+|---|---|---|
+| Contracts | `LOCAL` | Typed MESH contracts and validation schemas |
+| Evidence Fabric | `LOCAL` | Deterministic provenance and status transitions |
+| Fraud Watch | `ADAPTER / SIMULATED` | Reads local synthetic world-state; outputs stay simulated |
+| Risk Replay | `ADAPTER / LOCAL` | Real HTTP client; requires a reachable FastAPI backend |
+| SWARM | `TRANSLATION / UNAVAILABLE` | Maps a supplied CouncilResult; MESH cannot fetch a council itself |
+| FOMO | `SNAPSHOT` | Reads risk-swarm's hash-verified snapshot |
+| Freight Risk Atlas | `SNAPSHOT` | Reads risk-swarm's hash-verified taxonomy snapshot |
+| Policy Audit | `UNAVAILABLE / PLANNED` | No MESH adapter exists yet |
+| Laya | `SHADOW / LOCAL` | Real runtime path when available; never authoritative for routing |
+| Jev | `UNAVAILABLE` | No legitimate runtime access |
+| Calibration | `INSUFFICIENT_DATA` | No real held-out outcome records |
+| Observatory | `SNAPSHOT REPLAY` | Captured cases and runs; no production traffic |
 
-See [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md) for what Phase 0 found by reading the actual
-code of every repo in the ecosystem — including a major finding that risk-swarm already implements
-evidence tiering, disagreement-as-signal, and provenance-hashed cross-repo sync, which reshaped this
-plan to avoid duplicating that work. See [`docs/MESH_ARCHITECTURE.md`](docs/MESH_ARCHITECTURE.md),
+MESH's job is the layer the individual tools do not own: shared contracts, evidence/provenance,
+honest trust labels, and arbitration boundaries that preserve disagreement instead of flattening it.
+
+Implementation details remain available in [`docs/ECOSYSTEM_AUDIT.md`](docs/ECOSYSTEM_AUDIT.md),
+[`docs/MESH_ARCHITECTURE.md`](docs/MESH_ARCHITECTURE.md),
 [`docs/INTEGRATION_MATRIX.md`](docs/INTEGRATION_MATRIX.md),
 [`docs/MODEL_ARENA.md`](docs/MODEL_ARENA.md), [`docs/CALIBRATION.md`](docs/CALIBRATION.md), and
 [`docs/LEARNING_MODEL.md`](docs/LEARNING_MODEL.md) for the rest.
-
-Five adapters are implemented and tested against real captured or hash-verified data: risk-replay (live-verified
-against its real FastAPI backend), fraud-watch (real on-disk simulation state), risk-swarm (real
-captured council runs), and FOMO/freight-risk-atlas (both read via risk-swarm's own hash-verified
-snapshot sync, so MESH never re-syncs from those two repos directly). Laya and Jev are registered
-in `adapters/model-registry/`: all 3 registered Laya checkpoints (`laya-typed`, `laya-english`,
-`laya-multilingual`) are real, live connections (the actual `laya` PyPI package calling their real
-`convaiinnovations/*` checkpoints on HuggingFace, status `SHADOW` — connected and real, not yet
-authoritative for routing); Jev stays honestly `UNAVAILABLE` (its real identity — TypeSafe AI,
-invite-only — was researched and confirmed, access simply isn't obtainable here). A real
-System-1 Arena (`evaluation/system1-arena/`) calls 2+ of these independently for the same case and
-builds a real `Disagreement` when they don't agree, never averaging it away. See
-[`docs/MODEL_ARENA.md`](docs/MODEL_ARENA.md) for the full status. No fabricated results exist
-anywhere in this repo.
 
 ## What's here
 
@@ -198,17 +185,9 @@ established in `risk-swarm/src/core/domain/model.ts`.
 
 ```
 bun install
-bun test         # 200/200 passing (12 exercise risk-replay's real client/mapping code, 13 exercise
-                 # fraud-watch's real MO records, 10 exercise risk-swarm's real council output, 33
-                 # exercise trust/arbitration incl. decideSystem1Action's shadow-mode routing, 2 are
-                 # end-to-end golden cases, 5 exercise the shared snapshot-verification helper, 8
-                 # exercise FOMO, 8 exercise freight-risk-atlas, 28 exercise the model registry incl.
-                 # all 3 Laya checkpoints' real (fixture-backed) success paths and the pure
-                 # entropy/mapping helpers against real captured fixtures, 18 exercise the System-1
-                 # Arena (comparison logic, a genuine multi-model run, and the real fraud-watch ->
-                 # System-1 integration end to end), 11 exercise the learning ledger's lifecycle
-                 # state machine including the PROVISIONAL-forever guard, 7 exercise the knowledge
-                 # ledger's lifecycle state machine)
+bun test         # 223 declared native test cases across 37 files; passing status is NOT VERIFIED
+                 # in this runtime because Bun is unavailable. The suite includes adapter,
+                 # provenance, model-registry, arena, ledger, and golden-case coverage.
 bun x tsc -b --noEmit
 ```
 

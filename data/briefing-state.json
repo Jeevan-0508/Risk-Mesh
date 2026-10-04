@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-10-04T08:39:52.608Z",
+  "generated_at": "2026-10-04T15:02:32.732Z",
   "sourceStates": {
     "fomo": {
       "id": "fomo",
@@ -1058,9 +1058,9 @@
         "synthetic MO and candidate counts",
         "simulation freshness and state"
       ],
-      "retrievedAt": "2026-10-04T08:39:52.608Z",
-      "sourceTimestamp": "simulation day 13, 06:00:00",
-      "freshness": "source timestamp simulation day 13, 06:00:00; checked 2026-10-04T08:39:52.608Z",
+      "retrievedAt": "2026-10-04T15:02:32.732Z",
+      "sourceTimestamp": "simulation day 13, 12:00:00",
+      "freshness": "source timestamp simulation day 13, 12:00:00; checked 2026-10-04T15:02:32.732Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
@@ -1068,7 +1068,7 @@
       "origin": "GitHub raw snapshot",
       "recordCount": 23,
       "simulationDay": 13,
-      "fingerprint": "298bf56f8c44fa83d54704175cebfb1c30a958cf50c63a32ca8b0b6377277e08",
+      "fingerprint": "689c1db33f5603cdf7caa20ed20d740f2d02e6e3e80bf7c39986ea6c2465c8a3",
       "records": {
         "MO-0001": "0feb7d5b5575064bfb3b54504f56dbe31c377f593a989fab72e8962e0bf7f548",
         "MO-0002": "1c57dce81bfef1cfc493e2e6a7b537a4a1c12ef1d29e196d24f1a4bb1a89a4c0",
@@ -1087,7 +1087,7 @@
         "MO-0015": "05dddf7e04501e3e706c20db51cd9a31efb02ff0ea5fc8a1a24109bf764a5c29",
         "MO-0016": "2e3aea79bc3fdd6293dc5e253d3c818dd840baeb5a567f2802d23a7b07d70418",
         "MO-0017": "8aa9c643cbd59457e1fd7ad02967e83d86266693ac70b36505ef240bc3483f88",
-        "MO-0018": "5e2e1ba50c6f9ee305137c53813a5c5d8abe44fb6586fd22524eda40900e8482",
+        "MO-0018": "352ad5e53789b72a64f37bc164ece2de1ac61ce69da116112c210877c6d8eb52",
         "MO-0019": "afc6f47b9d127a4fbf27af8b1f1bb7636a429b67f85b5c802c652ae4ee0c12b2",
         "MO-0020": "391d9b42736dfe5d4e1ddbbbb61a7fbb04fccfe91198fd162580e88671ffcded",
         "fraud-watch:EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED": "315d0ddbe5e150bbabdd5c50a243af93934c253224131d9ff656f01939007e5e",
@@ -1267,7 +1267,7 @@
   },
   "payload": {
     "schema_version": "1.2",
-    "generatedAt": "2026-10-04T08:39:52.608Z",
+    "generatedAt": "2026-10-04T15:02:32.732Z",
     "headline": "Good morning, Jeevan. 7 source updates are ready.",
     "sources": [
       {
@@ -1304,9 +1304,9 @@
           "synthetic MO and candidate counts",
           "simulation freshness and state"
         ],
-        "retrievedAt": "2026-10-04T08:39:52.608Z",
-        "sourceTimestamp": "simulation day 13, 06:00:00",
-        "freshness": "source timestamp simulation day 13, 06:00:00; checked 2026-10-04T08:39:52.608Z",
+        "retrievedAt": "2026-10-04T15:02:32.732Z",
+        "sourceTimestamp": "simulation day 13, 12:00:00",
+        "freshness": "source timestamp simulation day 13, 12:00:00; checked 2026-10-04T15:02:32.732Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
@@ -19853,9 +19853,9 @@
       {
         "id": "fraud-watch:briefing",
         "sourceProject": "Fraud Watch",
-        "timestamp": "2026-10-04T10:27:58.050Z",
+        "timestamp": "2026-10-04T15:02:32.732Z",
         "title": "Fraud Watch simulation state changed",
-        "summary": "Synthetic simulation day 13 contains 3 candidate methods of operation and 1 open investigation.",
+        "summary": "Synthetic simulation day 13 contains 3 candidate methods of operation and 0 open investigations.",
         "category": "risk-intelligence",
         "importance": "medium",
         "evidenceType": "SIMULATION",
@@ -19884,18 +19884,20 @@
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
           ],
-          "retrievedAt": "2026-10-04T10:27:58.050Z",
+          "retrievedAt": "2026-10-04T15:02:32.732Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp simulation day 13, 06:00:00",
-          "changedRecords": []
+          "freshness": "source timestamp simulation day 13, 12:00:00",
+          "changedRecords": [
+            "MO-0018"
+          ]
         },
         "details": {
           "simulation": {
             "day": 13,
-            "timeOfDay": "06:00:00",
-            "activeSignals": 3,
-            "openInvestigations": 1,
+            "timeOfDay": "12:00:00",
+            "activeSignals": 1,
+            "openInvestigations": 0,
             "totalCases": 20
           },
           "candidates": [
@@ -20492,7 +20494,7 @@
             },
             {
               "id": "MO-0018",
-              "status": "NEW",
+              "status": "DISMISSED",
               "classification": "MO_VARIANT",
               "confidenceBand": "MINIMAL",
               "noveltyScore": 100,
@@ -20810,7 +20812,7 @@
           ],
           "label": "SYNTHETIC SIMULATION — not real-world fraud cases"
         },
-        "status": "UNCHANGED"
+        "status": "NEW"
       },
       {
         "id": "shadow-network:briefing",
@@ -22251,6 +22253,9 @@
     ],
     "capabilities": {
       "conversation": "DETERMINISTIC_LOCAL",
+      "localAI": "OPTIONAL_LAZY",
+      "localSTT": "OPTIONAL_LAZY",
+      "customVoice": "ARCHITECTURE_READY_PRIVATE_BACKEND_REQUIRED",
       "voiceInput": "BROWSER_OPTIONAL",
       "voiceOutput": "BROWSER_OPTIONAL",
       "laya": "UNAVAILABLE",

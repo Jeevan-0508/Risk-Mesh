@@ -263,7 +263,7 @@ export default {
       "sourceProject": "Fraud Watch",
       "timestamp": "2026-10-04T08:39:52.608Z",
       "title": "Fraud Watch simulation state changed",
-      "summary": "Synthetic simulation day 13 contains 3 candidate methods of operation and 1 open investigations.",
+      "summary": "Synthetic simulation day 13 contains 3 candidate methods of operation and 1 open investigation.",
       "category": "risk-intelligence",
       "importance": "medium",
       "evidenceType": "SIMULATION",

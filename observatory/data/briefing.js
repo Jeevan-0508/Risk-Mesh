@@ -2,7 +2,7 @@
 export default {
   "schema_version": "1.2",
   "generatedAt": "2026-10-04T08:39:52.608Z",
-  "headline": "Good morning, Jeevan. 1 source update are ready.",
+  "headline": "Good morning, Jeevan. 1 source update is ready.",
   "sources": [
     {
       "id": "fomo",

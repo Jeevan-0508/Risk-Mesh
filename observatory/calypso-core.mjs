@@ -1,8 +1,17 @@
-export const LOCAL_LLM_MODEL = {
-  id: 'onnx-community/Qwen2.5-0.5B-Instruct',
-  label: 'Qwen2.5 0.5B Instruct · q4f16/WebGPU or q8/WASM',
-  parameters: '0.5B',
+export const LOCAL_LLM_MODELS = {
+  webgpu: {
+    id: 'onnx-community/SmolLM2-360M-Instruct-ONNX',
+    label: 'SmolLM2 360M Instruct · q4f16/WebGPU',
+    parameters: '360M',
+  },
+  wasm: {
+    id: 'onnx-community/SmolLM2-135M-Instruct-ONNX',
+    label: 'SmolLM2 135M Instruct · q8/WASM fallback',
+    parameters: '135M',
+  },
 };
+
+export const LOCAL_LLM_MODEL = LOCAL_LLM_MODELS.webgpu;
 
 export const LOCAL_STT_MODEL = {
   id: 'onnx-community/whisper-tiny.en',

@@ -1,5 +1,5 @@
-import { buildMeshContext, createPrimaryCalypsoProvider, mapRecognitionError, renderSpeechText } from './calypso-core.mjs?v=3';
-import { createLocalIntelligence, createLocalTranscriber } from './calypso-local.js?v=3';
+import { buildMeshContext, createPrimaryCalypsoProvider, mapRecognitionError, renderSpeechText } from './calypso-core.mjs?v=4';
+import { createLocalIntelligence, createLocalTranscriber } from './calypso-local.js?v=4';
 import { createPrivateCustomVoice } from './calypso-voice.js';
 
 const VOICE_KEY = 'risk-mesh:calypso-voice-uri-v1';
@@ -111,7 +111,8 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     const runtime = state.localAI?.diagnostics?.() || {};
     const values = {
       mode: state.intelligence === 'local' ? 'LOCAL_AI' : 'DETERMINISTIC',
-      model: runtime.model || 'onnx-community/Qwen2.5-0.5B-Instruct',
+      model: runtime.model || 'onnx-community/SmolLM2-360M-Instruct-ONNX',
+      modelLabel: runtime.modelLabel || 'SmolLM2 browser profile',
       transformersVersion: runtime.transformersVersion || '3.8.1',
       backend: runtime.backend || 'NOT_SELECTED',
       webgpuAvailable: runtime.webgpuAvailable == null ? Boolean(navigator.gpu) : runtime.webgpuAvailable,
@@ -129,6 +130,7 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     aiDiagnostics.textContent = [
       `MODE: ${values.mode}`,
       `MODEL: ${values.model}`,
+      `MODEL PROFILE: ${values.modelLabel}`,
       `TRANSFORMERS.JS: ${values.transformersVersion}`,
       `BACKEND: ${values.backend}`,
       `WEBGPU: ${values.webgpuAvailable ? 'AVAILABLE' : 'UNAVAILABLE'}`,

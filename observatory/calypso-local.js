@@ -1,4 +1,4 @@
-import { buildLocalMessages, extractGeneratedText, LOCAL_LLM_MODEL, LOCAL_STT_MODEL, looksUsableModelResponse } from './calypso-core.mjs?v=3';
+import { buildLocalMessages, extractGeneratedText, LOCAL_LLM_MODELS, LOCAL_STT_MODEL, looksUsableModelResponse } from './calypso-core.mjs?v=4';
 
 const TRANSFORMERS_URL = 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm';
 const TRANSFORMERS_VERSION = '3.8.1';
@@ -31,12 +31,15 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
     lastResponseSource: null,
     lastError: null,
     controlledTest: 'NOT_RUN',
+    modelId: null,
+    modelLabel: null,
   };
 
   function diagnostics() {
     return {
       mode: 'LOCAL_AI',
-      model: LOCAL_LLM_MODEL.id,
+      model: state.modelId || 'NOT_SELECTED',
+      modelLabel: state.modelLabel || 'NOT_SELECTED',
       transformersVersion: TRANSFORMERS_VERSION,
       backend: state.device || 'NOT_SELECTED',
       webgpuAvailable: Boolean(globalThis.navigator?.gpu),
@@ -88,16 +91,19 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
       const { pipeline } = await importTransformers();
       state.transformersLoaded = true;
       const webgpu = Boolean(globalThis.navigator?.gpu);
-      const attempts = webgpu ? [['webgpu', 'q4f16'], ['wasm', 'q8']] : [['wasm', 'q8']];
+      const profile = webgpu ? LOCAL_LLM_MODELS.webgpu : LOCAL_LLM_MODELS.wasm;
+      const attempts = [[webgpu ? 'webgpu' : 'wasm', webgpu ? 'q4f16' : 'q8', profile]];
       let lastError;
-      for (const [device, dtype] of attempts) {
+      for (const [device, dtype, model] of attempts) {
         try {
           state.device = `${device}/${dtype}`;
+          state.modelId = model.id;
+          state.modelLabel = model.label;
           state.modelDownloadState = 'DOWNLOADING';
           state.modelInitializationState = 'LOADING';
           state.pipelineState = 'INITIALIZING';
           setStatus('INITIALIZING', `DOWNLOADING_LOCAL_AI · ${device.toUpperCase()} · ${dtype.toUpperCase()}`);
-          state.generator = await pipeline('text-generation', LOCAL_LLM_MODEL.id, {
+          state.generator = await pipeline('text-generation', model.id, {
             device,
             dtype,
             progress_callback: (event) => onProgress(progressValue(event), event),
@@ -179,7 +185,7 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
 
   return {
     state,
-    model: LOCAL_LLM_MODEL,
+    model: { id: state.modelId, label: state.modelLabel },
     diagnostics,
     load,
     generate,

@@ -25,6 +25,26 @@ Status values used below (per MESH spec §58, the UI/docs must distinguish these
 | Jev / open-jev family | Never integrated anywhere in the ecosystem | **Built** (`adapters/model-registry/`): both registered, `NOT_CONNECTED`; empirical comparison against Laya remains PLANNED, since neither model is callable yet | **BLOCKED** (registry + honest-failure adapter built and tested — no Jev API access) |
 | hakai-protocol-v2, hakai_world | Explicitly OPTIONAL/FUTURE in the directive | Deferred | NOT_CONNECTED, out of scope for now |
 
+## Living briefing feed
+
+The adapter matrix above describes typed MESH adapters, not the separate static briefing snapshot.
+The daily briefing reads the following generated repository outputs through a provenance-recorded
+GitHub Actions refresh:
+
+| Source output | Briefing label | Current boundary |
+|---|---|---|
+| `FOMO/data/signals.json` | `REAL_WORLD` / `SNAPSHOT` | External Google News RSS signals copied into a repository snapshot; source links are preserved. |
+| `fraud-watch/data/dashboard-summary.json` + `world-state.json` | `SYNTHETIC` / `SIMULATED` | Deterministic simulation only; never real fraud incidents. |
+| `shadow-network/data/latest.json` | `SYNTHETIC` / `SIMULATED` | Deterministic synthetic carrier-network state only. |
+| `eu-ai-act-scanner/data/regulatory-monitor.json` | `OFFICIAL` | Official-source hashes; `REVIEW_REQUIRED` does not silently alter compliance rules. |
+| `risk-ring/data/*.json` | `SYNTHETIC` / `SIMULATED` | Deterministic synthetic financial-crime analysis only. |
+| `Forecast-Ledger/site/data.json` | `OFFICIAL_DATA` | Public Eurostat data plus explicit forecast eligibility/refusal outcomes. |
+| `reg-search/data/source-provenance.json` | `SNAPSHOT` / `OFFICIAL_CITATION` | Hash-verified cited requirements and official source availability. |
+
+This feed is not a production event bus and does not change the typed adapter statuses above. A
+failed fetch produces `UNAVAILABLE` or stale-source language; it never becomes an empty “no risk”
+briefing. Laya, Jev and SWARM remain unavailable from the static page.
+
 ## Honesty rule enforced in code, not just docs
 
 The `Provenance` contract (Phase 1) requires every MESH object to carry a `provenance.source` that is

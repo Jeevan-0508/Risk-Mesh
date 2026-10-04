@@ -5,14 +5,14 @@
 **[OPEN OBSERVATORY](https://jeevan-0508.github.io/Risk-Mesh/observatory/)** ·
 [ARCHITECTURE](docs/MESH_ARCHITECTURE.md) · [CAPABILITY STATUS](docs/INTEGRATION_MATRIX.md)
 
-The Observatory is the strongest visual proof: a neural particle-orb and ledger log replaying two
-captured golden cases plus two captured System-1 Arena runs. It is a replay, not a live feed; it
-does not claim production traffic or live cross-repository telemetry.
+The Observatory is the visual hero: a neural particle-orb and ledger replay remain visible while a
+deterministic living briefing explains what changed in the latest completed checks of seven project
+outputs. It is a provenance-labelled snapshot, not a browser-side live feed or production telemetry.
 
-`.github/workflows/daily-state-check.yml` validates the current adapters and provenance boundaries
-once per day, with a manual Run Workflow option, and refreshes the generated capability registry
-only when the registry itself changes. It does not promote `SNAPSHOT`, `SIMULATED`, or `UNAVAILABLE`
-sources to `LIVE`.
+`.github/workflows/daily-state-check.yml` validates the current adapters, builds the briefing, and
+refreshes the generated capability registry once per day, with a manual Run Workflow option. It
+commits only meaningful source or registry changes. It does not promote `SNAPSHOT`, `SIMULATED`, or
+`UNAVAILABLE` sources to `LIVE`.
 
 Related demos: [fraud-watch](https://jeevan-0508.github.io/fraud-watch/) ·
 [risk-replay](https://jeevan-0508.github.io/risk-replay/) ·
@@ -35,6 +35,36 @@ Related demos: [fraud-watch](https://jeevan-0508.github.io/fraud-watch/) ·
 | Jev | `UNAVAILABLE` | No legitimate runtime access |
 | Calibration | `INSUFFICIENT_DATA` | No real held-out outcome records |
 | Observatory | `SNAPSHOT REPLAY` | Captured cases and runs; no production traffic |
+
+## Living intelligence briefing
+
+The Observatory now follows this honest path:
+
+```text
+OBSERVE → COLLECT → NORMALIZE → BRIEF → CONVERSE → INVESTIGATE → HUMAN DECIDES
+```
+
+`scripts/build-briefing.mjs` reads the generated outputs that the seven source repositories
+actually publish and normalizes them into `MeshUpdate`-shaped records in
+`observatory/data/briefing.js`. Its comparison state lives outside the published Pages artifact
+in `data/briefing-state.json`. The current sources are FOMO, fraud-watch, shadow-network,
+eu-ai-act-scanner, risk-ring, Forecast-Ledger and reg-search. Each update carries its source
+project, timestamp, evidence class, source type, links, content hash, freshness and details.
+
+The browser experience provides:
+
+- a concise briefing beside the neural Observatory rather than a replacement dashboard;
+- `NEW`, `UPDATED`, `SEEN`, `UNCHANGED` behavior backed by guarded browser-local state;
+- evidence drill-down with original FOMO links, official regulatory URLs, repository outputs,
+  source hashes and freshness;
+- deterministic local questions such as “What changed?”, “Show FOMO sources”, and “Is this real?”;
+- optional browser-native speech input/output, with an explicit unavailable state when unsupported.
+
+The current layer does not call a model, expose a provider secret, or invent an answer. Laya, Jev
+and SWARM escalation remain unavailable from the static Observatory until a legitimate callable
+boundary exists. Fraud Watch, Shadow Network and Risk Ring remain visibly synthetic; FOMO and
+Reg Search remain repository snapshots; official-source monitoring remains review-required rather
+than silently changing compliance logic.
 
 MESH's job is the layer the individual tools do not own: shared contracts, evidence/provenance,
 honest trust labels, and arbitration boundaries that preserve disagreement instead of flattening it.

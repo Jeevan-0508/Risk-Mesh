@@ -1,4 +1,4 @@
-import { buildLocalMessages, extractGeneratedText, LOCAL_LLM_MODELS, LOCAL_STT_MODEL, looksUsableModelResponse } from './calypso-core.mjs?v=4';
+import { buildLocalMessages, extractGeneratedText, LOCAL_LLM_MODELS, LOCAL_STT_MODEL, looksUsableModelResponse } from './calypso-core.mjs?v=5';
 
 const TRANSFORMERS_URL = 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm';
 const TRANSFORMERS_VERSION = '3.8.1';
@@ -11,6 +11,14 @@ function progressValue(event) {
 
 async function importTransformers() {
   return import(/* webpackIgnore: true */ TRANSFORMERS_URL);
+}
+
+function withTimeout(promise, milliseconds, label) {
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(() => reject(new Error(`${label}_TIMEOUT_${milliseconds}MS`)), milliseconds);
+  });
+  return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
 }
 
 export function createLocalIntelligence({ onStatus = () => {}, onProgress = () => {}, onDiagnostic = () => {} } = {}) {
@@ -90,9 +98,11 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
       setStatus('LOADING', 'PREPARING_LOCAL_AI');
       const { pipeline } = await importTransformers();
       state.transformersLoaded = true;
-      const webgpu = Boolean(globalThis.navigator?.gpu);
-      const profile = webgpu ? LOCAL_LLM_MODELS.webgpu : LOCAL_LLM_MODELS.wasm;
-      const attempts = [[webgpu ? 'webgpu' : 'wasm', webgpu ? 'q4f16' : 'q8', profile]];
+      // Prefer the smaller WASM profile in the deployed browser path. This is
+      // slower than WebGPU when WebGPU is healthy, but it is portable and does
+      // not leave Chrome stuck in a large WebGPU download with no test result.
+      const profile = LOCAL_LLM_MODELS.wasm;
+      const attempts = [['wasm', 'q8', profile]];
       let lastError;
       for (const [device, dtype, model] of attempts) {
         try {
@@ -103,11 +113,11 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
           state.modelInitializationState = 'LOADING';
           state.pipelineState = 'INITIALIZING';
           setStatus('INITIALIZING', `DOWNLOADING_LOCAL_AI · ${device.toUpperCase()} · ${dtype.toUpperCase()}`);
-          state.generator = await pipeline('text-generation', model.id, {
+          state.generator = await withTimeout(pipeline('text-generation', model.id, {
             device,
             dtype,
             progress_callback: (event) => onProgress(progressValue(event), event),
-          });
+          }), 90000, 'LOCAL_AI_MODEL_LOAD');
           state.modelDownloadState = 'LOADED';
           state.modelInitializationState = 'READY';
           state.pipelineState = 'READY';

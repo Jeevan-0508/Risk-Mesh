@@ -11,7 +11,10 @@ export const LOCAL_LLM_MODELS = {
   },
 };
 
-export const LOCAL_LLM_MODEL = LOCAL_LLM_MODELS.webgpu;
+// The deployed Observatory uses the smaller WASM profile as its active browser
+// path. In Chrome Pages testing, the larger WebGPU profile could remain stuck
+// in model download without reaching a controlled inference result.
+export const LOCAL_LLM_MODEL = LOCAL_LLM_MODELS.wasm;
 
 export const LOCAL_STT_MODEL = {
   id: 'onnx-community/whisper-tiny.en',

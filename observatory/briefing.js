@@ -233,6 +233,7 @@ function wire() {
   state.lastOpen = Number.isFinite(priorLastOpen) && priorLastOpen > 0 ? priorLastOpen : null;
   state.seen = restoreSeen();
   state.updates = briefing.updates || [];
+  if ($('mesh-headline')) $('mesh-headline').textContent = briefing.headline || '';
   renderSourceStatus();
   renderUpdates();
   state.updates.forEach((update, index) => setTimeout(() => window.__orbActivateSource?.(sourceIdFromUpdate(update)), index * 220));

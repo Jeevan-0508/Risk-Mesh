@@ -38,7 +38,11 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     recognitionStartTimer: null,
     recognitionSession: null,
     recorder: null,
+    recorderStarting: false,
+    recorderStopRequested: false,
+    captureStream: null,
     recorderChunks: [],
+    speechDiagnostics: [],
     intelligence: 'deterministic',
     speechMode: 'browser',
     localAI: null,
@@ -60,6 +64,7 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
   const aiProgress = $('calypso-ai-progress');
   const speechSelect = $('calypso-speech-select');
   const speechProgress = $('calypso-speech-progress');
+  const speechDiagnostics = $('calypso-speech-diagnostics');
   const transcript = $('calypso-transcript');
   const error = $('calypso-error');
   const stateLabel = $('calypso-state');
@@ -75,15 +80,23 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     if (engineLabel) engineLabel.textContent = label;
   }
 
+  function setSpeechDiagnostic(name, detail = '') {
+    const line = `${new Date().toLocaleTimeString()} · ${name}${detail ? ` · ${detail}` : ''}`;
+    state.speechDiagnostics = [...state.speechDiagnostics.slice(-19), line];
+    if (speechDiagnostics) speechDiagnostics.textContent = state.speechDiagnostics.join('\n');
+    console.debug(`[CALYPSO SPEECH] ${line}`);
+  }
+
   function setState(next, errorCode = '') {
     state.status = next;
+    if (state.speechMode === 'local') setSpeechDiagnostic('STATE', errorCode ? `${next} · ${errorCode}` : next);
     if (stateLabel) {
       stateLabel.textContent = `CALYPSO ● ${next}`;
       stateLabel.dataset.state = next;
     }
     if (error) error.textContent = errorCode ? errorCode : '';
     if (voiceButton) {
-      voiceButton.textContent = state.recognitionUnavailable && state.speechMode !== 'local' ? 'Voice input unavailable' : next === 'LISTENING' ? 'Listening…' : next === 'SPEAKING' ? 'Calypso is speaking…' : 'Talk to Calypso';
+      voiceButton.textContent = state.recognitionUnavailable && state.speechMode !== 'local' ? 'Voice input unavailable' : next === 'REQUESTING_MIC' ? 'Requesting microphone…' : next === 'LISTENING' ? 'Listening…' : next === 'STOPPING' ? 'Stopping…' : next === 'TRANSCRIBING' ? 'Transcribing…' : next === 'SPEAKING' ? 'Calypso is speaking…' : 'Talk to Calypso';
       voiceButton.dataset.state = next;
       const localPath = state.speechMode === 'local' && Boolean(navigator.mediaDevices?.getUserMedia && globalThis.MediaRecorder);
       voiceButton.disabled = (!state.recognition && !localPath) || (state.recognitionUnavailable && !localPath);
@@ -415,45 +428,127 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
       setState('IDLE', 'SPEECH_RECOGNITION_UNAVAILABLE');
       return;
     }
-    if (state.recorder) {
-      state.recorder.stop();
+    if (state.recorderStarting) {
+      state.recorderStopRequested = true;
+      setSpeechDiagnostic('RECORDER STATE', 'stop requested while starting');
       return;
     }
+    if (state.recorder) {
+      setState('STOPPING');
+      setSpeechDiagnostic('RECORDER STATE', `stop requested · ${state.recorder.state}`);
+      if (state.recorder.state !== 'inactive') state.recorder.stop();
+      return;
+    }
+    state.recorderStarting = true;
+    state.recorderStopRequested = false;
+    setState('REQUESTING_MIC');
+    setSpeechDiagnostic('MIC PERMISSION', 'requesting audio permission');
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      state.recorderChunks = [];
-      state.recorder = new MediaRecorder(stream);
-      state.recorder.ondataavailable = (event) => { if (event.data.size) state.recorderChunks.push(event.data); };
-      state.recorder.onstart = () => { setTranscript('', ''); setState('LISTENING'); };
-      state.recorder.onstop = async () => {
+      state.captureStream = stream;
+      const tracks = stream.getAudioTracks();
+      setSpeechDiagnostic('MIC PERMISSION', 'granted');
+      setSpeechDiagnostic('MEDIA STREAM', `audioTracks=${tracks.length}`);
+      tracks.forEach((track) => setSpeechDiagnostic('AUDIO TRACK', `enabled=${track.enabled} readyState=${track.readyState} kind=${track.kind}`));
+      const liveTrack = tracks.find((track) => track.enabled && track.readyState === 'live');
+      if (!liveTrack) {
         stream.getTracks().forEach((track) => track.stop());
-        const recorder = state.recorder;
+        state.captureStream = null;
+        throw new Error('NO_AUDIO_TRACK');
+      }
+      state.recorderChunks = [];
+      const preferredMimeType = MediaRecorder.isTypeSupported?.('audio/webm;codecs=opus') ? 'audio/webm;codecs=opus' : '';
+      state.recorder = preferredMimeType ? new MediaRecorder(stream, { mimeType: preferredMimeType }) : new MediaRecorder(stream);
+      const recorder = state.recorder;
+      recorder.ondataavailable = (event) => {
+        if (event.data?.size) state.recorderChunks.push(event.data);
+        const bytes = state.recorderChunks.reduce((total, chunk) => total + chunk.size, 0);
+        setSpeechDiagnostic('AUDIO CHUNKS', `count=${state.recorderChunks.length} bytes=${bytes}`);
+      };
+      recorder.onerror = (event) => setSpeechDiagnostic('RECORDER STATE', `error=${event.error?.message || 'recorder error'}`);
+      recorder.onstart = () => {
+        state.recorderStarting = false;
+        const activeTrack = state.captureStream?.getAudioTracks().find((track) => track.enabled && track.readyState === 'live');
+        setSpeechDiagnostic('RECORDER STATE', `started · ${recorder.state}`);
+        if (!activeTrack) {
+          setState('STOPPING', 'NO_AUDIO_TRACK');
+          recorder.stop();
+          return;
+        }
+        setTranscript('', '');
+        setState('LISTENING');
+        if (state.recorderStopRequested) {
+          state.recorderStopRequested = false;
+          setState('STOPPING');
+          recorder.stop();
+        }
+      };
+      recorder.onstop = async () => {
+        setSpeechDiagnostic('RECORDER STATE', `stopped · ${recorder.state}`);
+        state.captureStream?.getTracks().forEach((track) => track.stop());
+        state.captureStream = null;
         state.recorder = null;
-        if (!recorder || !state.recorderChunks.length) { setState('IDLE', 'NO_SPEECH_DETECTED'); return; }
-        setState('TRANSCRIBING');
+        state.recorderStarting = false;
         const blob = new Blob(state.recorderChunks, { type: recorder.mimeType || 'audio/webm' });
+        setSpeechDiagnostic('BLOB SIZE', `bytes=${blob.size} type=${blob.type || 'unknown'}`);
+        if (!blob.size) {
+          setState('IDLE', 'EMPTY_AUDIO_CAPTURE');
+          return;
+        }
+        setState('TRANSCRIBING');
         try {
           state.localSTT ||= createLocalTranscriber({
             onStatus: (label) => setSpeechStatus(label),
             onProgress: (value) => setProgress(speechProgress, value, 'LOCAL TRANSCRIPTION'),
+            onDiagnostic: setSpeechDiagnostic,
           });
           const text = await state.localSTT.transcribe(blob);
-          if (!text) { setState('IDLE', 'NO_SPEECH_DETECTED'); return; }
+          if (!text) {
+            setState('IDLE', 'NO_SPEECH_DETECTED');
+            return;
+          }
           setTranscript(text, 'FINAL');
           setState('HEARD');
           await submitQuestion(text, { speakResponse: true, fromVoice: true });
-        } catch {
-          setState('IDLE', 'LOCAL_STT_UNAVAILABLE');
+        } catch (caught) {
+          const message = String(caught?.message || caught || 'Unknown local speech error');
+          const code = message === 'LOCAL_STT_NOT_READY' || message === 'EMPTY_AUDIO_CAPTURE' || message === 'NO_AUDIO_TRACK'
+            ? message
+            : message.startsWith('LOCAL_STT_ERROR:') ? message : `LOCAL_STT_ERROR: ${message}`;
+          setState('IDLE', code);
         }
       };
-      state.recorder.start();
+      recorder.start(250);
+      setSpeechDiagnostic('RECORDER STATE', `start requested · ${recorder.state}`);
     } catch (caught) {
-      setState('IDLE', caught?.name === 'NotAllowedError' ? 'MICROPHONE_PERMISSION_DENIED' : 'AUDIO_CAPTURE_ERROR');
+      state.recorderStarting = false;
+      state.captureStream?.getTracks().forEach((track) => track.stop());
+      state.captureStream = null;
+      const message = String(caught?.message || caught || 'AUDIO_CAPTURE_ERROR');
+      const code = caught?.name === 'NotAllowedError' || caught?.name === 'SecurityError'
+        ? 'MICROPHONE_PERMISSION_DENIED' : message === 'NO_AUDIO_TRACK' ? message : `AUDIO_CAPTURE_ERROR: ${message}`;
+      setSpeechDiagnostic('MIC PERMISSION', `error=${code}`);
+      setState('IDLE', code);
+    }
+  }
+
+  function stopLocalRecording() {
+    state.recorderStopRequested = true;
+    if (state.recorder && state.recorder.state !== 'inactive') {
+      setState('STOPPING');
+      state.recorder.stop();
+    } else if (state.recorderStarting) {
+      setState('STOPPING');
+      setSpeechDiagnostic('RECORDER STATE', 'stop queued');
     }
   }
 
   function startListening() {
     if (state.speechMode === 'local') {
+      if (state.recorder || state.recorderStarting) {
+        stopLocalRecording();
+        return;
+      }
       void startLocalRecording();
       return;
     }
@@ -479,6 +574,7 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
 
   function setSpeechStatus(label) {
     setEngine(label === 'LOCAL_STT_UNAVAILABLE' ? 'CALYPSO SPEECH · UNAVAILABLE' : `CALYPSO SPEECH · ${String(label).replaceAll('_', ' ')}`);
+    setSpeechDiagnostic('WHISPER STATUS', String(label));
   }
 
   async function enableLocalAI() {
@@ -542,8 +638,8 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     stopButton?.addEventListener('click', () => {
       if ('speechSynthesis' in window) window.speechSynthesis.cancel();
       state.customVoice?.stop();
-      if (state.recorder) state.recorder.stop();
-      setState('IDLE');
+      if (state.speechMode === 'local' && (state.recorder || state.recorderStarting)) stopLocalRecording();
+      else setState('IDLE');
     });
     voiceSelect?.addEventListener('change', () => {
       state.selectedVoice = voiceSelect.value;

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { buildLocalMessages, buildMeshContext, extractGeneratedText, mapRecognitionError, renderSpeechText } from './calypso-core.mjs';
+import { resampleMono } from './calypso-local.js';
 
 test('recognition errors stay explicit', () => {
   assert.equal(mapRecognitionError('network'), 'SPEECH_RECOGNITION_NETWORK_ERROR');
@@ -30,4 +31,13 @@ test('speech rendering removes URLs and technical labels', () => {
 
 test('model output supports chat-shaped generation responses', () => {
   assert.equal(extractGeneratedText([{ generated_text: [{ role: 'assistant', content: 'Grounded answer.' }] }]), 'Grounded answer.');
+});
+
+test('local speech audio is resampled to Whisper input rate', () => {
+  const source = new Float32Array([0, 1, 0, -1]);
+  const result = resampleMono(source, 8000, 16000);
+  assert.equal(result.length, 8);
+  assert.equal(result[0], 0);
+  assert.equal(result[2], 1);
+  assert.equal(result[4], 0);
 });

@@ -387,6 +387,9 @@ function publicPayload(generatedAt, sources, updates) {
     updates,
     capabilities: {
       conversation: 'DETERMINISTIC_LOCAL',
+      localAI: 'OPTIONAL_LAZY',
+      localSTT: 'OPTIONAL_LAZY',
+      customVoice: 'ARCHITECTURE_READY_PRIVATE_BACKEND_REQUIRED',
       voiceInput: 'BROWSER_OPTIONAL',
       voiceOutput: 'BROWSER_OPTIONAL',
       laya: 'UNAVAILABLE',

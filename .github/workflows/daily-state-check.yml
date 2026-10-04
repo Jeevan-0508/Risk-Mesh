@@ -1,9 +1,9 @@
 name: Daily MESH state check
 
-# MESH currently supports local contracts, simulated/fixture adapters and
-# hash-verified snapshots. This workflow validates that state and regenerates
-# the honest capability registry; it does not turn SNAPSHOT or UNAVAILABLE
-# sources into LIVE connections.
+# MESH validates its contracts and builds a deterministic briefing over the
+# seven supported repository outputs. The briefing preserves REAL_WORLD,
+# OFFICIAL, SYNTHETIC, SIMULATED, SNAPSHOT and UNAVAILABLE boundaries; it does
+# not turn a snapshot or a failed source into a LIVE connection.
 on:
   schedule:
     - cron: '0 10 * * *' # 10:00 UTC daily
@@ -25,6 +25,10 @@ jobs:
         with:
           bun-version: '1.3.14'
       - run: bun install --frozen-lockfile
+      - name: Build the grounded daily briefing
+        run: node scripts/build-briefing.mjs
+      - name: Test briefing normalization and no-change behavior
+        run: node --test scripts/build-briefing.test.mjs
       - name: Validate the supported adapters and provenance boundaries
         run: bun test
       - name: Validate TypeScript without changing runtime status
@@ -35,10 +39,10 @@ jobs:
         run: |
           git config user.name "risk-mesh-state-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add observatory/data/repo-registry.js
+          git add observatory/data/repo-registry.js observatory/data/briefing.js data/briefing-state.json
           if git diff --cached --quiet; then
-            echo "NO_CHANGE: MESH registry and supported-source statuses unchanged."
+            echo "NO_CHANGE: MESH registry, source outputs and briefing state unchanged."
             exit 0
           fi
-          git commit -m "Daily MESH state refresh"
+          git commit -m "Daily MESH briefing refresh"
           git push

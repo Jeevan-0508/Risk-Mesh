@@ -110,6 +110,14 @@ function pulseRandomPoints(n) {
   }
 }
 window.__orbPulse = pulseRandomPoints;
+window.__orbActivateSource = (sourceId) => {
+  // The briefing layer calls this only for a real normalized source update or a user-selected
+  // source. The deterministic stride keeps the reaction stable without pretending to simulate
+  // hidden computation or live telemetry.
+  let seed = 0;
+  for (const char of String(sourceId || 'mesh')) seed = (seed * 31 + char.charCodeAt(0)) >>> 0;
+  for (let i = 0; i < 72; i++) pulse[(seed + i * 37) % POINT_COUNT] = 1;
+};
 window.__orbBlockedFlash = () => { blockedFlash = 1; };
 
 const clock = new THREE.Clock();

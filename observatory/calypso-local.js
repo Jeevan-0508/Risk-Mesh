@@ -130,6 +130,7 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
       state.ready = false;
       state.loading = null;
       state.status = 'ERROR';
+      if (state.modelDownloadState === 'DOWNLOADING') state.modelDownloadState = 'ERROR';
       state.lastError = errorMessage(error);
       onStatus('LOCAL_AI_ERROR');
       report();

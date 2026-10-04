@@ -1,5 +1,5 @@
 import { buildMeshContext, mapRecognitionError, renderSpeechText } from './calypso-core.mjs?v=2';
-import { createLocalIntelligence, createLocalTranscriber } from './calypso-local.js?v=2';
+import { createLocalIntelligence, createLocalTranscriber } from './calypso-local.js?v=3';
 import { createPrivateCustomVoice } from './calypso-voice.js';
 
 const VOICE_KEY = 'risk-mesh:calypso-voice-uri-v1';
@@ -371,7 +371,8 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     let localFailureReason = null;
     if (state.intelligence === 'local') {
       try {
-        if (!state.localAI || !state.localAI.state.ready) await enableLocalAI();
+        if (!state.localAI) await enableLocalAI();
+        else if (!state.localAI.state.ready && state.localAI.state.status !== 'ERROR') await enableLocalAI();
         if (!state.localAI?.state.ready) throw new Error(state.localAI?.state.lastError || 'LOCAL_AI_NOT_READY');
         const generated = await state.localAI.generate(buildMeshContext({ question: text, result, updates: getUpdates(), memory: state.memory }));
         finalResult = { ...result, text: generated.text, generatedBy: 'LOCAL_AI', latencyMs: generated.latencyMs, responseSource: 'LOCAL_LLM' };

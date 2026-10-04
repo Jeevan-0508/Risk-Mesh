@@ -9,6 +9,11 @@ The Observatory is the strongest visual proof: a neural particle-orb and ledger 
 captured golden cases plus two captured System-1 Arena runs. It is a replay, not a live feed; it
 does not claim production traffic or live cross-repository telemetry.
 
+`.github/workflows/daily-state-check.yml` validates the current adapters and provenance boundaries
+once per day, with a manual Run Workflow option, and refreshes the generated capability registry
+only when the registry itself changes. It does not promote `SNAPSHOT`, `SIMULATED`, or `UNAVAILABLE`
+sources to `LIVE`.
+
 Related demos: [fraud-watch](https://jeevan-0508.github.io/fraud-watch/) ·
 [risk-replay](https://jeevan-0508.github.io/risk-replay/) ·
 [risk-swarm](https://jeevan-0508.github.io/risk-swarm/) ·

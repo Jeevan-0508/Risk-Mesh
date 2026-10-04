@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildLocalMessages, buildMeshContext, extractGeneratedText, mapRecognitionError, renderSpeechText } from './calypso-core.mjs';
+import { buildLocalMessages, buildMeshContext, createPrimaryCalypsoProvider, extractGeneratedText, mapRecognitionError, renderSpeechText } from './calypso-core.mjs';
 import { normalizeTranscriptText, resampleMono } from './calypso-local.js';
 
 test('recognition errors stay explicit', () => {
@@ -26,7 +26,13 @@ test('local prompt preserves grounding rules', () => {
 });
 
 test('speech rendering removes URLs and technical labels', () => {
-  assert.equal(renderSpeechText('Open https://example.com. Evidence class: EXTERNAL_SOURCE. Hello.'), 'Open Hello.');
+  assert.equal(renderSpeechText('Open https://example.com. Evidence class: EXTERNAL_SOURCE. Hash abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcd. Hello.'), 'Open. Hello.');
+});
+
+test('primary intelligence provider stays honest when unconfigured', async () => {
+  const provider = createPrimaryCalypsoProvider();
+  assert.equal(provider.status, 'UNCONFIGURED');
+  await assert.rejects(provider.generate({}), /PRIMARY_INTELLIGENCE_UNCONFIGURED/);
 });
 
 test('model output supports chat-shaped generation responses', () => {

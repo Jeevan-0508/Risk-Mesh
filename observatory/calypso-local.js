@@ -1,4 +1,4 @@
-import { buildLocalMessages, extractGeneratedText, LOCAL_LLM_MODEL, LOCAL_STT_MODEL, looksUsableModelResponse } from './calypso-core.mjs?v=2';
+import { buildLocalMessages, extractGeneratedText, LOCAL_LLM_MODEL, LOCAL_STT_MODEL, looksUsableModelResponse } from './calypso-core.mjs?v=3';
 
 const TRANSFORMERS_URL = 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm';
 const TRANSFORMERS_VERSION = '3.8.1';
@@ -165,12 +165,25 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
     }
   }
 
+  async function dispose() {
+    try { await state.generator?.dispose?.(); } catch { /* best-effort browser memory release */ }
+    state.generator = null;
+    state.ready = false;
+    state.loading = null;
+    state.status = 'NOT_DOWNLOADED';
+    state.pipelineState = 'NOT_INITIALIZED';
+    state.modelInitializationState = 'NOT_STARTED';
+    state.lastResponseSource = null;
+    report();
+  }
+
   return {
     state,
     model: LOCAL_LLM_MODEL,
     diagnostics,
     load,
     generate,
+    dispose,
   };
 }
 
@@ -279,5 +292,13 @@ export function createLocalTranscriber({ onStatus = () => {}, onProgress = () =>
     }
   }
 
-  return { state, model: LOCAL_STT_MODEL, load, transcribe };
+  async function dispose() {
+    try { await state.transcriber?.dispose?.(); } catch { /* best-effort browser memory release */ }
+    state.transcriber = null;
+    state.ready = false;
+    state.loading = null;
+    state.device = null;
+  }
+
+  return { state, model: LOCAL_STT_MODEL, load, transcribe, dispose };
 }

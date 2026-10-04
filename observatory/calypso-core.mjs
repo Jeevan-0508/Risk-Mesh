@@ -24,10 +24,25 @@ export function mapRecognitionError(code) {
 export function renderSpeechText(text) {
   return String(text || '')
     .replace(/https?:\/\/\S+/gi, '')
+    .replace(/\b(?:hash|sha(?:-?256)?|provenance)\s*:?[a-f0-9]{40,64}\b/gi, '')
+    .replace(/\b[a-f0-9]{40,64}\b/gi, '')
     .replace(/\b(?:MESH timestamp|Evidence class|Freshness):[^.]+\.?/gi, '')
     .replace(/\s+/g, ' ')
     .replace(/\s+([,.!?])/g, '$1')
     .trim();
+}
+
+export function createPrimaryCalypsoProvider(config = {}) {
+  const configured = Boolean(config.endpoint && config.request);
+  return {
+    id: 'secure-primary-calypso',
+    status: configured ? 'CONFIGURED' : 'UNCONFIGURED',
+    configured,
+    async generate(context) {
+      if (!configured) throw new Error('PRIMARY_INTELLIGENCE_UNCONFIGURED');
+      return config.request(context);
+    },
+  };
 }
 
 function compactRecord(record) {

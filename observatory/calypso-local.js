@@ -164,7 +164,7 @@ export function createLocalTranscriber({ onStatus = () => {}, onProgress = () =>
     try {
       const audio = await decodeAndResample(blob, 16000, onDiagnostic);
       onDiagnostic('TRANSCRIBING', `samples=${audio.data.length} sampleRate=${audio.sampling_rate}`);
-      const output = await state.transcriber(audio, { language: 'english', task: 'transcribe' });
+      const output = await state.transcriber(audio.data, { language: 'english', task: 'transcribe', sampling_rate: audio.sampling_rate });
       const text = String(output?.text || '').trim();
       onDiagnostic('TRANSCRIPT RESULT', text ? `text=${text}` : 'empty');
       return text;

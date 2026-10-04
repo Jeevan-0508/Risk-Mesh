@@ -57,10 +57,13 @@ The browser experience provides:
 - `NEW`, `UPDATED`, `SEEN`, `UNCHANGED` behavior backed by guarded browser-local state;
 - evidence drill-down with original FOMO links, official regulatory URLs, repository outputs,
   source hashes and freshness;
-- deterministic local questions such as “What changed?”, “Show FOMO sources”, and “Is this real?”;
-- optional browser-native speech input/output, with an explicit unavailable state when unsupported.
+- CALYPSO conversation with short memory, grounded answers, visible transcript/state transitions,
+  optional browser-native voice, and explicit unavailable errors when unsupported;
+- a primary FOMO record archive with every checked record and its individual original-source link,
+  while technical provenance remains available behind disclosure.
 
-The current layer does not call a model, expose a provider secret, or invent an answer. Laya, Jev
+The current layer does not call a model, expose a provider secret, or invent an answer. CALYPSO uses
+the deterministic grounded fallback; no local LLM is installed. Laya, Jev
 and SWARM escalation remain unavailable from the static Observatory until a legitimate callable
 boundary exists. Fraud Watch, Shadow Network and Risk Ring remain visibly synthetic; FOMO and
 Reg Search remain repository snapshots; official-source monitoring remains review-required rather

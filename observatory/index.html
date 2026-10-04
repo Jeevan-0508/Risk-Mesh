@@ -39,11 +39,15 @@
     </div>
     <div class="source-chips" id="mesh-sources" aria-label="Source status"></div>
     <div class="briefing-updates" id="mesh-updates"></div>
-    <div class="conversation">
-      <div class="conversation-title"><span class="eyebrow">GROUNDED CONVERSATION</span><span>local deterministic answers · no API key</span></div>
-      <div class="conversation-row"><input id="mesh-question" type="text" placeholder="What's new today?" autocomplete="off"><button id="mesh-ask" type="button">Ask</button></div>
-      <div class="conversation-controls"><button id="mesh-voice-input" type="button">Talk to MESH</button><button id="mesh-voice-output" type="button">Voice responses off</button></div>
-      <p class="conversation-response" id="mesh-response">Ask about changes, evidence, sources, freshness, or what is real versus synthetic.</p>
+    <div class="conversation calypso-shell">
+      <div class="conversation-title"><span class="eyebrow">CALYPSO · GROUNDED CONVERSATION</span><span>MESH evidence layer · no API key</span></div>
+      <div class="calypso-status-row"><strong id="calypso-state" data-state="IDLE">CALYPSO ● IDLE</strong><span id="calypso-error" class="calypso-error" aria-live="assertive"></span><span id="calypso-engine">DETERMINISTIC FALLBACK · preparing…</span></div>
+      <div class="conversation-row"><input id="mesh-question" type="text" placeholder="Talk to Calypso…" autocomplete="off"><button id="mesh-ask" type="button">Ask</button></div>
+      <div class="conversation-controls"><button id="mesh-voice-input" type="button">Talk to Calypso</button><button id="calypso-voice-toggle" type="button">VOICE OFF</button><button id="calypso-stop-speaking" type="button">STOP SPEAKING</button></div>
+      <div class="calypso-voice-settings"><label for="calypso-voice-select">CALYPSO VOICE</label><select id="calypso-voice-select" disabled><option>Loading installed voices…</option></select></div>
+      <p class="calypso-transcript" id="calypso-transcript" aria-live="polite">Transcript will appear here.</p>
+      <p class="conversation-response" id="mesh-response" aria-live="polite">Hello. I’m Calypso. Ask about changes, evidence, sources, freshness, or what is real versus synthetic.</p>
+      <div class="calypso-links" id="calypso-links" aria-label="Calypso source links"></div>
     </div>
   </section>
   <aside class="evidence-panel" id="evidence-panel" hidden></aside>
@@ -56,6 +60,6 @@
   { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
 </script>
 <script type="module" src="orb.js"></script>
-<script type="module" src="briefing.js?v=2"></script>
+<script type="module" src="briefing.js?v=3"></script>
 </body>
 </html>

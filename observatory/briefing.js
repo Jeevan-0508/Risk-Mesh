@@ -1,4 +1,5 @@
 import briefing from './data/briefing.js';
+import { createCalypso } from './calypso.js';
 
 const SEEN_KEY = 'risk-mesh:briefing-seen-v1';
 const LAST_OPEN_KEY = 'risk-mesh:briefing-last-open-v1';
@@ -81,6 +82,11 @@ function renderSourceStatus() {
   el.querySelectorAll('[data-source]').forEach((button) => button.addEventListener('click', () => {
     const source = briefing.sources.find((item) => item.id === button.dataset.source);
     if (!source) return;
+    const sourceUpdate = state.updates.find((update) => update.sourceProject === source.name);
+    if (sourceUpdate) {
+      openEvidence(sourceUpdate);
+      return;
+    }
     openEvidence({
       sourceProject: source.name,
       title: `${source.name} source status`,
@@ -130,19 +136,49 @@ function renderEvidenceObject(value) {
   return entries.map(([key, item]) => `<div class="evidence-field"><span>${escapeHtml(key)}</span><strong>${escapeHtml(valueSummary(item))}</strong>${Array.isArray(item) && item.length && typeof item[0] === 'object' ? `<pre>${escapeHtml(JSON.stringify(item.slice(0, 12), null, 2))}</pre>` : ''}</div>`).join('');
 }
 
-function openEvidence(update) {
+function renderFomoRecord(record, index) {
+  const fields = [
+    record.timestamp ? `<span>${escapeHtml(formatDate(record.timestamp))}</span>` : '',
+    record.foundAt ? `<span>found ${escapeHtml(formatDate(record.foundAt))}</span>` : '',
+    record.location ? `<span>location: ${escapeHtml(record.location)}</span>` : '',
+    record.category ? `<span>${escapeHtml(record.category)}</span>` : '',
+    record.severity ? `<span>${escapeHtml(record.severity)} severity</span>` : '',
+    record.source ? `<span>${escapeHtml(record.source)}</span>` : '',
+  ].filter(Boolean).join('');
+  const links = renderLinks(record.links || []);
+  return `<article class="fomo-record" data-fomo-record="${escapeHtml(record.id || index)}">
+    <div class="fomo-record-index">${index + 1}</div>
+    <div class="fomo-record-body"><h3>${escapeHtml(record.title || `FOMO report ${index + 1}`)}</h3>
+    <div class="fomo-record-meta">${fields || '<span>record metadata not supplied</span>'}</div>
+    ${record.summary ? `<p>${escapeHtml(record.summary)}</p>` : ''}
+    <div class="fomo-record-links">${links || '<span class="muted">No original URL was supplied in this record.</span>'}</div></div>
+  </article>`;
+}
+
+function renderFomoRecords(update) {
+  const records = Array.isArray(update.details?.records) ? update.details.records : [];
+  if (!records.length) return '<p class="empty-state">The checked FOMO update contains no individual records.</p>';
+  return `<div class="fomo-primary"><div class="fomo-primary-head"><span class="eyebrow">FOMO · REAL WORLD</span><strong>${records.length} RECORD${records.length === 1 ? '' : 'S'}</strong></div>
+    <p class="fomo-primary-note">Every record below comes from the checked FOMO artifact. Original source links are shown individually; technical provenance stays below.</p>
+    <div class="fomo-record-list">${records.map(renderFomoRecord).join('')}</div></div>`;
+}
+
+function openEvidence(update, focusRecordId = null) {
   const panel = $('evidence-panel');
   if (!panel) return;
   const source = briefing.sources.find((item) => item.name === update.sourceProject);
+  const isFomo = update.sourceProject === 'FOMO';
+  const technicalDetails = { ...(update.details || {}) };
+  if (isFomo) delete technicalDetails.records;
   panel.hidden = false;
   panel.innerHTML = `<div class="evidence-head"><div><span class="eyebrow">${escapeHtml(update.sourceProject)}</span><h2>${escapeHtml(update.title)}</h2></div><button id="evidence-close" type="button" aria-label="Close evidence">×</button></div>
     <p class="evidence-summary">${escapeHtml(update.summary)}</p>
     <div class="evidence-labels"><span>${escapeHtml(update.evidenceType)}</span><span>${escapeHtml(update.sourceType)}</span><span>${escapeHtml(update.status)}</span></div>
     <p class="evidence-freshness">MESH timestamp: ${escapeHtml(formatDate(update.timestamp))}. ${escapeHtml(source?.freshness || '')}</p>
-    <div class="evidence-links">${renderLinks(update.links)}</div>
-    <div class="evidence-details">${renderEvidenceObject(update.details)}</div>
-    <details class="provenance"><summary>Show provenance</summary><pre>${escapeHtml(JSON.stringify(update.provenance || source || {}, null, 2))}</pre></details>`;
+    ${isFomo ? renderFomoRecords(update) : `<div class="evidence-links">${renderLinks(update.links)}</div><div class="evidence-details">${renderEvidenceObject(technicalDetails)}</div>`}
+    <details class="technical-provenance"><summary>Technical provenance</summary><div class="evidence-links">${renderLinks(update.links)}</div><div class="evidence-details">${renderEvidenceObject(technicalDetails)}</div><pre>${escapeHtml(JSON.stringify(update.provenance || source || {}, null, 2))}</pre></details>`;
   $('evidence-close')?.addEventListener('click', () => { panel.hidden = true; });
+  if (focusRecordId) [...panel.querySelectorAll('[data-fomo-record]')].find((item) => item.dataset.fomoRecord === focusRecordId)?.scrollIntoView({ block: 'center' });
   window.__orbActivateSource?.(sourceIdFromUpdate(update));
 }
 
@@ -150,82 +186,6 @@ function markSeen(update) {
   state.seen[update.id] = { fingerprint: update.fingerprint, seenAt: Date.now() };
   persistSeen();
   renderUpdates();
-}
-
-function answerQuestion(rawQuestion) {
-  const question = rawQuestion.trim();
-  const q = question.toLowerCase();
-  if (!question) return { text: 'Ask me about today, a source project, evidence, freshness, or what is real versus synthetic.' };
-  if (/(jev|laya|swarm|escalat|investigate deeper)/.test(q)) {
-    return { text: 'That deeper path is intentionally unavailable from this static Observatory. MESH can show grounded source evidence now; it cannot call Jev, Laya, or SWARM from this page.' };
-  }
-  if (/(real|synthetic|simulation|simulated|official)/.test(q)) {
-    return { text: 'Evidence classes are kept separate: FOMO is REAL_WORLD external signal data in a repository snapshot; EU AI Act monitoring and Forecast Ledger use OFFICIAL sources/data; Fraud Watch, Shadow Network, and Risk Ring are SYNTHETIC/SIMULATED; Reg Search is a cited SNAPSHOT. MESH will not turn a simulation into a real incident.' };
-  }
-  if (/(source|link|evidence|report)/.test(q)) {
-    const source = briefing.sources.find((item) => q.includes(item.name.toLowerCase()) || q.includes(item.id));
-    const update = source && state.updates.find((item) => item.sourceProject === source.name);
-    if (update) return { text: `I found the ${source.name} evidence. Open the matching briefing item to inspect its records and source links.`, update };
-    if (source) return { text: `${source.name} has no new update in the current briefing. Its latest source status is ${source.status}; open the source chip above for provenance.` };
-    return { text: 'Open a briefing item to inspect its underlying records, timestamps, hashes, and source URLs. I will not invent a source link.' };
-  }
-  const source = briefing.sources.find((item) => q.includes(item.name.toLowerCase()) || q.includes(item.id));
-  if (source) {
-    const update = state.updates.find((item) => item.sourceProject === source.name);
-    if (update) return { text: `${source.name}: ${update.summary} Evidence class: ${update.evidenceType}. Freshness: ${source.freshness}.`, update };
-    return { text: `${source.name} has no new update in the current completed check. Status: ${source.status}. Freshness: ${source.freshness}.` };
-  }
-  if (/(what.*new|what.*changed|brief|today|last 24|this week)/.test(q)) {
-    const attention = state.updates.filter((item) => ['NEW', 'UPDATED', 'UNAVAILABLE'].includes(classify(item)));
-    if (!state.updates.length) return { text: 'No new source updates were recorded in the latest completed check. That is not a no-risk conclusion.' };
-    return { text: `${briefing.headline} ${attention.length} currently deserve attention. I would inspect the highest-importance item first, then verify its evidence class and freshness.` };
-  }
-  return { text: 'I can answer grounded questions about what changed, FOMO, Fraud Watch, Shadow Network, EU AI monitoring, Risk Ring, Forecast Ledger, Reg Search, evidence links, freshness, and whether a source is real, official, synthetic, simulated, snapshot, or unavailable.' };
-}
-
-function speak(text) {
-  if (!('speechSynthesis' in window)) return false;
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(new SpeechSynthesisUtterance(text));
-  return true;
-}
-
-function wireConversation() {
-  const question = $('mesh-question');
-  const response = $('mesh-response');
-  const submit = $('mesh-ask');
-  const submitQuestion = () => {
-    const result = answerQuestion(question?.value || '');
-    if (response) response.textContent = result.text;
-    if (result.update) openEvidence(result.update);
-    if (state.voiceOutput) speak(result.text);
-  };
-  submit?.addEventListener('click', submitQuestion);
-  question?.addEventListener('keydown', (event) => { if (event.key === 'Enter') submitQuestion(); });
-  $('mesh-brief')?.addEventListener('click', () => {
-    const result = answerQuestion("What's new today?");
-    if (response) response.textContent = result.text;
-    if (!speak(result.text)) if (response) response.textContent += ' Voice output is unavailable in this browser; the text briefing remains available.';
-  });
-  $('mesh-voice-output')?.addEventListener('click', () => {
-    state.voiceOutput = !state.voiceOutput;
-    $('mesh-voice-output').textContent = state.voiceOutput ? 'Voice responses on' : 'Voice responses off';
-    if (!('speechSynthesis' in window)) $('mesh-voice-output').textContent = 'Voice output unavailable';
-  });
-  const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const voiceButton = $('mesh-voice-input');
-  if (!Recognition) {
-    if (voiceButton) { voiceButton.disabled = true; voiceButton.textContent = 'Voice input unavailable'; }
-    return;
-  }
-  const recognition = new Recognition();
-  recognition.lang = 'en-US';
-  recognition.interimResults = false;
-  recognition.onstart = () => { if (voiceButton) voiceButton.textContent = 'Listening…'; };
-  recognition.onend = () => { if (voiceButton) voiceButton.textContent = 'Talk to MESH'; };
-  recognition.onerror = () => { if (response) response.textContent = 'Voice input could not be completed. Text conversation remains available.'; };
-  recognition.onresult = (event) => { if (question) question.value = event.results[0][0].transcript; submitQuestion(); };
-  voiceButton?.addEventListener('click', () => recognition.start());
 }
 
 function wire() {
@@ -243,10 +203,20 @@ function wire() {
     renderUpdates();
   }));
   $('mesh-mark-read')?.addEventListener('click', () => { state.updates.forEach(markSeen); });
-  wireConversation();
+  createCalypso({
+    briefing,
+    $,
+    escapeHtml,
+    getUpdates: () => state.updates,
+    onOpenEvidence: openEvidence,
+    onActivateSource: (sourceId) => window.__orbActivateSource?.(sourceId),
+    renderConversationLinks: (links) => {
+      const el = $('calypso-links');
+      if (!el) return;
+      el.innerHTML = links?.length ? `<span class="calypso-links-label">SOURCE LINKS</span>${links.map((item) => `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener">${escapeHtml(item.label || 'Open original source')} ↗</a>`).join('')}` : '';
+    },
+  });
   try { localStorage.setItem(LAST_OPEN_KEY, String(Date.now())); } catch { /* optional memory */ }
 }
 
 wire();
-
-export { answerQuestion };

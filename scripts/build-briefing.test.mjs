@@ -19,12 +19,15 @@ test('the current seven-source snapshot normalizes provenance and evidence class
   const fomo = result.payload.sources.find((source) => source.id === 'fomo');
   const fraud = result.payload.sources.find((source) => source.id === 'fraud-watch');
   const eu = result.payload.sources.find((source) => source.id === 'eu-ai-act-scanner');
+  const fomoUpdate = result.payload.updates.find((update) => update.sourceProject === 'FOMO');
   assert.equal(fomo.sourceType, 'REAL_WORLD');
   assert.equal(fraud.sourceType, 'SYNTHETIC');
   assert.equal(eu.sourceType, 'OFFICIAL');
   assert.ok(fomo.trust.includes('repository snapshot'));
   assert.ok(fraud.trust.includes('not real incidents'));
   assert.ok(eu.trust.includes('human review'));
+  assert.equal(fomoUpdate.details.records.length, fomoUpdate.details.recordCount);
+  assert.ok(fomoUpdate.details.records.every((record) => record.links.every((item) => item.url)));
 });
 
 test('a second build against unchanged source outputs is a no-change operation', async () => {

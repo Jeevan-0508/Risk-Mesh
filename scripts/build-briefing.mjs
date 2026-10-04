@@ -187,30 +187,36 @@ function updateFor(def, source, changed, title, summary, details, extra = {}) {
   };
 }
 
-function normalizeFomo(def, loaded, previous, retrievedAt) {
+function normalizeFomo(def, loaded, previous, retrievedAt, previousUpdate) {
   const data = loaded.artifacts['data/signals.json'];
   const records = Array.isArray(data?.signals) ? data.signals : [];
   const recordMap = Object.fromEntries(records.map((record) => [record.link || `${record.title}:${record.pub_date}`, hash(record)]));
   const diff = recordDiff(previous?.records, recordMap);
   const source = baseSource(def, loaded, retrievedAt, records.map((r) => isoOrNull(r.pub_date)).filter(Boolean).sort().at(-1) || null);
   source.recordCount = records.length;
-  const changedRecords = records.filter((record) => diff.changed.includes(record.link || `${record.title}:${record.pub_date}`));
-  const displayRecords = (changedRecords.length ? changedRecords : records).slice().sort((a, b) => String(b.found_at || b.pub_date).localeCompare(String(a.found_at || a.pub_date))).slice(0, 5);
-  const update = loaded.fingerprint !== previous?.fingerprint
-    ? updateFor(def, source, diff.changed, diff.added.length ? 'New external freight-risk signals' : 'FOMO signal snapshot updated', `${diff.added.length} new and ${diff.updated.length} updated external freight-risk report${diff.added.length + diff.updated.length === 1 ? '' : 's'} detected.`, {
+  const displayRecords = records.slice().sort((a, b) => String(b.found_at || b.pub_date).localeCompare(String(a.found_at || a.pub_date)));
+  const normalizedRecords = displayRecords.map((record) => ({
+    id: record.link || `${record.title}:${record.pub_date}`,
+    title: record.title || 'Untitled FOMO report',
+    summary: typeof record.summary === 'string' ? record.summary : null,
+    timestamp: isoOrNull(record.pub_date) || isoOrNull(record.found_at),
+    foundAt: isoOrNull(record.found_at),
+    location: typeof record.location === 'string' ? record.location : null,
+    category: typeof record.category === 'string' ? record.category : null,
+    severity: typeof record.severity === 'string' ? record.severity : null,
+    source: typeof record.source === 'string' ? record.source : null,
+    links: record.link ? [link('Open original source', record.link)] : [],
+    classification: 'REAL_WORLD_SIGNAL',
+  }));
+  const needsRecordMigration = !Array.isArray(previousUpdate?.details?.records) || previousUpdate.details.records.length !== records.length;
+  const currentChanged = loaded.fingerprint !== previous?.fingerprint;
+  const update = currentChanged || needsRecordMigration
+    ? updateFor(def, source, diff.changed, currentChanged && diff.added.length ? 'New external freight-risk signals' : currentChanged ? 'FOMO signal snapshot updated' : 'FOMO report archive ready', currentChanged ? `${diff.added.length} new and ${diff.updated.length} updated external freight-risk report${diff.added.length + diff.updated.length === 1 ? '' : 's'} detected.` : `${records.length} FOMO reports are available in the checked snapshot.`, {
       recordCount: records.length,
       newCount: diff.added.length,
       updatedCount: diff.updated.length,
-      records: displayRecords.map((record) => ({
-        id: record.link || record.title,
-        title: record.title,
-        summary: `${record.source || 'External source'} · ${record.category || 'uncategorized'} · ${record.severity || 'unclassified'} severity`,
-        timestamp: isoOrNull(record.pub_date) || isoOrNull(record.found_at),
-        links: [link('Original report', record.link)],
-        source: record.source,
-        classification: 'REAL_WORLD_SIGNAL',
-      })),
-    }, { importance: records.some((r) => r.severity === 'high') ? 'high' : 'medium', links: [link('Open FOMO data', repoUrl(def.repo, 'data/signals.json'))] })
+      records: normalizedRecords,
+    }, { importance: records.some((r) => r.severity === 'high') ? 'high' : 'medium', status: currentChanged ? undefined : 'UPDATED', links: [link('Open FOMO data', repoUrl(def.repo, 'data/signals.json'))] })
     : null;
   return { source, records: recordMap, update };
 }
@@ -399,7 +405,8 @@ export async function buildBriefing({ now = new Date().toISOString() } = {}) {
     const prior = previous.sourceStates?.[def.id];
     try {
       const loaded = await loadSource(def);
-      const normalized = NORMALIZERS[def.id](def, loaded, prior, now);
+      const previousUpdate = previous.payload?.updates?.find((update) => update.sourceProject === def.name);
+      const normalized = NORMALIZERS[def.id](def, loaded, prior, now, previousUpdate);
       const sourceState = {
         ...normalized.source,
         fingerprint: loaded.fingerprint,

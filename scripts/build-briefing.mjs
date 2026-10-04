@@ -236,7 +236,7 @@ function normalizeFraudWatch(def, loaded, previous, retrievedAt) {
   source.simulationDay = summary?.simulation?.day ?? world?.clock?.day ?? null;
   const currentChanged = loaded.fingerprint !== previous?.fingerprint;
   const update = currentChanged
-    ? updateFor(def, source, diff.changed, 'Fraud Watch simulation state changed', `Synthetic simulation day ${source.simulationDay ?? 'unknown'} contains ${candidates.length} candidate method${candidates.length === 1 ? '' : 's'} of operation and ${summary?.world?.openInvestigations ?? 'an unknown number of'} open investigations.`, {
+    ? updateFor(def, source, diff.changed, 'Fraud Watch simulation state changed', `Synthetic simulation day ${source.simulationDay ?? 'unknown'} contains ${candidates.length} candidate method${candidates.length === 1 ? '' : 's'} of operation and ${summary?.world?.openInvestigations ?? 'an unknown number of'} open investigation${summary?.world?.openInvestigations === 1 ? '' : 's'}.`, {
       simulation: { day: source.simulationDay, timeOfDay: summary?.simulation?.timeOfDay || null, activeSignals: summary?.world?.activeSignals ?? null, openInvestigations: summary?.world?.openInvestigations ?? null, totalCases: summary?.world?.totalCases ?? null },
       candidates,
       methods: mos.slice(-12).map((mo) => ({ id: mo.id, status: mo.status, classification: mo.classification, confidenceBand: mo.confidenceBand, noveltyScore: mo.noveltyScore, signature: mo.signature, entities: mo.entities, timeline: mo.timeline, evidence: mo.evidence })),
@@ -439,6 +439,11 @@ export async function buildBriefing({ now = new Date().toISOString() } = {}) {
   const changed = JSON.stringify(sourceStates) !== JSON.stringify(previous.sourceStates || {});
   const generatedAt = changed || !previous.generated_at ? now : previous.generated_at;
   const visibleUpdates = updates.length || changed ? updates : (previous.payload?.updates || []);
+  for (const update of visibleUpdates) {
+    if (update.sourceProject === 'Fraud Watch') {
+      update.summary = update.summary.replace(/\b1 open investigations\b/g, '1 open investigation');
+    }
+  }
   const payload = publicPayload(generatedAt, sources, visibleUpdates);
   const state = { schema_version: BRIEFING_SCHEMA_VERSION, generated_at: generatedAt, sourceStates, payload };
   return { state, payload, changed };

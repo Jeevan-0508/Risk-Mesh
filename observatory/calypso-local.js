@@ -1,4 +1,4 @@
-import { buildLocalMessages, extractGeneratedText, LOCAL_LLM_MODELS, LOCAL_STT_MODEL, looksUsableModelResponse } from './calypso-core.mjs?v=6';
+import { buildLocalMessages, extractGeneratedText, LOCAL_LLM_MODELS, LOCAL_STT_MODEL, looksUsableModelResponse } from './calypso-core.mjs?v=7';
 
 const TRANSFORMERS_URL = 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm';
 const TRANSFORMERS_VERSION = '3.8.1';
@@ -161,7 +161,9 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
     const started = performance.now();
     try {
       const output = await state.generator(buildLocalMessages(meshContext), {
-        max_new_tokens: 128,
+        // WASM inference runs on the page thread in this static deployment;
+        // keep the local response bounded so controls remain responsive.
+        max_new_tokens: 40,
         do_sample: false,
         temperature: 0.2,
       });

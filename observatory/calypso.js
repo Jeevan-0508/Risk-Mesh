@@ -1,5 +1,5 @@
-import { buildMeshContext, createPrimaryCalypsoProvider, mapRecognitionError, renderSpeechText } from './calypso-core.mjs?v=6';
-import { createLocalIntelligence, createLocalTranscriber } from './calypso-local.js?v=6';
+import { buildMeshContext, createPrimaryCalypsoProvider, mapRecognitionError, renderSpeechText } from './calypso-core.mjs?v=7';
+import { createLocalIntelligence, createLocalTranscriber } from './calypso-local.js?v=7';
 import { createPrivateCustomVoice } from './calypso-voice.js';
 
 const VOICE_KEY = 'risk-mesh:calypso-voice-uri-v1';

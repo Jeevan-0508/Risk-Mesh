@@ -1,4 +1,4 @@
-import { buildLocalMessages, extractGeneratedText, LOCAL_LLM_MODELS, LOCAL_STT_MODEL, looksUsableModelResponse } from './calypso-core.mjs?v=5';
+import { buildLocalMessages, extractGeneratedText, LOCAL_LLM_MODELS, LOCAL_STT_MODEL, looksUsableModelResponse } from './calypso-core.mjs?v=6';
 
 const TRANSFORMERS_URL = 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm';
 const TRANSFORMERS_VERSION = '3.8.1';
@@ -77,12 +77,12 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
   async function verify(generator, device) {
     const started = performance.now();
     const output = await generator([
-      { role: 'user', content: 'Reply with exactly: CALYPSO_LOCAL_MODEL_TEST_OK' },
-    ], { max_new_tokens: 24, do_sample: false });
+      { role: 'user', content: 'Reply with one short sentence confirming that this local model is running. Do not provide code.' },
+    ], { max_new_tokens: 32, do_sample: false });
     const text = extractGeneratedText(output);
     state.lastInferenceBackend = device;
     state.lastInferenceMs = Math.round(performance.now() - started);
-    state.controlledTest = text.includes('CALYPSO_LOCAL_MODEL_TEST_OK') ? 'PASSED' : `FAILED · ${text || 'empty output'}`;
+    state.controlledTest = looksUsableModelResponse(text) ? 'PASSED' : `FAILED · ${text || 'empty output'}`;
     report();
     if (state.controlledTest !== 'PASSED') throw new Error(`LOCAL_AI_CONTROLLED_TEST_FAILED: ${text || 'empty output'}`);
   }

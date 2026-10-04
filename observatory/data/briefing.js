@@ -2,7 +2,7 @@
 export default {
   "schema_version": "1.2",
   "generatedAt": "2026-10-04T08:39:52.608Z",
-  "headline": "Good morning, Jeevan. 1 source update is ready.",
+  "headline": "Good morning, Jeevan. 7 source updates are ready.",
   "sources": [
     {
       "id": "fomo",
@@ -18583,6 +18583,2404 @@ export default {
         ]
       },
       "status": "UPDATED"
+    },
+    {
+      "id": "fraud-watch:briefing",
+      "sourceProject": "Fraud Watch",
+      "timestamp": "2026-10-04T10:27:58.050Z",
+      "title": "Fraud Watch simulation state changed",
+      "summary": "Synthetic simulation day 13 contains 3 candidate methods of operation and 1 open investigation.",
+      "category": "risk-intelligence",
+      "importance": "medium",
+      "evidenceType": "SIMULATION",
+      "sourceType": "SYNTHETIC",
+      "links": [
+        {
+          "label": "Open Fraud Watch repository output",
+          "url": "https://github.com/Jeevan-0508/fraud-watch/blob/main/"
+        },
+        {
+          "label": "Open Fraud Watch state",
+          "url": "https://github.com/Jeevan-0508/fraud-watch/blob/main/data/world-state.json"
+        },
+        {
+          "label": "Open simulation report",
+          "url": "https://github.com/Jeevan-0508/fraud-watch/blob/main/data/dashboard-summary.json"
+        }
+      ],
+      "provenance": {
+        "sourceProject": "Fraud Watch",
+        "sourceFiles": [
+          "data/dashboard-summary.json",
+          "data/world-state.json"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
+          "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
+        ],
+        "retrievedAt": "2026-10-04T10:27:58.050Z",
+        "status": "SIMULATED",
+        "origin": "GitHub raw snapshot",
+        "freshness": "source timestamp simulation day 13, 06:00:00",
+        "changedRecords": []
+      },
+      "details": {
+        "simulation": {
+          "day": 13,
+          "timeOfDay": "06:00:00",
+          "activeSignals": 3,
+          "openInvestigations": 1,
+          "totalCases": 20
+        },
+        "candidates": [
+          {
+            "id": "fraud-watch:EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED",
+            "lifecycle_state": "DISCOVERED",
+            "file": "candidate-mo-7871901700adad72d5c1059762d9f021.json"
+          },
+          {
+            "id": "fraud-watch:FALSE_MILESTONE_STAMP+HANDOVER_GAP+STAGED_BREAKDOWN+UNEXPECTED_STOP",
+            "lifecycle_state": "DISCOVERED",
+            "file": "candidate-mo-516d85a7a7fed86ad3d396d1398bc50e.json"
+          },
+          {
+            "id": "fraud-watch:CARRIER_UNRESPONSIVE+FALSE_MILESTONE_STAMP+HANDOVER_GAP",
+            "lifecycle_state": "DISCOVERED",
+            "file": "candidate-mo-06b95cb6e6d88b99da250db17c6b2ca2.json"
+          }
+        ],
+        "methods": [
+          {
+            "id": "MO-0009",
+            "status": "DISMISSED",
+            "classification": "EMERGING_BEHAVIOR",
+            "confidenceBand": "ELEVATED",
+            "noveltyScore": 100,
+            "signature": "EQUIPMENT_CARRIER_MISMATCH+MANIFEST_CHANGED",
+            "entities": {
+              "truckId": "TRU-007",
+              "driverId": "DRI-026",
+              "trailerId": "TRA-007",
+              "carrierId": "CAR-007",
+              "facilityId": null
+            },
+            "timeline": [
+              {
+                "t": 490200,
+                "type": "MANIFEST_CHANGED"
+              },
+              {
+                "t": 493328,
+                "type": "MANIFEST_CHANGED"
+              },
+              {
+                "t": 493500,
+                "type": "EQUIPMENT_CARRIER_MISMATCH"
+              }
+            ],
+            "evidence": [
+              {
+                "signalId": "SIG-000318",
+                "signalType": "MANIFEST_CHANGED",
+                "contribution": 1.3,
+                "reliability": 0.65,
+                "at": 490200,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000322",
+                "signalType": "MANIFEST_CHANGED",
+                "contribution": 1.3,
+                "reliability": 0.65,
+                "at": 493328,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000321",
+                "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+                "contribution": 2.1,
+                "reliability": 0.7,
+                "at": 493500,
+                "facilityId": null,
+                "facilityName": null
+              }
+            ]
+          },
+          {
+            "id": "MO-0010",
+            "status": "DISMISSED",
+            "classification": "EMERGING_BEHAVIOR",
+            "confidenceBand": "MINIMAL",
+            "noveltyScore": 82,
+            "signature": "EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED",
+            "entities": {
+              "truckId": "TRU-012",
+              "driverId": "DRI-012",
+              "trailerId": "TRA-028",
+              "carrierId": "CAR-008",
+              "facilityId": null
+            },
+            "timeline": [
+              {
+                "t": 634990,
+                "type": "MANIFEST_CHANGED"
+              },
+              {
+                "t": 635100,
+                "type": "EQUIPMENT_CARRIER_MISMATCH"
+              },
+              {
+                "t": 637920,
+                "type": "HANDOVER_GAP"
+              },
+              {
+                "t": 638100,
+                "type": "FALSE_MILESTONE_STAMP"
+              }
+            ],
+            "evidence": [
+              {
+                "signalId": "SIG-000422",
+                "signalType": "MANIFEST_CHANGED",
+                "contribution": 1.3,
+                "reliability": 0.65,
+                "at": 634990,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000421",
+                "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+                "contribution": 2.1,
+                "reliability": 0.7,
+                "at": 635100,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000424",
+                "signalType": "HANDOVER_GAP",
+                "contribution": 1.1,
+                "reliability": 0.55,
+                "at": 637920,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000423",
+                "signalType": "FALSE_MILESTONE_STAMP",
+                "contribution": 1.7,
+                "reliability": 0.55,
+                "at": 638100,
+                "facilityId": null,
+                "facilityName": null
+              }
+            ]
+          },
+          {
+            "id": "MO-0011",
+            "status": "DISMISSED",
+            "classification": "MO_VARIANT",
+            "confidenceBand": "MINIMAL",
+            "noveltyScore": 100,
+            "signature": "DUPLICATE_ASSET_ID+SEAL_MISMATCH",
+            "entities": {
+              "truckId": "TRU-012",
+              "driverId": "DRI-012",
+              "trailerId": "TRA-028",
+              "carrierId": "CAR-008",
+              "facilityId": null
+            },
+            "timeline": [
+              {
+                "t": 799200,
+                "type": "DUPLICATE_ASSET_ID"
+              },
+              {
+                "t": 800400,
+                "type": "SEAL_MISMATCH"
+              },
+              {
+                "t": 801900,
+                "type": "DRIVER_CHANGED"
+              }
+            ],
+            "evidence": [
+              {
+                "signalId": "SIG-000515",
+                "signalType": "DUPLICATE_ASSET_ID",
+                "contribution": 2,
+                "reliability": 0.65,
+                "at": 799200,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000519",
+                "signalType": "SEAL_MISMATCH",
+                "contribution": 2.3,
+                "reliability": 0.75,
+                "at": 800400,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000521",
+                "signalType": "DRIVER_CHANGED",
+                "contribution": 0.5,
+                "reliability": 0.5,
+                "at": 801900,
+                "facilityId": null,
+                "facilityName": null
+              }
+            ]
+          },
+          {
+            "id": "MO-0012",
+            "status": "DISMISSED",
+            "classification": "POTENTIAL_NEW_MO",
+            "confidenceBand": "MINIMAL",
+            "noveltyScore": 82,
+            "signature": "FALSE_MILESTONE_STAMP+HANDOVER_GAP+STAGED_BREAKDOWN+UNEXPECTED_STOP",
+            "entities": {
+              "truckId": "TRU-009",
+              "driverId": "DRI-003",
+              "trailerId": "TRA-008",
+              "carrierId": "CAR-007",
+              "facilityId": null
+            },
+            "timeline": [
+              {
+                "t": 808921,
+                "type": "UNEXPECTED_STOP"
+              },
+              {
+                "t": 809100,
+                "type": "STAGED_BREAKDOWN"
+              },
+              {
+                "t": 810581,
+                "type": "HANDOVER_GAP"
+              },
+              {
+                "t": 810600,
+                "type": "FALSE_MILESTONE_STAMP"
+              },
+              {
+                "t": 838800,
+                "type": "MANIFEST_CHANGED"
+              }
+            ],
+            "evidence": [
+              {
+                "signalId": "SIG-000528",
+                "signalType": "UNEXPECTED_STOP",
+                "contribution": 0.6,
+                "reliability": 0.6,
+                "at": 808921,
+                "facilityId": "FAC-002",
+                "facilityName": "South Gate"
+              },
+              {
+                "signalId": "SIG-000527",
+                "signalType": "STAGED_BREAKDOWN",
+                "contribution": 1,
+                "reliability": 0.5,
+                "at": 809100,
+                "facilityId": "FAC-002",
+                "facilityName": "South Gate"
+              },
+              {
+                "signalId": "SIG-000532",
+                "signalType": "HANDOVER_GAP",
+                "contribution": 1.1,
+                "reliability": 0.55,
+                "at": 810581,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000531",
+                "signalType": "FALSE_MILESTONE_STAMP",
+                "contribution": 1.7,
+                "reliability": 0.55,
+                "at": 810600,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000554",
+                "signalType": "MANIFEST_CHANGED",
+                "contribution": 1.3,
+                "reliability": 0.65,
+                "at": 838800,
+                "facilityId": null,
+                "facilityName": null
+              }
+            ]
+          },
+          {
+            "id": "MO-0013",
+            "status": "DISMISSED",
+            "classification": "POTENTIAL_NEW_MO",
+            "confidenceBand": "MINIMAL",
+            "noveltyScore": 82,
+            "signature": "CARRIER_UNRESPONSIVE+FALSE_MILESTONE_STAMP+HANDOVER_GAP",
+            "entities": {
+              "truckId": "TRU-011",
+              "driverId": "DRI-027",
+              "trailerId": "TRA-005",
+              "carrierId": "CAR-003",
+              "facilityId": null
+            },
+            "timeline": [
+              {
+                "t": 819445,
+                "type": "HANDOVER_GAP"
+              },
+              {
+                "t": 819600,
+                "type": "FALSE_MILESTONE_STAMP"
+              },
+              {
+                "t": 819900,
+                "type": "CARRIER_UNRESPONSIVE"
+              }
+            ],
+            "evidence": [
+              {
+                "signalId": "SIG-000538",
+                "signalType": "HANDOVER_GAP",
+                "contribution": 1.1,
+                "reliability": 0.55,
+                "at": 819445,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000537",
+                "signalType": "FALSE_MILESTONE_STAMP",
+                "contribution": 1.7,
+                "reliability": 0.55,
+                "at": 819600,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000539",
+                "signalType": "CARRIER_UNRESPONSIVE",
+                "contribution": 1,
+                "reliability": 0.5,
+                "at": 819900,
+                "facilityId": null,
+                "facilityName": null
+              }
+            ]
+          },
+          {
+            "id": "MO-0014",
+            "status": "DISMISSED",
+            "classification": "MO_VARIANT",
+            "confidenceBand": "MINIMAL",
+            "noveltyScore": 100,
+            "signature": "ACCOUNT_TAKEOVER+DUPLICATE_ASSET_ID",
+            "entities": {
+              "truckId": "TRU-004",
+              "driverId": "DRI-028",
+              "trailerId": "TRA-004",
+              "carrierId": "CAR-007",
+              "facilityId": null
+            },
+            "timeline": [
+              {
+                "t": 825300,
+                "type": "DUPLICATE_ASSET_ID"
+              },
+              {
+                "t": 828600,
+                "type": "ACCOUNT_TAKEOVER"
+              },
+              {
+                "t": 863400,
+                "type": "TRAILER_SWAPPED"
+              }
+            ],
+            "evidence": [
+              {
+                "signalId": "SIG-000544",
+                "signalType": "DUPLICATE_ASSET_ID",
+                "contribution": 2,
+                "reliability": 0.65,
+                "at": 825300,
+                "facilityId": "FAC-001",
+                "facilityName": "North Gate"
+              },
+              {
+                "signalId": "SIG-000549",
+                "signalType": "ACCOUNT_TAKEOVER",
+                "contribution": 1.8,
+                "reliability": 0.6,
+                "at": 828600,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000569",
+                "signalType": "TRAILER_SWAPPED",
+                "contribution": 0.5,
+                "reliability": 0.5,
+                "at": 863400,
+                "facilityId": "FAC-001",
+                "facilityName": "North Gate"
+              }
+            ]
+          },
+          {
+            "id": "MO-0015",
+            "status": "DISMISSED",
+            "classification": "MO_VARIANT",
+            "confidenceBand": "WATCH",
+            "noveltyScore": 100,
+            "signature": "EQUIPMENT_CARRIER_MISMATCH+MANIFEST_CHANGED+SEAL_MISMATCH",
+            "entities": {
+              "truckId": "TRU-013",
+              "driverId": "DRI-002",
+              "trailerId": "TRA-006",
+              "carrierId": "CAR-008",
+              "facilityId": null
+            },
+            "timeline": [
+              {
+                "t": 841200,
+                "type": "SEAL_MISMATCH"
+              },
+              {
+                "t": 841980,
+                "type": "MANIFEST_CHANGED"
+              },
+              {
+                "t": 842100,
+                "type": "EQUIPMENT_CARRIER_MISMATCH"
+              }
+            ],
+            "evidence": [
+              {
+                "signalId": "SIG-000557",
+                "signalType": "SEAL_MISMATCH",
+                "contribution": 2.3,
+                "reliability": 0.75,
+                "at": 841200,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000559",
+                "signalType": "MANIFEST_CHANGED",
+                "contribution": 1.3,
+                "reliability": 0.65,
+                "at": 841980,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000558",
+                "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+                "contribution": 2.1,
+                "reliability": 0.7,
+                "at": 842100,
+                "facilityId": null,
+                "facilityName": null
+              }
+            ]
+          },
+          {
+            "id": "MO-0016",
+            "status": "DISMISSED",
+            "classification": "MO_VARIANT",
+            "confidenceBand": "MINIMAL",
+            "noveltyScore": 100,
+            "signature": "CARRIER_UNRESPONSIVE+EQUIPMENT_CARRIER_MISMATCH+MANIFEST_CHANGED",
+            "entities": {
+              "truckId": "TRU-003",
+              "driverId": "DRI-004",
+              "trailerId": "TRA-015",
+              "carrierId": "CAR-005",
+              "facilityId": null
+            },
+            "timeline": [
+              {
+                "t": 930934,
+                "type": "MANIFEST_CHANGED"
+              },
+              {
+                "t": 931200,
+                "type": "EQUIPMENT_CARRIER_MISMATCH"
+              },
+              {
+                "t": 934200,
+                "type": "CARRIER_UNRESPONSIVE"
+              }
+            ],
+            "evidence": [
+              {
+                "signalId": "SIG-000617",
+                "signalType": "MANIFEST_CHANGED",
+                "contribution": 1.3,
+                "reliability": 0.65,
+                "at": 930934,
+                "facilityId": "FAC-001",
+                "facilityName": "North Gate"
+              },
+              {
+                "signalId": "SIG-000616",
+                "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+                "contribution": 2.1,
+                "reliability": 0.7,
+                "at": 931200,
+                "facilityId": "FAC-001",
+                "facilityName": "North Gate"
+              },
+              {
+                "signalId": "SIG-000618",
+                "signalType": "CARRIER_UNRESPONSIVE",
+                "contribution": 1,
+                "reliability": 0.5,
+                "at": 934200,
+                "facilityId": null,
+                "facilityName": null
+              }
+            ]
+          },
+          {
+            "id": "MO-0017",
+            "status": "DISMISSED",
+            "classification": "POTENTIAL_NEW_MO",
+            "confidenceBand": "MINIMAL",
+            "noveltyScore": 82,
+            "signature": "DUPLICATE_ASSET_ID+SEAL_MISMATCH",
+            "entities": {
+              "truckId": "TRU-017",
+              "driverId": "DRI-020",
+              "trailerId": "TRA-023",
+              "carrierId": "CAR-005",
+              "facilityId": null
+            },
+            "timeline": [
+              {
+                "t": 947400,
+                "type": "DUPLICATE_ASSET_ID"
+              },
+              {
+                "t": 950700,
+                "type": "SEAL_MISMATCH"
+              },
+              {
+                "t": 961200,
+                "type": "MANIFEST_CHANGED"
+              },
+              {
+                "t": 962400,
+                "type": "UNEXPECTED_STOP"
+              }
+            ],
+            "evidence": [
+              {
+                "signalId": "SIG-000631",
+                "signalType": "DUPLICATE_ASSET_ID",
+                "contribution": 2,
+                "reliability": 0.65,
+                "at": 947400,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000636",
+                "signalType": "SEAL_MISMATCH",
+                "contribution": 2.3,
+                "reliability": 0.75,
+                "at": 950700,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000641",
+                "signalType": "MANIFEST_CHANGED",
+                "contribution": 1.3,
+                "reliability": 0.65,
+                "at": 961200,
+                "facilityId": "FAC-001",
+                "facilityName": "North Gate"
+              },
+              {
+                "signalId": "SIG-000643",
+                "signalType": "UNEXPECTED_STOP",
+                "contribution": 0.6,
+                "reliability": 0.6,
+                "at": 962400,
+                "facilityId": null,
+                "facilityName": null
+              }
+            ]
+          },
+          {
+            "id": "MO-0018",
+            "status": "NEW",
+            "classification": "MO_VARIANT",
+            "confidenceBand": "MINIMAL",
+            "noveltyScore": 100,
+            "signature": "DRIVER_CHANGED+FALSE_MILESTONE_STAMP+GPS_SIGNAL_LOST+HANDOVER_GAP",
+            "entities": {
+              "truckId": "TRU-009",
+              "driverId": "DRI-025",
+              "trailerId": "TRA-008",
+              "carrierId": "CAR-007",
+              "facilityId": null
+            },
+            "timeline": [
+              {
+                "t": 947400,
+                "type": "DRIVER_CHANGED"
+              },
+              {
+                "t": 949586,
+                "type": "HANDOVER_GAP"
+              },
+              {
+                "t": 949800,
+                "type": "FALSE_MILESTONE_STAMP"
+              },
+              {
+                "t": 953400,
+                "type": "GPS_SIGNAL_LOST"
+              },
+              {
+                "t": 983400,
+                "type": "DRIVER_CHANGED"
+              },
+              {
+                "t": 989700,
+                "type": "MANIFEST_CHANGED"
+              },
+              {
+                "t": 996378,
+                "type": "MANIFEST_CHANGED"
+              },
+              {
+                "t": 996600,
+                "type": "EQUIPMENT_CARRIER_MISMATCH"
+              },
+              {
+                "t": 1012743,
+                "type": "UNEXPECTED_STOP"
+              },
+              {
+                "t": 1012800,
+                "type": "STAGED_BREAKDOWN"
+              },
+              {
+                "t": 1040777,
+                "type": "UNEXPECTED_STOP"
+              },
+              {
+                "t": 1041000,
+                "type": "STAGED_BREAKDOWN"
+              }
+            ],
+            "evidence": [
+              {
+                "signalId": "SIG-000630",
+                "signalType": "DRIVER_CHANGED",
+                "contribution": 0.5,
+                "reliability": 0.5,
+                "at": 947400,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000633",
+                "signalType": "HANDOVER_GAP",
+                "contribution": 1.1,
+                "reliability": 0.55,
+                "at": 949586,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000632",
+                "signalType": "FALSE_MILESTONE_STAMP",
+                "contribution": 1.7,
+                "reliability": 0.55,
+                "at": 949800,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000637",
+                "signalType": "GPS_SIGNAL_LOST",
+                "contribution": 1.2,
+                "reliability": 0.6,
+                "at": 953400,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000659",
+                "signalType": "DRIVER_CHANGED",
+                "contribution": 0.5,
+                "reliability": 0.5,
+                "at": 983400,
+                "facilityId": "FAC-015",
+                "facilityName": "Inland Depot Nord"
+              },
+              {
+                "signalId": "SIG-000663",
+                "signalType": "MANIFEST_CHANGED",
+                "contribution": 1.3,
+                "reliability": 0.65,
+                "at": 989700,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000671",
+                "signalType": "MANIFEST_CHANGED",
+                "contribution": 1.3,
+                "reliability": 0.65,
+                "at": 996378,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000670",
+                "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+                "contribution": 2.1,
+                "reliability": 0.7,
+                "at": 996600,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000688",
+                "signalType": "UNEXPECTED_STOP",
+                "contribution": 0.6,
+                "reliability": 0.6,
+                "at": 1012743,
+                "facilityId": "FAC-009",
+                "facilityName": "Inland Depot Sud"
+              },
+              {
+                "signalId": "SIG-000687",
+                "signalType": "STAGED_BREAKDOWN",
+                "contribution": 1,
+                "reliability": 0.5,
+                "at": 1012800,
+                "facilityId": "FAC-009",
+                "facilityName": "Inland Depot Sud"
+              },
+              {
+                "signalId": "SIG-000702",
+                "signalType": "UNEXPECTED_STOP",
+                "contribution": 0.6,
+                "reliability": 0.6,
+                "at": 1040777,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000701",
+                "signalType": "STAGED_BREAKDOWN",
+                "contribution": 1,
+                "reliability": 0.5,
+                "at": 1041000,
+                "facilityId": null,
+                "facilityName": null
+              }
+            ]
+          },
+          {
+            "id": "MO-0019",
+            "status": "DISMISSED",
+            "classification": "POTENTIAL_NEW_MO",
+            "confidenceBand": "ELEVATED",
+            "noveltyScore": 64,
+            "signature": "EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED",
+            "entities": {
+              "truckId": "TRU-011",
+              "driverId": "DRI-027",
+              "trailerId": "TRA-005",
+              "carrierId": "CAR-003",
+              "facilityId": null
+            },
+            "timeline": [
+              {
+                "t": 972863,
+                "type": "HANDOVER_GAP"
+              },
+              {
+                "t": 972900,
+                "type": "FALSE_MILESTONE_STAMP"
+              },
+              {
+                "t": 976431,
+                "type": "MANIFEST_CHANGED"
+              },
+              {
+                "t": 976500,
+                "type": "EQUIPMENT_CARRIER_MISMATCH"
+              }
+            ],
+            "evidence": [
+              {
+                "signalId": "SIG-000651",
+                "signalType": "HANDOVER_GAP",
+                "contribution": 1.1,
+                "reliability": 0.55,
+                "at": 972863,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000650",
+                "signalType": "FALSE_MILESTONE_STAMP",
+                "contribution": 1.7,
+                "reliability": 0.55,
+                "at": 972900,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000656",
+                "signalType": "MANIFEST_CHANGED",
+                "contribution": 1.3,
+                "reliability": 0.65,
+                "at": 976431,
+                "facilityId": "FAC-018",
+                "facilityName": "Central Gate"
+              },
+              {
+                "signalId": "SIG-000655",
+                "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+                "contribution": 2.1,
+                "reliability": 0.7,
+                "at": 976500,
+                "facilityId": "FAC-018",
+                "facilityName": "Central Gate"
+              }
+            ]
+          },
+          {
+            "id": "MO-0020",
+            "status": "DISMISSED",
+            "classification": "MO_VARIANT",
+            "confidenceBand": "MINIMAL",
+            "noveltyScore": 100,
+            "signature": "SEAL_MISMATCH+STAGED_BREAKDOWN+UNEXPECTED_STOP",
+            "entities": {
+              "truckId": "TRU-006",
+              "driverId": "DRI-012",
+              "trailerId": "TRA-022",
+              "carrierId": "CAR-002",
+              "facilityId": null
+            },
+            "timeline": [
+              {
+                "t": 994500,
+                "type": "SEAL_MISMATCH"
+              },
+              {
+                "t": 1000396,
+                "type": "UNEXPECTED_STOP"
+              },
+              {
+                "t": 1000500,
+                "type": "STAGED_BREAKDOWN"
+              },
+              {
+                "t": 1006800,
+                "type": "ROUTE_DEVIATION"
+              }
+            ],
+            "evidence": [
+              {
+                "signalId": "SIG-000665",
+                "signalType": "SEAL_MISMATCH",
+                "contribution": 2.3,
+                "reliability": 0.75,
+                "at": 994500,
+                "facilityId": null,
+                "facilityName": null
+              },
+              {
+                "signalId": "SIG-000674",
+                "signalType": "UNEXPECTED_STOP",
+                "contribution": 0.6,
+                "reliability": 0.6,
+                "at": 1000396,
+                "facilityId": "FAC-018",
+                "facilityName": "Central Gate"
+              },
+              {
+                "signalId": "SIG-000673",
+                "signalType": "STAGED_BREAKDOWN",
+                "contribution": 1,
+                "reliability": 0.5,
+                "at": 1000500,
+                "facilityId": "FAC-018",
+                "facilityName": "Central Gate"
+              },
+              {
+                "signalId": "SIG-000680",
+                "signalType": "ROUTE_DEVIATION",
+                "contribution": 1.4,
+                "reliability": 0.7,
+                "at": 1006800,
+                "facilityId": null,
+                "facilityName": null
+              }
+            ]
+          }
+        ],
+        "label": "SYNTHETIC SIMULATION — not real-world fraud cases"
+      },
+      "status": "UNCHANGED"
+    },
+    {
+      "id": "shadow-network:briefing",
+      "sourceProject": "Shadow Network",
+      "timestamp": "2026-10-04T10:27:58.050Z",
+      "title": "Shadow Network synthetic snapshot changed",
+      "summary": "Synthetic network day 13 was refreshed: 0 incidents and 0 verdicts are recorded in the latest state.",
+      "category": "risk-intelligence",
+      "importance": "low",
+      "evidenceType": "SIMULATION",
+      "sourceType": "SYNTHETIC",
+      "links": [
+        {
+          "label": "Open Shadow Network repository output",
+          "url": "https://github.com/Jeevan-0508/shadow-network/blob/main/"
+        },
+        {
+          "label": "Open Shadow Network snapshot",
+          "url": "https://github.com/Jeevan-0508/shadow-network/blob/main/data/latest.json"
+        }
+      ],
+      "provenance": {
+        "sourceProject": "Shadow Network",
+        "sourceFiles": [
+          "data/latest.json"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
+        ],
+        "retrievedAt": "2026-10-04T10:27:58.050Z",
+        "status": "SIMULATED",
+        "origin": "GitHub raw snapshot",
+        "freshness": "source timestamp 2026-10-04T07:48:17.514Z",
+        "changedRecords": []
+      },
+      "details": {
+        "day": 13,
+        "generatedAt": "2026-10-04T07:48:17.514Z",
+        "incidents": [],
+        "verdicts": [],
+        "carrierCount": 120,
+        "relationshipCount": 0,
+        "label": "SYNTHETIC SIMULATION — not real carrier-network intelligence"
+      },
+      "status": "UNCHANGED"
+    },
+    {
+      "id": "eu-ai-act-scanner:briefing",
+      "sourceProject": "EU AI Act Scanner",
+      "timestamp": "2026-10-04T10:27:58.050Z",
+      "title": "Official EU AI monitoring completed",
+      "summary": "2 official source change records require human review. No compliance rule was rewritten by MESH.",
+      "category": "risk-intelligence",
+      "importance": "high",
+      "evidenceType": "OFFICIAL_SOURCE",
+      "sourceType": "OFFICIAL",
+      "links": [
+        {
+          "label": "Open EU AI Act Scanner repository output",
+          "url": "https://github.com/Jeevan-0508/eu-ai-act-scanner/blob/main/"
+        },
+        {
+          "label": "Regulation (EU) 2024/1689 — Artificial Intelligence Act",
+          "url": "https://publications.europa.eu/resource/celex/32024R1689"
+        },
+        {
+          "label": "European Commission — Regulatory framework for AI",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+        }
+      ],
+      "provenance": {
+        "sourceProject": "EU AI Act Scanner",
+        "sourceFiles": [
+          "data/regulatory-monitor.json",
+          "data/regulatory-changes.jsonl"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/Jeevan-0508/eu-ai-act-scanner/main/data/regulatory-monitor.json",
+          "https://raw.githubusercontent.com/Jeevan-0508/eu-ai-act-scanner/main/data/regulatory-changes.jsonl"
+        ],
+        "retrievedAt": "2026-10-04T10:27:58.050Z",
+        "status": "OFFICIAL",
+        "origin": "GitHub raw snapshot",
+        "freshness": "source timestamp 2026-10-04T07:44:33.708Z",
+        "changedRecords": []
+      },
+      "details": {
+        "sources": [
+          {
+            "id": "eu-ai-act-consolidated",
+            "title": "Regulation (EU) 2024/1689 — Artificial Intelligence Act",
+            "url": "https://publications.europa.eu/resource/celex/32024R1689",
+            "status": "REVIEW_REQUIRED",
+            "httpStatus": 200,
+            "contentHash": "19aa323a27e70039f5838cc5662e7b11614c481e84333130c414e9842a31222a",
+            "retrievedAt": "2026-10-04T07:44:33.708052+00:00"
+          },
+          {
+            "id": "eu-ai-act-commission-framework",
+            "title": "European Commission — Regulatory framework for AI",
+            "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+            "status": "REVIEW_REQUIRED",
+            "httpStatus": 200,
+            "contentHash": "83b1db639b3a0d251c1a33b33fbbf1c97e8f820039eadcc10c0881233f9d7459",
+            "retrievedAt": "2026-10-04T07:44:33.708052+00:00"
+          }
+        ],
+        "changes": [
+          {
+            "current_hash": "19aa323a27e70039f5838cc5662e7b11614c481e84333130c414e9842a31222a",
+            "kind": "LEGAL_TEXT",
+            "previous_hash": null,
+            "retrieved_at": "2026-10-04T07:44:33.708052+00:00",
+            "review_status": "REVIEW_REQUIRED",
+            "source": "https://publications.europa.eu/resource/celex/32024R1689",
+            "source_id": "eu-ai-act-consolidated"
+          },
+          {
+            "current_hash": "83b1db639b3a0d251c1a33b33fbbf1c97e8f820039eadcc10c0881233f9d7459",
+            "kind": "IMPLEMENTATION_INFORMATION",
+            "previous_hash": null,
+            "retrieved_at": "2026-10-04T07:44:33.708052+00:00",
+            "review_status": "REVIEW_REQUIRED",
+            "source": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+            "source_id": "eu-ai-act-commission-framework"
+          }
+        ],
+        "label": "OFFICIAL SOURCE MONITOR — REVIEW_REQUIRED is not a legal conclusion"
+      },
+      "status": "UNCHANGED"
+    },
+    {
+      "id": "risk-ring:briefing",
+      "sourceProject": "Risk Ring",
+      "timestamp": "2026-10-04T10:27:58.050Z",
+      "title": "Risk Ring synthetic analysis changed",
+      "summary": "Synthetic analysis contains 30 alerts across 20 rings; graph recovery covers 20 of 20 synthetic rings.",
+      "category": "risk-intelligence",
+      "importance": "medium",
+      "evidenceType": "SIMULATION",
+      "sourceType": "SYNTHETIC",
+      "links": [
+        {
+          "label": "Open Risk Ring repository output",
+          "url": "https://github.com/Jeevan-0508/risk-ring/blob/main/"
+        },
+        {
+          "label": "Open Risk Ring alerts",
+          "url": "https://github.com/Jeevan-0508/risk-ring/blob/main/data/alerts.json"
+        },
+        {
+          "label": "Open Risk Ring metrics",
+          "url": "https://github.com/Jeevan-0508/risk-ring/blob/main/data/graph_metrics.json"
+        }
+      ],
+      "provenance": {
+        "sourceProject": "Risk Ring",
+        "sourceFiles": [
+          "data/alerts.json",
+          "data/rings.json",
+          "data/metrics.json",
+          "data/graph_metrics.json"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/alerts.json",
+          "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/rings.json",
+          "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/metrics.json",
+          "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/graph_metrics.json"
+        ],
+        "retrievedAt": "2026-10-04T10:27:58.050Z",
+        "status": "SIMULATED",
+        "origin": "GitHub raw snapshot",
+        "freshness": "timestamp not supplied by source",
+        "changedRecords": []
+      },
+      "details": {
+        "metrics": {
+          "dataset": {
+            "total_transactions": 20373,
+            "fraud_transactions": 576,
+            "fraud_rate_pct": 2.827,
+            "rings": 20,
+            "train_rows": 14261,
+            "test_rows": 6112
+          },
+          "logistic_regression": {
+            "precision": 0.755,
+            "recall": 1,
+            "f1": 0.8604,
+            "roc_auc": 0.9994,
+            "pr_auc": 0.9608
+          },
+          "xgboost": {
+            "precision": 0.8152,
+            "recall": 0.9934,
+            "f1": 0.8955,
+            "roc_auc": 0.9998,
+            "pr_auc": 0.9942
+          }
+        },
+        "graphMetrics": {
+          "seed_percentile": 0.95,
+          "subgraph_nodes": 2103,
+          "subgraph_edges": 10309,
+          "communities_detected": 224,
+          "avg_ring_recall": 0.776,
+          "avg_ring_precision": 0.803,
+          "rings_recovered_ge_30pct": 20,
+          "total_true_rings": 20,
+          "per_ring": [
+            {
+              "ring_id": "010",
+              "typology": "layering",
+              "recall": 1,
+              "precision": 0.625,
+              "true_size": 5,
+              "matched_community_size": 8
+            },
+            {
+              "ring_id": "015",
+              "typology": "smurfing",
+              "recall": 0.455,
+              "precision": 0.556,
+              "true_size": 11,
+              "matched_community_size": 9
+            },
+            {
+              "ring_id": "007",
+              "typology": "layering",
+              "recall": 1,
+              "precision": 0.6,
+              "true_size": 6,
+              "matched_community_size": 10
+            },
+            {
+              "ring_id": "013",
+              "typology": "layering",
+              "recall": 0.833,
+              "precision": 0.833,
+              "true_size": 6,
+              "matched_community_size": 6
+            },
+            {
+              "ring_id": "000",
+              "typology": "smurfing",
+              "recall": 0.429,
+              "precision": 0.857,
+              "true_size": 14,
+              "matched_community_size": 7
+            },
+            {
+              "ring_id": "004",
+              "typology": "layering",
+              "recall": 0.833,
+              "precision": 1,
+              "true_size": 6,
+              "matched_community_size": 5
+            },
+            {
+              "ring_id": "008",
+              "typology": "round_trip",
+              "recall": 1,
+              "precision": 1,
+              "true_size": 3,
+              "matched_community_size": 3
+            },
+            {
+              "ring_id": "001",
+              "typology": "layering",
+              "recall": 0.833,
+              "precision": 0.5,
+              "true_size": 6,
+              "matched_community_size": 10
+            },
+            {
+              "ring_id": "005",
+              "typology": "round_trip",
+              "recall": 1,
+              "precision": 0.8,
+              "true_size": 4,
+              "matched_community_size": 5
+            },
+            {
+              "ring_id": "012",
+              "typology": "smurfing",
+              "recall": 0.556,
+              "precision": 0.714,
+              "true_size": 9,
+              "matched_community_size": 7
+            },
+            {
+              "ring_id": "009",
+              "typology": "smurfing",
+              "recall": 0.455,
+              "precision": 0.455,
+              "true_size": 11,
+              "matched_community_size": 11
+            },
+            {
+              "ring_id": "019",
+              "typology": "layering",
+              "recall": 0.833,
+              "precision": 0.714,
+              "true_size": 6,
+              "matched_community_size": 7
+            },
+            {
+              "ring_id": "017",
+              "typology": "round_trip",
+              "recall": 1,
+              "precision": 1,
+              "true_size": 4,
+              "matched_community_size": 4
+            },
+            {
+              "ring_id": "006",
+              "typology": "smurfing",
+              "recall": 0.5,
+              "precision": 0.857,
+              "true_size": 12,
+              "matched_community_size": 7
+            },
+            {
+              "ring_id": "011",
+              "typology": "round_trip",
+              "recall": 1,
+              "precision": 1,
+              "true_size": 4,
+              "matched_community_size": 4
+            },
+            {
+              "ring_id": "002",
+              "typology": "round_trip",
+              "recall": 1,
+              "precision": 1,
+              "true_size": 4,
+              "matched_community_size": 4
+            },
+            {
+              "ring_id": "014",
+              "typology": "round_trip",
+              "recall": 1,
+              "precision": 1,
+              "true_size": 4,
+              "matched_community_size": 4
+            },
+            {
+              "ring_id": "003",
+              "typology": "smurfing",
+              "recall": 0.5,
+              "precision": 0.833,
+              "true_size": 10,
+              "matched_community_size": 6
+            },
+            {
+              "ring_id": "018",
+              "typology": "smurfing",
+              "recall": 0.462,
+              "precision": 1,
+              "true_size": 13,
+              "matched_community_size": 6
+            },
+            {
+              "ring_id": "016",
+              "typology": "layering",
+              "recall": 0.833,
+              "precision": 0.714,
+              "true_size": 6,
+              "matched_community_size": 7
+            }
+          ]
+        },
+        "alerts": [
+          {
+            "tx_id": "T0015610",
+            "orig": "R013_hop1",
+            "dest": "R013_hop2",
+            "amount": 32800.27,
+            "tx_type": "TRANSFER",
+            "risk_score": 1,
+            "is_fraud_ground_truth": 1,
+            "ring_id": "013",
+            "typology": "layering",
+            "top_factors": [
+              {
+                "feature": "amount",
+                "shap_value": 5.7773
+              },
+              {
+                "feature": "pair_prior_count",
+                "shap_value": 2.9883
+              },
+              {
+                "feature": "dest_tx_count_prior",
+                "shap_value": 2.5522
+              },
+              {
+                "feature": "near_threshold",
+                "shap_value": 1.0937
+              }
+            ]
+          },
+          {
+            "tx_id": "T0017181",
+            "orig": "R005_loop0",
+            "dest": "R005_loop1",
+            "amount": 7304.57,
+            "tx_type": "TRANSFER",
+            "risk_score": 1,
+            "is_fraud_ground_truth": 1,
+            "ring_id": "005",
+            "typology": "round_trip",
+            "top_factors": [
+              {
+                "feature": "pair_prior_count",
+                "shap_value": 4.0531
+              },
+              {
+                "feature": "dest_tx_count_prior",
+                "shap_value": 3.8584
+              },
+              {
+                "feature": "amount",
+                "shap_value": 3.0977
+              },
+              {
+                "feature": "near_threshold",
+                "shap_value": 0.9743
+              }
+            ]
+          },
+          {
+            "tx_id": "T0014578",
+            "orig": "R016_hop2",
+            "dest": "R016_hop3",
+            "amount": 32525.32,
+            "tx_type": "TRANSFER",
+            "risk_score": 1,
+            "is_fraud_ground_truth": 1,
+            "ring_id": "016",
+            "typology": "layering",
+            "top_factors": [
+              {
+                "feature": "amount",
+                "shap_value": 5.8527
+              },
+              {
+                "feature": "pair_prior_count",
+                "shap_value": 2.7307
+              },
+              {
+                "feature": "dest_tx_count_prior",
+                "shap_value": 2.4167
+              },
+              {
+                "feature": "near_threshold",
+                "shap_value": 1.4401
+              }
+            ]
+          },
+          {
+            "tx_id": "T0017417",
+            "orig": "R005_loop3",
+            "dest": "R005_loop0",
+            "amount": 7236.15,
+            "tx_type": "TRANSFER",
+            "risk_score": 1,
+            "is_fraud_ground_truth": 1,
+            "ring_id": "005",
+            "typology": "round_trip",
+            "top_factors": [
+              {
+                "feature": "pair_prior_count",
+                "shap_value": 4.0886
+              },
+              {
+                "feature": "dest_tx_count_prior",
+                "shap_value": 3.704
+              },
+              {
+                "feature": "amount",
+                "shap_value": 3.0351
+              },
+              {
+                "feature": "near_threshold",
+                "shap_value": 1.0476
+              }
+            ]
+          },
+          {
+            "tx_id": "T0017256",
+            "orig": "R017_loop1",
+            "dest": "R017_loop2",
+            "amount": 6439.99,
+            "tx_type": "TRANSFER",
+            "risk_score": 1,
+            "is_fraud_ground_truth": 1,
+            "ring_id": "017",
+            "typology": "round_trip",
+            "top_factors": [
+              {
+                "feature": "pair_prior_count",
+                "shap_value": 4.0955
+              },
+              {
+                "feature": "dest_tx_count_prior",
+                "shap_value": 3.9169
+              },
+              {
+                "feature": "amount",
+                "shap_value": 3.1662
+              },
+              {
+                "feature": "near_threshold",
+                "shap_value": 1.3039
+              }
+            ]
+          },
+          {
+            "tx_id": "T0016822",
+            "orig": "R002_loop0",
+            "dest": "R002_loop1",
+            "amount": 5164.34,
+            "tx_type": "TRANSFER",
+            "risk_score": 1,
+            "is_fraud_ground_truth": 1,
+            "ring_id": "002",
+            "typology": "round_trip",
+            "top_factors": [
+              {
+                "feature": "pair_prior_count",
+                "shap_value": 3.7897
+              },
+              {
+                "feature": "dest_tx_count_prior",
+                "shap_value": 3.3038
+              },
+              {
+                "feature": "amount",
+                "shap_value": 3.1289
+              },
+              {
+                "feature": "near_threshold",
+                "shap_value": 1.3891
+              }
+            ]
+          },
+          {
+            "tx_id": "T0017069",
+            "orig": "R002_loop0",
+            "dest": "R002_loop1",
+            "amount": 7137.04,
+            "tx_type": "TRANSFER",
+            "risk_score": 1,
+            "is_fraud_ground_truth": 1,
+            "ring_id": "002",
+            "typology": "round_trip",
+            "top_factors": [
+              {
+                "feature": "pair_prior_count",
+                "shap_value": 4.0031
+              },
+              {
+                "feature": "dest_tx_count_prior",
+                "shap_value": 3.6185
+              },
+              {
+                "feature": "amount",
+                "shap_value": 3.1888
+              },
+              {
+                "feature": "near_threshold",
+                "shap_value": 1.3637
+              }
+            ]
+          },
+          {
+            "tx_id": "T0018023",
+            "orig": "R017_loop0",
+            "dest": "R017_loop1",
+            "amount": 7287.59,
+            "tx_type": "TRANSFER",
+            "risk_score": 1,
+            "is_fraud_ground_truth": 1,
+            "ring_id": "017",
+            "typology": "round_trip",
+            "top_factors": [
+              {
+                "feature": "pair_prior_count",
+                "shap_value": 3.9281
+              },
+              {
+                "feature": "dest_tx_count_prior",
+                "shap_value": 3.5937
+              },
+              {
+                "feature": "amount",
+                "shap_value": 3.1386
+              },
+              {
+                "feature": "near_threshold",
+                "shap_value": 1.362
+              }
+            ]
+          },
+          {
+            "tx_id": "T0016245",
+            "orig": "R004_hop1",
+            "dest": "R004_hop2",
+            "amount": 38019.52,
+            "tx_type": "TRANSFER",
+            "risk_score": 1,
+            "is_fraud_ground_truth": 1,
+            "ring_id": "004",
+            "typology": "layering",
+            "top_factors": [
+              {
+                "feature": "amount",
+                "shap_value": 6.1163
+              },
+              {
+                "feature": "pair_prior_count",
+                "shap_value": 2.9563
+              },
+              {
+                "feature": "near_threshold",
+                "shap_value": 1.8013
+              },
+              {
+                "feature": "orig_tx_count_prior",
+                "shap_value": 0.5765
+              }
+            ]
+          },
+          {
+            "tx_id": "T0016108",
+            "orig": "R002_loop0",
+            "dest": "R002_loop1",
+            "amount": 5062.95,
+            "tx_type": "TRANSFER",
+            "risk_score": 1,
+            "is_fraud_ground_truth": 1,
+            "ring_id": "002",
+            "typology": "round_trip",
+            "top_factors": [
+              {
+                "feature": "pair_prior_count",
+                "shap_value": 3.9168
+              },
+              {
+                "feature": "dest_tx_count_prior",
+                "shap_value": 3.273
+              },
+              {
+                "feature": "amount",
+                "shap_value": 3.1182
+              },
+              {
+                "feature": "near_threshold",
+                "shap_value": 1.4337
+              }
+            ]
+          },
+          {
+            "tx_id": "T0017547",
+            "orig": "R017_loop0",
+            "dest": "R017_loop1",
+            "amount": 6243.02,
+            "tx_type": "TRANSFER",
+            "risk_score": 1,
+            "is_fraud_ground_truth": 1,
+            "ring_id": "017",
+            "typology": "round_trip",
+            "top_factors": [
+              {
+                "feature": "pair_prior_count",
+                "shap_value": 4.12
+              },
+              {
+                "feature": "dest_tx_count_prior",
+                "shap_value": 3.7567
+              },
+              {
+                "feature": "amount",
+                "shap_value": 3.1378
+              },
+              {
+                "feature": "near_threshold",
+                "shap_value": 1.3813
+              }
+            ]
+          },
+          {
+            "tx_id": "T0016063",
+            "orig": "R005_loop2",
+            "dest": "R005_loop3",
+            "amount": 5010.52,
+            "tx_type": "TRANSFER",
+            "risk_score": 1,
+            "is_fraud_ground_truth": 1,
+            "ring_id": "005",
+            "typology": "round_trip",
+            "top_factors": [
+              {
+                "feature": "pair_prior_count",
+                "shap_value": 4.3273
+              },
+              {
+                "feature": "amount",
+                "shap_value": 3.3406
+              },
+              {
+                "feature": "near_threshold",
+                "shap_value": 1.4945
+              },
+              {
+                "feature": "dest_fanin_prior",
+                "shap_value": 0.9521
+              }
+            ]
+          }
+        ],
+        "rings": [
+          {
+            "ring_id": "010",
+            "typology": "layering",
+            "recall": 1,
+            "precision": 0.625,
+            "nodes": [
+              {
+                "id": "R010_hop2"
+              },
+              {
+                "id": "R010_hop1"
+              },
+              {
+                "id": "R010_hop4"
+              },
+              {
+                "id": "R010_hop3"
+              },
+              {
+                "id": "R010_hop0"
+              }
+            ],
+            "edges": [
+              {
+                "source": "R010_hop2",
+                "target": "R010_hop1",
+                "weight": 5
+              },
+              {
+                "source": "R010_hop2",
+                "target": "R010_hop3",
+                "weight": 5
+              },
+              {
+                "source": "R010_hop1",
+                "target": "R010_hop0",
+                "weight": 5
+              },
+              {
+                "source": "R010_hop4",
+                "target": "R010_hop3",
+                "weight": 4
+              }
+            ]
+          },
+          {
+            "ring_id": "015",
+            "typology": "smurfing",
+            "recall": 0.455,
+            "precision": 0.556,
+            "nodes": [
+              {
+                "id": "R015_smurf0"
+              },
+              {
+                "id": "R015_smurf3"
+              },
+              {
+                "id": "R015_smurf4"
+              },
+              {
+                "id": "R015_smurf2"
+              },
+              {
+                "id": "A01881"
+              },
+              {
+                "id": "A01101"
+              },
+              {
+                "id": "A00116"
+              },
+              {
+                "id": "A01703"
+              },
+              {
+                "id": "R015_smurf1"
+              },
+              {
+                "id": "R015_collector"
+              },
+              {
+                "id": "A00886"
+              }
+            ],
+            "edges": [
+              {
+                "source": "R015_smurf0",
+                "target": "R015_collector",
+                "weight": 5
+              },
+              {
+                "source": "R015_smurf3",
+                "target": "R015_collector",
+                "weight": 4
+              },
+              {
+                "source": "R015_smurf4",
+                "target": "R015_collector",
+                "weight": 3
+              },
+              {
+                "source": "R015_smurf2",
+                "target": "R015_collector",
+                "weight": 5
+              },
+              {
+                "source": "A01881",
+                "target": "R015_collector",
+                "weight": 1
+              },
+              {
+                "source": "A01101",
+                "target": "R015_collector",
+                "weight": 1
+              },
+              {
+                "source": "A00116",
+                "target": "R015_collector",
+                "weight": 1
+              },
+              {
+                "source": "A01703",
+                "target": "R015_collector",
+                "weight": 1
+              },
+              {
+                "source": "R015_smurf1",
+                "target": "R015_collector",
+                "weight": 5
+              },
+              {
+                "source": "R015_collector",
+                "target": "A00886",
+                "weight": 1
+              }
+            ]
+          },
+          {
+            "ring_id": "007",
+            "typology": "layering",
+            "recall": 1,
+            "precision": 0.6,
+            "nodes": [
+              {
+                "id": "R007_hop5"
+              },
+              {
+                "id": "R007_hop0"
+              },
+              {
+                "id": "R007_hop3"
+              },
+              {
+                "id": "R007_hop1"
+              },
+              {
+                "id": "R007_hop4"
+              },
+              {
+                "id": "R007_hop2"
+              }
+            ],
+            "edges": [
+              {
+                "source": "R007_hop5",
+                "target": "R007_hop4",
+                "weight": 3
+              },
+              {
+                "source": "R007_hop0",
+                "target": "R007_hop1",
+                "weight": 3
+              },
+              {
+                "source": "R007_hop3",
+                "target": "R007_hop2",
+                "weight": 3
+              },
+              {
+                "source": "R007_hop3",
+                "target": "R007_hop4",
+                "weight": 3
+              },
+              {
+                "source": "R007_hop1",
+                "target": "R007_hop2",
+                "weight": 3
+              }
+            ]
+          },
+          {
+            "ring_id": "013",
+            "typology": "layering",
+            "recall": 0.833,
+            "precision": 0.833,
+            "nodes": [
+              {
+                "id": "R013_hop4"
+              },
+              {
+                "id": "R013_hop2"
+              },
+              {
+                "id": "R013_hop3"
+              },
+              {
+                "id": "R013_hop5"
+              },
+              {
+                "id": "R013_hop0"
+              },
+              {
+                "id": "R013_hop1"
+              }
+            ],
+            "edges": [
+              {
+                "source": "R013_hop4",
+                "target": "R013_hop3",
+                "weight": 4
+              },
+              {
+                "source": "R013_hop4",
+                "target": "R013_hop5",
+                "weight": 1
+              },
+              {
+                "source": "R013_hop2",
+                "target": "R013_hop1",
+                "weight": 6
+              },
+              {
+                "source": "R013_hop2",
+                "target": "R013_hop3",
+                "weight": 6
+              },
+              {
+                "source": "R013_hop0",
+                "target": "R013_hop1",
+                "weight": 6
+              }
+            ]
+          },
+          {
+            "ring_id": "000",
+            "typology": "smurfing",
+            "recall": 0.429,
+            "precision": 0.857,
+            "nodes": [
+              {
+                "id": "A01293"
+              },
+              {
+                "id": "R000_collector"
+              },
+              {
+                "id": "R000_smurf0"
+              },
+              {
+                "id": "R000_smurf1"
+              },
+              {
+                "id": "A01559"
+              },
+              {
+                "id": "R000_smurf3"
+              },
+              {
+                "id": "A01525"
+              },
+              {
+                "id": "A00764"
+              },
+              {
+                "id": "A01046"
+              },
+              {
+                "id": "A01913"
+              },
+              {
+                "id": "R000_smurf2"
+              },
+              {
+                "id": "A01693"
+              },
+              {
+                "id": "R000_smurf4"
+              },
+              {
+                "id": "R000_smurf5"
+              }
+            ],
+            "edges": [
+              {
+                "source": "A01293",
+                "target": "R000_collector",
+                "weight": 1
+              },
+              {
+                "source": "R000_collector",
+                "target": "R000_smurf2",
+                "weight": 7
+              },
+              {
+                "source": "R000_collector",
+                "target": "R000_smurf0",
+                "weight": 7
+              },
+              {
+                "source": "R000_collector",
+                "target": "R000_smurf1",
+                "weight": 7
+              },
+              {
+                "source": "R000_collector",
+                "target": "A01913",
+                "weight": 1
+              },
+              {
+                "source": "R000_collector",
+                "target": "R000_smurf3",
+                "weight": 5
+              },
+              {
+                "source": "R000_collector",
+                "target": "A00764",
+                "weight": 1
+              },
+              {
+                "source": "R000_collector",
+                "target": "R000_smurf4",
+                "weight": 4
+              },
+              {
+                "source": "R000_collector",
+                "target": "R000_smurf5",
+                "weight": 2
+              },
+              {
+                "source": "R000_collector",
+                "target": "A01559",
+                "weight": 1
+              },
+              {
+                "source": "R000_collector",
+                "target": "A01693",
+                "weight": 1
+              },
+              {
+                "source": "R000_collector",
+                "target": "A01525",
+                "weight": 1
+              },
+              {
+                "source": "R000_collector",
+                "target": "A01046",
+                "weight": 1
+              }
+            ]
+          },
+          {
+            "ring_id": "004",
+            "typology": "layering",
+            "recall": 0.833,
+            "precision": 1,
+            "nodes": [
+              {
+                "id": "R004_hop0"
+              },
+              {
+                "id": "R004_hop3"
+              },
+              {
+                "id": "R004_hop4"
+              },
+              {
+                "id": "R004_hop2"
+              },
+              {
+                "id": "R004_hop1"
+              },
+              {
+                "id": "R004_hop5"
+              }
+            ],
+            "edges": [
+              {
+                "source": "R004_hop0",
+                "target": "R004_hop1",
+                "weight": 7
+              },
+              {
+                "source": "R004_hop3",
+                "target": "R004_hop2",
+                "weight": 7
+              },
+              {
+                "source": "R004_hop3",
+                "target": "R004_hop4",
+                "weight": 5
+              },
+              {
+                "source": "R004_hop4",
+                "target": "R004_hop5",
+                "weight": 2
+              },
+              {
+                "source": "R004_hop2",
+                "target": "R004_hop1",
+                "weight": 7
+              }
+            ]
+          },
+          {
+            "ring_id": "008",
+            "typology": "round_trip",
+            "recall": 1,
+            "precision": 1,
+            "nodes": [
+              {
+                "id": "R008_loop0"
+              },
+              {
+                "id": "R008_loop1"
+              },
+              {
+                "id": "R008_loop2"
+              }
+            ],
+            "edges": [
+              {
+                "source": "R008_loop0",
+                "target": "R008_loop1",
+                "weight": 9
+              },
+              {
+                "source": "R008_loop0",
+                "target": "R008_loop2",
+                "weight": 9
+              },
+              {
+                "source": "R008_loop1",
+                "target": "R008_loop2",
+                "weight": 9
+              }
+            ]
+          },
+          {
+            "ring_id": "001",
+            "typology": "layering",
+            "recall": 0.833,
+            "precision": 0.5,
+            "nodes": [
+              {
+                "id": "R001_hop0"
+              },
+              {
+                "id": "R001_hop1"
+              },
+              {
+                "id": "R001_hop4"
+              },
+              {
+                "id": "R001_hop2"
+              },
+              {
+                "id": "R001_hop3"
+              },
+              {
+                "id": "R001_hop5"
+              }
+            ],
+            "edges": [
+              {
+                "source": "R001_hop0",
+                "target": "R001_hop1",
+                "weight": 4
+              },
+              {
+                "source": "R001_hop1",
+                "target": "R001_hop2",
+                "weight": 4
+              },
+              {
+                "source": "R001_hop4",
+                "target": "R001_hop3",
+                "weight": 3
+              },
+              {
+                "source": "R001_hop4",
+                "target": "R001_hop5",
+                "weight": 1
+              },
+              {
+                "source": "R001_hop2",
+                "target": "R001_hop3",
+                "weight": 4
+              }
+            ]
+          }
+        ],
+        "label": "SYNTHETIC ANALYSIS — not live financial intelligence"
+      },
+      "status": "UNCHANGED"
+    },
+    {
+      "id": "forecast-ledger:briefing",
+      "sourceProject": "Forecast Ledger",
+      "timestamp": "2026-10-04T10:27:58.050Z",
+      "title": "Forecast Ledger refresh completed",
+      "summary": "1 forecast sealed, 0 graded, and 1 explicitly refused by the eligibility rules.",
+      "category": "risk-intelligence",
+      "importance": "medium",
+      "evidenceType": "OFFICIAL_SOURCE",
+      "sourceType": "OFFICIAL_DATA",
+      "links": [
+        {
+          "label": "Open Forecast Ledger repository output",
+          "url": "https://github.com/Jeevan-0508/Forecast-Ledger/blob/main/"
+        },
+        {
+          "label": "Open Forecast Ledger data",
+          "url": "https://github.com/Jeevan-0508/Forecast-Ledger/blob/main/site/data.json"
+        },
+        {
+          "label": "Open Forecast Ledger methodology",
+          "url": "https://github.com/Jeevan-0508/Forecast-Ledger/blob/main/METHODOLOGY.md"
+        }
+      ],
+      "provenance": {
+        "sourceProject": "Forecast Ledger",
+        "sourceFiles": [
+          "site/data.json"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/Jeevan-0508/Forecast-Ledger/main/site/data.json"
+        ],
+        "retrievedAt": "2026-10-04T10:27:58.050Z",
+        "status": "OFFICIAL",
+        "origin": "GitHub raw snapshot",
+        "freshness": "source timestamp 2026-10-03T11:00:00+0200",
+        "changedRecords": []
+      },
+      "details": {
+        "counts": {
+          "sealed": 1,
+          "graded": 0,
+          "refused": 1
+        },
+        "integrity": {
+          "status": "VERIFIED",
+          "issues": [],
+          "sealed_count": 1,
+          "graded_count": 0
+        },
+        "refusals": [
+          {
+            "dataset": "road_go_ta_tott",
+            "series_id": "road_go_ta_tott.DE.TOTAL.TOTAL.MIO_TKM",
+            "observations": 27,
+            "required_observations": 40,
+            "reason_code": "INSUFFICIENT_HISTORY",
+            "reason": "27 usable observations cannot support the configured evaluation protocol (needs 40: 8 to train plus 8 independent 4-step test windows). Producing a forecast would be easier than defending one.",
+            "timestamp": "2026-09-13T18:05:33.212533+00:00",
+            "checked_rules": [
+              {
+                "detail": "frequency='annual'",
+                "passed": true,
+                "rule": "KNOWN_FREQUENCY"
+              },
+              {
+                "detail": "observations=27, required=40 (min_train=8 + 8 independent windows x horizon 4)",
+                "passed": false,
+                "rule": "MIN_OBSERVATIONS"
+              }
+            ]
+          }
+        ],
+        "series": [
+          {
+            "dataset": "road_go_ta_tott",
+            "seriesId": "road_go_ta_tott.DE.TOTAL.TOTAL.MIO_TKM",
+            "role": "refusal_demo",
+            "fetchedAt": "2026-10-02T11:49:52.894762+00:00"
+          },
+          {
+            "dataset": "sts_trtu_q",
+            "seriesId": "sts_trtu_q.EU27_2020.G47.VOL_SLS.I21.SCA",
+            "role": "forecastable",
+            "fetchedAt": "2026-10-04T07:48:22.343861+00:00"
+          }
+        ],
+        "label": "OFFICIAL PUBLIC DATA + DETERMINISTIC LEDGER — refusal is not a forecast"
+      },
+      "status": "UNCHANGED"
+    },
+    {
+      "id": "reg-search:briefing",
+      "sourceProject": "Reg Search",
+      "timestamp": "2026-10-04T10:27:58.050Z",
+      "title": "Reg Search citation snapshot changed",
+      "summary": "56 cited requirements are available from the recorded upstream snapshot; 1 official citation check need attention.",
+      "category": "risk-intelligence",
+      "importance": "medium",
+      "evidenceType": "OFFICIAL_CITATION",
+      "sourceType": "SNAPSHOT",
+      "links": [
+        {
+          "label": "Open Reg Search repository output",
+          "url": "https://github.com/Jeevan-0508/reg-search/blob/main/"
+        },
+        {
+          "label": "Open Reg Search requirements",
+          "url": "https://github.com/Jeevan-0508/reg-search/blob/main/src/data.js"
+        },
+        {
+          "label": "Open source provenance",
+          "url": "https://github.com/Jeevan-0508/reg-search/blob/main/data/source-provenance.json"
+        }
+      ],
+      "provenance": {
+        "sourceProject": "Reg Search",
+        "sourceFiles": [
+          "data/source-provenance.json",
+          "data/source-history.jsonl"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/Jeevan-0508/reg-search/main/data/source-provenance.json",
+          "https://raw.githubusercontent.com/Jeevan-0508/reg-search/main/data/source-history.jsonl"
+        ],
+        "retrievedAt": "2026-10-04T10:27:58.050Z",
+        "status": "SNAPSHOT",
+        "origin": "GitHub raw snapshot",
+        "freshness": "source timestamp 2026-10-04T07:44:59.882Z",
+        "changedRecords": []
+      },
+      "details": {
+        "upstreamRepository": "Jeevan-0508/ai-governance-control-room",
+        "upstreamUrl": "https://raw.githubusercontent.com/Jeevan-0508/ai-governance-control-room/main/data/frameworks.json",
+        "contentHash": "bfccb58347ddc6800792430be52c56b2fb4b41504221d7bc3e78631d755b8699",
+        "requirementCount": 56,
+        "officialSources": [
+          {
+            "framework": "EUAIA",
+            "citation": "Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024",
+            "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+            "kind": "regulation",
+            "availability": "OK"
+          },
+          {
+            "framework": "GDPR",
+            "citation": "Regulation (EU) 2016/679",
+            "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+            "kind": "regulation",
+            "availability": "OK"
+          },
+          {
+            "framework": "ISO42001",
+            "citation": "ISO/IEC 42001:2023 - Artificial intelligence management system",
+            "url": "https://www.iso.org/standard/81230.html",
+            "kind": "management_standard",
+            "availability": "HTTP_403"
+          },
+          {
+            "framework": "NIST",
+            "citation": "NIST AI Risk Management Framework 1.0 (AI 100-1), January 2023",
+            "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+            "kind": "voluntary_framework",
+            "availability": "OK"
+          }
+        ],
+        "history": [
+          {
+            "previous_hash": null,
+            "current_hash": "bfccb58347ddc6800792430be52c56b2fb4b41504221d7bc3e78631d755b8699",
+            "retrieved_at": "2026-10-04T07:44:59.882Z",
+            "official_sources": [
+              {
+                "framework": "EUAIA",
+                "citation": "Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024",
+                "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+                "kind": "regulation",
+                "availability": "OK"
+              },
+              {
+                "framework": "GDPR",
+                "citation": "Regulation (EU) 2016/679",
+                "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+                "kind": "regulation",
+                "availability": "OK"
+              },
+              {
+                "framework": "ISO42001",
+                "citation": "ISO/IEC 42001:2023 - Artificial intelligence management system",
+                "url": "https://www.iso.org/standard/81230.html",
+                "kind": "management_standard",
+                "availability": "HTTP_403"
+              },
+              {
+                "framework": "NIST",
+                "citation": "NIST AI Risk Management Framework 1.0 (AI 100-1), January 2023",
+                "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+                "kind": "voluntary_framework",
+                "availability": "OK"
+              }
+            ],
+            "review_status": "REVIEW_REQUIRED"
+          }
+        ],
+        "label": "SNAPSHOT OF CITED OFFICIAL SOURCES — not legal advice"
+      },
+      "status": "UNCHANGED"
     }
   ],
   "capabilities": {

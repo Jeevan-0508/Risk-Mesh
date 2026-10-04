@@ -1,4 +1,4 @@
-import { buildLocalMessages, extractGeneratedText, LOCAL_LLM_MODELS, LOCAL_STT_MODEL, looksUsableModelResponse } from './calypso-core.mjs?v=7';
+import { buildLocalMessages, extractGeneratedText, LOCAL_LLM_MODELS, LOCAL_STT_MODEL, looksUsableModelResponse } from './calypso-core.mjs?v=8';
 
 const TRANSFORMERS_URL = 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm';
 const TRANSFORMERS_VERSION = '3.8.1';
@@ -21,9 +21,74 @@ function withTimeout(promise, milliseconds, label) {
   return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
 }
 
+function createWasmWorker(model, onProgress) {
+  const source = `
+    import { pipeline } from ${JSON.stringify(TRANSFORMERS_URL)};
+    const modelId = ${JSON.stringify(model.id)};
+    let generator = null;
+    self.onmessage = async ({ data }) => {
+      const { id, type, payload } = data;
+      try {
+        if (type === 'load') {
+          generator = await pipeline('text-generation', modelId, {
+            device: 'wasm',
+            dtype: 'q8',
+            progress_callback: (event) => self.postMessage({ type: 'progress', event }),
+          });
+          self.postMessage({ id, type: 'result', value: true });
+        } else if (type === 'generate') {
+          if (!generator) throw new Error('LOCAL_AI_NOT_READY');
+          const value = await generator(payload.messages, payload.options);
+          self.postMessage({ id, type: 'result', value });
+        } else {
+          throw new Error('LOCAL_AI_UNKNOWN_WORKER_COMMAND');
+        }
+      } catch (error) {
+        self.postMessage({ id, type: 'error', error: String(error?.message || error || 'LOCAL_AI_WORKER_ERROR') });
+      }
+    };
+  `;
+  const url = URL.createObjectURL(new Blob([source], { type: 'text/javascript' }));
+  const worker = new Worker(url, { type: 'module' });
+  const pending = new Map();
+  let sequence = 0;
+  worker.onmessage = ({ data }) => {
+    if (data?.type === 'progress') {
+      onProgress(progressValue(data.event), data.event);
+      return;
+    }
+    const request = pending.get(data?.id);
+    if (!request) return;
+    pending.delete(data.id);
+    if (data.type === 'error') request.reject(new Error(data.error));
+    else request.resolve(data.value);
+  };
+  worker.onerror = (event) => {
+    const error = new Error(event?.message || 'LOCAL_AI_WORKER_ERROR');
+    for (const request of pending.values()) request.reject(error);
+    pending.clear();
+  };
+  const call = (type, payload) => new Promise((resolve, reject) => {
+    const id = ++sequence;
+    pending.set(id, { resolve, reject });
+    worker.postMessage({ id, type, payload });
+  });
+  return {
+    load: () => call('load'),
+    generate: (messages, options) => call('generate', { messages, options }),
+    dispose: () => {
+      for (const request of pending.values()) request.reject(new Error('LOCAL_AI_DISPOSED'));
+      pending.clear();
+      worker.terminate();
+      URL.revokeObjectURL(url);
+    },
+  };
+}
+
 export function createLocalIntelligence({ onStatus = () => {}, onProgress = () => {}, onDiagnostic = () => {} } = {}) {
   const state = {
     generator: null,
+    worker: null,
     loading: null,
     ready: false,
     failed: null,
@@ -96,11 +161,10 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
       state.modelInitializationState = 'NOT_STARTED';
       state.pipelineState = 'NOT_INITIALIZED';
       setStatus('LOADING', 'PREPARING_LOCAL_AI');
-      const { pipeline } = await importTransformers();
-      state.transformersLoaded = true;
       // Prefer the smaller WASM profile in the deployed browser path. This is
-      // slower than WebGPU when WebGPU is healthy, but it is portable and does
-      // not leave Chrome stuck in a large WebGPU download with no test result.
+      // slower than WebGPU when WebGPU is healthy, but it is portable. Running
+      // it in a worker keeps the Observatory controls responsive during load
+      // and generation.
       const profile = LOCAL_LLM_MODELS.wasm;
       const attempts = [['wasm', 'q8', profile]];
       let lastError;
@@ -113,11 +177,10 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
           state.modelInitializationState = 'LOADING';
           state.pipelineState = 'INITIALIZING';
           setStatus('INITIALIZING', `DOWNLOADING_LOCAL_AI · ${device.toUpperCase()} · ${dtype.toUpperCase()}`);
-          state.generator = await withTimeout(pipeline('text-generation', model.id, {
-            device,
-            dtype,
-            progress_callback: (event) => onProgress(progressValue(event), event),
-          }), 90000, 'LOCAL_AI_MODEL_LOAD');
+          state.worker = createWasmWorker(model, onProgress);
+          state.transformersLoaded = true;
+          state.generator = state.worker.generate;
+          await withTimeout(state.worker.load(), 90000, 'LOCAL_AI_MODEL_LOAD');
           state.modelDownloadState = 'LOADED';
           state.modelInitializationState = 'READY';
           state.pipelineState = 'READY';
@@ -130,7 +193,8 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
           state.lastError = errorMessage(error);
           state.modelInitializationState = 'ERROR';
           state.pipelineState = 'ERROR';
-          try { await state.generator?.dispose?.(); } catch { /* try the next backend */ }
+          try { await state.worker?.dispose?.(); } catch { /* try the next backend */ }
+          state.worker = null;
           state.generator = null;
           report();
         }
@@ -161,8 +225,8 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
     const started = performance.now();
     try {
       const output = await state.generator(buildLocalMessages(meshContext), {
-        // WASM inference runs on the page thread in this static deployment;
-        // keep the local response bounded so controls remain responsive.
+        // Keep local answers concise even though generation is isolated in a
+        // worker; this model is intentionally small and browser-friendly.
         max_new_tokens: 40,
         do_sample: false,
         temperature: 0.2,
@@ -184,7 +248,8 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
   }
 
   async function dispose() {
-    try { await state.generator?.dispose?.(); } catch { /* best-effort browser memory release */ }
+    try { await state.worker?.dispose?.(); } catch { /* best-effort browser memory release */ }
+    state.worker = null;
     state.generator = null;
     state.ready = false;
     state.loading = null;

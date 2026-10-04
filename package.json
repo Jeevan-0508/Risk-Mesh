@@ -13,6 +13,8 @@
     "observatory:capture": "bun run observatory/scripts/capture-golden-events.ts",
     "observatory:capture:system1": "bun run observatory/scripts/capture-system1-events.ts",
     "observatory:capture:registry": "bun run observatory/scripts/capture-repo-registry.ts",
+    "briefing:build": "node scripts/build-briefing.mjs",
+    "briefing:test": "node --test scripts/build-briefing.test.mjs",
     "laya:smoke": "bun run adapters/model-registry/live-smoke.ts"
   },
   "dependencies": {

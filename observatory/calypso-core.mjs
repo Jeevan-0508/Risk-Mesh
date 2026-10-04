@@ -1,6 +1,6 @@
 export const LOCAL_LLM_MODEL = {
   id: 'onnx-community/Qwen2.5-0.5B-Instruct',
-  label: 'Qwen2.5 0.5B Instruct · 4-bit/WebGPU or 8-bit/WASM',
+  label: 'Qwen2.5 0.5B Instruct · q4f16/WebGPU or q8/WASM',
   parameters: '0.5B',
 };
 

@@ -88,7 +88,7 @@ export function createLocalIntelligence({ onStatus = () => {}, onProgress = () =
       const { pipeline } = await importTransformers();
       state.transformersLoaded = true;
       const webgpu = Boolean(globalThis.navigator?.gpu);
-      const attempts = webgpu ? [['webgpu', 'q4'], ['wasm', 'q8']] : [['wasm', 'q8']];
+      const attempts = webgpu ? [['webgpu', 'q4f16'], ['wasm', 'q8']] : [['wasm', 'q8']];
       let lastError;
       for (const [device, dtype] of attempts) {
         try {

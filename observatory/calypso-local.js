@@ -79,6 +79,11 @@ function errorMessage(error) {
   return String(error?.message || error || 'Unknown local speech error').replace(/\s+/g, ' ').trim();
 }
 
+export function normalizeTranscriptText(value) {
+  const text = String(value || '').trim();
+  return /^(?:\[blank_audio\]|\[silence\]|\[no speech detected\])$/i.test(text) ? '' : text;
+}
+
 export function resampleMono(samples, inputRate, outputRate = 16000) {
   if (!(samples instanceof Float32Array)) samples = Float32Array.from(samples || []);
   if (!samples.length || inputRate === outputRate) return samples;
@@ -165,7 +170,7 @@ export function createLocalTranscriber({ onStatus = () => {}, onProgress = () =>
       const audio = await decodeAndResample(blob, 16000, onDiagnostic);
       onDiagnostic('TRANSCRIBING', `samples=${audio.data.length} sampleRate=${audio.sampling_rate}`);
       const output = await state.transcriber(audio.data, { sampling_rate: audio.sampling_rate });
-      const text = String(output?.text || '').trim();
+      const text = normalizeTranscriptText(output?.text);
       onDiagnostic('TRANSCRIPT RESULT', text ? `text=${text}` : 'empty');
       return text;
     } catch (error) {

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { buildLocalMessages, buildMeshContext, extractGeneratedText, mapRecognitionError, renderSpeechText } from './calypso-core.mjs';
-import { resampleMono } from './calypso-local.js';
+import { normalizeTranscriptText, resampleMono } from './calypso-local.js';
 
 test('recognition errors stay explicit', () => {
   assert.equal(mapRecognitionError('network'), 'SPEECH_RECOGNITION_NETWORK_ERROR');
@@ -40,4 +40,9 @@ test('local speech audio is resampled to Whisper input rate', () => {
   assert.equal(result[0], 0);
   assert.equal(result[2], 1);
   assert.equal(result[4], 0);
+});
+
+test('local speech treats Whisper silence sentinels as no speech', () => {
+  assert.equal(normalizeTranscriptText('[BLANK_AUDIO]'), '');
+  assert.equal(normalizeTranscriptText('real words'), 'real words');
 });

@@ -29,6 +29,7 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     selectedVoice: null,
     recognition: null,
     recognitionUnavailable: false,
+    recognitionStartTimer: null,
     recognitionSession: null,
     memory: [],
     context: null,
@@ -268,6 +269,7 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     state.recognition.maxAlternatives = 1;
     state.recognition.lang = 'en-US';
     state.recognition.onstart = () => {
+      if (state.recognitionStartTimer) clearTimeout(state.recognitionStartTimer);
       state.recognitionSession = { finalText: '', errorCode: '', submitted: false };
       setTranscript('', '');
       setState('LISTENING');
@@ -312,6 +314,10 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     if (state.status === 'SPEAKING') window.speechSynthesis.cancel();
     try {
       state.recognition.start();
+      if (state.recognitionStartTimer) clearTimeout(state.recognitionStartTimer);
+      state.recognitionStartTimer = setTimeout(() => {
+        if (state.status === 'IDLE') setState('IDLE', 'SPEECH_RECOGNITION_START_TIMEOUT');
+      }, 3500);
     } catch (caught) {
       setState('IDLE', `SPEECH_RECOGNITION_${String(caught?.name || 'ERROR').toUpperCase()}`);
     }

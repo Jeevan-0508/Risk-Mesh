@@ -382,7 +382,7 @@ function publicPayload(generatedAt, sources, updates) {
   return {
     schema_version: BRIEFING_SCHEMA_VERSION,
     generatedAt,
-    headline: updates.length ? `Good morning, Jeevan. ${updates.length} source update${updates.length === 1 ? '' : 's'} are ready.` : 'Good morning, Jeevan. No new source updates were recorded in the latest completed check.',
+    headline: updates.length ? `Good morning, Jeevan. ${updates.length} source update${updates.length === 1 ? ' is' : 's are'} ready.` : 'Good morning, Jeevan. No new source updates were recorded in the latest completed check.',
     sources: sources.map(publicSource),
     updates,
     capabilities: {
@@ -445,7 +445,10 @@ export async function buildBriefing({ now = new Date().toISOString() } = {}) {
   }
   const changed = JSON.stringify(sourceStates) !== JSON.stringify(previous.sourceStates || {});
   const generatedAt = changed || !previous.generated_at ? now : previous.generated_at;
-  const visibleUpdates = updates.length || changed ? updates : (previous.payload?.updates || []);
+  const priorUpdates = Array.isArray(previous.payload?.updates) ? previous.payload.updates : [];
+  const updateById = new Map(priorUpdates.map((update) => [update.id, update]));
+  for (const update of updates) updateById.set(update.id, update);
+  const visibleUpdates = [...updateById.values()];
   for (const update of visibleUpdates) {
     if (update.sourceProject === 'Fraud Watch') {
       update.summary = update.summary.replace(/\b1 open investigations\b/g, '1 open investigation');

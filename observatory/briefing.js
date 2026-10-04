@@ -1,5 +1,5 @@
 import briefing from './data/briefing.js?v=6';
-import { createCalypso } from './calypso.js?v=3';
+import { createCalypso } from './calypso.js?v=4';
 
 const SEEN_KEY = 'risk-mesh:briefing-seen-v1';
 const LAST_OPEN_KEY = 'risk-mesh:briefing-last-open-v1';

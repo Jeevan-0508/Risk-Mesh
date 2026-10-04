@@ -1,4 +1,10 @@
+import { buildMeshContext, mapRecognitionError, renderSpeechText } from './calypso-core.mjs';
+import { createLocalIntelligence, createLocalTranscriber } from './calypso-local.js';
+import { createPrivateCustomVoice } from './calypso-voice.js';
+
 const VOICE_KEY = 'risk-mesh:calypso-voice-uri-v1';
+const INTELLIGENCE_KEY = 'risk-mesh:calypso-intelligence-v1';
+const SPEECH_KEY = 'risk-mesh:calypso-speech-v1';
 
 const FEMALE_VOICE_HINTS = [
   'female', 'samantha', 'victoria', 'karen', 'ava', 'allison', 'susan', 'zira', 'aria', 'jenny', 'google us english',
@@ -31,6 +37,14 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     recognitionUnavailable: false,
     recognitionStartTimer: null,
     recognitionSession: null,
+    recorder: null,
+    recorderChunks: [],
+    intelligence: 'deterministic',
+    speechMode: 'browser',
+    localAI: null,
+    localSTT: null,
+    customVoice: null,
+    lastResult: null,
     memory: [],
     context: null,
   };
@@ -41,10 +55,25 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
   const voiceToggle = $('calypso-voice-toggle');
   const voiceSelect = $('calypso-voice-select');
   const stopButton = $('calypso-stop-speaking');
+  const intelligenceSelect = $('calypso-intelligence-select');
+  const localAIButton = $('calypso-local-ai-enable');
+  const aiProgress = $('calypso-ai-progress');
+  const speechSelect = $('calypso-speech-select');
+  const speechProgress = $('calypso-speech-progress');
   const transcript = $('calypso-transcript');
   const error = $('calypso-error');
   const stateLabel = $('calypso-state');
   const engineLabel = $('calypso-engine');
+
+  function setProgress(element, value, label) {
+    if (!element) return;
+    element.textContent = value == null ? label : `${label} · ${value}%`;
+    element.dataset.progress = value == null ? '' : String(value);
+  }
+
+  function setEngine(label) {
+    if (engineLabel) engineLabel.textContent = label;
+  }
 
   function setState(next, errorCode = '') {
     state.status = next;
@@ -54,9 +83,10 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     }
     if (error) error.textContent = errorCode ? errorCode : '';
     if (voiceButton) {
-      voiceButton.textContent = state.recognitionUnavailable ? 'Voice input unavailable' : next === 'LISTENING' ? 'Listening…' : next === 'SPEAKING' ? 'Calypso is speaking…' : 'Talk to Calypso';
+      voiceButton.textContent = state.recognitionUnavailable && state.speechMode !== 'local' ? 'Voice input unavailable' : next === 'LISTENING' ? 'Listening…' : next === 'SPEAKING' ? 'Calypso is speaking…' : 'Talk to Calypso';
       voiceButton.dataset.state = next;
-      voiceButton.disabled = state.recognitionUnavailable || (!state.recognition && next !== 'SPEAKING');
+      const localPath = state.speechMode === 'local' && Boolean(navigator.mediaDevices?.getUserMedia && globalThis.MediaRecorder);
+      voiceButton.disabled = (!state.recognition && !localPath) || (state.recognitionUnavailable && !localPath);
     }
     if (next === 'LISTENING' || next === 'SPEAKING' || next === 'THINKING') onActivateSource?.(`calypso-${next.toLowerCase()}`);
   }
@@ -82,13 +112,66 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
   function remember(questionText, result) {
     state.memory.push({ question: questionText, answer: result.text, source: result.update?.sourceProject || null });
     state.memory = state.memory.slice(-8);
-    if (result.update?.sourceProject === 'FOMO') {
-      state.context = { source: 'FOMO', records: fomoRecords(result.update), update: result.update };
+    state.lastResult = result;
+    if (result.update) {
+      state.context = { source: result.update.sourceProject, records: fomoRecords(result.update), update: result.update, recordId: result.recordId || null };
     }
   }
 
   function recordName(record, index) {
     return record?.title || `FOMO report ${index + 1}`;
+  }
+
+  function sourceTruth(update) {
+    if (!update) return 'I do not have a completed MESH update for that source.';
+    const status = String(update.status || '').toUpperCase();
+    if (status === 'UNAVAILABLE' || status === 'FAILED') return `I couldn't verify ${update.sourceProject} in the latest run. That is source failure, not evidence that nothing happened.`;
+    if (status === 'STALE') return `My latest ${update.sourceProject} snapshot is stale, so I wouldn't treat it as current.`;
+    return '';
+  }
+
+  function bestFomoRecord(records) {
+    const rank = { critical: 4, high: 3, medium: 2, low: 1 };
+    return [...records].sort((a, b) => (rank[String(b.severity).toLowerCase()] || 0) - (rank[String(a.severity).toLowerCase()] || 0))[0];
+  }
+
+  function followUpAnswer(q, fomo, records) {
+    const context = state.context;
+    const last = state.lastResult;
+    if (/^(yeah|yes|yep|sure|go ahead|okay|ok|please)\b/.test(q) && last?.update) {
+      if (last.update.sourceProject === 'FOMO' && records.length) {
+        const picks = records.slice(0, 3).map((record, index) => `${index + 1}. ${recordName(record, index)}`).join(' ');
+        return { text: `Here are the first three FOMO items from the checked snapshot: ${picks}`, update: fomo, links: records.slice(0, 3).flatMap((record) => record.links || []) };
+      }
+      return { text: last.text, update: last.update };
+    }
+    if (/^(why|why\??|what do you think)\b/.test(q) && last?.update) {
+      if (last.update.sourceProject === 'FOMO') return { text: 'Because FOMO is the real-world external-signal set in this snapshot. I would inspect its original links first, while keeping the snapshot and freshness caveat in view.', update: last.update };
+      if (String(last.update.sourceType).toUpperCase() === 'SYNTHETIC') return { text: `Because ${last.update.sourceProject} is synthetic simulation data. It can be useful for testing patterns, but it is not a confirmed real-world incident.`, update: last.update };
+      return { text: `Because MESH has the strongest completed evidence for ${last.update.sourceProject} in the current snapshot. I would still check its freshness before treating it as current.`, update: last.update };
+    }
+    if (/(compare|versus|vs\.?|contrast)/.test(q) && context?.update) {
+      const fraud = sourceUpdate('Fraud Watch');
+      return fraud ? { text: `FOMO is REAL_WORLD external-source snapshot data; Fraud Watch is SYNTHETIC simulation data. They should not be blended into one incident count.`, update: context.update } : { text: 'I can compare the evidence classes, but I need both completed source updates in MESH.' };
+    }
+    if (/(what should|where should|look at first|start with)/.test(q)) {
+      const record = bestFomoRecord(records);
+      return record ? { text: `I’d start with “${recordName(record, records.indexOf(record))}”${record.severity ? ` because it is marked ${record.severity} severity` : ''}. It remains a REAL_WORLD_SIGNAL snapshot, so open the original link before drawing a conclusion.`, update: fomo, recordId: record.id, links: record.links || [] } : { text: 'I do not have a prioritized FOMO record in the completed snapshot.' };
+    }
+    const location = q.match(/\b(?:what about|anything in|news from)\s+([a-z][a-z -]{2,})\??$/i)?.[1]?.trim();
+    if (location) {
+      const matches = records.filter((record) => `${record.location || ''} ${record.title || ''} ${record.summary || ''}`.toLowerCase().includes(location.toLowerCase()));
+      return matches.length ? { text: `I found ${matches.length} FOMO record${matches.length === 1 ? '' : 's'} matching “${location}”: ${matches.slice(0, 3).map((record) => recordName(record, records.indexOf(record))).join('; ')}.`, update: fomo, links: matches.flatMap((record) => record.links || []) } : { text: `I don't have a FOMO record matching “${location}” in the checked snapshot.` };
+    }
+    if (/(that one|the (?:first|second|third|fourth|fifth)|^second$|^first$|^third$)/.test(q) && context?.source === 'FOMO') {
+      const ordinal = q.match(/(?:the\s+)?(first|second|third|fourth|fifth)/)?.[1] || 'second';
+      const positions = { first: 0, second: 1, third: 2, fourth: 3, fifth: 4 };
+      const index = positions[ordinal];
+      const record = context.records[index];
+      if (!record) return { text: `I don't have a ${ordinal} FOMO record in the checked snapshot.` };
+      return { text: `The ${ordinal} FOMO record is “${recordName(record, index)}.” It is classified as REAL_WORLD_SIGNAL in the checked snapshot.`, update: context.update, recordId: record.id, links: record.links || [] };
+    }
+    return null;
   }
 
   function groundedAnswer(rawQuestion) {
@@ -102,6 +185,8 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
 
     const fomo = fomoUpdate();
     const records = fomoRecords(fomo);
+    const followUp = followUpAnswer(q, fomo, records);
+    if (followUp) return followUp;
     if (/(show|tell me about|list|what are).*fomo.*(report|signal|source)|fomo.*(report|signal)/.test(q)) {
       const count = records.length || fomo?.details?.recordCount || 0;
       const newCount = Number(fomo?.details?.newCount || 0);
@@ -135,6 +220,7 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
 
     if (/(is|was).*\b(real|that real|this real)\b|real\??$/.test(q)) {
       if (state.context?.source === 'FOMO') return { text: 'The FOMO records are labelled REAL_WORLD_SIGNAL, but MESH is showing them as a repository snapshot of external reports—not a live browser connection or a verified incident feed.', update: state.context.update };
+      if (state.context?.update?.sourceProject === 'Fraud Watch' || state.lastResult?.update?.sourceProject === 'Fraud Watch') return { text: 'No. Fraud Watch is SYNTHETIC simulation data. It is useful for testing methods of operation, but it is not a confirmed real-world fraud incident.', update: state.context?.update || state.lastResult?.update };
       return { text: 'MESH keeps the evidence classes separate: FOMO is REAL_WORLD external-source data in a repository snapshot; Fraud Watch, Shadow Network, and Risk Ring are SYNTHETIC simulations; EU AI Act Scanner and Forecast Ledger use OFFICIAL sources or data; Reg Search is a cited SNAPSHOT.' };
     }
 
@@ -168,14 +254,14 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     if (/(source|link|evidence|report)/.test(q)) {
       const matched = briefing.sources.find((source) => q.includes(source.name.toLowerCase()) || q.includes(source.id));
       const update = matched && sourceUpdate(matched.name);
-      if (update) return { text: `I found the ${matched.name} evidence. I’ll open its grounded details and source links.`, update };
+      if (update) return { text: sourceTruth(update) || `I found the ${matched.name} evidence. I’ll open its grounded details and source links.`, update };
       if (matched) return { text: `${matched.name} has no new update in the current briefing. Its status is ${matched.status}; the source chip still exposes its provenance.` };
     }
 
     const matched = briefing.sources.find((source) => q.includes(source.name.toLowerCase()) || q.includes(source.id));
     if (matched) {
       const update = sourceUpdate(matched.name);
-      return update ? { text: `${matched.name}: ${update.summary} Evidence class: ${update.evidenceType}. Freshness: ${matched.freshness}.`, update } : { text: `${matched.name} has no new update in the completed check. Status: ${matched.status}. Freshness: ${matched.freshness}.` };
+      return update ? { text: sourceTruth(update) || `${matched.name}: ${update.summary} Evidence class: ${update.evidenceType}. Freshness: ${matched.freshness}.`, update } : { text: `${matched.name} has no new update in the completed check. Status: ${matched.status}. Freshness: ${matched.freshness}.` };
     }
 
     return { text: 'I can help inspect what changed, FOMO reports and links, evidence, freshness, real versus synthetic data, or the current status of Fraud Watch, Shadow Network, EU AI monitoring, Risk Ring, Forecast Ledger, and Reg Search.' };
@@ -186,11 +272,24 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
   }
 
   function speak(text) {
+    if (state.customVoice?.configured) {
+      state.customVoice.speak(renderSpeechText(text)).then((spoken) => {
+        if (!spoken) browserSpeak(text);
+      }).catch(() => {
+        setState('IDLE', 'CUSTOM_TTS_UNAVAILABLE');
+        browserSpeak(text);
+      });
+      return true;
+    }
+    return browserSpeak(text);
+  }
+
+  function browserSpeak(text) {
     if (!('speechSynthesis' in window) || typeof window.SpeechSynthesisUtterance === 'undefined') {
       setState('IDLE', 'SPEECH_SYNTHESIS_UNAVAILABLE');
       return false;
     }
-    const utterance = new SpeechSynthesisUtterance(cleanForSpeech(text));
+    const utterance = new SpeechSynthesisUtterance(renderSpeechText(text));
     const selected = state.voices.find((voice) => voice.voiceURI === state.selectedVoice) || state.voices[0];
     if (selected) utterance.voice = selected;
     utterance.lang = selected?.lang || 'en-US';
@@ -205,7 +304,7 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     return true;
   }
 
-  function submitQuestion(rawQuestion, { speakResponse = false, fromVoice = false } = {}) {
+  async function submitQuestion(rawQuestion, { speakResponse = false, fromVoice = false } = {}) {
     const text = String(rawQuestion || '').trim();
     if (!text) {
       setState('IDLE', 'NO_TRANSCRIPT');
@@ -213,13 +312,25 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     }
     setState('THINKING');
     const result = groundedAnswer(text);
-    remember(text, result);
-    if (response) response.textContent = result.text;
-    showLinks(result.links || []);
-    if (result.update) onOpenEvidence?.(result.update, result.recordId);
+    let finalResult = result;
+    if (state.intelligence === 'local' && state.localAI?.state.ready) {
+      try {
+        const generated = await state.localAI.generate(buildMeshContext({ question: text, result, updates: getUpdates(), memory: state.memory }));
+        finalResult = { ...result, text: generated.text, generatedBy: 'LOCAL_AI', latencyMs: generated.latencyMs };
+        setEngine(`LOCAL AI · ${generated.device} · ${generated.latencyMs}ms · MESH grounded`);
+      } catch {
+        setEngine('DETERMINISTIC FALLBACK · local AI generation failed');
+        finalResult = { ...result, generatedBy: 'DETERMINISTIC_FALLBACK' };
+      }
+    }
+    remember(text, finalResult);
+    if (response) response.textContent = finalResult.text;
+    showLinks(finalResult.links || []);
+    if (finalResult.update) onOpenEvidence?.(finalResult.update, finalResult.recordId);
     if (fromVoice) setTranscript(text, 'FINAL');
-    if (speakResponse && state.voiceOn) speak(result.text);
+    if (speakResponse && state.voiceOn) speak(finalResult.text);
     else setState('IDLE');
+    return finalResult;
   }
 
   function voiceLabel(voice) {
@@ -243,17 +354,7 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
       voiceSelect.value = state.selectedVoice || '';
       voiceSelect.disabled = false;
     }
-    if (engineLabel) engineLabel.textContent = `DETERMINISTIC FALLBACK · ${state.voices.length} compatible voice${state.voices.length === 1 ? '' : 's'} · no local model installed`;
-  }
-
-  function mapRecognitionError(code) {
-    return ({
-      'not-allowed': 'MICROPHONE_PERMISSION_DENIED',
-      'service-not-allowed': 'MICROPHONE_PERMISSION_DENIED',
-      'no-speech': 'NO_SPEECH_DETECTED',
-      'audio-capture': 'MICROPHONE_UNAVAILABLE',
-      network: 'SPEECH_RECOGNITION_NETWORK_ERROR',
-    })[code] || `SPEECH_RECOGNITION_${String(code || 'ERROR').toUpperCase()}`;
+    if (state.intelligence !== 'local') setEngine(`DETERMINISTIC FALLBACK · ${state.voices.length} compatible voice${state.voices.length === 1 ? '' : 's'} · local AI not enabled`);
   }
 
   function setupRecognition() {
@@ -274,6 +375,8 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
       setTranscript('', '');
       setState('LISTENING');
     };
+    state.recognition.onaudiostart = () => setState('LISTENING');
+    state.recognition.onspeechstart = () => setState('LISTENING');
     state.recognition.onresult = (event) => {
       let interim = '';
       let finalText = state.recognitionSession?.finalText || '';
@@ -284,8 +387,13 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
       }
       if (state.recognitionSession) state.recognitionSession.finalText = finalText.trim();
       setTranscript((finalText || interim).trim(), finalText ? 'FINAL' : 'LIVE');
-      if (finalText) setState('HEARD');
+      if (finalText) {
+        setState('HEARD');
+        setState('TRANSCRIBING');
+      }
     };
+    state.recognition.onspeechend = () => setState('TRANSCRIBING');
+    state.recognition.onaudioend = () => setState('TRANSCRIBING');
     state.recognition.onerror = (event) => {
       if (state.recognitionSession) state.recognitionSession.errorCode = mapRecognitionError(event.error);
       setState('IDLE', mapRecognitionError(event.error));
@@ -295,14 +403,60 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
       if (!session) return;
       if (session.finalText && !session.submitted && !session.errorCode) {
         session.submitted = true;
-        submitQuestion(session.finalText, { speakResponse: true, fromVoice: true });
+        void submitQuestion(session.finalText, { speakResponse: true, fromVoice: true });
       } else if (!session.finalText && !session.errorCode) {
         setState('IDLE', 'NO_SPEECH_DETECTED');
       }
     };
   }
 
+  async function startLocalRecording() {
+    if (!navigator.mediaDevices?.getUserMedia || !globalThis.MediaRecorder) {
+      setState('IDLE', 'SPEECH_RECOGNITION_UNAVAILABLE');
+      return;
+    }
+    if (state.recorder) {
+      state.recorder.stop();
+      return;
+    }
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      state.recorderChunks = [];
+      state.recorder = new MediaRecorder(stream);
+      state.recorder.ondataavailable = (event) => { if (event.data.size) state.recorderChunks.push(event.data); };
+      state.recorder.onstart = () => { setTranscript('', ''); setState('LISTENING'); };
+      state.recorder.onstop = async () => {
+        stream.getTracks().forEach((track) => track.stop());
+        const recorder = state.recorder;
+        state.recorder = null;
+        if (!recorder || !state.recorderChunks.length) { setState('IDLE', 'NO_SPEECH_DETECTED'); return; }
+        setState('TRANSCRIBING');
+        const blob = new Blob(state.recorderChunks, { type: recorder.mimeType || 'audio/webm' });
+        try {
+          state.localSTT ||= createLocalTranscriber({
+            onStatus: (label) => setSpeechStatus(label),
+            onProgress: (value) => setProgress(speechProgress, value, 'LOCAL TRANSCRIPTION'),
+          });
+          const text = await state.localSTT.transcribe(blob);
+          if (!text) { setState('IDLE', 'NO_SPEECH_DETECTED'); return; }
+          setTranscript(text, 'FINAL');
+          setState('HEARD');
+          await submitQuestion(text, { speakResponse: true, fromVoice: true });
+        } catch {
+          setState('IDLE', 'LOCAL_STT_UNAVAILABLE');
+        }
+      };
+      state.recorder.start();
+    } catch (caught) {
+      setState('IDLE', caught?.name === 'NotAllowedError' ? 'MICROPHONE_PERMISSION_DENIED' : 'AUDIO_CAPTURE_ERROR');
+    }
+  }
+
   function startListening() {
+    if (state.speechMode === 'local') {
+      void startLocalRecording();
+      return;
+    }
     if (!state.recognition) {
       setState('IDLE', 'SPEECH_RECOGNITION_UNAVAILABLE');
       return;
@@ -319,7 +473,35 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
         if (state.status === 'IDLE') setState('IDLE', 'SPEECH_RECOGNITION_START_TIMEOUT');
       }, 3500);
     } catch (caught) {
-      setState('IDLE', `SPEECH_RECOGNITION_${String(caught?.name || 'ERROR').toUpperCase()}`);
+      setState('IDLE', caught?.name === 'InvalidStateError' ? 'ABORTED' : 'UNKNOWN_SPEECH_ERROR');
+    }
+  }
+
+  function setSpeechStatus(label) {
+    setEngine(label === 'LOCAL_STT_UNAVAILABLE' ? 'CALYPSO SPEECH · UNAVAILABLE' : `CALYPSO SPEECH · ${String(label).replaceAll('_', ' ')}`);
+  }
+
+  async function enableLocalAI() {
+    state.localAI ||= createLocalIntelligence({
+      onStatus: (label) => {
+        setEngine(`CALYPSO · ${String(label).replaceAll('_', ' ')}`);
+        if (label === 'LOCAL_AI_UNAVAILABLE') setState('IDLE', 'LOCAL_AI_UNAVAILABLE');
+      },
+      onProgress: (value) => setProgress(aiProgress, value, 'LOCAL AI DOWNLOAD'),
+    });
+    if (localAIButton) localAIButton.disabled = true;
+    try {
+      await state.localAI.load();
+      state.intelligence = 'local';
+      localStorage.setItem(INTELLIGENCE_KEY, 'local');
+      if (intelligenceSelect) intelligenceSelect.value = 'local';
+      if (localAIButton) localAIButton.textContent = 'LOCAL AI READY';
+      setEngine(`CALYPSO ● LOCAL AI READY · ${state.localAI.state.device} · MESH grounded`);
+    } catch {
+      state.intelligence = 'deterministic';
+      if (intelligenceSelect) intelligenceSelect.value = 'deterministic';
+      if (localAIButton) { localAIButton.disabled = false; localAIButton.textContent = 'DOWNLOAD / ENABLE LOCAL AI'; }
+      setEngine('DETERMINISTIC FALLBACK · local AI unavailable');
     }
   }
 
@@ -337,7 +519,11 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
   function setup() {
     setState('IDLE');
     const hasWebGPU = Boolean(navigator.gpu);
-    if (engineLabel) engineLabel.textContent = `DETERMINISTIC FALLBACK · local model not installed · ${hasWebGPU ? 'WebGPU available for future opt-in' : 'WebGPU unavailable'}`;
+    try { state.intelligence = localStorage.getItem(INTELLIGENCE_KEY) === 'local' ? 'local' : 'deterministic'; } catch { state.intelligence = 'deterministic'; }
+    try { state.speechMode = localStorage.getItem(SPEECH_KEY) === 'local' ? 'local' : 'browser'; } catch { state.speechMode = 'browser'; }
+    if (intelligenceSelect) intelligenceSelect.value = state.intelligence;
+    if (speechSelect) speechSelect.value = state.speechMode;
+    if (engineLabel) engineLabel.textContent = `DETERMINISTIC FALLBACK · local AI ${state.intelligence === 'local' ? 'ready on next enable' : 'not enabled'} · ${hasWebGPU ? 'WebGPU available' : 'WebGPU unavailable'}`;
     loadVoices();
     if ('speechSynthesis' in window) window.speechSynthesis.addEventListener('voiceschanged', loadVoices);
     setupRecognition();
@@ -346,7 +532,7 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     voiceButton?.addEventListener('click', startListening);
     $('mesh-ask')?.addEventListener('click', () => submitQuestion(question?.value || ''));
     question?.addEventListener('keydown', (event) => { if (event.key === 'Enter') submitQuestion(question.value || ''); });
-    $('mesh-brief')?.addEventListener('click', () => submitQuestion("What's new today?", { speakResponse: true }));
+    $('mesh-brief')?.addEventListener('click', () => void submitQuestion("What's new today?", { speakResponse: true }));
     voiceToggle?.addEventListener('click', () => {
       if (!('speechSynthesis' in window)) { setState('IDLE', 'SPEECH_SYNTHESIS_UNAVAILABLE'); return; }
       state.voiceOn = !state.voiceOn;
@@ -355,12 +541,38 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     });
     stopButton?.addEventListener('click', () => {
       if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      state.customVoice?.stop();
+      if (state.recorder) state.recorder.stop();
       setState('IDLE');
     });
     voiceSelect?.addEventListener('change', () => {
       state.selectedVoice = voiceSelect.value;
       localStorage.setItem(VOICE_KEY, state.selectedVoice);
     });
+    intelligenceSelect?.addEventListener('change', () => {
+      state.intelligence = intelligenceSelect.value;
+      if (state.intelligence === 'local') {
+        if (localAIButton) localAIButton.hidden = false;
+        setEngine('CALYPSO LOCAL AI · download required before use');
+      } else {
+        if (localAIButton) localAIButton.hidden = true;
+        setEngine(`DETERMINISTIC FALLBACK · ${hasWebGPU ? 'WebGPU available for optional local AI' : 'WASM fallback available for optional local AI'}`);
+      }
+    });
+    localAIButton?.addEventListener('click', () => void enableLocalAI());
+    speechSelect?.addEventListener('change', () => {
+      state.speechMode = speechSelect.value;
+      localStorage.setItem(SPEECH_KEY, state.speechMode);
+      if (state.speechMode === 'local') setSpeechStatus('LOCAL_TRANSCRIPTION · model downloads on first use');
+      else setEngine(`CALYPSO SPEECH · browser recognition${state.recognition ? '' : ' unavailable'}`);
+      setState('IDLE');
+    });
+    state.customVoice = createPrivateCustomVoice({ onStatus: (label) => setEngine(`CALYPSO VOICE · ${label.replaceAll('_', ' ')}`) });
+    if (state.customVoice.status === 'ARCHITECTURE_READY') setEngine(`DETERMINISTIC FALLBACK · ${hasWebGPU ? 'WebGPU available' : 'WebGPU unavailable'} · custom voice architecture ready`);
+    if (state.intelligence === 'local') {
+      if (localAIButton) { localAIButton.hidden = false; localAIButton.textContent = 'DOWNLOAD / ENABLE LOCAL AI'; }
+    } else if (localAIButton) localAIButton.hidden = true;
+    if (state.speechMode === 'local') setState('IDLE');
   }
 
   setup();

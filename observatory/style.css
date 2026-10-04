@@ -91,6 +91,11 @@ header .back:hover { background: rgba(246, 214, 138, 0.08); }
 .calypso-voice-settings { display: flex; align-items: center; gap: 7px; margin-top: 7px; color: #8a7350; font-size: 0.58rem; }
 .calypso-voice-settings select { max-width: 100%; min-width: 0; flex: 1; background: rgba(5, 7, 12, 0.7); border: 1px solid #4a3a1e; color: #d8c79a; padding: 5px 6px; border-radius: 4px; font: inherit; font-size: 0.58rem; }
 .calypso-voice-settings select:disabled { opacity: 0.65; }
+.calypso-ai-settings { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-top: 7px; color: #8a7350; font-size: 0.58rem; }
+.calypso-ai-settings select { flex: 1; min-width: 170px; background: rgba(5, 7, 12, 0.7); border: 1px solid #4a3a1e; color: #d8c79a; padding: 5px 6px; border-radius: 4px; font: inherit; font-size: 0.58rem; }
+.calypso-ai-settings button { background: rgba(246, 214, 138, 0.08); border: 1px solid #6a5428; color: #f6d68a; padding: 5px 7px; border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.56rem; }
+.calypso-ai-settings button:disabled { opacity: 0.55; cursor: wait; }
+.calypso-progress { color: #7fd1ff; font-size: 0.55rem; min-height: 1em; }
 .calypso-transcript { margin: 7px 0 0; color: #8a9eaa; font-size: 0.64rem; line-height: 1.4; min-height: 1.1em; }
 .calypso-transcript[data-kind="LIVE"] { color: #7fd1ff; }
 .calypso-transcript[data-kind="FINAL"] { color: #d8c79a; }
@@ -200,6 +205,8 @@ footer a { color: #8a7350; }
   .calypso-status-row { align-items: flex-start; flex-direction: column; gap: 3px; }
   .calypso-voice-settings { align-items: flex-start; flex-direction: column; }
   .calypso-voice-settings select { width: 100%; }
+  .calypso-ai-settings { align-items: flex-start; flex-direction: column; }
+  .calypso-ai-settings select { width: 100%; }
   .evidence-panel { right: 14px; top: 14px; width: calc(100vw - 28px); max-height: calc(100vh - 28px); }
   .terminal-wrap { padding: 0 14px 16px; }
   .terminal { height: 190px; font-size: 0.68rem; }

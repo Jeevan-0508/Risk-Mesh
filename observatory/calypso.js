@@ -28,6 +28,7 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     voices: [],
     selectedVoice: null,
     recognition: null,
+    recognitionUnavailable: false,
     recognitionSession: null,
     memory: [],
     context: null,
@@ -52,9 +53,9 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     }
     if (error) error.textContent = errorCode ? errorCode : '';
     if (voiceButton) {
-      voiceButton.textContent = next === 'LISTENING' ? 'Listening…' : next === 'SPEAKING' ? 'Calypso is speaking…' : 'Talk to Calypso';
+      voiceButton.textContent = state.recognitionUnavailable ? 'Voice input unavailable' : next === 'LISTENING' ? 'Listening…' : next === 'SPEAKING' ? 'Calypso is speaking…' : 'Talk to Calypso';
       voiceButton.dataset.state = next;
-      voiceButton.disabled = !state.recognition && next !== 'SPEAKING';
+      voiceButton.disabled = state.recognitionUnavailable || (!state.recognition && next !== 'SPEAKING');
     }
     if (next === 'LISTENING' || next === 'SPEAKING' || next === 'THINKING') onActivateSource?.(`calypso-${next.toLowerCase()}`);
   }
@@ -257,8 +258,8 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
   function setupRecognition() {
     const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!Recognition) {
+      state.recognitionUnavailable = true;
       setState('IDLE', 'SPEECH_RECOGNITION_UNAVAILABLE');
-      if (voiceButton) voiceButton.disabled = true;
       return;
     }
     state.recognition = new Recognition();

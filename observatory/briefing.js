@@ -1,4 +1,4 @@
-import briefing from './data/briefing.js';
+import briefing from './data/briefing.js?v=4';
 import { createCalypso } from './calypso.js';
 
 const SEEN_KEY = 'risk-mesh:briefing-seen-v1';

@@ -226,7 +226,7 @@ function extractFraudMos(worldState) {
   return pairs.map((pair) => Array.isArray(pair) ? pair[1] : pair?.value).filter(Boolean);
 }
 
-function normalizeFraudWatch(def, loaded, previous, retrievedAt) {
+function normalizeFraudWatch(def, loaded, previous, retrievedAt, previousUpdate) {
   const summary = loaded.artifacts['data/dashboard-summary.json'];
   const world = loaded.artifacts['data/world-state.json'];
   const mos = extractFraudMos(world);
@@ -241,7 +241,7 @@ function normalizeFraudWatch(def, loaded, previous, retrievedAt) {
   source.recordCount = Object.keys(records).length;
   source.simulationDay = summary?.simulation?.day ?? world?.clock?.day ?? null;
   const currentChanged = loaded.fingerprint !== previous?.fingerprint;
-  const update = currentChanged
+  const update = currentChanged || !previousUpdate
     ? updateFor(def, source, diff.changed, 'Fraud Watch simulation state changed', `Synthetic simulation day ${source.simulationDay ?? 'unknown'} contains ${candidates.length} candidate method${candidates.length === 1 ? '' : 's'} of operation and ${summary?.world?.openInvestigations ?? 'an unknown number of'} open investigation${summary?.world?.openInvestigations === 1 ? '' : 's'}.`, {
       simulation: { day: source.simulationDay, timeOfDay: summary?.simulation?.timeOfDay || null, activeSignals: summary?.world?.activeSignals ?? null, openInvestigations: summary?.world?.openInvestigations ?? null, totalCases: summary?.world?.totalCases ?? null },
       candidates,
@@ -252,7 +252,7 @@ function normalizeFraudWatch(def, loaded, previous, retrievedAt) {
   return { source, records, update };
 }
 
-function normalizeShadow(def, loaded, previous, retrievedAt) {
+function normalizeShadow(def, loaded, previous, retrievedAt, previousUpdate) {
   const data = loaded.artifacts['data/latest.json'];
   const records = { snapshot: hash({ day: data?.day, generatedAt: data?.generatedAt, incidents: data?.todaysIncidents, verdicts: data?.todaysVerdicts, relationships: data?.relationships }) };
   const diff = recordDiff(previous?.records, records);
@@ -261,7 +261,7 @@ function normalizeShadow(def, loaded, previous, retrievedAt) {
   source.simulationDay = data?.day ?? null;
   const incidents = Array.isArray(data?.todaysIncidents) ? data.todaysIncidents : [];
   const verdicts = Array.isArray(data?.todaysVerdicts) ? data.todaysVerdicts : [];
-  const update = loaded.fingerprint !== previous?.fingerprint
+  const update = loaded.fingerprint !== previous?.fingerprint || !previousUpdate
     ? updateFor(def, source, diff.changed, 'Shadow Network synthetic snapshot changed', `Synthetic network day ${data?.day ?? 'unknown'} was refreshed: ${incidents.length} incident${incidents.length === 1 ? '' : 's'} and ${verdicts.length} verdict${verdicts.length === 1 ? '' : 's'} are recorded in the latest state.`, {
       day: data?.day,
       generatedAt: data?.generatedAt,
@@ -275,7 +275,7 @@ function normalizeShadow(def, loaded, previous, retrievedAt) {
   return { source, records, update };
 }
 
-function normalizeEu(def, loaded, previous, retrievedAt) {
+function normalizeEu(def, loaded, previous, retrievedAt, previousUpdate) {
   const monitor = loaded.artifacts['data/regulatory-monitor.json'];
   const changes = loaded.artifacts['data/regulatory-changes.jsonl'];
   const records = Object.fromEntries((Array.isArray(monitor?.sources) ? monitor.sources : []).map((item) => [item.id, hash({ hash: item.content_hash, status: item.review_status, http: item.http_status })]));
@@ -283,7 +283,7 @@ function normalizeEu(def, loaded, previous, retrievedAt) {
   const source = baseSource(def, loaded, retrievedAt, isoOrNull(monitor?.checked_at));
   source.recordCount = Object.keys(records).length;
   source.reviewRequired = Array.isArray(changes) ? changes.length : 0;
-  const update = loaded.fingerprint !== previous?.fingerprint
+  const update = loaded.fingerprint !== previous?.fingerprint || !previousUpdate
     ? updateFor(def, source, diff.changed, 'Official EU AI monitoring completed', `${Array.isArray(changes) ? changes.length : 0} official source change record${changes?.length === 1 ? '' : 's'} require human review. No compliance rule was rewritten by MESH.`, {
       sources: Array.isArray(monitor?.sources) ? monitor.sources.map((item) => ({ id: item.id, title: item.title, url: item.url, status: item.review_status, httpStatus: item.http_status, contentHash: item.content_hash, retrievedAt: item.retrieved_at })) : [],
       changes,
@@ -293,7 +293,7 @@ function normalizeEu(def, loaded, previous, retrievedAt) {
   return { source, records, update };
 }
 
-function normalizeRiskRing(def, loaded, previous, retrievedAt) {
+function normalizeRiskRing(def, loaded, previous, retrievedAt, previousUpdate) {
   const alerts = loaded.artifacts['data/alerts.json'];
   const rings = loaded.artifacts['data/rings.json'];
   const metrics = loaded.artifacts['data/metrics.json'];
@@ -302,7 +302,7 @@ function normalizeRiskRing(def, loaded, previous, retrievedAt) {
   const diff = recordDiff(previous?.records, records);
   const source = baseSource(def, loaded, retrievedAt, null);
   source.recordCount = (Array.isArray(alerts) ? alerts.length : 0) + (Array.isArray(rings) ? rings.length : 0);
-  const update = loaded.fingerprint !== previous?.fingerprint
+  const update = loaded.fingerprint !== previous?.fingerprint || !previousUpdate
     ? updateFor(def, source, diff.changed, 'Risk Ring synthetic analysis changed', `Synthetic analysis contains ${alerts?.length || 0} alerts across ${rings?.length || 0} rings; graph recovery covers ${graph?.rings_recovered_ge_30pct ?? 'an unknown number'} of ${graph?.total_true_rings ?? 'an unknown number'} synthetic rings.`, {
       metrics,
       graphMetrics: graph,
@@ -314,14 +314,14 @@ function normalizeRiskRing(def, loaded, previous, retrievedAt) {
   return { source, records, update };
 }
 
-function normalizeForecast(def, loaded, previous, retrievedAt) {
+function normalizeForecast(def, loaded, previous, retrievedAt, previousUpdate) {
   const data = loaded.artifacts['site/data.json'];
   const records = { ledger: hash({ profile: data?.data_profile, series: data?.series, backtests: data?.backtests, ledger: data?.ledger, refusals: data?.refusals, integrity: data?.integrity }) };
   const diff = recordDiff(previous?.records, records);
   const source = baseSource(def, loaded, retrievedAt, data?.data_profile?.series?.map((s) => s.dataset_updated).sort().at(-1) || null);
   source.recordCount = Array.isArray(data?.ledger) ? data.ledger.length : 0;
   const counts = data?.counts || {};
-  const update = loaded.fingerprint !== previous?.fingerprint
+  const update = loaded.fingerprint !== previous?.fingerprint || !previousUpdate
     ? updateFor(def, source, diff.changed, 'Forecast Ledger refresh completed', `${counts.sealed || 0} forecast${counts.sealed === 1 ? '' : 's'} sealed, ${counts.graded || 0} graded, and ${counts.refused || 0} explicitly refused by the eligibility rules.`, {
       counts,
       integrity: data?.integrity,
@@ -333,7 +333,7 @@ function normalizeForecast(def, loaded, previous, retrievedAt) {
   return { source, records, update };
 }
 
-function normalizeRegSearch(def, loaded, previous, retrievedAt) {
+function normalizeRegSearch(def, loaded, previous, retrievedAt, previousUpdate) {
   const provenance = loaded.artifacts['data/source-provenance.json'];
   const history = loaded.artifacts['data/source-history.jsonl'];
   const records = { upstream: hash({ contentHash: provenance?.content_hash, requirementCount: provenance?.requirement_count, officialSources: provenance?.official_sources }) };
@@ -342,7 +342,7 @@ function normalizeRegSearch(def, loaded, previous, retrievedAt) {
   source.recordCount = provenance?.requirement_count || 0;
   source.officialSources = provenance?.official_sources || [];
   const warnings = (provenance?.official_sources || []).filter((item) => item.availability !== 'OK');
-  const update = loaded.fingerprint !== previous?.fingerprint
+  const update = loaded.fingerprint !== previous?.fingerprint || !previousUpdate
     ? updateFor(def, source, diff.changed, 'Reg Search citation snapshot changed', `${provenance?.requirement_count || 0} cited requirements are available from the recorded upstream snapshot${warnings.length ? `; ${warnings.length} official citation check${warnings.length === 1 ? '' : 's'} need attention` : ''}.`, {
       upstreamRepository: provenance?.upstream_repository,
       upstreamUrl: provenance?.upstream_url,

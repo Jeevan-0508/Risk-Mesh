@@ -46,6 +46,7 @@
       <div class="conversation-controls"><button id="mesh-voice-input" type="button">Talk to Calypso</button><button id="calypso-voice-toggle" type="button">VOICE OFF</button><button id="calypso-stop-speaking" type="button">STOP SPEAKING</button></div>
       <div class="calypso-voice-settings"><label for="calypso-voice-select">CALYPSO VOICE</label><select id="calypso-voice-select" disabled><option>Loading installed voices…</option></select></div>
       <div class="calypso-ai-settings"><label for="calypso-intelligence-select">INTELLIGENCE</label><select id="calypso-intelligence-select"><option value="deterministic">Deterministic · immediate</option><option value="local">Local AI · optional download</option></select><button id="calypso-local-ai-enable" type="button" hidden>DOWNLOAD / ENABLE LOCAL AI</button><span id="calypso-ai-progress" class="calypso-progress" aria-live="polite"></span></div>
+      <details class="calypso-diagnostics"><summary>CALYPSO AI DIAGNOSTICS</summary><pre id="calypso-ai-diagnostics" aria-live="polite">Waiting for local AI runtime.</pre></details>
       <div class="calypso-ai-settings"><label for="calypso-speech-select">SPEECH INPUT</label><select id="calypso-speech-select"><option value="browser">Browser recognition</option><option value="local">Local transcription · optional download</option></select><span id="calypso-speech-progress" class="calypso-progress" aria-live="polite"></span></div>
       <details class="calypso-diagnostics"><summary>Speech diagnostics</summary><pre id="calypso-speech-diagnostics" aria-live="polite">Waiting for local speech input.</pre></details>
       <p class="calypso-transcript" id="calypso-transcript" aria-live="polite">Transcript will appear here.</p>
@@ -63,6 +64,6 @@
   { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
 </script>
 <script type="module" src="orb.js"></script>
-<script type="module" src="briefing.js?v=11"></script>
+<script type="module" src="briefing.js?v=12"></script>
 </body>
 </html>

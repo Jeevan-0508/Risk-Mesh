@@ -48,6 +48,8 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     localAI: null,
     localSTT: null,
     customVoice: null,
+    lastResponseSource: 'NOT_RUN',
+    lastAIError: null,
     lastResult: null,
     memory: [],
     context: null,
@@ -62,6 +64,7 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
   const intelligenceSelect = $('calypso-intelligence-select');
   const localAIButton = $('calypso-local-ai-enable');
   const aiProgress = $('calypso-ai-progress');
+  const aiDiagnostics = $('calypso-ai-diagnostics');
   const speechSelect = $('calypso-speech-select');
   const speechProgress = $('calypso-speech-progress');
   const speechDiagnostics = $('calypso-speech-diagnostics');
@@ -85,6 +88,45 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     state.speechDiagnostics = [...state.speechDiagnostics.slice(-19), line];
     if (speechDiagnostics) speechDiagnostics.textContent = state.speechDiagnostics.join('\n');
     console.debug(`[CALYPSO SPEECH] ${line}`);
+  }
+
+  function setAIDiagnostics(overrides = {}) {
+    if (!aiDiagnostics) return;
+    const runtime = state.localAI?.diagnostics?.() || {};
+    const values = {
+      mode: state.intelligence === 'local' ? 'LOCAL_AI' : 'DETERMINISTIC',
+      model: runtime.model || 'onnx-community/Qwen2.5-0.5B-Instruct',
+      transformersVersion: runtime.transformersVersion || '3.8.1',
+      backend: runtime.backend || 'NOT_SELECTED',
+      webgpuAvailable: runtime.webgpuAvailable == null ? Boolean(navigator.gpu) : runtime.webgpuAvailable,
+      wasmAvailable: runtime.wasmAvailable == null ? typeof WebAssembly !== 'undefined' : runtime.wasmAvailable,
+      modelDownloadState: runtime.modelDownloadState || 'NOT_STARTED',
+      modelInitializationState: runtime.modelInitializationState || 'NOT_STARTED',
+      pipelineState: runtime.pipelineState || 'NOT_INITIALIZED',
+      lastInferenceBackend: runtime.lastInferenceBackend || 'NOT_RUN',
+      lastInferenceDuration: runtime.lastInferenceDuration || 'NOT_RUN',
+      lastResponseSource: overrides.lastResponseSource || state.lastResponseSource || runtime.lastResponseSource || 'NOT_RUN',
+      lastError: overrides.lastError || state.lastAIError || runtime.lastError || 'NONE',
+      status: runtime.status || (state.intelligence === 'local' ? 'NOT_DOWNLOADED' : 'IDLE'),
+      controlledTest: runtime.controlledTest || 'NOT_RUN',
+    };
+    aiDiagnostics.textContent = [
+      `MODE: ${values.mode}`,
+      `MODEL: ${values.model}`,
+      `TRANSFORMERS.JS: ${values.transformersVersion}`,
+      `BACKEND: ${values.backend}`,
+      `WEBGPU: ${values.webgpuAvailable ? 'AVAILABLE' : 'UNAVAILABLE'}`,
+      `WASM: ${values.wasmAvailable ? 'AVAILABLE' : 'UNAVAILABLE'}`,
+      `STATUS: ${values.status}`,
+      `MODEL DOWNLOAD: ${values.modelDownloadState}`,
+      `MODEL INITIALIZATION: ${values.modelInitializationState}`,
+      `PIPELINE: ${values.pipelineState}`,
+      `CONTROLLED TEST: ${values.controlledTest}`,
+      `LAST INFERENCE BACKEND: ${values.lastInferenceBackend}`,
+      `LAST INFERENCE: ${values.lastInferenceDuration}`,
+      `LAST RESPONSE: ${values.lastResponseSource}`,
+      `LAST ERROR: ${values.lastError}`,
+    ].join('\n');
   }
 
   function setState(next, errorCode = '') {
@@ -325,16 +367,28 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     }
     setState('THINKING');
     const result = groundedAnswer(text);
-    let finalResult = result;
-    if (state.intelligence === 'local' && state.localAI?.state.ready) {
+    let finalResult = { ...result, responseSource: 'DETERMINISTIC' };
+    let localFailureReason = null;
+    if (state.intelligence === 'local') {
       try {
+        if (!state.localAI || !state.localAI.state.ready) await enableLocalAI();
+        if (!state.localAI?.state.ready) throw new Error(state.localAI?.state.lastError || 'LOCAL_AI_NOT_READY');
         const generated = await state.localAI.generate(buildMeshContext({ question: text, result, updates: getUpdates(), memory: state.memory }));
-        finalResult = { ...result, text: generated.text, generatedBy: 'LOCAL_AI', latencyMs: generated.latencyMs };
+        finalResult = { ...result, text: generated.text, generatedBy: 'LOCAL_AI', latencyMs: generated.latencyMs, responseSource: 'LOCAL_LLM' };
+        state.lastResponseSource = finalResult.responseSource;
+        state.lastAIError = null;
         setEngine(`LOCAL AI · ${generated.device} · ${generated.latencyMs}ms · MESH grounded`);
-      } catch {
-        setEngine('DETERMINISTIC FALLBACK · local AI generation failed');
-        finalResult = { ...result, generatedBy: 'DETERMINISTIC_FALLBACK' };
+      } catch (caught) {
+        localFailureReason = String(caught?.message || caught || 'LOCAL_AI_ERROR');
+        state.lastResponseSource = 'DETERMINISTIC_FALLBACK';
+        state.lastAIError = localFailureReason;
+        finalResult = { ...result, generatedBy: 'DETERMINISTIC_FALLBACK', responseSource: 'DETERMINISTIC_FALLBACK', fallbackReason: localFailureReason };
+        setEngine('LOCAL AI FAILED · falling back to deterministic Calypso');
+        setAIDiagnostics({ lastResponseSource: 'DETERMINISTIC_FALLBACK', lastError: localFailureReason });
       }
+    } else {
+      state.lastResponseSource = finalResult.responseSource;
+      setAIDiagnostics({ lastResponseSource: finalResult.responseSource });
     }
     remember(text, finalResult);
     if (response) response.textContent = finalResult.text;
@@ -342,7 +396,8 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     if (finalResult.update) onOpenEvidence?.(finalResult.update, finalResult.recordId);
     if (fromVoice) setTranscript(text, 'FINAL');
     if (speakResponse && state.voiceOn) speak(finalResult.text);
-    else setState('IDLE');
+    else setState('IDLE', localFailureReason ? `LOCAL_AI_FAILED: ${localFailureReason}` : '');
+    setAIDiagnostics({ lastResponseSource: finalResult.responseSource, lastError: localFailureReason || undefined });
     return finalResult;
   }
 
@@ -580,24 +635,38 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
   async function enableLocalAI() {
     state.localAI ||= createLocalIntelligence({
       onStatus: (label) => {
-        setEngine(`CALYPSO · ${String(label).replaceAll('_', ' ')}`);
-        if (label === 'LOCAL_AI_UNAVAILABLE') setState('IDLE', 'LOCAL_AI_UNAVAILABLE');
+        const text = String(label).replaceAll('_', ' ');
+        setEngine(label === 'LOCAL_AI_ERROR' ? 'LOCAL AI FAILED · falling back to deterministic Calypso' : `CALYPSO · ${text}`);
+        setAIDiagnostics();
       },
       onProgress: (value) => setProgress(aiProgress, value, 'LOCAL AI DOWNLOAD'),
+      onDiagnostic: () => setAIDiagnostics(),
     });
-    if (localAIButton) localAIButton.disabled = true;
+    state.intelligence = 'local';
+    try { localStorage.setItem(INTELLIGENCE_KEY, 'local'); } catch { /* local memory remains useful */ }
+    if (intelligenceSelect) intelligenceSelect.value = 'local';
+    if (localAIButton) {
+      localAIButton.disabled = true;
+      localAIButton.textContent = 'LOCAL AI LOADING…';
+    }
+    setAIDiagnostics();
     try {
       await state.localAI.load();
-      state.intelligence = 'local';
-      localStorage.setItem(INTELLIGENCE_KEY, 'local');
-      if (intelligenceSelect) intelligenceSelect.value = 'local';
-      if (localAIButton) localAIButton.textContent = 'LOCAL AI READY';
-      setEngine(`CALYPSO ● LOCAL AI READY · ${state.localAI.state.device} · MESH grounded`);
-    } catch {
-      state.intelligence = 'deterministic';
-      if (intelligenceSelect) intelligenceSelect.value = 'deterministic';
-      if (localAIButton) { localAIButton.disabled = false; localAIButton.textContent = 'DOWNLOAD / ENABLE LOCAL AI'; }
-      setEngine('DETERMINISTIC FALLBACK · local AI unavailable');
+      if (state.intelligence === 'local') {
+        if (localAIButton) localAIButton.textContent = 'LOCAL AI READY';
+        setEngine(`CALYPSO ● LOCAL AI READY · ${state.localAI.state.device} · MESH grounded`);
+      }
+      setAIDiagnostics();
+      return true;
+    } catch (caught) {
+      const message = String(caught?.message || caught || 'LOCAL_AI_ERROR');
+      state.lastAIError = message;
+      if (state.intelligence === 'local') {
+        if (localAIButton) { localAIButton.disabled = false; localAIButton.textContent = 'RETRY LOCAL AI'; }
+        setEngine('LOCAL AI FAILED · falling back to deterministic Calypso');
+      }
+      setAIDiagnostics({ lastResponseSource: state.lastResponseSource, lastError: message });
+      return false;
     }
   }
 
@@ -619,7 +688,8 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     try { state.speechMode = localStorage.getItem(SPEECH_KEY) === 'local' ? 'local' : 'browser'; } catch { state.speechMode = 'browser'; }
     if (intelligenceSelect) intelligenceSelect.value = state.intelligence;
     if (speechSelect) speechSelect.value = state.speechMode;
-    if (engineLabel) engineLabel.textContent = `DETERMINISTIC FALLBACK · local AI ${state.intelligence === 'local' ? 'ready on next enable' : 'not enabled'} · ${hasWebGPU ? 'WebGPU available' : 'WebGPU unavailable'}`;
+    if (engineLabel) engineLabel.textContent = `DETERMINISTIC FALLBACK · local AI ${state.intelligence === 'local' ? 'initializing' : 'not enabled'} · ${hasWebGPU ? 'WebGPU available' : 'WebGPU unavailable'}`;
+    setAIDiagnostics();
     loadVoices();
     if ('speechSynthesis' in window) window.speechSynthesis.addEventListener('voiceschanged', loadVoices);
     setupRecognition();
@@ -649,10 +719,12 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
       state.intelligence = intelligenceSelect.value;
       if (state.intelligence === 'local') {
         if (localAIButton) localAIButton.hidden = false;
-        setEngine('CALYPSO LOCAL AI · download required before use');
+        setEngine('CALYPSO LOCAL AI · initializing');
+        void enableLocalAI();
       } else {
         if (localAIButton) localAIButton.hidden = true;
         setEngine(`DETERMINISTIC FALLBACK · ${hasWebGPU ? 'WebGPU available for optional local AI' : 'WASM fallback available for optional local AI'}`);
+        setAIDiagnostics({ lastResponseSource: state.lastResponseSource });
       }
     });
     localAIButton?.addEventListener('click', () => void enableLocalAI());
@@ -667,6 +739,7 @@ export function createCalypso({ briefing, $, escapeHtml, getUpdates, onOpenEvide
     if (state.customVoice.status === 'ARCHITECTURE_READY') setEngine(`DETERMINISTIC FALLBACK · ${hasWebGPU ? 'WebGPU available' : 'WebGPU unavailable'} · custom voice architecture ready`);
     if (state.intelligence === 'local') {
       if (localAIButton) { localAIButton.hidden = false; localAIButton.textContent = 'DOWNLOAD / ENABLE LOCAL AI'; }
+      void enableLocalAI();
     } else if (localAIButton) localAIButton.hidden = true;
     if (state.speechMode === 'local') setState('IDLE');
   }

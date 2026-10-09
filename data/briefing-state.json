@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-10-08T17:05:15.399Z",
+  "generated_at": "2026-10-09T16:42:56.075Z",
   "sourceStates": {
     "fomo": {
       "id": "fomo",
@@ -14,15 +14,15 @@
         "new external freight-risk signals",
         "source titles and links"
       ],
-      "retrievedAt": "2026-10-08T17:05:15.399Z",
-      "sourceTimestamp": "2026-10-06T13:05:00.000Z",
-      "freshness": "source timestamp 2026-10-06T13:05:00.000Z; checked 2026-10-08T17:05:15.399Z",
+      "retrievedAt": "2026-10-09T16:42:56.075Z",
+      "sourceTimestamp": "2026-10-09T10:00:30.000Z",
+      "freshness": "source timestamp 2026-10-09T10:00:30.000Z; checked 2026-10-09T16:42:56.075Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
       ],
       "origin": "GitHub raw snapshot",
-      "recordCount": 1047,
-      "fingerprint": "4499f80a0ea24110a32503f7512aa3aef20e377dee8f26a3e21fcefe9d9b1cc4",
+      "recordCount": 1056,
+      "fingerprint": "cfcc4aea678d770c768f95b4481e000f79e5d756b061f4ac24586c454e4d82ef",
       "records": {
         "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBGQTJVX2Uxajk1OU95QjlCanZtR01rZ0k4T0k1SDdNTDBlM3B6d3RLMVpXc056eTlkOFJOYWtkMktmdzFTbnJ6X1RtYi04Ymo3SVZTZFRmcw?oc=5": "6d0448978fb26ed82decc3444796019c52412248179b5157ba609a0101b0cf0c",
         "https://news.google.com/rss/articles/CBMigAFBVV95cUxQMWd5SUtZcC1BUmVvdkxPU1BPdWJDWUpNMGpua3pKMDl5ZFhJZkJSaVNacWhIUktHVjhVajdNQ3RWTGFJSFZ1Y0lfM0Z6RmxoYW9yOTBfSmZ4OV8xbVZaZ21yZ25jN1A5UUN5djBTV3d3aTJpdUVVTHRSNEJvVzBRcg?oc=5": "64eb9fbfbd598648f99d5c973780aab2529733f101fb5135c16d681da833bb5b",
@@ -1070,7 +1070,16 @@
         "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQ2xlYjlxbEdSVTdJcHZvV0c4bGFxUUlpM2NEbmVraXlGdWFBZHhpaEdOTF9tRmVOVFd4RHF0UGZUY2FDaWZoN1VRb0R1YjZ2NEtzTjBSUnlmRl9DclJCbmN0cHMyNWN1RE5SQUc0Qnh6MzF0REg4T0htZTlmOWpXZ2s5cDdEMVVIUnV0QWpoNkV4ejN1VGhYdndmaURUUUtlQVBBY2NGRE9aQ3hWMms0?oc=5": "5d3f4a331c5c241385ddbed30ec1997f13e2e0e558130366b69e0d7639c8812b",
         "https://news.google.com/rss/articles/CBMinAFBVV95cUxOOGNSY1hvRy1WUzBjcnJfNThJSzNnd3lwektob3haOThkUnFIaW9oSlJpaDNjWjdraHAzLWowb21aZmROVGFmMkhBSThWMWVVYkZLbzZPMzEwZXM0TS1DdHZYYThvYm1zam1hekpjbzBhLUZQdGEyYW0tcEtFYUtzU1ROclY1Qm1sVktteDI2Slcxc1VMaXR0U0ZCc1Q?oc=5": "f6441906a44f33058a032407f50b6f239b7acdcfbf4fa2ca7850a67c8938c5cf",
         "https://news.google.com/rss/articles/CBMifEFVX3lxTFBOLVVsd3F2YmdJeTlfTnRLYWRMYzhqYmxKVjNUWVJOV2RCREh4RnZDUjZoQWtBNHN3VmJwUWtwV2Z3UzgxLTAxd3NBTkdjUVNuYm9pQ2JxbG9zUE9SX0xxS01WVjVlSUMzQ2dVeTZXbUkyWlJJczBiT19GUjM?oc=5": "01dc6c592e1e5bb06536a27408e13cc585b95b27669d8b059397694003d7ebc6",
-        "https://news.google.com/rss/articles/CBMid0FVX3lxTFBkWm5XUFl2UnJ4ckxWdFh5MExsQ2w3ZU1aOWpJQjVraGNHVkFpQ0VLRUlILWNMTGVXcWFkcTNQNzBvcEdGMThTeUVHS1JncnJvRWVFei1uUEE0ZFRHTWZ0bXhRV1F0VTJ2bXdlSUtFMW1hYlpsMVB3?oc=5": "61840dac50f5eaf88fb9e9dbb7adedf50398469f08c58ad72d70773392af89fa"
+        "https://news.google.com/rss/articles/CBMid0FVX3lxTFBkWm5XUFl2UnJ4ckxWdFh5MExsQ2w3ZU1aOWpJQjVraGNHVkFpQ0VLRUlILWNMTGVXcWFkcTNQNzBvcEdGMThTeUVHS1JncnJvRWVFei1uUEE0ZFRHTWZ0bXhRV1F0VTJ2bXdlSUtFMW1hYlpsMVB3?oc=5": "61840dac50f5eaf88fb9e9dbb7adedf50398469f08c58ad72d70773392af89fa",
+        "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMEZPXzdjZUtEbzI1VDdoS3VQWE1KSTQyS1NPUTN4YnBYRk95MzhOZkNvRWd5NE00UHhRTkVfclF2T0hYR1hvNy1ZNU9BcDZ1WUNyY1JSNGlDUkZkdmMyNlJLTThLMEZnS1dxaUlHQ29adFhJTG1xZGQ5VTJIaVIwbzNOY2t2WGZCRDRlSUxKQWd6S0dNLUxEMFB2aldpeFQ1?oc=5": "16c7a6e6f0d965469d28211a3293a5e6d83600f7dfe17fe8519ece64b4d6aaf6",
+        "https://news.google.com/rss/articles/CBMiakFVX3lxTE1zeFJhUXgwTHdvTFFibjFvbDRZVVhQMXQ1TXNJVVFIZ3FXY3hEeWgwYTdRNUIxaEFGc3ZKNEQ4MGJVN20xcDhsZXBxNzVIY21MUEtyaE1PX01lc19rLUVQNGdyU3EwX0hsN1HSAW9BVV95cUxPanpvZ1dvRW43WVo0S2xoZUI1OVpUQ05mb3R4VnRNTjdHTGtXSEZBQ05lMVF5N3VSNDlyTjV3QlUxQmdicmJDaV9IY3R6ckstaDdNbjYtclFrWXFFMU1SUnl1bDdDNW9wWFRZUGlsMG8?oc=5": "6e62eb69e9e0537d8e2df0d52c1b254ccfe06bc655cfb2a3f90cacae098bf9f2",
+        "https://news.google.com/rss/articles/CBMif0FVX3lxTE9CV2ZHU3VQUzdtZVd2N0xVaEs1ZFdQMmFmZ0dxRGhmRkpWdHpISDhiWmEzbllOekxsaTJld0Q1RUtqVFhZcldjTnVmb2FidS1MUnVuR3VsemN1NC04TkxtMnhaRHpEd0VhOFBESW9XMVdqOVk4QXhDSDJmblhQS0U?oc=5": "7e486ad53589140616a6328340e73d3710cb05b8de28e3a644e5c06ed2a0254b",
+        "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQQXBKTkxjcUdMQXpWOWFlLUlsMjBsVjY3RnlpaDFvVHpnSy13cWtrR2ZOLTVWUjNHb1F6VGZXS3NKWG1BbFFSYkZrWDZ3QVBGUXotVnNpQjR6bUNISE54RzYzYTZRYzY5eEFHSXJ5V2IxWlVpU3VDQjY5V3Fvc0VfOUZoM241SDAwOXd3akpMclE2VXVNM3BYMkozV1VaYzI5Z1p6aC1zZGtQazJSdEhuVW5ieXhndGlRLXVDOWc3VE1kQ0dWYjAwYUphU1lnZXI1NVltSXZ3?oc=5": "0b6360a103696aa9d90d49a0eedc1daaaf9a4e6c53c33deb5ad9f0ba35d18187",
+        "https://news.google.com/rss/articles/CBMirgFBVV95cUxPMVlEVWo2QnFuY1pjWHZ1S3hQcWYtakhya19jYXpBX1lObWJ1b001QndYSEhUdWFoSHp4c1RCZmdhVG5vLU94SE1CUDg5NmNCTmxGT1hNbzBZU2p5bXVPTFAtSTByNGVPLTVWSDVvQlk0NlZIVjk2UTEwV1F4MnByWHNVUlU2VUV6dmxfdGtXVkxDTjlySGxGVzhZNl9aaGliMjQzLURlMjNFYnJ3aFE?oc=5": "2c77ef85287480ca10f8b67b5ae7c5376542016648bddb07e0ea8e4a6dd29c0d",
+        "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRVFUVTBRMnM3UThaN09FSjJNM0NiTHAxdy1EeDNUd3djaGZNcnFFQXl6cWQyM3dmalREVU9lbTk3XzFiTndPSmRod0ZBUEUwSjNKRlVtSmxFRHFYaHkzR19nQUZIQ3RuYTRoT253ZmhaMzJ0SnJOdWl5cU5jUmExZnNWckhTa0FtSE1kcHVTZVFqY0lCWWpwY2dsbGpHcllBSm5fdkRLU3FBUQ?oc=5": "abf9796c67c5c811fccb16a42a68e1e17fba4fffaad0685259639b4709455bfd",
+        "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQbW85OTR2Y3BlSkVNZWVYb0dVTHFrSnZhWHN0OW42VTA5Tlk1dkZLRTJtWXN0cWMwZ2FKdC1sZjVOYmFmNzFWcXdPY1p6SEZ5YkpubV9LZk1CdWJ6QkM2Q0hDQXVkMG1jSXFPV2tfVlhTYXJFZk0xQXhLeFhkbEtFWGZuQ25acjVXY2hGQklHckdJOXBlbUhPZlR0TVBFdy11dm9hVlZyQnI1VDFXRWNPRGRUSlloSE5YZnlF0gHAAUFVX3lxTE9ZY0FfZnd1cGVueURmalJyaXdBLTltdWVjSHVFRUxReWRqWnluQ0JVZTRTM0dQamNmQllGSlNqa0xUV1o5QXpXUF90amZRRDRzZzEyWVNlZXIzdmQwaWtmTmRyUV9yOU1OTEpfcDgzUjBkY3NwNnN1dzlkcnR6LTNvUEk0dWVqbmpyT1lwdktHUGV1eGszZlZ3Y28xaUdFaWwyOHJxdFVvZ1QyWGJMYThLRVozVjcwUUZGVWpXNGNWZg?oc=5": "79793c78e76c670876373641cc34cac292c7bcee4d911608aeae0c5b6af688f3",
+        "https://news.google.com/rss/articles/CBMihwFBVV95cUxONUViWVF0bU5yTkdvQ2o3V1Y0OFp6MFhua2syMV9lQjh2VW1RLUozOVRzNkItR1I4UXUxRGUtbEJzQ0ViWi1veGNHVWlxVjlxV0dBeVJRVVB4M0pUUEd5aTU1WVVJS0p6TlhybGNfTzJXeWloclJnWUhpekxoTUhBbDBYRlhScTA?oc=5": "3195b68cd9fb76f9da070bbba3151d13ed422f3f6e12af305e4ba1fd52152787",
+        "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZEJSSUVTQ0FPem1iZ1ktb1hJN3ZRREcza0FLVWdmMmMxZGcwTU91bU8yc1RRSlpabHJlaFZyaXd5ekVmdF9kY2JCWUdTVEJ6VmkxbTVGXy1Ya19VcF90OWxHYVFhUlBxRy1pc2thU2t5VzVZcTF4SHo4dzg2SHhEX2ZzeW43NzJFNkhFYWsyYWdBUGpkQ0dHNmJwR1l5aElvaTg4TDJ5V0pyQXVRNlJ1QkN4d3kxN2Ey?oc=5": "a8c13446ceed89b287e34d85543d2d1d4208bc75d9dde4dd85a3252e419be4fd"
       },
       "error": null
     },
@@ -1086,17 +1095,17 @@
         "synthetic MO and candidate counts",
         "simulation freshness and state"
       ],
-      "retrievedAt": "2026-10-08T17:05:15.399Z",
-      "sourceTimestamp": "simulation day 17, 18:00:00",
-      "freshness": "source timestamp simulation day 17, 18:00:00; checked 2026-10-08T17:05:15.399Z",
+      "retrievedAt": "2026-10-09T16:42:56.075Z",
+      "sourceTimestamp": "simulation day 18, 18:00:00",
+      "freshness": "source timestamp simulation day 18, 18:00:00; checked 2026-10-09T16:42:56.075Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 30,
-      "simulationDay": 17,
-      "fingerprint": "99b8486e2dc6ac91c3e3bbe89e95f6560561fa6fa76e05c4c0fc0f7c7bcbb658",
+      "simulationDay": 18,
+      "fingerprint": "b06b8c5b891bffad73a19417281f8474555ffe214c2064586097979ea4fcd21a",
       "records": {
         "MO-0001": "0feb7d5b5575064bfb3b54504f56dbe31c377f593a989fab72e8962e0bf7f548",
         "MO-0002": "1c57dce81bfef1cfc493e2e6a7b537a4a1c12ef1d29e196d24f1a4bb1a89a4c0",
@@ -1122,7 +1131,7 @@
         "MO-0022": "e32d78393aae418ada589d27bd42b3187c423a4e5106388eceaea9c55cb71994",
         "MO-0023": "11b35ad9c68b6d852f012f0956e1705ec38f6034d822c5d299a73d326356c8d3",
         "MO-0024": "8fa93f48f8689f7c41ea0839108d40cacda83d804722548261159c4b930c0782",
-        "MO-0025": "b414462d7d404718084b63c747b49eb75ee5da66940821b19c9ebc86b18e7b48",
+        "MO-0025": "00757bb4d8e510b169d35c76dba515a5eed03a411a5e25b16fa51926b3f16dbe",
         "fraud-watch:EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED": "315d0ddbe5e150bbabdd5c50a243af93934c253224131d9ff656f01939007e5e",
         "fraud-watch:FALSE_MILESTONE_STAMP+HANDOVER_GAP+STAGED_BREAKDOWN+UNEXPECTED_STOP": "d07e41fe4ea1b0fd276782c28adcb60cb1e86d488adf55f69a065087d8023cb4",
         "fraud-watch:CARRIER_UNRESPONSIVE+FALSE_MILESTONE_STAMP+HANDOVER_GAP": "2f7060f90d7f25327b5711aabe7d9336c4f6e97a3cc82bf08e7bd31bd865e62a",
@@ -1143,18 +1152,18 @@
         "synthetic day, incidents and verdicts",
         "carrier-network snapshot"
       ],
-      "retrievedAt": "2026-10-08T17:05:15.399Z",
-      "sourceTimestamp": "2026-10-08T10:43:46.978Z",
-      "freshness": "source timestamp 2026-10-08T10:43:46.978Z; checked 2026-10-08T17:05:15.399Z",
+      "retrievedAt": "2026-10-09T16:42:56.075Z",
+      "sourceTimestamp": "2026-10-09T10:42:35.930Z",
+      "freshness": "source timestamp 2026-10-09T10:42:35.930Z; checked 2026-10-09T16:42:56.075Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 1,
-      "simulationDay": 17,
-      "fingerprint": "ffe9f39a04320bea658ef4f9a6236b2847224cac748c293efd5f213b333a60c1",
+      "simulationDay": 18,
+      "fingerprint": "5aebeca2f7e7ba16050190d3b5fc6af188356361247cc3e6917e090faa37101d",
       "records": {
-        "snapshot": "13dd6ecc047d9553591157304a2f8513ded86857c4ae0bdee19fd78824f76738"
+        "snapshot": "3e61f60b9433fa1bbaf7b323231cc003ae10a6f1c6a296176451d479f81f5d29"
       },
       "error": null
     },
@@ -1302,7 +1311,7 @@
   },
   "payload": {
     "schema_version": "1.2",
-    "generatedAt": "2026-10-08T17:05:15.399Z",
+    "generatedAt": "2026-10-09T16:42:56.075Z",
     "headline": "Good morning, Jeevan. 7 source updates are ready.",
     "sources": [
       {
@@ -1317,14 +1326,14 @@
           "new external freight-risk signals",
           "source titles and links"
         ],
-        "retrievedAt": "2026-10-08T17:05:15.399Z",
-        "sourceTimestamp": "2026-10-06T13:05:00.000Z",
-        "freshness": "source timestamp 2026-10-06T13:05:00.000Z; checked 2026-10-08T17:05:15.399Z",
+        "retrievedAt": "2026-10-09T16:42:56.075Z",
+        "sourceTimestamp": "2026-10-09T10:00:30.000Z",
+        "freshness": "source timestamp 2026-10-09T10:00:30.000Z; checked 2026-10-09T16:42:56.075Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
         ],
         "origin": "GitHub raw snapshot",
-        "recordCount": 1047,
+        "recordCount": 1056,
         "error": null
       },
       {
@@ -1339,16 +1348,16 @@
           "synthetic MO and candidate counts",
           "simulation freshness and state"
         ],
-        "retrievedAt": "2026-10-08T17:05:15.399Z",
-        "sourceTimestamp": "simulation day 17, 18:00:00",
-        "freshness": "source timestamp simulation day 17, 18:00:00; checked 2026-10-08T17:05:15.399Z",
+        "retrievedAt": "2026-10-09T16:42:56.075Z",
+        "sourceTimestamp": "simulation day 18, 18:00:00",
+        "freshness": "source timestamp simulation day 18, 18:00:00; checked 2026-10-09T16:42:56.075Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
         ],
         "origin": "GitHub raw snapshot",
         "recordCount": 30,
-        "simulationDay": 17,
+        "simulationDay": 18,
         "error": null
       },
       {
@@ -1363,15 +1372,15 @@
           "synthetic day, incidents and verdicts",
           "carrier-network snapshot"
         ],
-        "retrievedAt": "2026-10-08T17:05:15.399Z",
-        "sourceTimestamp": "2026-10-08T10:43:46.978Z",
-        "freshness": "source timestamp 2026-10-08T10:43:46.978Z; checked 2026-10-08T17:05:15.399Z",
+        "retrievedAt": "2026-10-09T16:42:56.075Z",
+        "sourceTimestamp": "2026-10-09T10:42:35.930Z",
+        "freshness": "source timestamp 2026-10-09T10:42:35.930Z; checked 2026-10-09T16:42:56.075Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
         ],
         "origin": "GitHub raw snapshot",
         "recordCount": 1,
-        "simulationDay": 17,
+        "simulationDay": 18,
         "error": null
       },
       {
@@ -1503,9 +1512,9 @@
       {
         "id": "fomo:briefing",
         "sourceProject": "FOMO",
-        "timestamp": "2026-10-08T17:05:15.399Z",
+        "timestamp": "2026-10-09T16:42:56.075Z",
         "title": "New external freight-risk signals",
-        "summary": "7 new and 0 updated external freight-risk reports detected.",
+        "summary": "9 new and 0 updated external freight-risk reports detected.",
         "category": "risk-intelligence",
         "importance": "high",
         "evidenceType": "EXTERNAL_SOURCE",
@@ -1528,25 +1537,189 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
           ],
-          "retrievedAt": "2026-10-08T17:05:15.399Z",
+          "retrievedAt": "2026-10-09T16:42:56.075Z",
           "status": "SNAPSHOT",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp 2026-10-06T13:05:00.000Z",
+          "freshness": "source timestamp 2026-10-09T10:00:30.000Z",
           "changedRecords": [
-            "https://news.google.com/rss/articles/CBMitwFBVV95cUxQVUFyYUxDWGFhSl9YVGdyc2liU2FCN0k4RExoMWNudnd2Y2NwU2hGWm9nY2t3UmFyUzlDYnkwdHZ2SHRSanBhaWtaTHBVTG43QnE2THZiQVBtSy1WZjhlR1JCM1Rhc2tYUkRtdDdFdkpOaVdsTWdFWGNUSnBHZEJsdG9tWndwNm42d0ZZLWZ3TGVfNV9vQWdhVThsZi1fMFdvWGo0Y2l1ajM2Z0RBTWMtRnJLU3o2YVU?oc=5",
-            "https://news.google.com/rss/articles/CBMicEFVX3lxTE1WZ3ZsS3NEVGVDQk9pWlloRGRGY3RuRXkzSEVLaERBYjYzdEZoVHJLaUxhTk9leUMtQ01nQ2ppdWZuYVEzTm92eHVGWmdFZGJJUVBrdzdWRWhVdlFBMnZPVDJrNlIyWVdHR0lyZHpHd1U?oc=5",
-            "https://news.google.com/rss/articles/CBMimgFBVV95cUxQbmRZT1RTVEItMU5iVm9DZktpaTZqTUswY1cwRGJzRURCbjlZNXFwS3E3aEIwZVVTck0xbnVlTlFIQ01obmdwOHBNWFdaUzJvMUN4aXBRME1ocVBVWjhTTUFyYzhMc1hhX1FxdkI5YUx5aXNpN0pmNkgtbGRnb1ZUNlhNbjYtb19tUVh3Tm53OF9mblB3THRwTWFB?oc=5",
-            "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQ2xlYjlxbEdSVTdJcHZvV0c4bGFxUUlpM2NEbmVraXlGdWFBZHhpaEdOTF9tRmVOVFd4RHF0UGZUY2FDaWZoN1VRb0R1YjZ2NEtzTjBSUnlmRl9DclJCbmN0cHMyNWN1RE5SQUc0Qnh6MzF0REg4T0htZTlmOWpXZ2s5cDdEMVVIUnV0QWpoNkV4ejN1VGhYdndmaURUUUtlQVBBY2NGRE9aQ3hWMms0?oc=5",
-            "https://news.google.com/rss/articles/CBMinAFBVV95cUxOOGNSY1hvRy1WUzBjcnJfNThJSzNnd3lwektob3haOThkUnFIaW9oSlJpaDNjWjdraHAzLWowb21aZmROVGFmMkhBSThWMWVVYkZLbzZPMzEwZXM0TS1DdHZYYThvYm1zam1hekpjbzBhLUZQdGEyYW0tcEtFYUtzU1ROclY1Qm1sVktteDI2Slcxc1VMaXR0U0ZCc1Q?oc=5",
-            "https://news.google.com/rss/articles/CBMifEFVX3lxTFBOLVVsd3F2YmdJeTlfTnRLYWRMYzhqYmxKVjNUWVJOV2RCREh4RnZDUjZoQWtBNHN3VmJwUWtwV2Z3UzgxLTAxd3NBTkdjUVNuYm9pQ2JxbG9zUE9SX0xxS01WVjVlSUMzQ2dVeTZXbUkyWlJJczBiT19GUjM?oc=5",
-            "https://news.google.com/rss/articles/CBMid0FVX3lxTFBkWm5XUFl2UnJ4ckxWdFh5MExsQ2w3ZU1aOWpJQjVraGNHVkFpQ0VLRUlILWNMTGVXcWFkcTNQNzBvcEdGMThTeUVHS1JncnJvRWVFei1uUEE0ZFRHTWZ0bXhRV1F0VTJ2bXdlSUtFMW1hYlpsMVB3?oc=5"
+            "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMEZPXzdjZUtEbzI1VDdoS3VQWE1KSTQyS1NPUTN4YnBYRk95MzhOZkNvRWd5NE00UHhRTkVfclF2T0hYR1hvNy1ZNU9BcDZ1WUNyY1JSNGlDUkZkdmMyNlJLTThLMEZnS1dxaUlHQ29adFhJTG1xZGQ5VTJIaVIwbzNOY2t2WGZCRDRlSUxKQWd6S0dNLUxEMFB2aldpeFQ1?oc=5",
+            "https://news.google.com/rss/articles/CBMiakFVX3lxTE1zeFJhUXgwTHdvTFFibjFvbDRZVVhQMXQ1TXNJVVFIZ3FXY3hEeWgwYTdRNUIxaEFGc3ZKNEQ4MGJVN20xcDhsZXBxNzVIY21MUEtyaE1PX01lc19rLUVQNGdyU3EwX0hsN1HSAW9BVV95cUxPanpvZ1dvRW43WVo0S2xoZUI1OVpUQ05mb3R4VnRNTjdHTGtXSEZBQ05lMVF5N3VSNDlyTjV3QlUxQmdicmJDaV9IY3R6ckstaDdNbjYtclFrWXFFMU1SUnl1bDdDNW9wWFRZUGlsMG8?oc=5",
+            "https://news.google.com/rss/articles/CBMif0FVX3lxTE9CV2ZHU3VQUzdtZVd2N0xVaEs1ZFdQMmFmZ0dxRGhmRkpWdHpISDhiWmEzbllOekxsaTJld0Q1RUtqVFhZcldjTnVmb2FidS1MUnVuR3VsemN1NC04TkxtMnhaRHpEd0VhOFBESW9XMVdqOVk4QXhDSDJmblhQS0U?oc=5",
+            "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQQXBKTkxjcUdMQXpWOWFlLUlsMjBsVjY3RnlpaDFvVHpnSy13cWtrR2ZOLTVWUjNHb1F6VGZXS3NKWG1BbFFSYkZrWDZ3QVBGUXotVnNpQjR6bUNISE54RzYzYTZRYzY5eEFHSXJ5V2IxWlVpU3VDQjY5V3Fvc0VfOUZoM241SDAwOXd3akpMclE2VXVNM3BYMkozV1VaYzI5Z1p6aC1zZGtQazJSdEhuVW5ieXhndGlRLXVDOWc3VE1kQ0dWYjAwYUphU1lnZXI1NVltSXZ3?oc=5",
+            "https://news.google.com/rss/articles/CBMirgFBVV95cUxPMVlEVWo2QnFuY1pjWHZ1S3hQcWYtakhya19jYXpBX1lObWJ1b001QndYSEhUdWFoSHp4c1RCZmdhVG5vLU94SE1CUDg5NmNCTmxGT1hNbzBZU2p5bXVPTFAtSTByNGVPLTVWSDVvQlk0NlZIVjk2UTEwV1F4MnByWHNVUlU2VUV6dmxfdGtXVkxDTjlySGxGVzhZNl9aaGliMjQzLURlMjNFYnJ3aFE?oc=5",
+            "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRVFUVTBRMnM3UThaN09FSjJNM0NiTHAxdy1EeDNUd3djaGZNcnFFQXl6cWQyM3dmalREVU9lbTk3XzFiTndPSmRod0ZBUEUwSjNKRlVtSmxFRHFYaHkzR19nQUZIQ3RuYTRoT253ZmhaMzJ0SnJOdWl5cU5jUmExZnNWckhTa0FtSE1kcHVTZVFqY0lCWWpwY2dsbGpHcllBSm5fdkRLU3FBUQ?oc=5",
+            "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQbW85OTR2Y3BlSkVNZWVYb0dVTHFrSnZhWHN0OW42VTA5Tlk1dkZLRTJtWXN0cWMwZ2FKdC1sZjVOYmFmNzFWcXdPY1p6SEZ5YkpubV9LZk1CdWJ6QkM2Q0hDQXVkMG1jSXFPV2tfVlhTYXJFZk0xQXhLeFhkbEtFWGZuQ25acjVXY2hGQklHckdJOXBlbUhPZlR0TVBFdy11dm9hVlZyQnI1VDFXRWNPRGRUSlloSE5YZnlF0gHAAUFVX3lxTE9ZY0FfZnd1cGVueURmalJyaXdBLTltdWVjSHVFRUxReWRqWnluQ0JVZTRTM0dQamNmQllGSlNqa0xUV1o5QXpXUF90amZRRDRzZzEyWVNlZXIzdmQwaWtmTmRyUV9yOU1OTEpfcDgzUjBkY3NwNnN1dzlkcnR6LTNvUEk0dWVqbmpyT1lwdktHUGV1eGszZlZ3Y28xaUdFaWwyOHJxdFVvZ1QyWGJMYThLRVozVjcwUUZGVWpXNGNWZg?oc=5",
+            "https://news.google.com/rss/articles/CBMihwFBVV95cUxONUViWVF0bU5yTkdvQ2o3V1Y0OFp6MFhua2syMV9lQjh2VW1RLUozOVRzNkItR1I4UXUxRGUtbEJzQ0ViWi1veGNHVWlxVjlxV0dBeVJRVVB4M0pUUEd5aTU1WVVJS0p6TlhybGNfTzJXeWloclJnWUhpekxoTUhBbDBYRlhScTA?oc=5",
+            "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZEJSSUVTQ0FPem1iZ1ktb1hJN3ZRREcza0FLVWdmMmMxZGcwTU91bU8yc1RRSlpabHJlaFZyaXd5ekVmdF9kY2JCWUdTVEJ6VmkxbTVGXy1Ya19VcF90OWxHYVFhUlBxRy1pc2thU2t5VzVZcTF4SHo4dzg2SHhEX2ZzeW43NzJFNkhFYWsyYWdBUGpkQ0dHNmJwR1l5aElvaTg4TDJ5V0pyQXVRNlJ1QkN4d3kxN2Ey?oc=5"
           ]
         },
         "details": {
-          "recordCount": 1047,
-          "newCount": 7,
+          "recordCount": 1056,
+          "newCount": 9,
           "updatedCount": 0,
           "records": [
+            {
+              "id": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQbW85OTR2Y3BlSkVNZWVYb0dVTHFrSnZhWHN0OW42VTA5Tlk1dkZLRTJtWXN0cWMwZ2FKdC1sZjVOYmFmNzFWcXdPY1p6SEZ5YkpubV9LZk1CdWJ6QkM2Q0hDQXVkMG1jSXFPV2tfVlhTYXJFZk0xQXhLeFhkbEtFWGZuQ25acjVXY2hGQklHckdJOXBlbUhPZlR0TVBFdy11dm9hVlZyQnI1VDFXRWNPRGRUSlloSE5YZnlF0gHAAUFVX3lxTE9ZY0FfZnd1cGVueURmalJyaXdBLTltdWVjSHVFRUxReWRqWnluQ0JVZTRTM0dQamNmQllGSlNqa0xUV1o5QXpXUF90amZRRDRzZzEyWVNlZXIzdmQwaWtmTmRyUV9yOU1OTEpfcDgzUjBkY3NwNnN1dzlkcnR6LTNvUEk0dWVqbmpyT1lwdktHUGV1eGszZlZ3Y28xaUdFaWwyOHJxdFVvZ1QyWGJMYThLRVozVjcwUUZGVWpXNGNWZg?oc=5",
+              "title": "Der spektakuläre Diebstahl von 30.000 edlen Weinflaschen bei Marchesi Antinori - Il Mattino",
+              "summary": null,
+              "timestamp": "2026-10-09T09:18:51.000Z",
+              "foundAt": "2026-10-09T12:56:26.960Z",
+              "location": null,
+              "category": "Cargo Theft",
+              "severity": "high",
+              "source": "Il Mattino",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQbW85OTR2Y3BlSkVNZWVYb0dVTHFrSnZhWHN0OW42VTA5Tlk1dkZLRTJtWXN0cWMwZ2FKdC1sZjVOYmFmNzFWcXdPY1p6SEZ5YkpubV9LZk1CdWJ6QkM2Q0hDQXVkMG1jSXFPV2tfVlhTYXJFZk0xQXhLeFhkbEtFWGZuQ25acjVXY2hGQklHckdJOXBlbUhPZlR0TVBFdy11dm9hVlZyQnI1VDFXRWNPRGRUSlloSE5YZnlF0gHAAUFVX3lxTE9ZY0FfZnd1cGVueURmalJyaXdBLTltdWVjSHVFRUxReWRqWnluQ0JVZTRTM0dQamNmQllGSlNqa0xUV1o5QXpXUF90amZRRDRzZzEyWVNlZXIzdmQwaWtmTmRyUV9yOU1OTEpfcDgzUjBkY3NwNnN1dzlkcnR6LTNvUEk0dWVqbmpyT1lwdktHUGV1eGszZlZ3Y28xaUdFaWwyOHJxdFVvZ1QyWGJMYThLRVozVjcwUUZGVWpXNGNWZg?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMihwFBVV95cUxONUViWVF0bU5yTkdvQ2o3V1Y0OFp6MFhua2syMV9lQjh2VW1RLUozOVRzNkItR1I4UXUxRGUtbEJzQ0ViWi1veGNHVWlxVjlxV0dBeVJRVVB4M0pUUEd5aTU1WVVJS0p6TlhybGNfTzJXeWloclJnWUhpekxoTUhBbDBYRlhScTA?oc=5",
+              "title": "Germany Company Insolvencies Up 8.0% in July 2026 | Destatis Data - News and Statistics - IndexBox",
+              "summary": null,
+              "timestamp": "2026-10-09T10:00:30.000Z",
+              "foundAt": "2026-10-09T12:56:26.960Z",
+              "location": null,
+              "category": "Corporate Insolvency",
+              "severity": "medium",
+              "source": "IndexBox",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxONUViWVF0bU5yTkdvQ2o3V1Y0OFp6MFhua2syMV9lQjh2VW1RLUozOVRzNkItR1I4UXUxRGUtbEJzQ0ViWi1veGNHVWlxVjlxV0dBeVJRVVB4M0pUUEd5aTU1WVVJS0p6TlhybGNfTzJXeWloclJnWUhpekxoTUhBbDBYRlhScTA?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZEJSSUVTQ0FPem1iZ1ktb1hJN3ZRREcza0FLVWdmMmMxZGcwTU91bU8yc1RRSlpabHJlaFZyaXd5ekVmdF9kY2JCWUdTVEJ6VmkxbTVGXy1Ya19VcF90OWxHYVFhUlBxRy1pc2thU2t5VzVZcTF4SHo4dzg2SHhEX2ZzeW43NzJFNkhFYWsyYWdBUGpkQ0dHNmJwR1l5aElvaTg4TDJ5V0pyQXVRNlJ1QkN4d3kxN2Ey?oc=5",
+              "title": "Luftfracht: ACC Frankfurt sieht Hilfsgüter-Transport durch Streik behindert - Logistik Heute",
+              "summary": null,
+              "timestamp": "2023-02-17T08:00:00.000Z",
+              "foundAt": "2026-10-09T12:56:26.960Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "Logistik Heute",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZEJSSUVTQ0FPem1iZ1ktb1hJN3ZRREcza0FLVWdmMmMxZGcwTU91bU8yc1RRSlpabHJlaFZyaXd5ekVmdF9kY2JCWUdTVEJ6VmkxbTVGXy1Ya19VcF90OWxHYVFhUlBxRy1pc2thU2t5VzVZcTF4SHo4dzg2SHhEX2ZzeW43NzJFNkhFYWsyYWdBUGpkQ0dHNmJwR1l5aElvaTg4TDJ5V0pyQXVRNlJ1QkN4d3kxN2Ey?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRVFUVTBRMnM3UThaN09FSjJNM0NiTHAxdy1EeDNUd3djaGZNcnFFQXl6cWQyM3dmalREVU9lbTk3XzFiTndPSmRod0ZBUEUwSjNKRlVtSmxFRHFYaHkzR19nQUZIQ3RuYTRoT253ZmhaMzJ0SnJOdWl5cU5jUmExZnNWckhTa0FtSE1kcHVTZVFqY0lCWWpwY2dsbGpHcllBSm5fdkRLU3FBUQ?oc=5",
+              "title": "Schiene: Bahnstreik könnte Auswirkungen auf die Wirtschaft haben - Logistik Heute",
+              "summary": null,
+              "timestamp": "2024-03-07T08:00:00.000Z",
+              "foundAt": "2026-10-09T05:35:48.334Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "Logistik Heute",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRVFUVTBRMnM3UThaN09FSjJNM0NiTHAxdy1EeDNUd3djaGZNcnFFQXl6cWQyM3dmalREVU9lbTk3XzFiTndPSmRod0ZBUEUwSjNKRlVtSmxFRHFYaHkzR19nQUZIQ3RuYTRoT253ZmhaMzJ0SnJOdWl5cU5jUmExZnNWckhTa0FtSE1kcHVTZVFqY0lCWWpwY2dsbGpHcllBSm5fdkRLU3FBUQ?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMEZPXzdjZUtEbzI1VDdoS3VQWE1KSTQyS1NPUTN4YnBYRk95MzhOZkNvRWd5NE00UHhRTkVfclF2T0hYR1hvNy1ZNU9BcDZ1WUNyY1JSNGlDUkZkdmMyNlJLTThLMEZnS1dxaUlHQ29adFhJTG1xZGQ5VTJIaVIwbzNOY2t2WGZCRDRlSUxKQWd6S0dNLUxEMFB2aldpeFQ1?oc=5",
+              "title": "Thieves stole Nvidia-branded truck filled with sand—but it’s part of $150 million AI theft problem - Fortune",
+              "summary": null,
+              "timestamp": "2026-10-01T17:03:00.000Z",
+              "foundAt": "2026-10-08T23:09:39.836Z",
+              "location": null,
+              "category": "Cargo Theft",
+              "severity": "high",
+              "source": "Fortune",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMEZPXzdjZUtEbzI1VDdoS3VQWE1KSTQyS1NPUTN4YnBYRk95MzhOZkNvRWd5NE00UHhRTkVfclF2T0hYR1hvNy1ZNU9BcDZ1WUNyY1JSNGlDUkZkdmMyNlJLTThLMEZnS1dxaUlHQ29adFhJTG1xZGQ5VTJIaVIwbzNOY2t2WGZCRDRlSUxKQWd6S0dNLUxEMFB2aldpeFQ1?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1zeFJhUXgwTHdvTFFibjFvbDRZVVhQMXQ1TXNJVVFIZ3FXY3hEeWgwYTdRNUIxaEFGc3ZKNEQ4MGJVN20xcDhsZXBxNzVIY21MUEtyaE1PX01lc19rLUVQNGdyU3EwX0hsN1HSAW9BVV95cUxPanpvZ1dvRW43WVo0S2xoZUI1OVpUQ05mb3R4VnRNTjdHTGtXSEZBQ05lMVF5N3VSNDlyTjV3QlUxQmdicmJDaV9IY3R6ckstaDdNbjYtclFrWXFFMU1SUnl1bDdDNW9wWFRZUGlsMG8?oc=5",
+              "title": "Landmark ECJ Ruling on Liability Limitation for Cargo Theft - Marine News Magazine",
+              "summary": null,
+              "timestamp": "2014-01-02T08:00:00.000Z",
+              "foundAt": "2026-10-08T23:09:39.836Z",
+              "location": null,
+              "category": "Cargo Theft",
+              "severity": "high",
+              "source": "Marine News Magazine",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1zeFJhUXgwTHdvTFFibjFvbDRZVVhQMXQ1TXNJVVFIZ3FXY3hEeWgwYTdRNUIxaEFGc3ZKNEQ4MGJVN20xcDhsZXBxNzVIY21MUEtyaE1PX01lc19rLUVQNGdyU3EwX0hsN1HSAW9BVV95cUxPanpvZ1dvRW43WVo0S2xoZUI1OVpUQ05mb3R4VnRNTjdHTGtXSEZBQ05lMVF5N3VSNDlyTjV3QlUxQmdicmJDaV9IY3R6ckstaDdNbjYtclFrWXFFMU1SUnl1bDdDNW9wWFRZUGlsMG8?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9CV2ZHU3VQUzdtZVd2N0xVaEs1ZFdQMmFmZ0dxRGhmRkpWdHpISDhiWmEzbllOekxsaTJld0Q1RUtqVFhZcldjTnVmb2FidS1MUnVuR3VsemN1NC04TkxtMnhaRHpEd0VhOFBESW9XMVdqOVk4QXhDSDJmblhQS0U?oc=5",
+              "title": "Overhaul’s 2025 Cargo Theft Data Shows Change in Targets, Tactics - Fleet Equipment Magazine",
+              "summary": null,
+              "timestamp": "2026-02-27T08:00:00.000Z",
+              "foundAt": "2026-10-08T23:09:39.836Z",
+              "location": null,
+              "category": "Cargo Theft",
+              "severity": "high",
+              "source": "Fleet Equipment Magazine",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9CV2ZHU3VQUzdtZVd2N0xVaEs1ZFdQMmFmZ0dxRGhmRkpWdHpISDhiWmEzbllOekxsaTJld0Q1RUtqVFhZcldjTnVmb2FidS1MUnVuR3VsemN1NC04TkxtMnhaRHpEd0VhOFBESW9XMVdqOVk4QXhDSDJmblhQS0U?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQQXBKTkxjcUdMQXpWOWFlLUlsMjBsVjY3RnlpaDFvVHpnSy13cWtrR2ZOLTVWUjNHb1F6VGZXS3NKWG1BbFFSYkZrWDZ3QVBGUXotVnNpQjR6bUNISE54RzYzYTZRYzY5eEFHSXJ5V2IxWlVpU3VDQjY5V3Fvc0VfOUZoM241SDAwOXd3akpMclE2VXVNM3BYMkozV1VaYzI5Z1p6aC1zZGtQazJSdEhuVW5ieXhndGlRLXVDOWc3VE1kQ0dWYjAwYUphU1lnZXI1NVltSXZ3?oc=5",
+              "title": "Gastkommentar: Lieferkettengesetz - Fairness braucht das Kollektiv - Logistik Heute",
+              "summary": null,
+              "timestamp": "2022-09-16T07:00:00.000Z",
+              "foundAt": "2026-10-08T23:09:39.836Z",
+              "location": null,
+              "category": "Regulatory / Compliance Risk",
+              "severity": "low",
+              "source": "Logistik Heute",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQQXBKTkxjcUdMQXpWOWFlLUlsMjBsVjY3RnlpaDFvVHpnSy13cWtrR2ZOLTVWUjNHb1F6VGZXS3NKWG1BbFFSYkZrWDZ3QVBGUXotVnNpQjR6bUNISE54RzYzYTZRYzY5eEFHSXJ5V2IxWlVpU3VDQjY5V3Fvc0VfOUZoM241SDAwOXd3akpMclE2VXVNM3BYMkozV1VaYzI5Z1p6aC1zZGtQazJSdEhuVW5ieXhndGlRLXVDOWc3VE1kQ0dWYjAwYUphU1lnZXI1NVltSXZ3?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPMVlEVWo2QnFuY1pjWHZ1S3hQcWYtakhya19jYXpBX1lObWJ1b001QndYSEhUdWFoSHp4c1RCZmdhVG5vLU94SE1CUDg5NmNCTmxGT1hNbzBZU2p5bXVPTFAtSTByNGVPLTVWSDVvQlk0NlZIVjk2UTEwV1F4MnByWHNVUlU2VUV6dmxfdGtXVkxDTjlySGxGVzhZNl9aaGliMjQzLURlMjNFYnJ3aFE?oc=5",
+              "title": "Amazon-Klage: Streiks auf dem Betriebsgelände sind legal - FAZ",
+              "summary": null,
+              "timestamp": "2018-11-20T08:00:00.000Z",
+              "foundAt": "2026-10-08T23:09:39.836Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "FAZ",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPMVlEVWo2QnFuY1pjWHZ1S3hQcWYtakhya19jYXpBX1lObWJ1b001QndYSEhUdWFoSHp4c1RCZmdhVG5vLU94SE1CUDg5NmNCTmxGT1hNbzBZU2p5bXVPTFAtSTByNGVPLTVWSDVvQlk0NlZIVjk2UTEwV1F4MnByWHNVUlU2VUV6dmxfdGtXVkxDTjlySGxGVzhZNl9aaGliMjQzLURlMjNFYnJ3aFE?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
             {
               "id": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBOLVVsd3F2YmdJeTlfTnRLYWRMYzhqYmxKVjNUWVJOV2RCREh4RnZDUjZoQWtBNHN3VmJwUWtwV2Z3UzgxLTAxd3NBTkdjUVNuYm9pQ2JxbG9zUE9SX0xxS01WVjVlSUMzQ2dVeTZXbUkyWlJJczBiT19GUjM?oc=5",
               "title": "Lilium Files for Insolvency in Germany - Future Transport-News",
@@ -20400,9 +20573,9 @@
       {
         "id": "fraud-watch:briefing",
         "sourceProject": "Fraud Watch",
-        "timestamp": "2026-10-08T17:05:15.399Z",
+        "timestamp": "2026-10-09T16:42:56.075Z",
         "title": "Fraud Watch simulation state changed",
-        "summary": "Synthetic simulation day 17 contains 5 candidate methods of operation and 1 open investigation.",
+        "summary": "Synthetic simulation day 18 contains 5 candidate methods of operation and 0 open investigations.",
         "category": "risk-intelligence",
         "importance": "medium",
         "evidenceType": "SIMULATION",
@@ -20431,22 +20604,20 @@
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
           ],
-          "retrievedAt": "2026-10-08T17:05:15.399Z",
+          "retrievedAt": "2026-10-09T16:42:56.075Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp simulation day 17, 18:00:00",
+          "freshness": "source timestamp simulation day 18, 18:00:00",
           "changedRecords": [
-            "MO-0024",
-            "MO-0025",
-            "fraud-watch:DUPLICATE_ASSET_ID+SEAL_MISMATCH"
+            "MO-0025"
           ]
         },
         "details": {
           "simulation": {
-            "day": 17,
+            "day": 18,
             "timeOfDay": "18:00:00",
-            "activeSignals": 3,
-            "openInvestigations": 1,
+            "activeSignals": 0,
+            "openInvestigations": 0,
             "totalCases": 25
           },
           "candidates": [
@@ -21273,7 +21444,7 @@
             },
             {
               "id": "MO-0025",
-              "status": "NEW",
+              "status": "DISMISSED",
               "classification": "MO_VARIANT",
               "confidenceBand": "MINIMAL",
               "noveltyScore": 100,
@@ -21337,9 +21508,9 @@
       {
         "id": "shadow-network:briefing",
         "sourceProject": "Shadow Network",
-        "timestamp": "2026-10-08T17:05:15.399Z",
+        "timestamp": "2026-10-09T16:42:56.075Z",
         "title": "Shadow Network synthetic snapshot changed",
-        "summary": "Synthetic network day 17 was refreshed: 1 incident and 1 verdict are recorded in the latest state.",
+        "summary": "Synthetic network day 18 was refreshed: 1 incident and 1 verdict are recorded in the latest state.",
         "category": "risk-intelligence",
         "importance": "medium",
         "evidenceType": "SIMULATION",
@@ -21362,56 +21533,56 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
           ],
-          "retrievedAt": "2026-10-08T17:05:15.399Z",
+          "retrievedAt": "2026-10-09T16:42:56.075Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp 2026-10-08T10:43:46.978Z",
+          "freshness": "source timestamp 2026-10-09T10:42:35.930Z",
           "changedRecords": [
             "snapshot"
           ]
         },
         "details": {
-          "day": 17,
-          "generatedAt": "2026-10-08T10:43:46.978Z",
+          "day": 18,
+          "generatedAt": "2026-10-09T10:42:35.930Z",
           "incidents": [
             {
-              "id": "INC-17-1",
-              "day": 17,
+              "id": "INC-18-1",
+              "day": 18,
               "kind": "anomaly",
               "severity": "low",
               "carrierIds": [
-                "CAR-0008"
+                "CAR-0096"
               ],
-              "laneId": "LN-019",
+              "laneId": "LN-020",
               "groundTruthFraud": false,
               "causalTrace": [
-                "Carrier CAR-0008 legitimacy 48.8 is well above the corruption threshold.",
-                "A one-off operational anomaly on lane LN-019 tripped a detection rule with no corroborating signal."
+                "Carrier CAR-0096 legitimacy 73.3 is well above the corruption threshold.",
+                "A one-off operational anomaly on lane LN-020 tripped a detection rule with no corroborating signal."
               ]
             }
           ],
           "verdicts": [
             {
               "event": {
-                "id": "INC-17-1",
-                "day": 17,
+                "id": "INC-18-1",
+                "day": 18,
                 "kind": "anomaly",
                 "severity": "low",
                 "carrierIds": [
-                  "CAR-0008"
+                  "CAR-0096"
                 ],
-                "laneId": "LN-019",
+                "laneId": "LN-020",
                 "groundTruthFraud": false,
                 "causalTrace": [
-                  "Carrier CAR-0008 legitimacy 48.8 is well above the corruption threshold.",
-                  "A one-off operational anomaly on lane LN-019 tripped a detection rule with no corroborating signal."
+                  "Carrier CAR-0096 legitimacy 73.3 is well above the corruption threshold.",
+                  "A one-off operational anomaly on lane LN-020 tripped a detection rule with no corroborating signal."
                 ]
               },
               "verdict": {
-                "eventId": "INC-17-1",
+                "eventId": "INC-18-1",
                 "decision": "clear",
-                "confidence": 0.77,
-                "reasoning": "CAR-0008 shows an average legitimacy signal of 48.8 on a low severity flag. Recommending clear."
+                "confidence": 0.86,
+                "reasoning": "CAR-0096 shows an average legitimacy signal of 73.3 on a low severity flag. Recommending clear."
               }
             }
           ],

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-10-10T15:38:09.586Z",
+  "generated_at": "2026-10-11T16:03:50.323Z",
   "sourceStates": {
     "fomo": {
       "id": "fomo",
@@ -14,15 +14,15 @@
         "new external freight-risk signals",
         "source titles and links"
       ],
-      "retrievedAt": "2026-10-10T15:38:09.586Z",
+      "retrievedAt": "2026-10-11T16:03:50.323Z",
       "sourceTimestamp": "2026-10-09T10:00:30.000Z",
-      "freshness": "source timestamp 2026-10-09T10:00:30.000Z; checked 2026-10-10T15:38:09.586Z",
+      "freshness": "source timestamp 2026-10-09T10:00:30.000Z; checked 2026-10-11T16:03:50.323Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
       ],
       "origin": "GitHub raw snapshot",
-      "recordCount": 1059,
-      "fingerprint": "8d9c49e1c06015def7434b5937d17a9cb075af52ef244eae234b005fc2d96e6f",
+      "recordCount": 1061,
+      "fingerprint": "f5b3b8206c143ab864e4bf0e54ce3984004f0f50ce5a5676c3fd2a957431193d",
       "records": {
         "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBGQTJVX2Uxajk1OU95QjlCanZtR01rZ0k4T0k1SDdNTDBlM3B6d3RLMVpXc056eTlkOFJOYWtkMktmdzFTbnJ6X1RtYi04Ymo3SVZTZFRmcw?oc=5": "6d0448978fb26ed82decc3444796019c52412248179b5157ba609a0101b0cf0c",
         "https://news.google.com/rss/articles/CBMigAFBVV95cUxQMWd5SUtZcC1BUmVvdkxPU1BPdWJDWUpNMGpua3pKMDl5ZFhJZkJSaVNacWhIUktHVjhVajdNQ3RWTGFJSFZ1Y0lfM0Z6RmxoYW9yOTBfSmZ4OV8xbVZaZ21yZ25jN1A5UUN5djBTV3d3aTJpdUVVTHRSNEJvVzBRcg?oc=5": "64eb9fbfbd598648f99d5c973780aab2529733f101fb5135c16d681da833bb5b",
@@ -1082,7 +1082,9 @@
         "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZEJSSUVTQ0FPem1iZ1ktb1hJN3ZRREcza0FLVWdmMmMxZGcwTU91bU8yc1RRSlpabHJlaFZyaXd5ekVmdF9kY2JCWUdTVEJ6VmkxbTVGXy1Ya19VcF90OWxHYVFhUlBxRy1pc2thU2t5VzVZcTF4SHo4dzg2SHhEX2ZzeW43NzJFNkhFYWsyYWdBUGpkQ0dHNmJwR1l5aElvaTg4TDJ5V0pyQXVRNlJ1QkN4d3kxN2Ey?oc=5": "a8c13446ceed89b287e34d85543d2d1d4208bc75d9dde4dd85a3252e419be4fd",
         "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNbVNHNTY0emJ3Q1NBejY5enJCRGxUelBBU3BrSFJKX2VJU08zQTAyQTJRMURYVWNPS3YwZEU4VnhFdWhHYVk5WFNxQVczM2s3Q2tpbHZOa0VWUzR6VmdxME1fWF9nNFpKdzJael95bEJPa2Vqc2FtZU9JblpZRV9rXzRxdkZjX3dXbmgydkRUaDBuR2FrOGRsUWJKLXhnWTZOaEpOT2VnQ196bllxNTR0NFM5NVg4OFIzQ3ByaVdscEFoQWJGTnpiejloNV8zRDZteGk3UjJR?oc=5": "5a0ca770248588e6be625ff6ea1ca49ac60c5500249c5d54d81dfd4ce38ab574",
         "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOTG0tM1RKTlRJcExiSlFuZU90eHdTaUNNTTRGYkxzcm1hLVo3ZGpwRllmYU4yZ0NORFdMTHpBTVNmQm53NGFVZ2hYRzEycUdTRUpSTVRKOHJWVUlhczQyNFloUGdsczVRdzFDWHNwRGFlWTB2NC00SDAtRUd4TnpncndHUXpabWhCeW44dEtvMmZIVlVzbll4VU1hbUJnQ2hpUC1vaG41VEd5Q3c?oc=5": "68860b1ee2261d0fda67b3ca150cd6c12ca6e102838ecfcd037e19ad4c023195",
-        "https://news.google.com/rss/articles/CBMipgFBVV95cUxQUk90XzdTWmw5THh1c2hOU0M2cm1JdzN3VjdpN19RNlVDSDhKVllnbURWdlkyOTV0a1hSWFVNdE4zWXlKR2xQZUprVjl4Znd2TXhnMF96R19mTkZ4Qmt2VTdVeUJscVhoVk1RamJ1RkdjcW1jdkE5aGRZaFMyeHc5cnZYdE5tRGJGcW04ekc5N0RYTjR3aE1Jc0RocVh4Nm1nZ1Jac2hB?oc=5": "35224b68b20fbc26d1321682f23ee2fe65000c1bb927b66b599c85c899c57627"
+        "https://news.google.com/rss/articles/CBMipgFBVV95cUxQUk90XzdTWmw5THh1c2hOU0M2cm1JdzN3VjdpN19RNlVDSDhKVllnbURWdlkyOTV0a1hSWFVNdE4zWXlKR2xQZUprVjl4Znd2TXhnMF96R19mTkZ4Qmt2VTdVeUJscVhoVk1RamJ1RkdjcW1jdkE5aGRZaFMyeHc5cnZYdE5tRGJGcW04ekc5N0RYTjR3aE1Jc0RocVh4Nm1nZ1Jac2hB?oc=5": "35224b68b20fbc26d1321682f23ee2fe65000c1bb927b66b599c85c899c57627",
+        "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPaGtkMTdTRllaRmtRYUlVUDJrdWVQdEdCRUJuY1NTbGo2OEFqdFhJeU5YODNnT21kNFRGTHhqRlF6cWt6RUhWUDJJYWJQV2FaaVhYeU5laW5YYnhVY1JrZVg1ZmJtc1JKRFdZUzVfdVh0bEdNa3h5MUZBdjN0ZHRLa2hMYUtQOXBCSmlTWWltWDNxMl9MR2JObmRRcFp5MzlBX0NlQXNDRVUyYzYtRTViS2dUbjZjNWRfc3RkUFNZN3ZVM1ozOHpFVHBoUVQzUGdjYW53RHR6RmstT3E4elpVS1otNlJXVkVpYkJrYnR6RERjSDlZdzRXRw?oc=5": "b3957e50997c29c4bdad2b7f96d36bfe172723d1a6c9f3db9e2cf01591823c4e",
+        "https://news.google.com/rss/articles/CBMiqgFBVV95cUxObWN6OGZid0dyYzBBWkJVbkVKam1SVTFpaU00MUpIUnRQeEI1VHA0bHYxbkozaUVaLWRNZEpyRUUyMmpSWnM1Uk52X3U5dEU3dnVMSGY3RkdKWUhXdmh5czZtT09OT1FPbXgxWGdIT2FSQ3ZONVZnbGMtclZLUWQyQ0Y1Qnk2c2VmTldKUUl3QzdIbjNYenJrRGVlRlpGUHlXTUh5VV9DUFdYZw?oc=5": "86a8b6e45b1d5aa9dad25b39de64c2b209ed1c8421cea339ea415c1fff4465ea"
       },
       "error": null
     },
@@ -1098,17 +1100,17 @@
         "synthetic MO and candidate counts",
         "simulation freshness and state"
       ],
-      "retrievedAt": "2026-10-10T15:38:09.586Z",
-      "sourceTimestamp": "simulation day 19, 18:00:00",
-      "freshness": "source timestamp simulation day 19, 18:00:00; checked 2026-10-10T15:38:09.586Z",
+      "retrievedAt": "2026-10-11T16:03:50.323Z",
+      "sourceTimestamp": "simulation day 20, 18:00:00",
+      "freshness": "source timestamp simulation day 20, 18:00:00; checked 2026-10-11T16:03:50.323Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
       ],
       "origin": "GitHub raw snapshot",
-      "recordCount": 34,
-      "simulationDay": 19,
-      "fingerprint": "ca0bdf2d92f9ac927fe363b58198ee9264fdfb1370245a47fe4e3c68cc71f92d",
+      "recordCount": 36,
+      "simulationDay": 20,
+      "fingerprint": "8de46efc4a2e6f95ab67ea888d1882cf93fdba0fef4428ce7a2ec8ee98603f37",
       "records": {
         "MO-0001": "0feb7d5b5575064bfb3b54504f56dbe31c377f593a989fab72e8962e0bf7f548",
         "MO-0002": "1c57dce81bfef1cfc493e2e6a7b537a4a1c12ef1d29e196d24f1a4bb1a89a4c0",
@@ -1135,8 +1137,10 @@
         "MO-0023": "11b35ad9c68b6d852f012f0956e1705ec38f6034d822c5d299a73d326356c8d3",
         "MO-0024": "8fa93f48f8689f7c41ea0839108d40cacda83d804722548261159c4b930c0782",
         "MO-0025": "00757bb4d8e510b169d35c76dba515a5eed03a411a5e25b16fa51926b3f16dbe",
-        "MO-0026": "b51b4d3deef01ad52bbf27fdc8d8ef55fd6240060ae7e4e5a4f33739da493ff3",
-        "MO-0027": "761a554b1b1e9596d0f24fbd005e4b55d2457f9227f1e37a0b9e47ac38f0ea8a",
+        "MO-0026": "5ed5aac4c197a67fe60530b181a4fdaf92d3e051cee2db29c23cdcebe91eb7d8",
+        "MO-0027": "55541c8b2af2036eb0d3e22d417c0bcd8e91393fe9efa0b1915c32553469177c",
+        "MO-0028": "b13623ec5b974fcdc946201d27220f3fdebee422f143ba045d7f42046bda3fc6",
+        "MO-0029": "aea4f996d986085adf8da2a76053aac9451fe6c090f2aa488d8b08933a835191",
         "fraud-watch:EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED": "315d0ddbe5e150bbabdd5c50a243af93934c253224131d9ff656f01939007e5e",
         "fraud-watch:FALSE_MILESTONE_STAMP+HANDOVER_GAP+STAGED_BREAKDOWN+UNEXPECTED_STOP": "d07e41fe4ea1b0fd276782c28adcb60cb1e86d488adf55f69a065087d8023cb4",
         "fraud-watch:CARRIER_UNRESPONSIVE+FALSE_MILESTONE_STAMP+HANDOVER_GAP": "2f7060f90d7f25327b5711aabe7d9336c4f6e97a3cc82bf08e7bd31bd865e62a",
@@ -1159,18 +1163,18 @@
         "synthetic day, incidents and verdicts",
         "carrier-network snapshot"
       ],
-      "retrievedAt": "2026-10-10T15:38:09.586Z",
-      "sourceTimestamp": "2026-10-10T09:58:30.369Z",
-      "freshness": "source timestamp 2026-10-10T09:58:30.369Z; checked 2026-10-10T15:38:09.586Z",
+      "retrievedAt": "2026-10-11T16:03:50.323Z",
+      "sourceTimestamp": "2026-10-11T10:08:09.036Z",
+      "freshness": "source timestamp 2026-10-11T10:08:09.036Z; checked 2026-10-11T16:03:50.323Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 1,
-      "simulationDay": 19,
-      "fingerprint": "e55b39e3fa2b61b8421ed68b936fe4a34fde191251d9a04a2014ab0fcbf3aac7",
+      "simulationDay": 20,
+      "fingerprint": "485ace01b93cd33b44c4a7d2824f30f432296675a1df64ef042af1a3b49bc545",
       "records": {
-        "snapshot": "5b896ce5646522f0bcf2952972cb2074366517e843dfbb18cef376ff66f768f4"
+        "snapshot": "8ecf8021a300715f204d419661a2c08f19492fc1b350f7646f3e4653e376387e"
       },
       "error": null
     },
@@ -1318,7 +1322,7 @@
   },
   "payload": {
     "schema_version": "1.2",
-    "generatedAt": "2026-10-10T15:38:09.586Z",
+    "generatedAt": "2026-10-11T16:03:50.323Z",
     "headline": "Good morning, Jeevan. 7 source updates are ready.",
     "sources": [
       {
@@ -1333,14 +1337,14 @@
           "new external freight-risk signals",
           "source titles and links"
         ],
-        "retrievedAt": "2026-10-10T15:38:09.586Z",
+        "retrievedAt": "2026-10-11T16:03:50.323Z",
         "sourceTimestamp": "2026-10-09T10:00:30.000Z",
-        "freshness": "source timestamp 2026-10-09T10:00:30.000Z; checked 2026-10-10T15:38:09.586Z",
+        "freshness": "source timestamp 2026-10-09T10:00:30.000Z; checked 2026-10-11T16:03:50.323Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
         ],
         "origin": "GitHub raw snapshot",
-        "recordCount": 1059,
+        "recordCount": 1061,
         "error": null
       },
       {
@@ -1355,16 +1359,16 @@
           "synthetic MO and candidate counts",
           "simulation freshness and state"
         ],
-        "retrievedAt": "2026-10-10T15:38:09.586Z",
-        "sourceTimestamp": "simulation day 19, 18:00:00",
-        "freshness": "source timestamp simulation day 19, 18:00:00; checked 2026-10-10T15:38:09.586Z",
+        "retrievedAt": "2026-10-11T16:03:50.323Z",
+        "sourceTimestamp": "simulation day 20, 18:00:00",
+        "freshness": "source timestamp simulation day 20, 18:00:00; checked 2026-10-11T16:03:50.323Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
         ],
         "origin": "GitHub raw snapshot",
-        "recordCount": 34,
-        "simulationDay": 19,
+        "recordCount": 36,
+        "simulationDay": 20,
         "error": null
       },
       {
@@ -1379,15 +1383,15 @@
           "synthetic day, incidents and verdicts",
           "carrier-network snapshot"
         ],
-        "retrievedAt": "2026-10-10T15:38:09.586Z",
-        "sourceTimestamp": "2026-10-10T09:58:30.369Z",
-        "freshness": "source timestamp 2026-10-10T09:58:30.369Z; checked 2026-10-10T15:38:09.586Z",
+        "retrievedAt": "2026-10-11T16:03:50.323Z",
+        "sourceTimestamp": "2026-10-11T10:08:09.036Z",
+        "freshness": "source timestamp 2026-10-11T10:08:09.036Z; checked 2026-10-11T16:03:50.323Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
         ],
         "origin": "GitHub raw snapshot",
         "recordCount": 1,
-        "simulationDay": 19,
+        "simulationDay": 20,
         "error": null
       },
       {
@@ -1519,9 +1523,9 @@
       {
         "id": "fomo:briefing",
         "sourceProject": "FOMO",
-        "timestamp": "2026-10-10T15:38:09.586Z",
+        "timestamp": "2026-10-11T16:03:50.323Z",
         "title": "New external freight-risk signals",
-        "summary": "3 new and 0 updated external freight-risk reports detected.",
+        "summary": "2 new and 0 updated external freight-risk reports detected.",
         "category": "risk-intelligence",
         "importance": "high",
         "evidenceType": "EXTERNAL_SOURCE",
@@ -1544,21 +1548,56 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
           ],
-          "retrievedAt": "2026-10-10T15:38:09.586Z",
+          "retrievedAt": "2026-10-11T16:03:50.323Z",
           "status": "SNAPSHOT",
           "origin": "GitHub raw snapshot",
           "freshness": "source timestamp 2026-10-09T10:00:30.000Z",
           "changedRecords": [
-            "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNbVNHNTY0emJ3Q1NBejY5enJCRGxUelBBU3BrSFJKX2VJU08zQTAyQTJRMURYVWNPS3YwZEU4VnhFdWhHYVk5WFNxQVczM2s3Q2tpbHZOa0VWUzR6VmdxME1fWF9nNFpKdzJael95bEJPa2Vqc2FtZU9JblpZRV9rXzRxdkZjX3dXbmgydkRUaDBuR2FrOGRsUWJKLXhnWTZOaEpOT2VnQ196bllxNTR0NFM5NVg4OFIzQ3ByaVdscEFoQWJGTnpiejloNV8zRDZteGk3UjJR?oc=5",
-            "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOTG0tM1RKTlRJcExiSlFuZU90eHdTaUNNTTRGYkxzcm1hLVo3ZGpwRllmYU4yZ0NORFdMTHpBTVNmQm53NGFVZ2hYRzEycUdTRUpSTVRKOHJWVUlhczQyNFloUGdsczVRdzFDWHNwRGFlWTB2NC00SDAtRUd4TnpncndHUXpabWhCeW44dEtvMmZIVlVzbll4VU1hbUJnQ2hpUC1vaG41VEd5Q3c?oc=5",
-            "https://news.google.com/rss/articles/CBMipgFBVV95cUxQUk90XzdTWmw5THh1c2hOU0M2cm1JdzN3VjdpN19RNlVDSDhKVllnbURWdlkyOTV0a1hSWFVNdE4zWXlKR2xQZUprVjl4Znd2TXhnMF96R19mTkZ4Qmt2VTdVeUJscVhoVk1RamJ1RkdjcW1jdkE5aGRZaFMyeHc5cnZYdE5tRGJGcW04ekc5N0RYTjR3aE1Jc0RocVh4Nm1nZ1Jac2hB?oc=5"
+            "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPaGtkMTdTRllaRmtRYUlVUDJrdWVQdEdCRUJuY1NTbGo2OEFqdFhJeU5YODNnT21kNFRGTHhqRlF6cWt6RUhWUDJJYWJQV2FaaVhYeU5laW5YYnhVY1JrZVg1ZmJtc1JKRFdZUzVfdVh0bEdNa3h5MUZBdjN0ZHRLa2hMYUtQOXBCSmlTWWltWDNxMl9MR2JObmRRcFp5MzlBX0NlQXNDRVUyYzYtRTViS2dUbjZjNWRfc3RkUFNZN3ZVM1ozOHpFVHBoUVQzUGdjYW53RHR6RmstT3E4elpVS1otNlJXVkVpYkJrYnR6RERjSDlZdzRXRw?oc=5",
+            "https://news.google.com/rss/articles/CBMiqgFBVV95cUxObWN6OGZid0dyYzBBWkJVbkVKam1SVTFpaU00MUpIUnRQeEI1VHA0bHYxbkozaUVaLWRNZEpyRUUyMmpSWnM1Uk52X3U5dEU3dnVMSGY3RkdKWUhXdmh5czZtT09OT1FPbXgxWGdIT2FSQ3ZONVZnbGMtclZLUWQyQ0Y1Qnk2c2VmTldKUUl3QzdIbjNYenJrRGVlRlpGUHlXTUh5VV9DUFdYZw?oc=5"
           ]
         },
         "details": {
-          "recordCount": 1059,
-          "newCount": 3,
+          "recordCount": 1061,
+          "newCount": 2,
           "updatedCount": 0,
           "records": [
+            {
+              "id": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxObWN6OGZid0dyYzBBWkJVbkVKam1SVTFpaU00MUpIUnRQeEI1VHA0bHYxbkozaUVaLWRNZEpyRUUyMmpSWnM1Uk52X3U5dEU3dnVMSGY3RkdKWUhXdmh5czZtT09OT1FPbXgxWGdIT2FSQ3ZONVZnbGMtclZLUWQyQ0Y1Qnk2c2VmTldKUUl3QzdIbjNYenJrRGVlRlpGUHlXTUh5VV9DUFdYZw?oc=5",
+              "title": "Erstmal zu Penny? Lieber nicht! Logistik-Streik im größten Penny-Lager Nordostitaliens - rdl.de",
+              "summary": null,
+              "timestamp": "2016-01-15T08:00:00.000Z",
+              "foundAt": "2026-10-11T12:29:00.006Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "rdl.de",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxObWN6OGZid0dyYzBBWkJVbkVKam1SVTFpaU00MUpIUnRQeEI1VHA0bHYxbkozaUVaLWRNZEpyRUUyMmpSWnM1Uk52X3U5dEU3dnVMSGY3RkdKWUhXdmh5czZtT09OT1FPbXgxWGdIT2FSQ3ZONVZnbGMtclZLUWQyQ0Y1Qnk2c2VmTldKUUl3QzdIbjNYenJrRGVlRlpGUHlXTUh5VV9DUFdYZw?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPaGtkMTdTRllaRmtRYUlVUDJrdWVQdEdCRUJuY1NTbGo2OEFqdFhJeU5YODNnT21kNFRGTHhqRlF6cWt6RUhWUDJJYWJQV2FaaVhYeU5laW5YYnhVY1JrZVg1ZmJtc1JKRFdZUzVfdVh0bEdNa3h5MUZBdjN0ZHRLa2hMYUtQOXBCSmlTWWltWDNxMl9MR2JObmRRcFp5MzlBX0NlQXNDRVUyYzYtRTViS2dUbjZjNWRfc3RkUFNZN3ZVM1ozOHpFVHBoUVQzUGdjYW53RHR6RmstT3E4elpVS1otNlJXVkVpYkJrYnR6RERjSDlZdzRXRw?oc=5",
+              "title": "Lieferkettensorgfaltspflichtengesetz: VW sieht Risiken für Menschenrechte vor allem bei Zulieferern - Handelsblatt",
+              "summary": null,
+              "timestamp": "2024-05-31T07:00:00.000Z",
+              "foundAt": "2026-10-10T21:26:02.785Z",
+              "location": null,
+              "category": "Regulatory / Compliance Risk",
+              "severity": "low",
+              "source": "Handelsblatt",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPaGtkMTdTRllaRmtRYUlVUDJrdWVQdEdCRUJuY1NTbGo2OEFqdFhJeU5YODNnT21kNFRGTHhqRlF6cWt6RUhWUDJJYWJQV2FaaVhYeU5laW5YYnhVY1JrZVg1ZmJtc1JKRFdZUzVfdVh0bEdNa3h5MUZBdjN0ZHRLa2hMYUtQOXBCSmlTWWltWDNxMl9MR2JObmRRcFp5MzlBX0NlQXNDRVUyYzYtRTViS2dUbjZjNWRfc3RkUFNZN3ZVM1ozOHpFVHBoUVQzUGdjYW53RHR6RmstT3E4elpVS1otNlJXVkVpYkJrYnR6RERjSDlZdzRXRw?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
             {
               "id": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOTG0tM1RKTlRJcExiSlFuZU90eHdTaUNNTTRGYkxzcm1hLVo3ZGpwRllmYU4yZ0NORFdMTHpBTVNmQm53NGFVZ2hYRzEycUdTRUpSTVRKOHJWVUlhczQyNFloUGdsczVRdzFDWHNwRGFlWTB2NC00SDAtRUd4TnpncndHUXpabWhCeW44dEtvMmZIVlVzbll4VU1hbUJnQ2hpUC1vaG41VEd5Q3c?oc=5",
               "title": "EU Forced Labor Guidelines: Mandatory Due Diligence in Disguise? - Jones Day",
@@ -20628,9 +20667,9 @@
       {
         "id": "fraud-watch:briefing",
         "sourceProject": "Fraud Watch",
-        "timestamp": "2026-10-10T15:38:09.586Z",
+        "timestamp": "2026-10-11T16:03:50.323Z",
         "title": "Fraud Watch simulation state changed",
-        "summary": "Synthetic simulation day 19 contains 7 candidate methods of operation and 2 open investigations.",
+        "summary": "Synthetic simulation day 20 contains 7 candidate methods of operation and 2 open investigations.",
         "category": "risk-intelligence",
         "importance": "medium",
         "evidenceType": "SIMULATION",
@@ -20659,24 +20698,24 @@
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
           ],
-          "retrievedAt": "2026-10-10T15:38:09.586Z",
+          "retrievedAt": "2026-10-11T16:03:50.323Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp simulation day 19, 18:00:00",
+          "freshness": "source timestamp simulation day 20, 18:00:00",
           "changedRecords": [
+            "MO-0028",
+            "MO-0029",
             "MO-0026",
-            "MO-0027",
-            "fraud-watch:DUPLICATE_ASSET_ID+EQUIPMENT_CARRIER_MISMATCH+MANIFEST_CHANGED",
-            "fraud-watch:FALSE_MILESTONE_STAMP+HANDOVER_GAP"
+            "MO-0027"
           ]
         },
         "details": {
           "simulation": {
-            "day": 19,
+            "day": 20,
             "timeOfDay": "18:00:00",
-            "activeSignals": 2,
+            "activeSignals": 4,
             "openInvestigations": 2,
-            "totalCases": 27
+            "totalCases": 29
           },
           "candidates": [
             {
@@ -20716,135 +20755,6 @@
             }
           ],
           "methods": [
-            {
-              "id": "MO-0016",
-              "status": "DISMISSED",
-              "classification": "MO_VARIANT",
-              "confidenceBand": "MINIMAL",
-              "noveltyScore": 100,
-              "signature": "CARRIER_UNRESPONSIVE+EQUIPMENT_CARRIER_MISMATCH+MANIFEST_CHANGED",
-              "entities": {
-                "truckId": "TRU-003",
-                "driverId": "DRI-004",
-                "trailerId": "TRA-015",
-                "carrierId": "CAR-005",
-                "facilityId": null
-              },
-              "timeline": [
-                {
-                  "t": 930934,
-                  "type": "MANIFEST_CHANGED"
-                },
-                {
-                  "t": 931200,
-                  "type": "EQUIPMENT_CARRIER_MISMATCH"
-                },
-                {
-                  "t": 934200,
-                  "type": "CARRIER_UNRESPONSIVE"
-                }
-              ],
-              "evidence": [
-                {
-                  "signalId": "SIG-000617",
-                  "signalType": "MANIFEST_CHANGED",
-                  "contribution": 1.3,
-                  "reliability": 0.65,
-                  "at": 930934,
-                  "facilityId": "FAC-001",
-                  "facilityName": "North Gate"
-                },
-                {
-                  "signalId": "SIG-000616",
-                  "signalType": "EQUIPMENT_CARRIER_MISMATCH",
-                  "contribution": 2.1,
-                  "reliability": 0.7,
-                  "at": 931200,
-                  "facilityId": "FAC-001",
-                  "facilityName": "North Gate"
-                },
-                {
-                  "signalId": "SIG-000618",
-                  "signalType": "CARRIER_UNRESPONSIVE",
-                  "contribution": 1,
-                  "reliability": 0.5,
-                  "at": 934200,
-                  "facilityId": null,
-                  "facilityName": null
-                }
-              ]
-            },
-            {
-              "id": "MO-0017",
-              "status": "DISMISSED",
-              "classification": "POTENTIAL_NEW_MO",
-              "confidenceBand": "MINIMAL",
-              "noveltyScore": 82,
-              "signature": "DUPLICATE_ASSET_ID+SEAL_MISMATCH",
-              "entities": {
-                "truckId": "TRU-017",
-                "driverId": "DRI-020",
-                "trailerId": "TRA-023",
-                "carrierId": "CAR-005",
-                "facilityId": null
-              },
-              "timeline": [
-                {
-                  "t": 947400,
-                  "type": "DUPLICATE_ASSET_ID"
-                },
-                {
-                  "t": 950700,
-                  "type": "SEAL_MISMATCH"
-                },
-                {
-                  "t": 961200,
-                  "type": "MANIFEST_CHANGED"
-                },
-                {
-                  "t": 962400,
-                  "type": "UNEXPECTED_STOP"
-                }
-              ],
-              "evidence": [
-                {
-                  "signalId": "SIG-000631",
-                  "signalType": "DUPLICATE_ASSET_ID",
-                  "contribution": 2,
-                  "reliability": 0.65,
-                  "at": 947400,
-                  "facilityId": null,
-                  "facilityName": null
-                },
-                {
-                  "signalId": "SIG-000636",
-                  "signalType": "SEAL_MISMATCH",
-                  "contribution": 2.3,
-                  "reliability": 0.75,
-                  "at": 950700,
-                  "facilityId": null,
-                  "facilityName": null
-                },
-                {
-                  "signalId": "SIG-000641",
-                  "signalType": "MANIFEST_CHANGED",
-                  "contribution": 1.3,
-                  "reliability": 0.65,
-                  "at": 961200,
-                  "facilityId": "FAC-001",
-                  "facilityName": "North Gate"
-                },
-                {
-                  "signalId": "SIG-000643",
-                  "signalType": "UNEXPECTED_STOP",
-                  "contribution": 0.6,
-                  "reliability": 0.6,
-                  "at": 962400,
-                  "facilityId": null,
-                  "facilityName": null
-                }
-              ]
-            },
             {
               "id": "MO-0018",
               "status": "DISMISSED",
@@ -21482,6 +21392,22 @@
                 {
                   "t": 1617600,
                   "type": "CARRIER_UNRESPONSIVE"
+                },
+                {
+                  "t": 1629000,
+                  "type": "SEAL_MISMATCH"
+                },
+                {
+                  "t": 1637100,
+                  "type": "CARRIER_UNRESPONSIVE"
+                },
+                {
+                  "t": 1669800,
+                  "type": "ROUTE_DEVIATION"
+                },
+                {
+                  "t": 1676700,
+                  "type": "CARRIER_UNRESPONSIVE"
                 }
               ],
               "evidence": [
@@ -21520,12 +21446,48 @@
                   "at": 1617600,
                   "facilityId": null,
                   "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001058",
+                  "signalType": "SEAL_MISMATCH",
+                  "contribution": 2.3,
+                  "reliability": 0.75,
+                  "at": 1629000,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001062",
+                  "signalType": "CARRIER_UNRESPONSIVE",
+                  "contribution": 1,
+                  "reliability": 0.5,
+                  "at": 1637100,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001090",
+                  "signalType": "ROUTE_DEVIATION",
+                  "contribution": 1.4,
+                  "reliability": 0.7,
+                  "at": 1669800,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001097",
+                  "signalType": "CARRIER_UNRESPONSIVE",
+                  "contribution": 1,
+                  "reliability": 0.5,
+                  "at": 1676700,
+                  "facilityId": null,
+                  "facilityName": null
                 }
               ]
             },
             {
               "id": "MO-0027",
-              "status": "NEW",
+              "status": "DISMISSED",
               "classification": "POTENTIAL_NEW_MO",
               "confidenceBand": "MINIMAL",
               "noveltyScore": 82,
@@ -21580,6 +21542,161 @@
                   "facilityName": null
                 }
               ]
+            },
+            {
+              "id": "MO-0028",
+              "status": "NEW",
+              "classification": "POTENTIAL_NEW_MO",
+              "confidenceBand": "MINIMAL",
+              "noveltyScore": 82,
+              "signature": "EQUIPMENT_CARRIER_MISMATCH+MANIFEST_CHANGED+SEAL_MISMATCH",
+              "entities": {
+                "truckId": "TRU-009",
+                "driverId": "DRI-024",
+                "trailerId": "TRA-008",
+                "carrierId": "CAR-007",
+                "facilityId": null
+              },
+              "timeline": [
+                {
+                  "t": 1656618,
+                  "type": "MANIFEST_CHANGED"
+                },
+                {
+                  "t": 1656900,
+                  "type": "EQUIPMENT_CARRIER_MISMATCH"
+                },
+                {
+                  "t": 1658400,
+                  "type": "SEAL_MISMATCH"
+                },
+                {
+                  "t": 1686900,
+                  "type": "ACCOUNT_TAKEOVER"
+                },
+                {
+                  "t": 1706100,
+                  "type": "UNEXPECTED_STOP"
+                }
+              ],
+              "evidence": [
+                {
+                  "signalId": "SIG-001076",
+                  "signalType": "MANIFEST_CHANGED",
+                  "contribution": 1.3,
+                  "reliability": 0.65,
+                  "at": 1656618,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001075",
+                  "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+                  "contribution": 2.1,
+                  "reliability": 0.7,
+                  "at": 1656900,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001079",
+                  "signalType": "SEAL_MISMATCH",
+                  "contribution": 2.3,
+                  "reliability": 0.75,
+                  "at": 1658400,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001104",
+                  "signalType": "ACCOUNT_TAKEOVER",
+                  "contribution": 1.8,
+                  "reliability": 0.6,
+                  "at": 1686900,
+                  "facilityId": "FAC-016",
+                  "facilityName": "Inland Depot West"
+                },
+                {
+                  "signalId": "SIG-001114",
+                  "signalType": "UNEXPECTED_STOP",
+                  "contribution": 0.6,
+                  "reliability": 0.6,
+                  "at": 1706100,
+                  "facilityId": null,
+                  "facilityName": null
+                }
+              ]
+            },
+            {
+              "id": "MO-0029",
+              "status": "DISMISSED",
+              "classification": "POTENTIAL_NEW_MO",
+              "confidenceBand": "ELEVATED",
+              "noveltyScore": 64,
+              "signature": "EQUIPMENT_CARRIER_MISMATCH+MANIFEST_CHANGED",
+              "entities": {
+                "truckId": "TRU-006",
+                "driverId": "DRI-006",
+                "trailerId": "TRA-031",
+                "carrierId": "CAR-002",
+                "facilityId": null
+              },
+              "timeline": [
+                {
+                  "t": 1670748,
+                  "type": "MANIFEST_CHANGED"
+                },
+                {
+                  "t": 1671000,
+                  "type": "EQUIPMENT_CARRIER_MISMATCH"
+                },
+                {
+                  "t": 1671762,
+                  "type": "MANIFEST_CHANGED"
+                },
+                {
+                  "t": 1671900,
+                  "type": "EQUIPMENT_CARRIER_MISMATCH"
+                }
+              ],
+              "evidence": [
+                {
+                  "signalId": "SIG-001092",
+                  "signalType": "MANIFEST_CHANGED",
+                  "contribution": 1.3,
+                  "reliability": 0.65,
+                  "at": 1670748,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001091",
+                  "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+                  "contribution": 2.1,
+                  "reliability": 0.7,
+                  "at": 1671000,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001095",
+                  "signalType": "MANIFEST_CHANGED",
+                  "contribution": 1.3,
+                  "reliability": 0.65,
+                  "at": 1671762,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001094",
+                  "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+                  "contribution": 2.1,
+                  "reliability": 0.7,
+                  "at": 1671900,
+                  "facilityId": null,
+                  "facilityName": null
+                }
+              ]
             }
           ],
           "label": "SYNTHETIC SIMULATION — not real-world fraud cases"
@@ -21589,9 +21706,9 @@
       {
         "id": "shadow-network:briefing",
         "sourceProject": "Shadow Network",
-        "timestamp": "2026-10-10T15:38:09.586Z",
+        "timestamp": "2026-10-11T16:03:50.323Z",
         "title": "Shadow Network synthetic snapshot changed",
-        "summary": "Synthetic network day 19 was refreshed: 2 incidents and 2 verdicts are recorded in the latest state.",
+        "summary": "Synthetic network day 20 was refreshed: 1 incident and 1 verdict are recorded in the latest state.",
         "category": "risk-intelligence",
         "importance": "medium",
         "evidenceType": "SIMULATION",
@@ -21614,94 +21731,56 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
           ],
-          "retrievedAt": "2026-10-10T15:38:09.586Z",
+          "retrievedAt": "2026-10-11T16:03:50.323Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp 2026-10-10T09:58:30.369Z",
+          "freshness": "source timestamp 2026-10-11T10:08:09.036Z",
           "changedRecords": [
             "snapshot"
           ]
         },
         "details": {
-          "day": 19,
-          "generatedAt": "2026-10-10T09:58:30.369Z",
+          "day": 20,
+          "generatedAt": "2026-10-11T10:08:09.036Z",
           "incidents": [
             {
-              "id": "INC-19-1",
-              "day": 19,
+              "id": "INC-20-1",
+              "day": 20,
               "kind": "anomaly",
               "severity": "low",
               "carrierIds": [
-                "CAR-0071"
+                "CAR-0055"
               ],
-              "laneId": "LN-009",
+              "laneId": "LN-013",
               "groundTruthFraud": false,
               "causalTrace": [
-                "Carrier CAR-0071 legitimacy 95.7 is well above the corruption threshold.",
-                "A one-off operational anomaly on lane LN-009 tripped a detection rule with no corroborating signal."
-              ]
-            },
-            {
-              "id": "INC-19-2",
-              "day": 19,
-              "kind": "anomaly",
-              "severity": "low",
-              "carrierIds": [
-                "CAR-0096"
-              ],
-              "laneId": "LN-020",
-              "groundTruthFraud": false,
-              "causalTrace": [
-                "Carrier CAR-0096 legitimacy 73.7 is well above the corruption threshold.",
-                "A one-off operational anomaly on lane LN-020 tripped a detection rule with no corroborating signal."
+                "Carrier CAR-0055 legitimacy 97.4 is well above the corruption threshold.",
+                "A one-off operational anomaly on lane LN-013 tripped a detection rule with no corroborating signal."
               ]
             }
           ],
           "verdicts": [
             {
               "event": {
-                "id": "INC-19-1",
-                "day": 19,
+                "id": "INC-20-1",
+                "day": 20,
                 "kind": "anomaly",
                 "severity": "low",
                 "carrierIds": [
-                  "CAR-0071"
+                  "CAR-0055"
                 ],
-                "laneId": "LN-009",
+                "laneId": "LN-013",
                 "groundTruthFraud": false,
                 "causalTrace": [
-                  "Carrier CAR-0071 legitimacy 95.7 is well above the corruption threshold.",
-                  "A one-off operational anomaly on lane LN-009 tripped a detection rule with no corroborating signal."
+                  "Carrier CAR-0055 legitimacy 97.4 is well above the corruption threshold.",
+                  "A one-off operational anomaly on lane LN-013 tripped a detection rule with no corroborating signal."
                 ]
               },
               "verdict": {
-                "eventId": "INC-19-1",
+                "eventId": "INC-20-1",
                 "decision": "clear",
-                "confidence": 0.93,
-                "reasoning": "CAR-0071 shows an average legitimacy signal of 95.7 on a low severity flag. Recommending clear."
-              }
-            },
-            {
-              "event": {
-                "id": "INC-19-2",
-                "day": 19,
-                "kind": "anomaly",
-                "severity": "low",
-                "carrierIds": [
-                  "CAR-0096"
-                ],
-                "laneId": "LN-020",
-                "groundTruthFraud": false,
-                "causalTrace": [
-                  "Carrier CAR-0096 legitimacy 73.7 is well above the corruption threshold.",
-                  "A one-off operational anomaly on lane LN-020 tripped a detection rule with no corroborating signal."
-                ]
-              },
-              "verdict": {
-                "eventId": "INC-19-2",
-                "decision": "clear",
-                "confidence": 0.86,
-                "reasoning": "CAR-0096 shows an average legitimacy signal of 73.7 on a low severity flag. Recommending clear."
+                "confidence": 0.94,
+                "reasoning": "CAR-0055 shows an average legitimacy signal of 97.4 on a low severity flag. Recommending clear."
               }
             }
           ],

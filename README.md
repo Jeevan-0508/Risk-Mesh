@@ -5,7 +5,8 @@
 <p align="center">
   <a href="https://jeevan-0508.github.io/Risk-Mesh/observatory/">Open the Observatory</a> ·
   <a href="docs/MESH_ARCHITECTURE.md">Architecture</a> ·
-  <a href="docs/INTEGRATION_MATRIX.md">Capability status</a>
+  <a href="docs/INTEGRATION_MATRIX.md">Capability status</a> ·
+  <a href="docs/getting-started.md">Technical docs</a>
 </p>
 
 # RISK//MESH

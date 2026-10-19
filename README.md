@@ -220,6 +220,25 @@ result to look connected (§58).
 
 ## Tech stack
 
+## Olympus deterministic vertical slice
+
+`core/olympus-pipeline.ts` is a dependency-free synthetic integration path for the wider
+PROJECT OLYMPUS ecosystem. `runOlympusScenario()` registers an AI system, hashes and ingests
+documents, turns instruction-like document text into a `RAW` security signal, evaluates a small
+deterministic control set, creates evidence-linked findings and graph edges, routes a governed
+decision, runs a scoped `REMOVE_EVIDENCE` replay, opens a human review gate, and emits idempotent
+correlation events for the audit trail.
+
+The module is deliberately deterministic and does not claim legal compliance or model accuracy.
+The focused verification command is:
+
+```bash
+bun test core/olympus-pipeline.test.ts
+```
+
+The live SWARM, REPLAY and external source adapters remain separately integrated components; an
+unavailable adapter must remain unavailable rather than being represented as live data.
+
 TypeScript + [zod](https://zod.dev) (schema is the single source of truth — types are inferred, never
 hand-duplicated) + [bun test](https://bun.sh/docs/cli/test), matching the convention already
 established in `risk-swarm/src/core/domain/model.ts`.

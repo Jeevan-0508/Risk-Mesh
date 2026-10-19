@@ -13,8 +13,8 @@
         {
           "upstream_path": "data/signals.json",
           "path": "fomo/signals.json",
-          "bytes": 3037,
-          "sha256": "0c5ffa62b633fa5afc01add78182e74b2cbace0754f1649696b819604e3fd536"
+          "bytes": 3097,
+          "sha256": "d79ffb758c922f1def376cdc20c60b9260701b00b6492a1bfcd02e150dac8ccc"
         }
       ]
     },
@@ -28,8 +28,8 @@
         {
           "upstream_path": "data/taxonomy.json",
           "path": "freight-risk-atlas/taxonomy.json",
-          "bytes": 17432,
-          "sha256": "7b10df55856a97dcc1a8bc516cca064b4e330e765878a7344729140a165bfdfd"
+          "bytes": 17761,
+          "sha256": "829a6325c9de7139ae0f58a026b303565f9f0518073dc5273dfa9e07d7bd0775"
         }
       ]
     }

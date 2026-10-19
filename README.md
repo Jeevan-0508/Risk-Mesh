@@ -239,6 +239,16 @@ bun test core/olympus-pipeline.test.ts
 The live SWARM, REPLAY and external source adapters remain separately integrated components; an
 unavailable adapter must remain unavailable rather than being represented as live data.
 
+The next contract slices are also available without external services:
+
+- `contracts/policy-audit.ts` + `adapters/policy-audit/adapter.ts` validate and translate a
+  versioned POLICY//AUDIT bundle while preserving source references and uncertainty.
+- `core/olympus-events.ts` provides idempotency, bounded retries, explicit requeue and dead-letter
+  semantics. It is an in-memory reference implementation until a persistent queue adapter is added.
+- `core/olympus-evaluation.ts` computes measured precision, recall, false-positive/negative rates,
+  escalation accuracy, reproducibility and latency over a supplied dataset.
+- `core/olympus-report.ts` renders only linked run data and states its synthetic/non-legal limits.
+
 TypeScript + [zod](https://zod.dev) (schema is the single source of truth — types are inferred, never
 hand-duplicated) + [bun test](https://bun.sh/docs/cli/test), matching the convention already
 established in `risk-swarm/src/core/domain/model.ts`.

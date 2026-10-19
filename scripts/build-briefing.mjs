@@ -399,8 +399,8 @@ function publicPayload(generatedAt, sources, updates) {
   };
 }
 
-export async function buildBriefing({ now = new Date().toISOString() } = {}) {
-  const previous = await readPrevious();
+export async function buildBriefing({ now = new Date().toISOString(), previousState = null } = {}) {
+  const previous = previousState || await readPrevious();
   const sources = [];
   const sourceStates = {};
   const updates = [];

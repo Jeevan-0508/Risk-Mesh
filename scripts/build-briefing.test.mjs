@@ -31,7 +31,8 @@ test('the current seven-source snapshot normalizes provenance and evidence class
 });
 
 test('a second build against unchanged source outputs is a no-change operation', async () => {
-  const result = await buildBriefing({ now: '2026-10-04T08:00:01.000Z' });
+  const first = await buildBriefing({ now: '2026-10-04T08:00:01.000Z', previousState: { schema_version: '1.2', sourceStates: {}, payload: {} } });
+  const result = await buildBriefing({ now: '2026-10-04T08:00:01.000Z', previousState: first.state });
   assert.equal(result.changed, false);
   assert.ok(result.payload.updates.every((update) => update.id.endsWith(':briefing')));
 });

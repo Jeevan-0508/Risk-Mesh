@@ -309,7 +309,9 @@ export function runOlympusScenario(scenario: OlympusScenario): OlympusRun {
       uncertainty: 'The scanner identifies instruction-like text; it does not infer author intent.',
     };
     findings.push(finding);
-    graph.push({ id: `edge-${finding.id}-${finding.evidenceIds[0]}`, from: finding.id, to: finding.evidenceIds[0], relation: 'SUPPORTED_BY', source: 'rule:prompt-injection-defense' });
+    const evidenceId = finding.evidenceIds[0];
+    if (!evidenceId) throw new Error(`prompt-injection finding ${finding.id} has no source evidence`);
+    graph.push({ id: `edge-${finding.id}-${evidenceId}`, from: finding.id, to: evidenceId, relation: 'SUPPORTED_BY', source: 'rule:prompt-injection-defense' });
   }
 
   eventLog.emit({ id: `${scenario.id}:controls`, type: 'CONTROLS_EVALUATED', correlationId, at: scenario.now, payload: { findingCount: findings.length, deterministic: true } });

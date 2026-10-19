@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-10-18T13:40:48.468Z",
+  "generated_at": "2026-10-19T16:42:12.979Z",
   "sourceStates": {
     "fomo": {
       "id": "fomo",
@@ -14,15 +14,15 @@
         "new external freight-risk signals",
         "source titles and links"
       ],
-      "retrievedAt": "2026-10-18T13:40:48.468Z",
-      "sourceTimestamp": "2026-10-16T10:53:53.000Z",
-      "freshness": "source timestamp 2026-10-16T10:53:53.000Z; checked 2026-10-18T13:40:48.468Z",
+      "retrievedAt": "2026-10-19T16:42:12.979Z",
+      "sourceTimestamp": "2026-10-19T09:51:23.000Z",
+      "freshness": "source timestamp 2026-10-19T09:51:23.000Z; checked 2026-10-19T16:42:12.979Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
       ],
       "origin": "GitHub raw snapshot",
-      "recordCount": 1102,
-      "fingerprint": "16b0020b5978ac859b14461d9a85bd5088904ce3babd8762a3cb464f4f2142d6",
+      "recordCount": 1107,
+      "fingerprint": "d63091ce71355cd82fa80ed54b587f0c7342c2fe5777fc2e1f7d25a9344ce377",
       "records": {
         "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBGQTJVX2Uxajk1OU95QjlCanZtR01rZ0k4T0k1SDdNTDBlM3B6d3RLMVpXc056eTlkOFJOYWtkMktmdzFTbnJ6X1RtYi04Ymo3SVZTZFRmcw?oc=5": "6d0448978fb26ed82decc3444796019c52412248179b5157ba609a0101b0cf0c",
         "https://news.google.com/rss/articles/CBMigAFBVV95cUxQMWd5SUtZcC1BUmVvdkxPU1BPdWJDWUpNMGpua3pKMDl5ZFhJZkJSaVNacWhIUktHVjhVajdNQ3RWTGFJSFZ1Y0lfM0Z6RmxoYW9yOTBfSmZ4OV8xbVZaZ21yZ25jN1A5UUN5djBTV3d3aTJpdUVVTHRSNEJvVzBRcg?oc=5": "64eb9fbfbd598648f99d5c973780aab2529733f101fb5135c16d681da833bb5b",
@@ -1125,7 +1125,12 @@
         "https://news.google.com/rss/articles/CBMiugFBVV95cUxPN01tQmhPbTJyUE83Tno0QkRvRFRHaWc1Y0VSLVRQTU15T214WGVYcjRpS2xtUVZ1Nzlrb245dHhFZmlUdnZtQVJwRWZHSjdxRlpTQkQ1OU0wSHd5U1NWdWRBdzZnbHVDajAzSEFBNWFWWTN2MTFsbEtwUC1WekktSlpPR040VVB6czNlQm45cXdSMlN0VXdUUnd2S3ZmRzVlbkJMOVk5dFBfYzVqcmtvb2sxOEt3bW4tM3c?oc=5": "d531f98b213659e168004975b705a7c1c0fdc7c0d634a7b13d5a9e08d7b3351c",
         "https://news.google.com/rss/articles/CBMipgFBVV95cUxQNHVaeHNHLXZaTkQ2MVRwRjdxX1JIbXBuNU44TzBwLXJTSjNZT0RKbDJLVjdwNnBwQ3p0Z3hUOGVFZTBZeEx2dUpWUmtzS1pTTE52a0t1ZGd4dnFPVmtpVDBPNGd0cUdtcURPQkxraHBqM3lsWW8yQ2N3ZG04RmpxVXVvS21PSnowU3FfMHVsaWtYMWprTHpmakdiQ3lfVGJMTHhSQUp3?oc=5": "cd41e37da4ef9e4269ce11433cbe215f0ff69755d276147c1c7c1190e9ba171c",
         "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQNEc1RnV5dlpoUVZXSEJ6dWJwSjNVQzdNR3NISTZ3TVRBQmdGa2k4c1VvZkU4YkdQZ2xrTC1Gdkt6TGx1elJiS1RVQzZmQWJLbzFfbHpMMHNHblpkZVVGa0kwWDQ1UFFxR1BMUGFDSGd1cGRTM2l5YnBnX1RoNWRCWkFXMFA5ZnllY2ZN?oc=5": "6c08567bd420261967e7da3e597c733be848dcd8b3d7cf0ea736af9b2e93150f",
-        "https://news.google.com/rss/articles/CBMiygFBVV95cUxQbGdzT09DUDlweXBVeW9YTGlGNU9MYU0xbk5ESTJ6bWpMRmE4QUNWSmE2ZFp0QXE1dTB4NDlfWEJtamZtbUlDVXNFS21najJTQ0Q4NXNRUzhMZ2d2SUhUUlM5TmJ0R2dJNlRCUFc4Ul9qdFJVMm0zbU1TSjd2bzd3c0JHTUJVaVFQaE56czVRM0x4ZU43Q2xhQkNNdzgxdFVHa3V1MHp0a05NS2N5V2pMRjVTeVVDci14Rk9FaFZJaXdrc0pNSFpnbUF3?oc=5": "00329886a5019767b162712651e0c22c6212e709361d96d56aee6cccf0615071"
+        "https://news.google.com/rss/articles/CBMiygFBVV95cUxQbGdzT09DUDlweXBVeW9YTGlGNU9MYU0xbk5ESTJ6bWpMRmE4QUNWSmE2ZFp0QXE1dTB4NDlfWEJtamZtbUlDVXNFS21najJTQ0Q4NXNRUzhMZ2d2SUhUUlM5TmJ0R2dJNlRCUFc4Ul9qdFJVMm0zbU1TSjd2bzd3c0JHTUJVaVFQaE56czVRM0x4ZU43Q2xhQkNNdzgxdFVHa3V1MHp0a05NS2N5V2pMRjVTeVVDci14Rk9FaFZJaXdrc0pNSFpnbUF3?oc=5": "00329886a5019767b162712651e0c22c6212e709361d96d56aee6cccf0615071",
+        "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPcC1XYUd0Rll2SHFQRnI5OHdtaWlTSmVwWW5pWjVOSHMwRGo2TjJUTW9nUXh5bnYxWnA4ekt6UFZOVFlPYllkNHJZdmotSGVhaVZTMFJ5SDA0amRGSW5tc0ZuYlNmZ3NabzJZMldYVEVYeWQyNlU2d3VlWGhtMF84MmtZS0xQT1RoZUV4eDFxN2xnWHlCVHhTYmp2UUM0YUdjcWF0R1Foc2daZkphVEY5Z3RaUGtYODJkdVc2MXZ6TVEtUQ?oc=5": "05703a49af3de3d079bbd6fff1f173ae5ca6f0db619e63e7249ae54f8a2605f7",
+        "https://news.google.com/rss/articles/CBMiaEFVX3lxTE41ZjJEQ0ZneV9SWXFPMXRGOXVacENOdXJNWmYxZXZOTFdHMmR3YW9mclBaaHhPdmY2UFYzd0t6VFExR0FULUpoZXVLVG91Um12UHdwY2FVM2YwR0RIQ0dMZGVlMldFZ0Zh?oc=5": "bb7faa1a69d06e8847200bc4a3eadbd08930b590315303825a21360422335b87",
+        "https://news.google.com/rss/articles/CBMingFBVV95cUxPTHVpUWdadXdsYzVJRzh3ZUI5bm5GeFUwWTEzd25EZ3FMNEhBMFZOaVpKNFpzdU5WcWhfNGItODFYeUxKWWNMQk9xY2tOd1FNQUNJQTNTcWRmbVVOZlRES2hXYnZxcmxCM2c1Y1NjUUZpWGNzTVdJWm5qaUtXYzFHa3dvbkl6UTZXSkQxYUU2bkxzYVVJM3ozMnRXRUhRdw?oc=5": "e3d74d0f4020d865dc447b57c88ae703d6a9249eafea149b62a266ad15f90ceb",
+        "https://news.google.com/rss/articles/CBMilAFBVV95cUxQR2E1US1DMlU3UmtUSVhZeFNXQUtpX2JuVDhyX09mbHNlT3NYYnJ6Q1lzdkFDRVk2QlZmcFBXTGlKN1pPLWU0N0VqMmwxWGIwSnlzcENvaDhyUnpQRXE1RkRFZ09YQUo3MWVJZVBvdlVTcEFRTUtjZ1BEWGU4U3N0TzJzRkV1REVUZUZiTS1PMU1zNXY2?oc=5": "7aed88166758bb31e30b2c0b21b39f15acba2eda1aa8bbd45f106cd004555da2",
+        "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNVUlkYnBqLURjV09kRHRDZWFKY25VWVdwWU84TUlTTjhzYmtaN3dYeEp5ZW9CTktiVFVBbTBNQ05oam9qMElueDc2ejIxaWJHTFNPbHhTbzJMSEUzeGdiWnFYS0hGQVRXajVJX0NjMGJCSVgxRFYzdndXd1Nkd2J0ak0zVlE2NFRaZFBSOGU0TzZpTTJESVNHWXB5aVV3QW1GV2RiYXhKN2pPYWtSRkdLYlBFNEs4YllSdTBDZVNCcFBaR2prdk5CaEU3Q1FrTXRGMlk3dTJDdnZwZEcw?oc=5": "b5515f7ac7c016112230faaa4479f7c6dff130796739188f5c4503f23e8a218f"
       },
       "error": null
     },
@@ -1141,17 +1146,17 @@
         "synthetic MO and candidate counts",
         "simulation freshness and state"
       ],
-      "retrievedAt": "2026-10-18T13:40:48.468Z",
-      "sourceTimestamp": "simulation day 27, 18:00:00",
-      "freshness": "source timestamp simulation day 27, 18:00:00; checked 2026-10-18T13:40:48.468Z",
+      "retrievedAt": "2026-10-19T16:42:12.979Z",
+      "sourceTimestamp": "simulation day 28, 18:00:00",
+      "freshness": "source timestamp simulation day 28, 18:00:00; checked 2026-10-19T16:42:12.979Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 56,
-      "simulationDay": 27,
-      "fingerprint": "8cfc4fa4156b701416596adc70a41a5ae6b552aa7607c4025fe6663002ccb6fb",
+      "simulationDay": 28,
+      "fingerprint": "5aa913acaee81ec9c321e84875209f9143d13ab07a05dc74acee690e6e615f2c",
       "records": {
         "MO-0001": "0feb7d5b5575064bfb3b54504f56dbe31c377f593a989fab72e8962e0bf7f548",
         "MO-0002": "1c57dce81bfef1cfc493e2e6a7b537a4a1c12ef1d29e196d24f1a4bb1a89a4c0",
@@ -1198,8 +1203,8 @@
         "MO-0043": "5adb78f75e8e05ac9a44161b5956b5893dcd08e0fc57a52ee36ca8a1c8bbfe24",
         "MO-0044": "0c9c63fee84a3a859245377cacedad184a35b3315b26a4a29c14b42b14f81f7b",
         "MO-0045": "00b535918640a000dd4f626a453b8d9fb595b5412098c01cbaba3efacb5a592c",
-        "MO-0046": "671cc5661495ef13d2176896396d9b92e4ac0cdfc025ed8206154835abebf705",
-        "MO-0047": "d0576b8f047559c5f71e57f9ecb70785d64b3a22a76ecb019b827f72f89c79e5",
+        "MO-0046": "614f8ced50a4fa44a61db9240f837ac389a14cb25fa2bd500e238f632527b4c4",
+        "MO-0047": "a828e567f2283af47d845c371b61127129073995cc1a5630c807c3086dfffb55",
         "fraud-watch:EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED": "315d0ddbe5e150bbabdd5c50a243af93934c253224131d9ff656f01939007e5e",
         "fraud-watch:FALSE_MILESTONE_STAMP+HANDOVER_GAP+STAGED_BREAKDOWN+UNEXPECTED_STOP": "d07e41fe4ea1b0fd276782c28adcb60cb1e86d488adf55f69a065087d8023cb4",
         "fraud-watch:CARRIER_UNRESPONSIVE+FALSE_MILESTONE_STAMP+HANDOVER_GAP": "2f7060f90d7f25327b5711aabe7d9336c4f6e97a3cc82bf08e7bd31bd865e62a",
@@ -1224,18 +1229,18 @@
         "synthetic day, incidents and verdicts",
         "carrier-network snapshot"
       ],
-      "retrievedAt": "2026-10-18T13:40:48.468Z",
-      "sourceTimestamp": "2026-10-18T08:08:45.331Z",
-      "freshness": "source timestamp 2026-10-18T08:08:45.331Z; checked 2026-10-18T13:40:48.468Z",
+      "retrievedAt": "2026-10-19T16:42:12.979Z",
+      "sourceTimestamp": "2026-10-19T09:03:10.716Z",
+      "freshness": "source timestamp 2026-10-19T09:03:10.716Z; checked 2026-10-19T16:42:12.979Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 1,
-      "simulationDay": 27,
-      "fingerprint": "bc94ec7e435bfc8c3ab1fb9122c25e103ea732322a3f1ed3d93cd1af82ad4283",
+      "simulationDay": 28,
+      "fingerprint": "1fa4582c5be1f751c06e3a657e54ab185a3c0b4226efda2d5591c05c55454ccd",
       "records": {
-        "snapshot": "9406d919bf78cca3fc58886a763363189ece5d12128b4dafa70684a94fdd9f35"
+        "snapshot": "b119589c9fa6011b1e5ca0a01b7971ce878d66c0ae853400462c7ba02c6c265d"
       },
       "error": null
     },
@@ -1251,20 +1256,20 @@
         "official source check status",
         "review-required regulatory hashes"
       ],
-      "retrievedAt": "2026-10-12T19:30:51.766Z",
-      "sourceTimestamp": "2026-10-12T16:30:09.417Z",
-      "freshness": "source timestamp 2026-10-12T16:30:09.417Z; checked 2026-10-12T19:30:51.766Z",
+      "retrievedAt": "2026-10-19T16:42:12.979Z",
+      "sourceTimestamp": "2026-10-19T14:21:24.356Z",
+      "freshness": "source timestamp 2026-10-19T14:21:24.356Z; checked 2026-10-19T16:42:12.979Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/eu-ai-act-scanner/main/data/regulatory-monitor.json",
         "https://raw.githubusercontent.com/Jeevan-0508/eu-ai-act-scanner/main/data/regulatory-changes.jsonl"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 2,
-      "reviewRequired": 4,
-      "fingerprint": "a03846fb09871cca80cd60b6e72a9192d8d702d042adb206a29b3828969cb881",
+      "reviewRequired": 6,
+      "fingerprint": "ab1c94cb9890fecc29e58d4272f3fabcc863f0940773ff8e5b586d3414c075c7",
       "records": {
-        "eu-ai-act-consolidated": "95f83358fa7fb62ce26ce55f6d6adcb46812ef6a95a848e2ec42b9cc12c0b707",
-        "eu-ai-act-commission-framework": "240496164afbda2ea37bd93d60c37a2337c520e521b8a77b455f20dd991b31c7"
+        "eu-ai-act-consolidated": "17f8337bbd252e27bf7b7eea75551442c7a12eb515fccf980fc976cb461a1882",
+        "eu-ai-act-commission-framework": "c07e17556ced388557962913ff1aa05e38bc6813d639b3aac01d6222379024eb"
       },
       "error": null
     },
@@ -1280,9 +1285,9 @@
         "synthetic alerts and rings",
         "model and graph metrics"
       ],
-      "retrievedAt": "2026-10-12T19:30:51.766Z",
+      "retrievedAt": "2026-10-19T16:42:12.979Z",
       "sourceTimestamp": null,
-      "freshness": "checked 2026-10-12T19:30:51.766Z",
+      "freshness": "checked 2026-10-19T16:42:12.979Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/alerts.json",
         "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/rings.json",
@@ -1291,9 +1296,9 @@
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 50,
-      "fingerprint": "e611865c7c1de3576083ff55979d82acdfd482a03e8730ab55dc2e771b61d51e",
+      "fingerprint": "cfe8ec57b63a86f8d1239cba1859b18d63e26e83a74c572eea9b8537e82a6e0d",
       "records": {
-        "analysis": "000cd79f8cb74e4c13452c62b025b19ba01fbee3b0615310ad99981d5317e0ce"
+        "analysis": "40ca3f974fc7c47d07821909a29999caa7b6aa3fdfa40922628a8fa708249ca8"
       },
       "error": null
     },
@@ -1309,17 +1314,17 @@
         "sealed and graded forecast counts",
         "explicit eligibility refusals"
       ],
-      "retrievedAt": "2026-10-12T19:30:51.766Z",
-      "sourceTimestamp": "2026-10-10T11:00:00+0200",
-      "freshness": "source timestamp 2026-10-10T11:00:00+0200; checked 2026-10-12T19:30:51.766Z",
+      "retrievedAt": "2026-10-19T16:42:12.979Z",
+      "sourceTimestamp": "2026-10-17T11:00:00+0200",
+      "freshness": "source timestamp 2026-10-17T11:00:00+0200; checked 2026-10-19T16:42:12.979Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/Forecast-Ledger/main/site/data.json"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 1,
-      "fingerprint": "d5bb286d4fcba6378315d5288fea89e002399d50e6994ce5cf5403aeb389948c",
+      "fingerprint": "e54ab5c3229302f9a5dd8396d3598bfa0a8d3b868a5acc2837f3e4369f4728a9",
       "records": {
-        "ledger": "997a748397bdb9c5c57b446a7613d1876d21043f14bbe15e5735c4d0c11abd96"
+        "ledger": "d42adec3d088e504da7194a8ec78de3b192611efe9b69531270cb5eef36f001d"
       },
       "error": null
     },
@@ -1383,7 +1388,7 @@
   },
   "payload": {
     "schema_version": "1.2",
-    "generatedAt": "2026-10-18T13:40:48.468Z",
+    "generatedAt": "2026-10-19T16:42:12.979Z",
     "headline": "Good morning, Jeevan. 7 source updates are ready.",
     "sources": [
       {
@@ -1398,14 +1403,14 @@
           "new external freight-risk signals",
           "source titles and links"
         ],
-        "retrievedAt": "2026-10-18T13:40:48.468Z",
-        "sourceTimestamp": "2026-10-16T10:53:53.000Z",
-        "freshness": "source timestamp 2026-10-16T10:53:53.000Z; checked 2026-10-18T13:40:48.468Z",
+        "retrievedAt": "2026-10-19T16:42:12.979Z",
+        "sourceTimestamp": "2026-10-19T09:51:23.000Z",
+        "freshness": "source timestamp 2026-10-19T09:51:23.000Z; checked 2026-10-19T16:42:12.979Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
         ],
         "origin": "GitHub raw snapshot",
-        "recordCount": 1102,
+        "recordCount": 1107,
         "error": null
       },
       {
@@ -1420,16 +1425,16 @@
           "synthetic MO and candidate counts",
           "simulation freshness and state"
         ],
-        "retrievedAt": "2026-10-18T13:40:48.468Z",
-        "sourceTimestamp": "simulation day 27, 18:00:00",
-        "freshness": "source timestamp simulation day 27, 18:00:00; checked 2026-10-18T13:40:48.468Z",
+        "retrievedAt": "2026-10-19T16:42:12.979Z",
+        "sourceTimestamp": "simulation day 28, 18:00:00",
+        "freshness": "source timestamp simulation day 28, 18:00:00; checked 2026-10-19T16:42:12.979Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
         ],
         "origin": "GitHub raw snapshot",
         "recordCount": 56,
-        "simulationDay": 27,
+        "simulationDay": 28,
         "error": null
       },
       {
@@ -1444,15 +1449,15 @@
           "synthetic day, incidents and verdicts",
           "carrier-network snapshot"
         ],
-        "retrievedAt": "2026-10-18T13:40:48.468Z",
-        "sourceTimestamp": "2026-10-18T08:08:45.331Z",
-        "freshness": "source timestamp 2026-10-18T08:08:45.331Z; checked 2026-10-18T13:40:48.468Z",
+        "retrievedAt": "2026-10-19T16:42:12.979Z",
+        "sourceTimestamp": "2026-10-19T09:03:10.716Z",
+        "freshness": "source timestamp 2026-10-19T09:03:10.716Z; checked 2026-10-19T16:42:12.979Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
         ],
         "origin": "GitHub raw snapshot",
         "recordCount": 1,
-        "simulationDay": 27,
+        "simulationDay": 28,
         "error": null
       },
       {
@@ -1467,16 +1472,16 @@
           "official source check status",
           "review-required regulatory hashes"
         ],
-        "retrievedAt": "2026-10-12T19:30:51.766Z",
-        "sourceTimestamp": "2026-10-12T16:30:09.417Z",
-        "freshness": "source timestamp 2026-10-12T16:30:09.417Z; checked 2026-10-12T19:30:51.766Z",
+        "retrievedAt": "2026-10-19T16:42:12.979Z",
+        "sourceTimestamp": "2026-10-19T14:21:24.356Z",
+        "freshness": "source timestamp 2026-10-19T14:21:24.356Z; checked 2026-10-19T16:42:12.979Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/eu-ai-act-scanner/main/data/regulatory-monitor.json",
           "https://raw.githubusercontent.com/Jeevan-0508/eu-ai-act-scanner/main/data/regulatory-changes.jsonl"
         ],
         "origin": "GitHub raw snapshot",
         "recordCount": 2,
-        "reviewRequired": 4,
+        "reviewRequired": 6,
         "error": null
       },
       {
@@ -1491,9 +1496,9 @@
           "synthetic alerts and rings",
           "model and graph metrics"
         ],
-        "retrievedAt": "2026-10-12T19:30:51.766Z",
+        "retrievedAt": "2026-10-19T16:42:12.979Z",
         "sourceTimestamp": null,
-        "freshness": "checked 2026-10-12T19:30:51.766Z",
+        "freshness": "checked 2026-10-19T16:42:12.979Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/alerts.json",
           "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/rings.json",
@@ -1516,9 +1521,9 @@
           "sealed and graded forecast counts",
           "explicit eligibility refusals"
         ],
-        "retrievedAt": "2026-10-12T19:30:51.766Z",
-        "sourceTimestamp": "2026-10-10T11:00:00+0200",
-        "freshness": "source timestamp 2026-10-10T11:00:00+0200; checked 2026-10-12T19:30:51.766Z",
+        "retrievedAt": "2026-10-19T16:42:12.979Z",
+        "sourceTimestamp": "2026-10-17T11:00:00+0200",
+        "freshness": "source timestamp 2026-10-17T11:00:00+0200; checked 2026-10-19T16:42:12.979Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/Forecast-Ledger/main/site/data.json"
         ],
@@ -1584,9 +1589,9 @@
       {
         "id": "fomo:briefing",
         "sourceProject": "FOMO",
-        "timestamp": "2026-10-18T13:40:48.468Z",
+        "timestamp": "2026-10-19T16:42:12.979Z",
         "title": "New external freight-risk signals",
-        "summary": "3 new and 0 updated external freight-risk reports detected.",
+        "summary": "5 new and 0 updated external freight-risk reports detected.",
         "category": "risk-intelligence",
         "importance": "high",
         "evidenceType": "EXTERNAL_SOURCE",
@@ -1609,21 +1614,113 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
           ],
-          "retrievedAt": "2026-10-18T13:40:48.468Z",
+          "retrievedAt": "2026-10-19T16:42:12.979Z",
           "status": "SNAPSHOT",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp 2026-10-16T10:53:53.000Z",
+          "freshness": "source timestamp 2026-10-19T09:51:23.000Z",
           "changedRecords": [
-            "https://news.google.com/rss/articles/CBMipgFBVV95cUxQNHVaeHNHLXZaTkQ2MVRwRjdxX1JIbXBuNU44TzBwLXJTSjNZT0RKbDJLVjdwNnBwQ3p0Z3hUOGVFZTBZeEx2dUpWUmtzS1pTTE52a0t1ZGd4dnFPVmtpVDBPNGd0cUdtcURPQkxraHBqM3lsWW8yQ2N3ZG04RmpxVXVvS21PSnowU3FfMHVsaWtYMWprTHpmakdiQ3lfVGJMTHhSQUp3?oc=5",
-            "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQNEc1RnV5dlpoUVZXSEJ6dWJwSjNVQzdNR3NISTZ3TVRBQmdGa2k4c1VvZkU4YkdQZ2xrTC1Gdkt6TGx1elJiS1RVQzZmQWJLbzFfbHpMMHNHblpkZVVGa0kwWDQ1UFFxR1BMUGFDSGd1cGRTM2l5YnBnX1RoNWRCWkFXMFA5ZnllY2ZN?oc=5",
-            "https://news.google.com/rss/articles/CBMiygFBVV95cUxQbGdzT09DUDlweXBVeW9YTGlGNU9MYU0xbk5ESTJ6bWpMRmE4QUNWSmE2ZFp0QXE1dTB4NDlfWEJtamZtbUlDVXNFS21najJTQ0Q4NXNRUzhMZ2d2SUhUUlM5TmJ0R2dJNlRCUFc4Ul9qdFJVMm0zbU1TSjd2bzd3c0JHTUJVaVFQaE56czVRM0x4ZU43Q2xhQkNNdzgxdFVHa3V1MHp0a05NS2N5V2pMRjVTeVVDci14Rk9FaFZJaXdrc0pNSFpnbUF3?oc=5"
+            "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPcC1XYUd0Rll2SHFQRnI5OHdtaWlTSmVwWW5pWjVOSHMwRGo2TjJUTW9nUXh5bnYxWnA4ekt6UFZOVFlPYllkNHJZdmotSGVhaVZTMFJ5SDA0amRGSW5tc0ZuYlNmZ3NabzJZMldYVEVYeWQyNlU2d3VlWGhtMF84MmtZS0xQT1RoZUV4eDFxN2xnWHlCVHhTYmp2UUM0YUdjcWF0R1Foc2daZkphVEY5Z3RaUGtYODJkdVc2MXZ6TVEtUQ?oc=5",
+            "https://news.google.com/rss/articles/CBMiaEFVX3lxTE41ZjJEQ0ZneV9SWXFPMXRGOXVacENOdXJNWmYxZXZOTFdHMmR3YW9mclBaaHhPdmY2UFYzd0t6VFExR0FULUpoZXVLVG91Um12UHdwY2FVM2YwR0RIQ0dMZGVlMldFZ0Zh?oc=5",
+            "https://news.google.com/rss/articles/CBMingFBVV95cUxPTHVpUWdadXdsYzVJRzh3ZUI5bm5GeFUwWTEzd25EZ3FMNEhBMFZOaVpKNFpzdU5WcWhfNGItODFYeUxKWWNMQk9xY2tOd1FNQUNJQTNTcWRmbVVOZlRES2hXYnZxcmxCM2c1Y1NjUUZpWGNzTVdJWm5qaUtXYzFHa3dvbkl6UTZXSkQxYUU2bkxzYVVJM3ozMnRXRUhRdw?oc=5",
+            "https://news.google.com/rss/articles/CBMilAFBVV95cUxQR2E1US1DMlU3UmtUSVhZeFNXQUtpX2JuVDhyX09mbHNlT3NYYnJ6Q1lzdkFDRVk2QlZmcFBXTGlKN1pPLWU0N0VqMmwxWGIwSnlzcENvaDhyUnpQRXE1RkRFZ09YQUo3MWVJZVBvdlVTcEFRTUtjZ1BEWGU4U3N0TzJzRkV1REVUZUZiTS1PMU1zNXY2?oc=5",
+            "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNVUlkYnBqLURjV09kRHRDZWFKY25VWVdwWU84TUlTTjhzYmtaN3dYeEp5ZW9CTktiVFVBbTBNQ05oam9qMElueDc2ejIxaWJHTFNPbHhTbzJMSEUzeGdiWnFYS0hGQVRXajVJX0NjMGJCSVgxRFYzdndXd1Nkd2J0ak0zVlE2NFRaZFBSOGU0TzZpTTJESVNHWXB5aVV3QW1GV2RiYXhKN2pPYWtSRkdLYlBFNEs4YllSdTBDZVNCcFBaR2prdk5CaEU3Q1FrTXRGMlk3dTJDdnZwZEcw?oc=5"
           ]
         },
         "details": {
-          "recordCount": 1102,
-          "newCount": 3,
+          "recordCount": 1107,
+          "newCount": 5,
           "updatedCount": 0,
           "records": [
+            {
+              "id": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQR2E1US1DMlU3UmtUSVhZeFNXQUtpX2JuVDhyX09mbHNlT3NYYnJ6Q1lzdkFDRVk2QlZmcFBXTGlKN1pPLWU0N0VqMmwxWGIwSnlzcENvaDhyUnpQRXE1RkRFZ09YQUo3MWVJZVBvdlVTcEFRTUtjZ1BEWGU4U3N0TzJzRkV1REVUZUZiTS1PMU1zNXY2?oc=5",
+              "title": "Insolvencies put transport and logistics under pressure - Trans.INFO",
+              "summary": null,
+              "timestamp": "2026-10-19T09:51:23.000Z",
+              "foundAt": "2026-10-19T12:44:18.507Z",
+              "location": null,
+              "category": "Corporate Insolvency",
+              "severity": "medium",
+              "source": "Trans.INFO",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQR2E1US1DMlU3UmtUSVhZeFNXQUtpX2JuVDhyX09mbHNlT3NYYnJ6Q1lzdkFDRVk2QlZmcFBXTGlKN1pPLWU0N0VqMmwxWGIwSnlzcENvaDhyUnpQRXE1RkRFZ09YQUo3MWVJZVBvdlVTcEFRTUtjZ1BEWGU4U3N0TzJzRkV1REVUZUZiTS1PMU1zNXY2?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNVUlkYnBqLURjV09kRHRDZWFKY25VWVdwWU84TUlTTjhzYmtaN3dYeEp5ZW9CTktiVFVBbTBNQ05oam9qMElueDc2ejIxaWJHTFNPbHhTbzJMSEUzeGdiWnFYS0hGQVRXajVJX0NjMGJCSVgxRFYzdndXd1Nkd2J0ak0zVlE2NFRaZFBSOGU0TzZpTTJESVNHWXB5aVV3QW1GV2RiYXhKN2pPYWtSRkdLYlBFNEs4YllSdTBDZVNCcFBaR2prdk5CaEU3Q1FrTXRGMlk3dTJDdnZwZEcw?oc=5",
+              "title": "Verdi ruft zum Streik bei Amazon in Rheinberg und Werne auf - Spiegel",
+              "summary": null,
+              "timestamp": "2022-04-11T07:00:00.000Z",
+              "foundAt": "2026-10-19T12:44:18.507Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "Spiegel",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNVUlkYnBqLURjV09kRHRDZWFKY25VWVdwWU84TUlTTjhzYmtaN3dYeEp5ZW9CTktiVFVBbTBNQ05oam9qMElueDc2ejIxaWJHTFNPbHhTbzJMSEUzeGdiWnFYS0hGQVRXajVJX0NjMGJCSVgxRFYzdndXd1Nkd2J0ak0zVlE2NFRaZFBSOGU0TzZpTTJESVNHWXB5aVV3QW1GV2RiYXhKN2pPYWtSRkdLYlBFNEs4YllSdTBDZVNCcFBaR2prdk5CaEU3Q1FrTXRGMlk3dTJDdnZwZEcw?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMingFBVV95cUxPTHVpUWdadXdsYzVJRzh3ZUI5bm5GeFUwWTEzd25EZ3FMNEhBMFZOaVpKNFpzdU5WcWhfNGItODFYeUxKWWNMQk9xY2tOd1FNQUNJQTNTcWRmbVVOZlRES2hXYnZxcmxCM2c1Y1NjUUZpWGNzTVdJWm5qaUtXYzFHa3dvbkl6UTZXSkQxYUU2bkxzYVVJM3ozMnRXRUhRdw?oc=5",
+              "title": "Lieferkettengesetz: Was die EU-Richtlinie für Deutschland bedeutet - Aktion gegen den Hunger",
+              "summary": null,
+              "timestamp": "2024-11-20T08:00:00.000Z",
+              "foundAt": "2026-10-19T04:08:45.405Z",
+              "location": null,
+              "category": "Regulatory / Compliance Risk",
+              "severity": "low",
+              "source": "Aktion gegen den Hunger",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPTHVpUWdadXdsYzVJRzh3ZUI5bm5GeFUwWTEzd25EZ3FMNEhBMFZOaVpKNFpzdU5WcWhfNGItODFYeUxKWWNMQk9xY2tOd1FNQUNJQTNTcWRmbVVOZlRES2hXYnZxcmxCM2c1Y1NjUUZpWGNzTVdJWm5qaUtXYzFHa3dvbkl6UTZXSkQxYUU2bkxzYVVJM3ozMnRXRUhRdw?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPcC1XYUd0Rll2SHFQRnI5OHdtaWlTSmVwWW5pWjVOSHMwRGo2TjJUTW9nUXh5bnYxWnA4ekt6UFZOVFlPYllkNHJZdmotSGVhaVZTMFJ5SDA0amRGSW5tc0ZuYlNmZ3NabzJZMldYVEVYeWQyNlU2d3VlWGhtMF84MmtZS0xQT1RoZUV4eDFxN2xnWHlCVHhTYmp2UUM0YUdjcWF0R1Foc2daZkphVEY5Z3RaUGtYODJkdVc2MXZ6TVEtUQ?oc=5",
+              "title": "Freight crime rise puts forwarders under greater credit risk - Insurance Business",
+              "summary": null,
+              "timestamp": "2025-11-21T08:00:00.000Z",
+              "foundAt": "2026-10-18T20:23:44.259Z",
+              "location": null,
+              "category": "Carrier / Freight Fraud",
+              "severity": "medium",
+              "source": "Insurance Business",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPcC1XYUd0Rll2SHFQRnI5OHdtaWlTSmVwWW5pWjVOSHMwRGo2TjJUTW9nUXh5bnYxWnA4ekt6UFZOVFlPYllkNHJZdmotSGVhaVZTMFJ5SDA0amRGSW5tc0ZuYlNmZ3NabzJZMldYVEVYeWQyNlU2d3VlWGhtMF84MmtZS0xQT1RoZUV4eDFxN2xnWHlCVHhTYmp2UUM0YUdjcWF0R1Foc2daZkphVEY5Z3RaUGtYODJkdVc2MXZ6TVEtUQ?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE41ZjJEQ0ZneV9SWXFPMXRGOXVacENOdXJNWmYxZXZOTFdHMmR3YW9mclBaaHhPdmY2UFYzd0t6VFExR0FULUpoZXVLVG91Um12UHdwY2FVM2YwR0RIQ0dMZGVlMldFZ0Zh?oc=5",
+              "title": "Warnstreik bei BVG: „Notwendig wäre ein Generalstreik“ - World Socialist Web Site",
+              "summary": null,
+              "timestamp": "2025-02-11T08:00:00.000Z",
+              "foundAt": "2026-10-18T20:23:44.259Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "World Socialist Web Site",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE41ZjJEQ0ZneV9SWXFPMXRGOXVacENOdXJNWmYxZXZOTFdHMmR3YW9mclBaaHhPdmY2UFYzd0t6VFExR0FULUpoZXVLVG91Um12UHdwY2FVM2YwR0RIQ0dMZGVlMldFZ0Zh?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
             {
               "id": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQNHVaeHNHLXZaTkQ2MVRwRjdxX1JIbXBuNU44TzBwLXJTSjNZT0RKbDJLVjdwNnBwQ3p0Z3hUOGVFZTBZeEx2dUpWUmtzS1pTTE52a0t1ZGd4dnFPVmtpVDBPNGd0cUdtcURPQkxraHBqM3lsWW8yQ2N3ZG04RmpxVXVvS21PSnowU3FfMHVsaWtYMWprTHpmakdiQ3lfVGJMTHhSQUp3?oc=5",
               "title": "OTR Solutions, LoadConnect Partner to Combat Freight Fraud in Trucking - Heavy Duty Trucking",
@@ -21467,9 +21564,9 @@
       {
         "id": "fraud-watch:briefing",
         "sourceProject": "Fraud Watch",
-        "timestamp": "2026-10-18T13:40:48.468Z",
+        "timestamp": "2026-10-19T16:42:12.979Z",
         "title": "Fraud Watch simulation state changed",
-        "summary": "Synthetic simulation day 27 contains 9 candidate methods of operation and 2 open investigations.",
+        "summary": "Synthetic simulation day 28 contains 9 candidate methods of operation and 0 open investigations.",
         "category": "risk-intelligence",
         "importance": "medium",
         "evidenceType": "SIMULATION",
@@ -21498,22 +21595,21 @@
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
           ],
-          "retrievedAt": "2026-10-18T13:40:48.468Z",
+          "retrievedAt": "2026-10-19T16:42:12.979Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp simulation day 27, 18:00:00",
+          "freshness": "source timestamp simulation day 28, 18:00:00",
           "changedRecords": [
-            "MO-0045",
             "MO-0046",
             "MO-0047"
           ]
         },
         "details": {
           "simulation": {
-            "day": 27,
+            "day": 28,
             "timeOfDay": "18:00:00",
-            "activeSignals": 0,
-            "openInvestigations": 2,
+            "activeSignals": 2,
+            "openInvestigations": 0,
             "totalCases": 47
           },
           "candidates": [
@@ -22263,9 +22359,9 @@
             },
             {
               "id": "MO-0046",
-              "status": "NEW",
+              "status": "DISMISSED",
               "classification": "KNOWN_MO",
-              "confidenceBand": "WATCH",
+              "confidenceBand": "MINIMAL",
               "noveltyScore": 10,
               "signature": "EQUIPMENT_CARRIER_MISMATCH+MANIFEST_CHANGED",
               "entities": {
@@ -22303,6 +22399,38 @@
                 {
                   "t": 2290800,
                   "type": "EQUIPMENT_CARRIER_MISMATCH"
+                },
+                {
+                  "t": 2314800,
+                  "type": "UNEXPECTED_STOP"
+                },
+                {
+                  "t": 2315030,
+                  "type": "MANIFEST_CHANGED"
+                },
+                {
+                  "t": 2315100,
+                  "type": "EQUIPMENT_CARRIER_MISMATCH"
+                },
+                {
+                  "t": 2318400,
+                  "type": "UNEXPECTED_STOP"
+                },
+                {
+                  "t": 2321172,
+                  "type": "UNEXPECTED_STOP"
+                },
+                {
+                  "t": 2321400,
+                  "type": "STAGED_BREAKDOWN"
+                },
+                {
+                  "t": 2325000,
+                  "type": "HANDOVER_GAP"
+                },
+                {
+                  "t": 2326200,
+                  "type": "HANDOVER_GAP"
                 }
               ],
               "evidence": [
@@ -22368,12 +22496,84 @@
                   "at": 2290800,
                   "facilityId": null,
                   "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001543",
+                  "signalType": "UNEXPECTED_STOP",
+                  "contribution": 0.6,
+                  "reliability": 0.6,
+                  "at": 2314800,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001545",
+                  "signalType": "MANIFEST_CHANGED",
+                  "contribution": 1.3,
+                  "reliability": 0.65,
+                  "at": 2315030,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001544",
+                  "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+                  "contribution": 2.1,
+                  "reliability": 0.7,
+                  "at": 2315100,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001548",
+                  "signalType": "UNEXPECTED_STOP",
+                  "contribution": 0.6,
+                  "reliability": 0.6,
+                  "at": 2318400,
+                  "facilityId": "FAC-002",
+                  "facilityName": "South Gate"
+                },
+                {
+                  "signalId": "SIG-001553",
+                  "signalType": "UNEXPECTED_STOP",
+                  "contribution": 0.6,
+                  "reliability": 0.6,
+                  "at": 2321172,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001552",
+                  "signalType": "STAGED_BREAKDOWN",
+                  "contribution": 1,
+                  "reliability": 0.5,
+                  "at": 2321400,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001554",
+                  "signalType": "HANDOVER_GAP",
+                  "contribution": 1.1,
+                  "reliability": 0.55,
+                  "at": 2325000,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-001555",
+                  "signalType": "HANDOVER_GAP",
+                  "contribution": 1.1,
+                  "reliability": 0.55,
+                  "at": 2326200,
+                  "facilityId": "FAC-009",
+                  "facilityName": "Inland Depot Sud"
                 }
               ]
             },
             {
               "id": "MO-0047",
-              "status": "NEW",
+              "status": "DISMISSED",
               "classification": "MO_VARIANT",
               "confidenceBand": "MINIMAL",
               "noveltyScore": 100,
@@ -22450,11 +22650,11 @@
       {
         "id": "shadow-network:briefing",
         "sourceProject": "Shadow Network",
-        "timestamp": "2026-10-18T13:40:48.468Z",
+        "timestamp": "2026-10-19T16:42:12.979Z",
         "title": "Shadow Network synthetic snapshot changed",
-        "summary": "Synthetic network day 27 was refreshed: 0 incidents and 0 verdicts are recorded in the latest state.",
+        "summary": "Synthetic network day 28 was refreshed: 2 incidents and 2 verdicts are recorded in the latest state.",
         "category": "risk-intelligence",
-        "importance": "low",
+        "importance": "medium",
         "evidenceType": "SIMULATION",
         "sourceType": "SYNTHETIC",
         "links": [
@@ -22475,19 +22675,97 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
           ],
-          "retrievedAt": "2026-10-18T13:40:48.468Z",
+          "retrievedAt": "2026-10-19T16:42:12.979Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp 2026-10-18T08:08:45.331Z",
+          "freshness": "source timestamp 2026-10-19T09:03:10.716Z",
           "changedRecords": [
             "snapshot"
           ]
         },
         "details": {
-          "day": 27,
-          "generatedAt": "2026-10-18T08:08:45.331Z",
-          "incidents": [],
-          "verdicts": [],
+          "day": 28,
+          "generatedAt": "2026-10-19T09:03:10.716Z",
+          "incidents": [
+            {
+              "id": "INC-28-1",
+              "day": 28,
+              "kind": "anomaly",
+              "severity": "low",
+              "carrierIds": [
+                "CAR-0002"
+              ],
+              "laneId": "LN-001",
+              "groundTruthFraud": false,
+              "causalTrace": [
+                "Carrier CAR-0002 legitimacy 78.8 is well above the corruption threshold.",
+                "A one-off operational anomaly on lane LN-001 tripped a detection rule with no corroborating signal."
+              ]
+            },
+            {
+              "id": "INC-28-2",
+              "day": 28,
+              "kind": "anomaly",
+              "severity": "low",
+              "carrierIds": [
+                "CAR-0041"
+              ],
+              "laneId": "LN-006",
+              "groundTruthFraud": false,
+              "causalTrace": [
+                "Carrier CAR-0041 legitimacy 94.4 is well above the corruption threshold.",
+                "A one-off operational anomaly on lane LN-006 tripped a detection rule with no corroborating signal."
+              ]
+            }
+          ],
+          "verdicts": [
+            {
+              "event": {
+                "id": "INC-28-1",
+                "day": 28,
+                "kind": "anomaly",
+                "severity": "low",
+                "carrierIds": [
+                  "CAR-0002"
+                ],
+                "laneId": "LN-001",
+                "groundTruthFraud": false,
+                "causalTrace": [
+                  "Carrier CAR-0002 legitimacy 78.8 is well above the corruption threshold.",
+                  "A one-off operational anomaly on lane LN-001 tripped a detection rule with no corroborating signal."
+                ]
+              },
+              "verdict": {
+                "eventId": "INC-28-1",
+                "decision": "clear",
+                "confidence": 0.88,
+                "reasoning": "CAR-0002 shows an average legitimacy signal of 78.8 on a low severity flag. Recommending clear."
+              }
+            },
+            {
+              "event": {
+                "id": "INC-28-2",
+                "day": 28,
+                "kind": "anomaly",
+                "severity": "low",
+                "carrierIds": [
+                  "CAR-0041"
+                ],
+                "laneId": "LN-006",
+                "groundTruthFraud": false,
+                "causalTrace": [
+                  "Carrier CAR-0041 legitimacy 94.4 is well above the corruption threshold.",
+                  "A one-off operational anomaly on lane LN-006 tripped a detection rule with no corroborating signal."
+                ]
+              },
+              "verdict": {
+                "eventId": "INC-28-2",
+                "decision": "clear",
+                "confidence": 0.93,
+                "reasoning": "CAR-0041 shows an average legitimacy signal of 94.4 on a low severity flag. Recommending clear."
+              }
+            }
+          ],
           "carrierCount": 120,
           "relationshipCount": 0,
           "label": "SYNTHETIC SIMULATION — not real carrier-network intelligence"
@@ -22497,9 +22775,9 @@
       {
         "id": "eu-ai-act-scanner:briefing",
         "sourceProject": "EU AI Act Scanner",
-        "timestamp": "2026-10-12T19:30:51.766Z",
+        "timestamp": "2026-10-19T16:42:12.979Z",
         "title": "Official EU AI monitoring completed",
-        "summary": "4 official source change records require human review. No compliance rule was rewritten by MESH.",
+        "summary": "6 official source change records require human review. No compliance rule was rewritten by MESH.",
         "category": "risk-intelligence",
         "importance": "high",
         "evidenceType": "OFFICIAL_SOURCE",
@@ -22528,10 +22806,10 @@
             "https://raw.githubusercontent.com/Jeevan-0508/eu-ai-act-scanner/main/data/regulatory-monitor.json",
             "https://raw.githubusercontent.com/Jeevan-0508/eu-ai-act-scanner/main/data/regulatory-changes.jsonl"
           ],
-          "retrievedAt": "2026-10-12T19:30:51.766Z",
+          "retrievedAt": "2026-10-19T16:42:12.979Z",
           "status": "OFFICIAL",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp 2026-10-12T16:30:09.417Z",
+          "freshness": "source timestamp 2026-10-19T14:21:24.356Z",
           "changedRecords": [
             "eu-ai-act-consolidated",
             "eu-ai-act-commission-framework"
@@ -22545,8 +22823,8 @@
               "url": "https://publications.europa.eu/resource/celex/32024R1689",
               "status": "REVIEW_REQUIRED",
               "httpStatus": 200,
-              "contentHash": "285f7f0aaaf6c5d0ec0d977afeb589e8d64b5d086ecf5b6872a371b021d9e77e",
-              "retrievedAt": "2026-10-12T16:30:09.417972+00:00"
+              "contentHash": "d61cc66b0517366cce7c6cc9d6329165377f29eca2ed45bf77e362e962cdc761",
+              "retrievedAt": "2026-10-19T14:21:24.356246+00:00"
             },
             {
               "id": "eu-ai-act-commission-framework",
@@ -22554,8 +22832,8 @@
               "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
               "status": "REVIEW_REQUIRED",
               "httpStatus": 200,
-              "contentHash": "45dfb7d44d547b7f5c5c0640081a12b5eb29abbc6b99715e9775441c9daa6c9e",
-              "retrievedAt": "2026-10-12T16:30:09.417972+00:00"
+              "contentHash": "f248b6b94b34d5c9c3224237bfb7fd5a5c0ed52adb1c1fd0b678f8479bc97dd3",
+              "retrievedAt": "2026-10-19T14:21:24.356246+00:00"
             }
           ],
           "changes": [
@@ -22594,6 +22872,24 @@
               "review_status": "REVIEW_REQUIRED",
               "source": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
               "source_id": "eu-ai-act-commission-framework"
+            },
+            {
+              "current_hash": "d61cc66b0517366cce7c6cc9d6329165377f29eca2ed45bf77e362e962cdc761",
+              "kind": "LEGAL_TEXT",
+              "previous_hash": "285f7f0aaaf6c5d0ec0d977afeb589e8d64b5d086ecf5b6872a371b021d9e77e",
+              "retrieved_at": "2026-10-19T14:21:24.356246+00:00",
+              "review_status": "REVIEW_REQUIRED",
+              "source": "https://publications.europa.eu/resource/celex/32024R1689",
+              "source_id": "eu-ai-act-consolidated"
+            },
+            {
+              "current_hash": "f248b6b94b34d5c9c3224237bfb7fd5a5c0ed52adb1c1fd0b678f8479bc97dd3",
+              "kind": "IMPLEMENTATION_INFORMATION",
+              "previous_hash": "45dfb7d44d547b7f5c5c0640081a12b5eb29abbc6b99715e9775441c9daa6c9e",
+              "retrieved_at": "2026-10-19T14:21:24.356246+00:00",
+              "review_status": "REVIEW_REQUIRED",
+              "source": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+              "source_id": "eu-ai-act-commission-framework"
             }
           ],
           "label": "OFFICIAL SOURCE MONITOR — REVIEW_REQUIRED is not a legal conclusion"
@@ -22603,7 +22899,7 @@
       {
         "id": "risk-ring:briefing",
         "sourceProject": "Risk Ring",
-        "timestamp": "2026-10-12T19:30:51.766Z",
+        "timestamp": "2026-10-19T16:42:12.979Z",
         "title": "Risk Ring synthetic analysis changed",
         "summary": "Synthetic analysis contains 30 alerts across 20 rings; graph recovery covers 20 of 20 synthetic rings.",
         "category": "risk-intelligence",
@@ -22638,7 +22934,7 @@
             "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/metrics.json",
             "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/graph_metrics.json"
           ],
-          "retrievedAt": "2026-10-12T19:30:51.766Z",
+          "retrievedAt": "2026-10-19T16:42:12.979Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
           "freshness": "timestamp not supplied by source",
@@ -22657,27 +22953,27 @@
               "test_rows": 6112
             },
             "logistic_regression": {
-              "precision": 0.7626,
+              "precision": 0.726,
               "recall": 1,
-              "f1": 0.8653,
-              "roc_auc": 0.9994,
-              "pr_auc": 0.9625
+              "f1": 0.8412,
+              "roc_auc": 0.9993,
+              "pr_auc": 0.9596
             },
             "xgboost": {
-              "precision": 0.7475,
+              "precision": 0.8032,
               "recall": 1,
-              "f1": 0.8555,
+              "f1": 0.8909,
               "roc_auc": 0.9999,
-              "pr_auc": 0.9946
+              "pr_auc": 0.9953
             }
           },
           "graphMetrics": {
             "seed_percentile": 0.95,
-            "subgraph_nodes": 2104,
-            "subgraph_edges": 10290,
-            "communities_detected": 223,
-            "avg_ring_recall": 0.774,
-            "avg_ring_precision": 0.749,
+            "subgraph_nodes": 2103,
+            "subgraph_edges": 10292,
+            "communities_detected": 229,
+            "avg_ring_recall": 0.753,
+            "avg_ring_precision": 0.793,
             "rings_recovered_ge_30pct": 20,
             "total_true_rings": 20,
             "per_ring": [
@@ -22693,33 +22989,33 @@
                 "ring_id": "015",
                 "typology": "smurfing",
                 "recall": 0.545,
-                "precision": 0.6,
+                "precision": 0.667,
                 "true_size": 11,
-                "matched_community_size": 10
+                "matched_community_size": 9
               },
               {
                 "ring_id": "007",
                 "typology": "layering",
-                "recall": 1,
-                "precision": 0.375,
+                "recall": 0.667,
+                "precision": 0.333,
                 "true_size": 6,
-                "matched_community_size": 16
+                "matched_community_size": 12
               },
               {
                 "ring_id": "013",
                 "typology": "layering",
                 "recall": 0.833,
-                "precision": 0.5,
+                "precision": 0.833,
                 "true_size": 6,
-                "matched_community_size": 10
+                "matched_community_size": 6
               },
               {
                 "ring_id": "000",
                 "typology": "smurfing",
                 "recall": 0.429,
-                "precision": 0.5,
+                "precision": 0.6,
                 "true_size": 14,
-                "matched_community_size": 12
+                "matched_community_size": 10
               },
               {
                 "ring_id": "004",
@@ -22757,25 +23053,25 @@
                 "ring_id": "012",
                 "typology": "smurfing",
                 "recall": 0.333,
-                "precision": 0.333,
+                "precision": 0.375,
                 "true_size": 9,
-                "matched_community_size": 9
+                "matched_community_size": 8
               },
               {
                 "ring_id": "009",
                 "typology": "smurfing",
-                "recall": 0.545,
-                "precision": 0.5,
+                "recall": 0.455,
+                "precision": 0.625,
                 "true_size": 11,
-                "matched_community_size": 12
+                "matched_community_size": 8
               },
               {
                 "ring_id": "019",
                 "typology": "layering",
                 "recall": 0.833,
-                "precision": 0.556,
+                "precision": 1,
                 "true_size": 6,
-                "matched_community_size": 9
+                "matched_community_size": 5
               },
               {
                 "ring_id": "017",
@@ -22789,9 +23085,9 @@
                 "ring_id": "006",
                 "typology": "smurfing",
                 "recall": 0.5,
-                "precision": 0.857,
+                "precision": 0.667,
                 "true_size": 12,
-                "matched_community_size": 7
+                "matched_community_size": 9
               },
               {
                 "ring_id": "011",
@@ -22845,97 +23141,10 @@
           },
           "alerts": [
             {
-              "tx_id": "T0016189",
-              "orig": "R004_hop0",
-              "dest": "R004_hop1",
-              "amount": 39474.17,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "004",
-              "typology": "layering",
-              "top_factors": [
-                {
-                  "feature": "amount",
-                  "shap_value": 6.1009
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 2.6512
-                },
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 1.7431
-                },
-                {
-                  "feature": "near_threshold",
-                  "shap_value": 1.1492
-                }
-              ]
-            },
-            {
-              "tx_id": "T0017069",
-              "orig": "R002_loop0",
-              "dest": "R002_loop1",
-              "amount": 7137.04,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "002",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.6719
-                },
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.4963
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.314
-                },
-                {
-                  "feature": "orig_tx_count_prior",
-                  "shap_value": 1.4582
-                }
-              ]
-            },
-            {
-              "tx_id": "T0016822",
-              "orig": "R002_loop0",
-              "dest": "R002_loop1",
-              "amount": 5164.34,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "002",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.4169
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.4165
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.2354
-                },
-                {
-                  "feature": "orig_tx_count_prior",
-                  "shap_value": 1.6213
-                }
-              ]
-            },
-            {
-              "tx_id": "T0017417",
-              "orig": "R005_loop3",
-              "dest": "R005_loop0",
-              "amount": 7236.15,
+              "tx_id": "T0018003",
+              "orig": "R005_loop1",
+              "dest": "R005_loop2",
+              "amount": 5442.63,
               "tx_type": "TRANSFER",
               "risk_score": 1,
               "is_fraud_ground_truth": 1,
@@ -22943,165 +23152,20 @@
               "typology": "round_trip",
               "top_factors": [
                 {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.9267
-                },
-                {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 3.5476
+                  "shap_value": 3.9537
                 },
                 {
                   "feature": "amount",
-                  "shap_value": 3.1826
+                  "shap_value": 3.376
                 },
-                {
-                  "feature": "orig_tx_count_prior",
-                  "shap_value": 1.1599
-                }
-              ]
-            },
-            {
-              "tx_id": "T0017510",
-              "orig": "R017_loop3",
-              "dest": "R017_loop0",
-              "amount": 5769.59,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "017",
-              "typology": "round_trip",
-              "top_factors": [
                 {
                   "feature": "pair_prior_count",
-                  "shap_value": 3.5681
+                  "shap_value": 3.2921
                 },
                 {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.5018
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.2301
-                },
-                {
-                  "feature": "orig_tx_count_prior",
-                  "shap_value": 1.1647
-                }
-              ]
-            },
-            {
-              "tx_id": "T0016139",
-              "orig": "R005_loop3",
-              "dest": "R005_loop0",
-              "amount": 5047.95,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "005",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.5094
-                },
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.3796
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.0672
-                },
-                {
-                  "feature": "orig_tx_count_prior",
-                  "shap_value": 1.6374
-                }
-              ]
-            },
-            {
-              "tx_id": "T0018260",
-              "orig": "R017_loop2",
-              "dest": "R017_loop3",
-              "amount": 7316.84,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "017",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.7395
-                },
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.5008
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.2737
-                },
-                {
-                  "feature": "orig_tx_count_prior",
-                  "shap_value": 1.2932
-                }
-              ]
-            },
-            {
-              "tx_id": "T0018023",
-              "orig": "R017_loop0",
-              "dest": "R017_loop1",
-              "amount": 7287.59,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "017",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.7839
-                },
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.7043
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.2537
-                },
-                {
-                  "feature": "orig_tx_count_prior",
-                  "shap_value": 1.1188
-                }
-              ]
-            },
-            {
-              "tx_id": "T0017181",
-              "orig": "R005_loop0",
-              "dest": "R005_loop1",
-              "amount": 7304.57,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "005",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.8399
-                },
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.3099
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.1829
-                },
-                {
-                  "feature": "orig_tx_count_prior",
-                  "shap_value": 1.127
+                  "feature": "dest_fanin_prior",
+                  "shap_value": 0.9601
                 }
               ]
             },
@@ -23117,49 +23181,20 @@
               "typology": "round_trip",
               "top_factors": [
                 {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.6676
+                  "feature": "amount",
+                  "shap_value": 3.5818
                 },
                 {
                   "feature": "pair_prior_count",
-                  "shap_value": 3.5969
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.3265
-                },
-                {
-                  "feature": "orig_tx_count_prior",
-                  "shap_value": 1.2966
-                }
-              ]
-            },
-            {
-              "tx_id": "T0016571",
-              "orig": "R002_loop0",
-              "dest": "R002_loop1",
-              "amount": 5160.24,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "002",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.5589
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.2805
+                  "shap_value": 3.5218
                 },
                 {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 3.1623
+                  "shap_value": 1.9412
                 },
                 {
-                  "feature": "orig_tx_count_prior",
-                  "shap_value": 1.5789
+                  "feature": "dest_fanin_prior",
+                  "shap_value": 1.7928
                 }
               ]
             },
@@ -23176,19 +23211,280 @@
               "top_factors": [
                 {
                   "feature": "pair_prior_count",
-                  "shap_value": 3.8282
-                },
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.6793
+                  "shap_value": 3.7436
                 },
                 {
                   "feature": "amount",
-                  "shap_value": 3.2646
+                  "shap_value": 3.3172
                 },
                 {
-                  "feature": "orig_tx_count_prior",
-                  "shap_value": 1.0977
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 2.3828
+                },
+                {
+                  "feature": "dest_fanin_prior",
+                  "shap_value": 1.2791
+                }
+              ]
+            },
+            {
+              "tx_id": "T0017417",
+              "orig": "R005_loop3",
+              "dest": "R005_loop0",
+              "amount": 7236.15,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "005",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 4.7268
+                },
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.9049
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.2036
+                },
+                {
+                  "feature": "dest_fanin_prior",
+                  "shap_value": -0.6776
+                }
+              ]
+            },
+            {
+              "tx_id": "T0017367",
+              "orig": "R005_loop2",
+              "dest": "R005_loop3",
+              "amount": 7241.07,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "005",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 4.8538
+                },
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.8937
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.2103
+                },
+                {
+                  "feature": "dest_fanin_prior",
+                  "shap_value": -0.7874
+                }
+              ]
+            },
+            {
+              "tx_id": "T0018338",
+              "orig": "R016_hop0",
+              "dest": "R016_hop1",
+              "amount": 23699.2,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "016",
+              "typology": "layering",
+              "top_factors": [
+                {
+                  "feature": "amount",
+                  "shap_value": 5.01
+                },
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 2.7646
+                },
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 2.7337
+                },
+                {
+                  "feature": "time_since_orig_last",
+                  "shap_value": 0.901
+                }
+              ]
+            },
+            {
+              "tx_id": "T0017181",
+              "orig": "R005_loop0",
+              "dest": "R005_loop1",
+              "amount": 7304.57,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "005",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 3.9862
+                },
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.7723
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.2927
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 0.8123
+                }
+              ]
+            },
+            {
+              "tx_id": "T0014390",
+              "orig": "R011_loop2",
+              "dest": "R011_loop0",
+              "amount": 6231.03,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "011",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 3.9216
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.408
+                },
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.2946
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 0.8304
+                }
+              ]
+            },
+            {
+              "tx_id": "T0017233",
+              "orig": "R017_loop0",
+              "dest": "R017_loop1",
+              "amount": 6289.91,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "017",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 4.5455
+                },
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.5761
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.3295
+                },
+                {
+                  "feature": "dest_fanin_prior",
+                  "shap_value": -1.0313
+                }
+              ]
+            },
+            {
+              "tx_id": "T0018023",
+              "orig": "R017_loop0",
+              "dest": "R017_loop1",
+              "amount": 7287.59,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "017",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 4.8612
+                },
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.8128
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.2587
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 0.8684
+                }
+              ]
+            },
+            {
+              "tx_id": "T0017094",
+              "orig": "R002_loop1",
+              "dest": "R002_loop2",
+              "amount": 7232.79,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "002",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 4.2554
+                },
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.7987
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.2808
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 1.0241
+                }
+              ]
+            },
+            {
+              "tx_id": "T0017069",
+              "orig": "R002_loop0",
+              "dest": "R002_loop1",
+              "amount": 7137.04,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "002",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 4.3431
+                },
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.6778
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.1623
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 0.944
                 }
               ]
             }
@@ -23204,10 +23500,10 @@
                   "id": "R010_hop3"
                 },
                 {
-                  "id": "R010_hop4"
+                  "id": "R010_hop2"
                 },
                 {
-                  "id": "R010_hop2"
+                  "id": "R010_hop4"
                 },
                 {
                   "id": "R010_hop0"
@@ -23243,53 +23539,43 @@
               "ring_id": "015",
               "typology": "smurfing",
               "recall": 0.545,
-              "precision": 0.6,
+              "precision": 0.667,
               "nodes": [
                 {
-                  "id": "A01101"
-                },
-                {
-                  "id": "R015_smurf3"
-                },
-                {
                   "id": "R015_collector"
-                },
-                {
-                  "id": "A01881"
-                },
-                {
-                  "id": "A00116"
-                },
-                {
-                  "id": "R015_smurf0"
                 },
                 {
                   "id": "A00886"
                 },
                 {
-                  "id": "R015_smurf2"
-                },
-                {
-                  "id": "A01703"
+                  "id": "R015_smurf4"
                 },
                 {
                   "id": "R015_smurf1"
                 },
                 {
-                  "id": "R015_smurf4"
+                  "id": "A01881"
+                },
+                {
+                  "id": "R015_smurf2"
+                },
+                {
+                  "id": "R015_smurf0"
+                },
+                {
+                  "id": "R015_smurf3"
+                },
+                {
+                  "id": "A01101"
+                },
+                {
+                  "id": "A00116"
+                },
+                {
+                  "id": "A01703"
                 }
               ],
               "edges": [
-                {
-                  "source": "A01101",
-                  "target": "R015_collector",
-                  "weight": 1
-                },
-                {
-                  "source": "R015_smurf3",
-                  "target": "R015_collector",
-                  "weight": 4
-                },
                 {
                   "source": "R015_collector",
                   "target": "R015_smurf4",
@@ -23312,6 +23598,11 @@
                 },
                 {
                   "source": "R015_collector",
+                  "target": "R015_smurf3",
+                  "weight": 4
+                },
+                {
+                  "source": "R015_collector",
                   "target": "A01881",
                   "weight": 1
                 },
@@ -23327,6 +23618,11 @@
                 },
                 {
                   "source": "R015_collector",
+                  "target": "A01101",
+                  "weight": 1
+                },
+                {
+                  "source": "R015_collector",
                   "target": "A01703",
                   "weight": 1
                 }
@@ -23335,14 +23631,17 @@
             {
               "ring_id": "007",
               "typology": "layering",
-              "recall": 1,
-              "precision": 0.375,
+              "recall": 0.667,
+              "precision": 0.333,
               "nodes": [
                 {
-                  "id": "R007_hop4"
+                  "id": "R007_hop0"
                 },
                 {
-                  "id": "R007_hop0"
+                  "id": "R007_hop2"
+                },
+                {
+                  "id": "R007_hop1"
                 },
                 {
                   "id": "R007_hop3"
@@ -23351,36 +23650,33 @@
                   "id": "R007_hop5"
                 },
                 {
-                  "id": "R007_hop2"
-                },
-                {
-                  "id": "R007_hop1"
+                  "id": "R007_hop4"
                 }
               ],
               "edges": [
-                {
-                  "source": "R007_hop4",
-                  "target": "R007_hop3",
-                  "weight": 3
-                },
-                {
-                  "source": "R007_hop4",
-                  "target": "R007_hop5",
-                  "weight": 3
-                },
                 {
                   "source": "R007_hop0",
                   "target": "R007_hop1",
                   "weight": 3
                 },
                 {
-                  "source": "R007_hop3",
-                  "target": "R007_hop2",
+                  "source": "R007_hop2",
+                  "target": "R007_hop1",
                   "weight": 3
                 },
                 {
                   "source": "R007_hop2",
-                  "target": "R007_hop1",
+                  "target": "R007_hop3",
+                  "weight": 3
+                },
+                {
+                  "source": "R007_hop3",
+                  "target": "R007_hop4",
+                  "weight": 3
+                },
+                {
+                  "source": "R007_hop5",
+                  "target": "R007_hop4",
                   "weight": 3
                 }
               ]
@@ -23389,14 +23685,8 @@
               "ring_id": "013",
               "typology": "layering",
               "recall": 0.833,
-              "precision": 0.5,
+              "precision": 0.833,
               "nodes": [
-                {
-                  "id": "R013_hop3"
-                },
-                {
-                  "id": "R013_hop2"
-                },
                 {
                   "id": "R013_hop1"
                 },
@@ -23404,37 +23694,43 @@
                   "id": "R013_hop5"
                 },
                 {
-                  "id": "R013_hop4"
+                  "id": "R013_hop2"
                 },
                 {
                   "id": "R013_hop0"
+                },
+                {
+                  "id": "R013_hop4"
+                },
+                {
+                  "id": "R013_hop3"
                 }
               ],
               "edges": [
-                {
-                  "source": "R013_hop3",
-                  "target": "R013_hop2",
-                  "weight": 6
-                },
-                {
-                  "source": "R013_hop3",
-                  "target": "R013_hop4",
-                  "weight": 4
-                },
-                {
-                  "source": "R013_hop2",
-                  "target": "R013_hop1",
-                  "weight": 6
-                },
                 {
                   "source": "R013_hop1",
                   "target": "R013_hop0",
                   "weight": 6
                 },
                 {
+                  "source": "R013_hop1",
+                  "target": "R013_hop2",
+                  "weight": 6
+                },
+                {
                   "source": "R013_hop5",
                   "target": "R013_hop4",
                   "weight": 1
+                },
+                {
+                  "source": "R013_hop2",
+                  "target": "R013_hop3",
+                  "weight": 6
+                },
+                {
+                  "source": "R013_hop4",
+                  "target": "R013_hop3",
+                  "weight": 4
                 }
               ]
             },
@@ -23442,59 +23738,64 @@
               "ring_id": "000",
               "typology": "smurfing",
               "recall": 0.429,
-              "precision": 0.5,
+              "precision": 0.6,
               "nodes": [
                 {
-                  "id": "R000_smurf5"
-                },
-                {
-                  "id": "A01046"
-                },
-                {
-                  "id": "R000_smurf2"
-                },
-                {
-                  "id": "A01693"
-                },
-                {
-                  "id": "R000_collector"
-                },
-                {
-                  "id": "R000_smurf1"
-                },
-                {
-                  "id": "A01913"
+                  "id": "R000_smurf3"
                 },
                 {
                   "id": "A01293"
                 },
                 {
-                  "id": "A01525"
+                  "id": "A01693"
                 },
                 {
-                  "id": "R000_smurf0"
+                  "id": "R000_smurf2"
                 },
                 {
-                  "id": "A00764"
+                  "id": "R000_collector"
+                },
+                {
+                  "id": "A01046"
+                },
+                {
+                  "id": "A01913"
                 },
                 {
                   "id": "R000_smurf4"
                 },
                 {
+                  "id": "R000_smurf5"
+                },
+                {
+                  "id": "R000_smurf0"
+                },
+                {
+                  "id": "R000_smurf1"
+                },
+                {
                   "id": "A01559"
                 },
                 {
-                  "id": "R000_smurf3"
+                  "id": "A00764"
+                },
+                {
+                  "id": "A01525"
                 }
               ],
               "edges": [
                 {
-                  "source": "R000_smurf5",
+                  "source": "R000_smurf3",
                   "target": "R000_collector",
-                  "weight": 2
+                  "weight": 5
                 },
                 {
-                  "source": "A01046",
+                  "source": "A01293",
+                  "target": "R000_collector",
+                  "weight": 1
+                },
+                {
+                  "source": "A01693",
                   "target": "R000_collector",
                   "weight": 1
                 },
@@ -23502,11 +23803,6 @@
                   "source": "R000_smurf2",
                   "target": "R000_collector",
                   "weight": 7
-                },
-                {
-                  "source": "A01693",
-                  "target": "R000_collector",
-                  "weight": 1
                 },
                 {
                   "source": "R000_collector",
@@ -23525,16 +23821,6 @@
                 },
                 {
                   "source": "R000_collector",
-                  "target": "R000_smurf3",
-                  "weight": 5
-                },
-                {
-                  "source": "R000_collector",
-                  "target": "A01293",
-                  "weight": 1
-                },
-                {
-                  "source": "R000_collector",
                   "target": "A00764",
                   "weight": 1
                 },
@@ -23545,12 +23831,22 @@
                 },
                 {
                   "source": "R000_collector",
+                  "target": "R000_smurf5",
+                  "weight": 2
+                },
+                {
+                  "source": "R000_collector",
                   "target": "A01559",
                   "weight": 1
                 },
                 {
                   "source": "R000_collector",
                   "target": "A01525",
+                  "weight": 1
+                },
+                {
+                  "source": "R000_collector",
+                  "target": "A01046",
                   "weight": 1
                 }
               ]
@@ -23562,38 +23858,28 @@
               "precision": 1,
               "nodes": [
                 {
-                  "id": "R004_hop4"
-                },
-                {
-                  "id": "R004_hop0"
-                },
-                {
                   "id": "R004_hop1"
-                },
-                {
-                  "id": "R004_hop5"
                 },
                 {
                   "id": "R004_hop3"
                 },
                 {
+                  "id": "R004_hop0"
+                },
+                {
                   "id": "R004_hop2"
+                },
+                {
+                  "id": "R004_hop5"
+                },
+                {
+                  "id": "R004_hop4"
                 }
               ],
               "edges": [
                 {
-                  "source": "R004_hop4",
-                  "target": "R004_hop3",
-                  "weight": 5
-                },
-                {
-                  "source": "R004_hop4",
-                  "target": "R004_hop5",
-                  "weight": 2
-                },
-                {
-                  "source": "R004_hop0",
-                  "target": "R004_hop1",
+                  "source": "R004_hop1",
+                  "target": "R004_hop0",
                   "weight": 7
                 },
                 {
@@ -23605,6 +23891,16 @@
                   "source": "R004_hop3",
                   "target": "R004_hop2",
                   "weight": 7
+                },
+                {
+                  "source": "R004_hop3",
+                  "target": "R004_hop4",
+                  "weight": 5
+                },
+                {
+                  "source": "R004_hop5",
+                  "target": "R004_hop4",
+                  "weight": 2
                 }
               ]
             },
@@ -23615,29 +23911,29 @@
               "precision": 1,
               "nodes": [
                 {
+                  "id": "R008_loop2"
+                },
+                {
                   "id": "R008_loop1"
                 },
                 {
                   "id": "R008_loop0"
-                },
-                {
-                  "id": "R008_loop2"
                 }
               ],
               "edges": [
                 {
-                  "source": "R008_loop1",
+                  "source": "R008_loop2",
+                  "target": "R008_loop1",
+                  "weight": 9
+                },
+                {
+                  "source": "R008_loop2",
                   "target": "R008_loop0",
                   "weight": 9
                 },
                 {
                   "source": "R008_loop1",
-                  "target": "R008_loop2",
-                  "weight": 9
-                },
-                {
-                  "source": "R008_loop0",
-                  "target": "R008_loop2",
+                  "target": "R008_loop0",
                   "weight": 9
                 }
               ]
@@ -23649,33 +23945,33 @@
               "precision": 0.833,
               "nodes": [
                 {
-                  "id": "R001_hop2"
+                  "id": "R001_hop0"
                 },
                 {
                   "id": "R001_hop3"
                 },
                 {
-                  "id": "R001_hop4"
-                },
-                {
-                  "id": "R001_hop0"
-                },
-                {
                   "id": "R001_hop5"
                 },
                 {
+                  "id": "R001_hop4"
+                },
+                {
                   "id": "R001_hop1"
+                },
+                {
+                  "id": "R001_hop2"
                 }
               ],
               "edges": [
                 {
-                  "source": "R001_hop2",
+                  "source": "R001_hop0",
                   "target": "R001_hop1",
                   "weight": 4
                 },
                 {
-                  "source": "R001_hop2",
-                  "target": "R001_hop3",
+                  "source": "R001_hop3",
+                  "target": "R001_hop2",
                   "weight": 4
                 },
                 {
@@ -23684,13 +23980,13 @@
                   "weight": 3
                 },
                 {
-                  "source": "R001_hop4",
-                  "target": "R001_hop5",
+                  "source": "R001_hop5",
+                  "target": "R001_hop4",
                   "weight": 1
                 },
                 {
-                  "source": "R001_hop0",
-                  "target": "R001_hop1",
+                  "source": "R001_hop1",
+                  "target": "R001_hop2",
                   "weight": 4
                 }
               ]
@@ -23703,7 +23999,7 @@
       {
         "id": "forecast-ledger:briefing",
         "sourceProject": "Forecast Ledger",
-        "timestamp": "2026-10-12T19:30:51.766Z",
+        "timestamp": "2026-10-19T16:42:12.979Z",
         "title": "Forecast Ledger refresh completed",
         "summary": "1 forecast sealed, 0 graded, and 1 explicitly refused by the eligibility rules.",
         "category": "risk-intelligence",
@@ -23732,10 +24028,10 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/Forecast-Ledger/main/site/data.json"
           ],
-          "retrievedAt": "2026-10-12T19:30:51.766Z",
+          "retrievedAt": "2026-10-19T16:42:12.979Z",
           "status": "OFFICIAL",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp 2026-10-10T11:00:00+0200",
+          "freshness": "source timestamp 2026-10-17T11:00:00+0200",
           "changedRecords": [
             "ledger"
           ]
@@ -23786,7 +24082,7 @@
               "dataset": "sts_trtu_q",
               "seriesId": "sts_trtu_q.EU27_2020.G47.VOL_SLS.I21.SCA",
               "role": "forecastable",
-              "fetchedAt": "2026-10-12T13:36:38.346573+00:00"
+              "fetchedAt": "2026-10-19T11:19:55.831714+00:00"
             }
           ],
           "label": "OFFICIAL PUBLIC DATA + DETERMINISTIC LEDGER — refusal is not a forecast"

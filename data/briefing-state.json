@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-11-01T16:31:05.920Z",
+  "generated_at": "2026-11-02T19:54:20.129Z",
   "sourceStates": {
     "fomo": {
       "id": "fomo",
@@ -14,15 +14,15 @@
         "new external freight-risk signals",
         "source titles and links"
       ],
-      "retrievedAt": "2026-11-01T16:31:05.920Z",
+      "retrievedAt": "2026-11-02T19:54:20.129Z",
       "sourceTimestamp": "2026-10-30T16:20:00.000Z",
-      "freshness": "source timestamp 2026-10-30T16:20:00.000Z; checked 2026-11-01T16:31:05.920Z",
+      "freshness": "source timestamp 2026-10-30T16:20:00.000Z; checked 2026-11-02T19:54:20.129Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
       ],
       "origin": "GitHub raw snapshot",
-      "recordCount": 1226,
-      "fingerprint": "803dccac9079a4ae8e6a2d9701ac34dded397db704f47dad2d6ed372cca55781",
+      "recordCount": 1240,
+      "fingerprint": "c9617c3af7a6aba092044f8e8e9b92936a65f3d60271c44dff37390190f93574",
       "records": {
         "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBGQTJVX2Uxajk1OU95QjlCanZtR01rZ0k4T0k1SDdNTDBlM3B6d3RLMVpXc056eTlkOFJOYWtkMktmdzFTbnJ6X1RtYi04Ymo3SVZTZFRmcw?oc=5": "6d0448978fb26ed82decc3444796019c52412248179b5157ba609a0101b0cf0c",
         "https://news.google.com/rss/articles/CBMigAFBVV95cUxQMWd5SUtZcC1BUmVvdkxPU1BPdWJDWUpNMGpua3pKMDl5ZFhJZkJSaVNacWhIUktHVjhVajdNQ3RWTGFJSFZ1Y0lfM0Z6RmxoYW9yOTBfSmZ4OV8xbVZaZ21yZ25jN1A5UUN5djBTV3d3aTJpdUVVTHRSNEJvVzBRcg?oc=5": "64eb9fbfbd598648f99d5c973780aab2529733f101fb5135c16d681da833bb5b",
@@ -1249,7 +1249,21 @@
         "https://news.google.com/rss/articles/CBMilgFBVV95cUxNYnNubDhYVUlTRy1oSkJVSDVOZTJFV2djckxBNWJtVGpBWlZMMUxlaFRMWE9tamRHbkpkX09CRDZveVI4bUZhdjZybHhhbURBX1hIY2FTY19hWnUwcEpvYnN1UFlleGlJb2xITGdPTEhpNzhDQlM2QTAyMEVyakZmN2lPUEpWc2JJWmpVN3VLSU5mVDQ1U2c?oc=5": "c1956748fa8dcd63fec0289c3691c0006f17cb7d7783bf2e817a356780afa098",
         "https://news.google.com/rss/articles/CBMijgFBVV95cUxQMEtWRjJrS2VrVzlRZmhfSkd6bXgyVlcwZC11ZFNHWC12cmZlcFBCS25XNkE5S2VsekhZaEwxV1ZOTXpKTk82cnB3c2hUNkM0S1VobEx2SGcycTQwUU9EYmNNYzV1M01nb1lQTzNXbXctSFNLSEo0dm50bmZVRUZLX1BkVVN1aVVjcW53eVh3?oc=5": "ee7075e2fd7dc095d8fa20a7965835988cf3e8e4dae9c367225b6975c027cdce",
         "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZFNjaDJtZG1pQnk1VWxwcVM3QW9Md3dvLWhkMGMyNDlldzZrazd0WUVQQXVrSmp4QUFKUEpNWWlQU1ZBenhWNGhkNmRJNkVZYWZMOHEtWjUyblVJVl9oSHBoeWhXQjdQTTRXVHBFMWF3aWdLemk2S3I5YlRrY0RocEpQaWk5ZzR0SzdMdzZraUdZeTdHQ2RJb1d4cm5KREJWNHlsYUE1NmV3cjBJREJUUkd3WFhQczk1b281M0k5ZUI?oc=5": "5e85c08ea474570454d509dd2952862ab679f6639175e1121c8d4caba6ae0791",
-        "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNU4zSzZ6R0VuSVlFRWVkT2FBRWI1UjFBcDhTTmRXMnlOUWcwWkFaVTlrZUJOUGVTRUN6T0g0eTAxdDZodjM3R0xROEo2Nk9Camp6SHpjWUtoVEFPMmgxV2JaX0xuOU9mTVVxM251dnkzX1NxNTNoMDIwRjlPSmIxWW1KSGZ4VHJQbm0yVjZpaGw4RlVxVzZaYTFuemk1blFLZ1JwM1ktQWZMVGVfSkRuX2VmeEM?oc=5": "0f16323f8c1927b52bcf8a10a789714b9a7faec22c58571b34968a53d2410b8a"
+        "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNU4zSzZ6R0VuSVlFRWVkT2FBRWI1UjFBcDhTTmRXMnlOUWcwWkFaVTlrZUJOUGVTRUN6T0g0eTAxdDZodjM3R0xROEo2Nk9Camp6SHpjWUtoVEFPMmgxV2JaX0xuOU9mTVVxM251dnkzX1NxNTNoMDIwRjlPSmIxWW1KSGZ4VHJQbm0yVjZpaGw4RlVxVzZaYTFuemk1blFLZ1JwM1ktQWZMVGVfSkRuX2VmeEM?oc=5": "0f16323f8c1927b52bcf8a10a789714b9a7faec22c58571b34968a53d2410b8a",
+        "https://news.google.com/rss/articles/CBMif0FVX3lxTFB1UkNSdWZLYUltV2lOX2w4YTJiWDJpLTVjRkl6UGtjMFNpVU5GVkVnZmNYeFUwOFpMQWRuVmM4SEdxSm5CeE9vczFtdmRJSEZkbXVPVW1qQ2FZX0FwdmhsS2Y1M2VZM0I3dXluODBjbjZ6aUtCNU03R3QzNFVKYUk?oc=5": "73fe2145b01f47a949cc1a9f0838d8f5caed9686eb6879d7492967788f8420ea",
+        "https://news.google.com/rss/articles/CBMiYEFVX3lxTE11dk03eVI0Z3pUV2N2WG01eXBqdzBwTDBzZm5jWV9HVnMwcnNRZVJ3VGhuWjh1elhLT2swOElHQVRTUTc5eURpZWo2WndmUmZORlpWeWd0VVBMbnUtUWVndA?oc=5": "acf09f0e678fa1f3f4bcc93a9722de4504ff73e5d358262b3eeeec1cf771ab5a",
+        "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPbGdsUVVYYlJ0WXIzUDQ5S01SMWNjMktpRFhJdVBUaHBEajZXdERtdE5uVVA5X21Zakh0RHczYWM0M2JCbkRxbTQ0dWdZeUtKQjdyeWp6X1AzeUx1czFzSHBPSG1BOUYyR2MzaUd3Q3hzX0NMWnQ2cUxZUWptOUNLUGtnV2EtTUs0WEFuUUJjQ3FYMVZlVVNxSFBlanJ4MWlFQjI5YkxiRE9RY3ZZUFFEUTRPdENKLVNGaWY3engtTFN1MV9fZW5uZlRZUkNPdEJ4M1dpSHhXZ0FPSUZnZ3hRcC1LNmFfWm1yM1otRkxPbndjbEpvblVIS3poSXk?oc=5": "ea7d7cc8db079086b6552ef5e9fb0527adbdc397216c123c97177db8df2a8358",
+        "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeUMzOXhBNlNfWVZOa1U5eHdmNm9yTl81SlZLWTJxTEpuQk1XR3U3aVY0S3h4SGVkaWRnMjdZZnktTVhuOExNeXR6amE1enVINk5NZThIT0tDbzJWTUtTTjR2N1VDc05WQ2I1RFlJeWp5OVpub2pwa1ZMMU1kbUktQzV5REtLU21BVlItTVlHN29ZdEhwT0U3cjBGSHhDUFpfRFVVVXdUSnFjaDJXUW1VSW85VWt1eUY2d2dVdHNlbXdHZw?oc=5": "b4e395689e3e6a4252053b7d6b0017dc7a32e0fdbe6e1d3bb46dbf4a22592b91",
+        "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOMU5mTEFMeXJ0RkluNDJtSkQ3RktpYU1mS2owT0FQam91dl9Nb2Q1aGpsMzhHLWstSnhmMU5mQmJ0MUduOXUzcEVZV2tIUWsyemFqQWt6SUNlVEVmTnAxa3JGdFRZQkdNaHduUE1ubklraWZpQ3ctQTd4V293WnFtRWJvNWlhRzJBZU1YbUh2alV3T3E4S1FsM0RHYnNXa2JTd2RnejhTSkR4Z3VfdGtzMXM2dl9YLTVTT3hHVU1Dc2M0YjFQdndRVGQtdXBKdDliRzlDc01yZUdWX01K?oc=5": "7804697e716cd9a27cb8d9e779aab7db5d5c9aacf1b715c6408ee833383aee9c",
+        "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcURaZU9KUGJfVXlUc19HUlBVS2NsUlUyY2FOZTNUZmYtenVyZk5UTjFvWjBfOGM1UjVVaGZ1NUpwVWNNYl84bDB0RmltckozQXVyaVZjeFlYUmJVbGpHTEpNLVRFb2JSaWEwdm14ay1YVXlUR0ZrZ1NkNU9pbWFvT2RiY1A4VTVFSnNKQ2Z6aHZOV29CWGQ1ZQ?oc=5": "a35b6c79b589969b06ce1ca88eb79f28672bcf77e1c03bffebcfbe97b0992828",
+        "https://news.google.com/rss/articles/CBMiogFBVV95cUxOY2pzQkdvRDJzMDNVNG12MVlKRVpjMFFzSXJ1MTFNdUN2Y3l3b1ZUQjB5Q3RHLWFXUlBXNlFzRzB0TUQ5QnpXOEtyenNBbDFmVjNoRWpzZnU5WmNtcXBZRDgwNlRtdDRzUFNGdjJMS2lJa0VxUUxqemtlV3o4SHY3cFppdXBBZ2QwNzBQa24zTGFiNno4NW5YTlVZRVA1UmhhOFE?oc=5": "12e1f3dcb7825643d2b7eb6014a53d29191d580dd23fb27545143b371ab22460",
+        "https://news.google.com/rss/articles/CBMifEFVX3lxTE5kNUU3cE50cFIxS0Y3OWxQRFY5bmFqTHJpblpfNTZPaTc5amJSRHBVTkd2Sk5rN1VMR055dVAyX0NwOGx4Rk1xYVZXU1hlZnNJelRsczJiX05MSGNXNTgxWEs1dVVXdmxnTG40VWxlZS0zWFpzdURFNzhXWjk?oc=5": "2b4ef66aecb65a6a5504388cb94a4932cfddc4ab2dc457752c2fc7bc58926764",
+        "https://news.google.com/rss/articles/CBMirAFBVV95cUxNOEZPYWN5RnZ2UVdFRDhwVzhXaGQzR1RSS0xyZnVKaXRHZ1hEMEJ6SVlUaWN1NFhpOUlKNmYwaWliYmtWWlZabElZTjNwSU1TWEpONVdnSFpvSmZfR2JHdlJuTXNJOUpPR2ZLd3NvQ01ERUJfWG1jNmg0SHBHaXF4cDkwY3F0bUQyd1cxTm1hSllpNVNoWUctYlpEM1JQNHpkMzJReUNUcERyLVc5?oc=5": "db593a930e638db7a291ce306ef73ec2763cae1f69fb854a5fa562f98c828216",
+        "https://news.google.com/rss/articles/CBMigwFBVV95cUxQb2ZBUm81Qlg0bDdLbU83YzhJenlCc2tzSVNLZzdRNzhtLVoybU1qNFF4dU1SSkZBQ0pMTTItS2lKdDhmTGFuRVNZa0trWkpyb195TFBQVFRLOGNieW12Y21yUW1ZNXVXa2lnZHRYdmE2WnFWWlJzSlZNVmhlV05pU1lndw?oc=5": "f393508fa03c25e916a60758c2f557f5f00ca3fc4e7c5fa7a21897238552df00",
+        "https://news.google.com/rss/articles/CBMirwFBVV95cUxNdkZHTldWVURlVDhLaFpDcGdMaC1PVUpPR0lobm1zVGE5UlFvNmNSd21RZ3NsTzhJY1Q0UnhqLWk2d2RCSnF4UEtVZ3F1SU5YM1ZxbjhzM3pRdEdKbnZOSjllZUMyajdCMEhCNnl2YnFrbUd5bGVfeGtmTDI0ZHY4aWxUQjZfVVV0RFgyb2VnM2NFbUlwS2drc1hxaXV0aDFCQWVxVVRhZXR5SXV1SzZB?oc=5": "987503e0d1d8bd7da0986418e2ebe3684406ab7e4b96a8ef799e9c27fdd806e4",
+        "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZWtDa2JmUnFRRENlQ0RoX2hseFpyajltZE5vbjUwdnlDeTQ5M01zanFrNTBJcE1NV0RwZGFCd29LQXZQN2RYd3pBZnhNbU91eEdZalRSbVpXbTdnS2VXMXNaWE9ZdV9tSHVub29PUy1kX3BFYTNZUWM2NFpTLTZTWGdLX2hTXzYxR2JPanVaeVowcVZmMTZubVZxZE9QSjFPYmVuQjJFVVZqTUJKRUlMclM0NGM4YTNzMmR0ZUdR?oc=5": "d72db61ba302f58c0ff50fa2ed2eef5310ac7ef4fc3bf39ce1f786f3586b9966",
+        "https://news.google.com/rss/articles/CBMiXkFVX3lxTE14cERCNmZUcnBWbGcwSUozRlpTc0VGazlHV2ZHMm4wMFYzTGYxZHVOTk1yUHZWM2NCZElsZHU1T1AxUDhuMWNHbE5pdWg3RVZmQmc3LXIyM0o1WHhIU1E?oc=5": "93d975b1e0a5e4897d484bf75f0f12dd0c28be738bd8d2e406e37026e8e22f44",
+        "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNejJzY3pOV2J1aklzX0tBVmhpeUxxaXhDWE5jWGI4b2wtaFVPZG9GbUk3ZVNIbC1KTHp4SWVTUllPUVJUTlhFQWNKbjRqSXp6cDEzMERWTU5FM182OWd0dVJWLVFKTGJtSy13dzg2MDdMaVBtV2xCRG5JbElhenBZX1phSkp3dXJscXpTTHJQYmxVcDdVZE1zTGtTUEkwbFROUkNDRGozdFdhbFdadF95OFVYbkxoMHJxUk9zQWlMdkdSb05SSnQwbGlXaXRJUmJ3bFlIY3pfOWIybl9CZzVUcVNicTV0STV5?oc=5": "8f8df75ff02d72bcd94c57416f4195434f0b878a1db10fd7bd0ffaf86b7367e5"
       },
       "error": null
     },
@@ -1265,17 +1279,17 @@
         "synthetic MO and candidate counts",
         "simulation freshness and state"
       ],
-      "retrievedAt": "2026-11-01T16:31:05.920Z",
-      "sourceTimestamp": "simulation day 41, 00:00:00",
-      "freshness": "source timestamp simulation day 41, 00:00:00; checked 2026-11-01T16:31:05.920Z",
+      "retrievedAt": "2026-11-02T19:54:20.129Z",
+      "sourceTimestamp": "simulation day 42, 00:00:00",
+      "freshness": "source timestamp simulation day 42, 00:00:00; checked 2026-11-02T19:54:20.129Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
       ],
       "origin": "GitHub raw snapshot",
-      "recordCount": 84,
-      "simulationDay": 41,
-      "fingerprint": "ba04fd217a8fe45c57691dacaee2e685ab0d2c46f916adb10b895b8c107015dd",
+      "recordCount": 87,
+      "simulationDay": 42,
+      "fingerprint": "cfb5bd7a2c6220dca4db948eee9d549d6617667a1ace0ad4776785cf406b01d9",
       "records": {
         "MO-0001": "0feb7d5b5575064bfb3b54504f56dbe31c377f593a989fab72e8962e0bf7f548",
         "MO-0002": "1c57dce81bfef1cfc493e2e6a7b537a4a1c12ef1d29e196d24f1a4bb1a89a4c0",
@@ -1347,7 +1361,10 @@
         "MO-0068": "0e53d7f073014feccdd5fd6a79ca6c864a0c55c86785064de9fe4b2c69b67fc8",
         "MO-0069": "da783778739d838ab76cd607aa22580ef3033d585d920df50e0c234abd31bdbe",
         "MO-0070": "31c3f16931c13dde9c2a3ae2eef835deb4fa6d59ade3ca22437d5e0ec195b0ae",
-        "MO-0071": "1bd3a72c059c0a0a3422d07b1136600bcb57e8dead161cc3aa96043cddaf0881",
+        "MO-0071": "4e2200de5c64720400618dbff86b06b70a0e5b7b168aee96ebc94fd39c5b1cef",
+        "MO-0072": "58282fc8a23f8999e8c0fcd1a43b6dd5860494dafb62001ff3764189f9420f51",
+        "MO-0073": "0acf0ac8ffd989e9ec40adf4b6a6962684d7b3926a426678bee6d21c8d6cdfe6",
+        "MO-0074": "2866661f4357131aaca364e7fabe1a23dc73346dd2a78aa8da011e4494b370d7",
         "fraud-watch:EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED": "315d0ddbe5e150bbabdd5c50a243af93934c253224131d9ff656f01939007e5e",
         "fraud-watch:FALSE_MILESTONE_STAMP+HANDOVER_GAP+STAGED_BREAKDOWN+UNEXPECTED_STOP": "d07e41fe4ea1b0fd276782c28adcb60cb1e86d488adf55f69a065087d8023cb4",
         "fraud-watch:CARRIER_UNRESPONSIVE+FALSE_MILESTONE_STAMP+HANDOVER_GAP": "2f7060f90d7f25327b5711aabe7d9336c4f6e97a3cc82bf08e7bd31bd865e62a",
@@ -1376,18 +1393,18 @@
         "synthetic day, incidents and verdicts",
         "carrier-network snapshot"
       ],
-      "retrievedAt": "2026-11-01T16:31:05.920Z",
-      "sourceTimestamp": "2026-11-01T10:37:21.446Z",
-      "freshness": "source timestamp 2026-11-01T10:37:21.446Z; checked 2026-11-01T16:31:05.920Z",
+      "retrievedAt": "2026-11-02T19:54:20.129Z",
+      "sourceTimestamp": "2026-11-02T11:24:19.909Z",
+      "freshness": "source timestamp 2026-11-02T11:24:19.909Z; checked 2026-11-02T19:54:20.129Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 1,
-      "simulationDay": 41,
-      "fingerprint": "e2b4252757ca44a6c7304adc3ae7da8acda1eaa069b58de607e29e15d33e07ed",
+      "simulationDay": 42,
+      "fingerprint": "00947c5a2bf5bb4692e9842e104149ee96076bc0bad9c091de548bc33bb4dd01",
       "records": {
-        "snapshot": "746342f1d5fe0141a295baafe0b042e8da1af58ba13ee9ad531b428a4eec8efa"
+        "snapshot": "98d0d9f43fc0cc96ca38d810ce8ed8131e965dd35f631cbbcae053fcad5cfbb2"
       },
       "error": null
     },
@@ -1432,9 +1449,9 @@
         "synthetic alerts and rings",
         "model and graph metrics"
       ],
-      "retrievedAt": "2026-10-26T16:22:43.958Z",
+      "retrievedAt": "2026-11-02T19:54:20.129Z",
       "sourceTimestamp": null,
-      "freshness": "checked 2026-10-26T16:22:43.958Z",
+      "freshness": "checked 2026-11-02T19:54:20.129Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/alerts.json",
         "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/rings.json",
@@ -1443,9 +1460,9 @@
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 50,
-      "fingerprint": "dc36c80b91a500d57210e2b7b75a5fad93271b68e0c8f7f7fd39ec2294d12a70",
+      "fingerprint": "e79847b41a9b07089f924b0693421c83ca766aa5725c01d08e31c5c5c8a7a973",
       "records": {
-        "analysis": "f660ea64e1a1257f817a11362960ba4439e171283dfeebbad3c45cb5292763f0"
+        "analysis": "199a9f4c0998f9c716e63b436ae9c867ea08df75bf13e506be511a35d6edeb16"
       },
       "error": null
     },
@@ -1461,17 +1478,17 @@
         "sealed and graded forecast counts",
         "explicit eligibility refusals"
       ],
-      "retrievedAt": "2026-10-26T16:22:43.958Z",
-      "sourceTimestamp": "2026-10-24T11:00:00+0200",
-      "freshness": "source timestamp 2026-10-24T11:00:00+0200; checked 2026-10-26T16:22:43.958Z",
+      "retrievedAt": "2026-11-02T19:54:20.129Z",
+      "sourceTimestamp": "2026-11-02T11:00:00+0100",
+      "freshness": "source timestamp 2026-11-02T11:00:00+0100; checked 2026-11-02T19:54:20.129Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/Forecast-Ledger/main/site/data.json"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 1,
-      "fingerprint": "5731648c67e3aef64c05c472587318c9725e90c42f5dfa253a5ee8bc64c1852a",
+      "fingerprint": "ebb30e0d3cd2884f4ae2d5d548e315c210fbfab9f9a241831264d2d2ab706c3b",
       "records": {
-        "ledger": "a247fe38d44af78dc83a7e34de77131f857eb434333bb245e253f020ac211666"
+        "ledger": "a3f8df1366b934afab5b2a7da7940e691294287deb8bb78d7371d4f8b4acb97e"
       },
       "error": null
     },
@@ -1535,7 +1552,7 @@
   },
   "payload": {
     "schema_version": "1.2",
-    "generatedAt": "2026-11-01T16:31:05.920Z",
+    "generatedAt": "2026-11-02T19:54:20.129Z",
     "headline": "Good morning, Jeevan. 7 source updates are ready.",
     "sources": [
       {
@@ -1550,14 +1567,14 @@
           "new external freight-risk signals",
           "source titles and links"
         ],
-        "retrievedAt": "2026-11-01T16:31:05.920Z",
+        "retrievedAt": "2026-11-02T19:54:20.129Z",
         "sourceTimestamp": "2026-10-30T16:20:00.000Z",
-        "freshness": "source timestamp 2026-10-30T16:20:00.000Z; checked 2026-11-01T16:31:05.920Z",
+        "freshness": "source timestamp 2026-10-30T16:20:00.000Z; checked 2026-11-02T19:54:20.129Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
         ],
         "origin": "GitHub raw snapshot",
-        "recordCount": 1226,
+        "recordCount": 1240,
         "error": null
       },
       {
@@ -1572,16 +1589,16 @@
           "synthetic MO and candidate counts",
           "simulation freshness and state"
         ],
-        "retrievedAt": "2026-11-01T16:31:05.920Z",
-        "sourceTimestamp": "simulation day 41, 00:00:00",
-        "freshness": "source timestamp simulation day 41, 00:00:00; checked 2026-11-01T16:31:05.920Z",
+        "retrievedAt": "2026-11-02T19:54:20.129Z",
+        "sourceTimestamp": "simulation day 42, 00:00:00",
+        "freshness": "source timestamp simulation day 42, 00:00:00; checked 2026-11-02T19:54:20.129Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
         ],
         "origin": "GitHub raw snapshot",
-        "recordCount": 84,
-        "simulationDay": 41,
+        "recordCount": 87,
+        "simulationDay": 42,
         "error": null
       },
       {
@@ -1596,15 +1613,15 @@
           "synthetic day, incidents and verdicts",
           "carrier-network snapshot"
         ],
-        "retrievedAt": "2026-11-01T16:31:05.920Z",
-        "sourceTimestamp": "2026-11-01T10:37:21.446Z",
-        "freshness": "source timestamp 2026-11-01T10:37:21.446Z; checked 2026-11-01T16:31:05.920Z",
+        "retrievedAt": "2026-11-02T19:54:20.129Z",
+        "sourceTimestamp": "2026-11-02T11:24:19.909Z",
+        "freshness": "source timestamp 2026-11-02T11:24:19.909Z; checked 2026-11-02T19:54:20.129Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
         ],
         "origin": "GitHub raw snapshot",
         "recordCount": 1,
-        "simulationDay": 41,
+        "simulationDay": 42,
         "error": null
       },
       {
@@ -1643,9 +1660,9 @@
           "synthetic alerts and rings",
           "model and graph metrics"
         ],
-        "retrievedAt": "2026-10-26T16:22:43.958Z",
+        "retrievedAt": "2026-11-02T19:54:20.129Z",
         "sourceTimestamp": null,
-        "freshness": "checked 2026-10-26T16:22:43.958Z",
+        "freshness": "checked 2026-11-02T19:54:20.129Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/alerts.json",
           "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/rings.json",
@@ -1668,9 +1685,9 @@
           "sealed and graded forecast counts",
           "explicit eligibility refusals"
         ],
-        "retrievedAt": "2026-10-26T16:22:43.958Z",
-        "sourceTimestamp": "2026-10-24T11:00:00+0200",
-        "freshness": "source timestamp 2026-10-24T11:00:00+0200; checked 2026-10-26T16:22:43.958Z",
+        "retrievedAt": "2026-11-02T19:54:20.129Z",
+        "sourceTimestamp": "2026-11-02T11:00:00+0100",
+        "freshness": "source timestamp 2026-11-02T11:00:00+0100; checked 2026-11-02T19:54:20.129Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/Forecast-Ledger/main/site/data.json"
         ],
@@ -1736,9 +1753,9 @@
       {
         "id": "fomo:briefing",
         "sourceProject": "FOMO",
-        "timestamp": "2026-11-01T16:31:05.920Z",
+        "timestamp": "2026-11-02T19:54:20.129Z",
         "title": "New external freight-risk signals",
-        "summary": "6 new and 0 updated external freight-risk reports detected.",
+        "summary": "14 new and 0 updated external freight-risk reports detected.",
         "category": "risk-intelligence",
         "importance": "high",
         "evidenceType": "EXTERNAL_SOURCE",
@@ -1761,24 +1778,284 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
           ],
-          "retrievedAt": "2026-11-01T16:31:05.920Z",
+          "retrievedAt": "2026-11-02T19:54:20.129Z",
           "status": "SNAPSHOT",
           "origin": "GitHub raw snapshot",
           "freshness": "source timestamp 2026-10-30T16:20:00.000Z",
           "changedRecords": [
-            "https://news.google.com/rss/articles/CBMixAFBVV95cUxQdkN3SmZLdXZpMzBBdlVmWkJMSEU0X1kwdm1RZmdZbW9tTmNscHRjN19hUDMtRWhuQ0hkNm1DNmgxRTlzZTM3bjRVWXh6VU5PcnJNNGFGQU84TTBjYlgzUEREdHZObmJiZTZfVk42TU8zMkNtbXhDUTI4X0VQT2FLX3o3N2lnTE4zR2FPMmxvdHVpZzN6YVBNVEVoam5BQVJvZVNGcHZwVndyOUFQOUpMa3pOT3F1NDNraGxyMHh4bUQ4TnYz?oc=5",
-            "https://news.google.com/rss/articles/CBMinANBVV95cUxPaWNzU0E1bUdJUWNFRHRtWFd5M29IbFdLcjd5M3hMdmpPMFVabURIRUtiSUhONWd1VDFPWHBwQmlnNU9ZTHFRSlFXWFBVMzExR0tzTTNYOGNUalpQZzFFRlA4cjdXX3p2Rk1fOUlJU0pHRG11RTJGOHB0NlZ6ZDZIM0RFbjg5YjNIM2ozYjBJV1g4OVdHZnQ3WFZqY3ZFeE5nUTU0VUhJUFhxUGxOVlBhSm1HbFVwQkIySy1EeXZwQ0k2OWdPLXdzZms2azE5bHNfM2cyVGtBclZHSjFnRzBvVGdzeHdpT2NjUjBKNTZVQ1U2VlRydFdjRFJ1SW16cmJ6eDFXVWN3dlhZMEs2cno5Q1NlTVVrZ2RrTFlNSDF5Z2FPREtUZVZyUTZJY3h3bHVydy1GMzBpdkwxbXdSaExVYU4xVmlVX2d6ZVRjaEc2YjV3ejVPNm41MGNoVU1IdEJ3dmRMY01SX25Dd1VrNTk5VjB4alBfcmVBZ3BRdk1mOURhQXdQTWxJQUpMZFhra2FhaEYtVTN4SXlORzQ5?oc=5",
-            "https://news.google.com/rss/articles/CBMilgFBVV95cUxNYnNubDhYVUlTRy1oSkJVSDVOZTJFV2djckxBNWJtVGpBWlZMMUxlaFRMWE9tamRHbkpkX09CRDZveVI4bUZhdjZybHhhbURBX1hIY2FTY19hWnUwcEpvYnN1UFlleGlJb2xITGdPTEhpNzhDQlM2QTAyMEVyakZmN2lPUEpWc2JJWmpVN3VLSU5mVDQ1U2c?oc=5",
-            "https://news.google.com/rss/articles/CBMijgFBVV95cUxQMEtWRjJrS2VrVzlRZmhfSkd6bXgyVlcwZC11ZFNHWC12cmZlcFBCS25XNkE5S2VsekhZaEwxV1ZOTXpKTk82cnB3c2hUNkM0S1VobEx2SGcycTQwUU9EYmNNYzV1M01nb1lQTzNXbXctSFNLSEo0dm50bmZVRUZLX1BkVVN1aVVjcW53eVh3?oc=5",
-            "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZFNjaDJtZG1pQnk1VWxwcVM3QW9Md3dvLWhkMGMyNDlldzZrazd0WUVQQXVrSmp4QUFKUEpNWWlQU1ZBenhWNGhkNmRJNkVZYWZMOHEtWjUyblVJVl9oSHBoeWhXQjdQTTRXVHBFMWF3aWdLemk2S3I5YlRrY0RocEpQaWk5ZzR0SzdMdzZraUdZeTdHQ2RJb1d4cm5KREJWNHlsYUE1NmV3cjBJREJUUkd3WFhQczk1b281M0k5ZUI?oc=5",
-            "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNU4zSzZ6R0VuSVlFRWVkT2FBRWI1UjFBcDhTTmRXMnlOUWcwWkFaVTlrZUJOUGVTRUN6T0g0eTAxdDZodjM3R0xROEo2Nk9Camp6SHpjWUtoVEFPMmgxV2JaX0xuOU9mTVVxM251dnkzX1NxNTNoMDIwRjlPSmIxWW1KSGZ4VHJQbm0yVjZpaGw4RlVxVzZaYTFuemk1blFLZ1JwM1ktQWZMVGVfSkRuX2VmeEM?oc=5"
+            "https://news.google.com/rss/articles/CBMif0FVX3lxTFB1UkNSdWZLYUltV2lOX2w4YTJiWDJpLTVjRkl6UGtjMFNpVU5GVkVnZmNYeFUwOFpMQWRuVmM4SEdxSm5CeE9vczFtdmRJSEZkbXVPVW1qQ2FZX0FwdmhsS2Y1M2VZM0I3dXluODBjbjZ6aUtCNU03R3QzNFVKYUk?oc=5",
+            "https://news.google.com/rss/articles/CBMiYEFVX3lxTE11dk03eVI0Z3pUV2N2WG01eXBqdzBwTDBzZm5jWV9HVnMwcnNRZVJ3VGhuWjh1elhLT2swOElHQVRTUTc5eURpZWo2WndmUmZORlpWeWd0VVBMbnUtUWVndA?oc=5",
+            "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPbGdsUVVYYlJ0WXIzUDQ5S01SMWNjMktpRFhJdVBUaHBEajZXdERtdE5uVVA5X21Zakh0RHczYWM0M2JCbkRxbTQ0dWdZeUtKQjdyeWp6X1AzeUx1czFzSHBPSG1BOUYyR2MzaUd3Q3hzX0NMWnQ2cUxZUWptOUNLUGtnV2EtTUs0WEFuUUJjQ3FYMVZlVVNxSFBlanJ4MWlFQjI5YkxiRE9RY3ZZUFFEUTRPdENKLVNGaWY3engtTFN1MV9fZW5uZlRZUkNPdEJ4M1dpSHhXZ0FPSUZnZ3hRcC1LNmFfWm1yM1otRkxPbndjbEpvblVIS3poSXk?oc=5",
+            "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeUMzOXhBNlNfWVZOa1U5eHdmNm9yTl81SlZLWTJxTEpuQk1XR3U3aVY0S3h4SGVkaWRnMjdZZnktTVhuOExNeXR6amE1enVINk5NZThIT0tDbzJWTUtTTjR2N1VDc05WQ2I1RFlJeWp5OVpub2pwa1ZMMU1kbUktQzV5REtLU21BVlItTVlHN29ZdEhwT0U3cjBGSHhDUFpfRFVVVXdUSnFjaDJXUW1VSW85VWt1eUY2d2dVdHNlbXdHZw?oc=5",
+            "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOMU5mTEFMeXJ0RkluNDJtSkQ3RktpYU1mS2owT0FQam91dl9Nb2Q1aGpsMzhHLWstSnhmMU5mQmJ0MUduOXUzcEVZV2tIUWsyemFqQWt6SUNlVEVmTnAxa3JGdFRZQkdNaHduUE1ubklraWZpQ3ctQTd4V293WnFtRWJvNWlhRzJBZU1YbUh2alV3T3E4S1FsM0RHYnNXa2JTd2RnejhTSkR4Z3VfdGtzMXM2dl9YLTVTT3hHVU1Dc2M0YjFQdndRVGQtdXBKdDliRzlDc01yZUdWX01K?oc=5",
+            "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcURaZU9KUGJfVXlUc19HUlBVS2NsUlUyY2FOZTNUZmYtenVyZk5UTjFvWjBfOGM1UjVVaGZ1NUpwVWNNYl84bDB0RmltckozQXVyaVZjeFlYUmJVbGpHTEpNLVRFb2JSaWEwdm14ay1YVXlUR0ZrZ1NkNU9pbWFvT2RiY1A4VTVFSnNKQ2Z6aHZOV29CWGQ1ZQ?oc=5",
+            "https://news.google.com/rss/articles/CBMiogFBVV95cUxOY2pzQkdvRDJzMDNVNG12MVlKRVpjMFFzSXJ1MTFNdUN2Y3l3b1ZUQjB5Q3RHLWFXUlBXNlFzRzB0TUQ5QnpXOEtyenNBbDFmVjNoRWpzZnU5WmNtcXBZRDgwNlRtdDRzUFNGdjJMS2lJa0VxUUxqemtlV3o4SHY3cFppdXBBZ2QwNzBQa24zTGFiNno4NW5YTlVZRVA1UmhhOFE?oc=5",
+            "https://news.google.com/rss/articles/CBMifEFVX3lxTE5kNUU3cE50cFIxS0Y3OWxQRFY5bmFqTHJpblpfNTZPaTc5amJSRHBVTkd2Sk5rN1VMR055dVAyX0NwOGx4Rk1xYVZXU1hlZnNJelRsczJiX05MSGNXNTgxWEs1dVVXdmxnTG40VWxlZS0zWFpzdURFNzhXWjk?oc=5",
+            "https://news.google.com/rss/articles/CBMirAFBVV95cUxNOEZPYWN5RnZ2UVdFRDhwVzhXaGQzR1RSS0xyZnVKaXRHZ1hEMEJ6SVlUaWN1NFhpOUlKNmYwaWliYmtWWlZabElZTjNwSU1TWEpONVdnSFpvSmZfR2JHdlJuTXNJOUpPR2ZLd3NvQ01ERUJfWG1jNmg0SHBHaXF4cDkwY3F0bUQyd1cxTm1hSllpNVNoWUctYlpEM1JQNHpkMzJReUNUcERyLVc5?oc=5",
+            "https://news.google.com/rss/articles/CBMigwFBVV95cUxQb2ZBUm81Qlg0bDdLbU83YzhJenlCc2tzSVNLZzdRNzhtLVoybU1qNFF4dU1SSkZBQ0pMTTItS2lKdDhmTGFuRVNZa0trWkpyb195TFBQVFRLOGNieW12Y21yUW1ZNXVXa2lnZHRYdmE2WnFWWlJzSlZNVmhlV05pU1lndw?oc=5",
+            "https://news.google.com/rss/articles/CBMirwFBVV95cUxNdkZHTldWVURlVDhLaFpDcGdMaC1PVUpPR0lobm1zVGE5UlFvNmNSd21RZ3NsTzhJY1Q0UnhqLWk2d2RCSnF4UEtVZ3F1SU5YM1ZxbjhzM3pRdEdKbnZOSjllZUMyajdCMEhCNnl2YnFrbUd5bGVfeGtmTDI0ZHY4aWxUQjZfVVV0RFgyb2VnM2NFbUlwS2drc1hxaXV0aDFCQWVxVVRhZXR5SXV1SzZB?oc=5",
+            "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZWtDa2JmUnFRRENlQ0RoX2hseFpyajltZE5vbjUwdnlDeTQ5M01zanFrNTBJcE1NV0RwZGFCd29LQXZQN2RYd3pBZnhNbU91eEdZalRSbVpXbTdnS2VXMXNaWE9ZdV9tSHVub29PUy1kX3BFYTNZUWM2NFpTLTZTWGdLX2hTXzYxR2JPanVaeVowcVZmMTZubVZxZE9QSjFPYmVuQjJFVVZqTUJKRUlMclM0NGM4YTNzMmR0ZUdR?oc=5",
+            "https://news.google.com/rss/articles/CBMiXkFVX3lxTE14cERCNmZUcnBWbGcwSUozRlpTc0VGazlHV2ZHMm4wMFYzTGYxZHVOTk1yUHZWM2NCZElsZHU1T1AxUDhuMWNHbE5pdWg3RVZmQmc3LXIyM0o1WHhIU1E?oc=5",
+            "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNejJzY3pOV2J1aklzX0tBVmhpeUxxaXhDWE5jWGI4b2wtaFVPZG9GbUk3ZVNIbC1KTHp4SWVTUllPUVJUTlhFQWNKbjRqSXp6cDEzMERWTU5FM182OWd0dVJWLVFKTGJtSy13dzg2MDdMaVBtV2xCRG5JbElhenBZX1phSkp3dXJscXpTTHJQYmxVcDdVZE1zTGtTUEkwbFROUkNDRGozdFdhbFdadF95OFVYbkxoMHJxUk9zQWlMdkdSb05SSnQwbGlXaXRJUmJ3bFlIY3pfOWIybl9CZzVUcVNicTV0STV5?oc=5"
           ]
         },
         "details": {
-          "recordCount": 1226,
-          "newCount": 6,
+          "recordCount": 1240,
+          "newCount": 14,
           "updatedCount": 0,
           "records": [
+            {
+              "id": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcURaZU9KUGJfVXlUc19HUlBVS2NsUlUyY2FOZTNUZmYtenVyZk5UTjFvWjBfOGM1UjVVaGZ1NUpwVWNNYl84bDB0RmltckozQXVyaVZjeFlYUmJVbGpHTEpNLVRFb2JSaWEwdm14ay1YVXlUR0ZrZ1NkNU9pbWFvT2RiY1A4VTVFSnNKQ2Z6aHZOV29CWGQ1ZQ?oc=5",
+              "title": "Cargo Thefts Total $18 Million in Final Quarter of Last Year - Heavy Duty Trucking",
+              "summary": null,
+              "timestamp": "2026-02-11T14:26:29.000Z",
+              "foundAt": "2026-11-02T15:20:13.798Z",
+              "location": null,
+              "category": "Cargo Theft",
+              "severity": "high",
+              "source": "Heavy Duty Trucking",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOcURaZU9KUGJfVXlUc19HUlBVS2NsUlUyY2FOZTNUZmYtenVyZk5UTjFvWjBfOGM1UjVVaGZ1NUpwVWNNYl84bDB0RmltckozQXVyaVZjeFlYUmJVbGpHTEpNLVRFb2JSaWEwdm14ay1YVXlUR0ZrZ1NkNU9pbWFvT2RiY1A4VTVFSnNKQ2Z6aHZOV29CWGQ1ZQ?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOY2pzQkdvRDJzMDNVNG12MVlKRVpjMFFzSXJ1MTFNdUN2Y3l3b1ZUQjB5Q3RHLWFXUlBXNlFzRzB0TUQ5QnpXOEtyenNBbDFmVjNoRWpzZnU5WmNtcXBZRDgwNlRtdDRzUFNGdjJMS2lJa0VxUUxqemtlV3o4SHY3cFppdXBBZ2QwNzBQa24zTGFiNno4NW5YTlVZRVA1UmhhOFE?oc=5",
+              "title": "Extra Steps Fleets Should Take to Prevent Holiday Cargo Theft - Work Truck Online",
+              "summary": null,
+              "timestamp": "2026-07-01T07:00:00.000Z",
+              "foundAt": "2026-11-02T15:20:13.798Z",
+              "location": null,
+              "category": "Cargo Theft",
+              "severity": "high",
+              "source": "Work Truck Online",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOY2pzQkdvRDJzMDNVNG12MVlKRVpjMFFzSXJ1MTFNdUN2Y3l3b1ZUQjB5Q3RHLWFXUlBXNlFzRzB0TUQ5QnpXOEtyenNBbDFmVjNoRWpzZnU5WmNtcXBZRDgwNlRtdDRzUFNGdjJMS2lJa0VxUUxqemtlV3o4SHY3cFppdXBBZ2QwNzBQa24zTGFiNno4NW5YTlVZRVA1UmhhOFE?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5kNUU3cE50cFIxS0Y3OWxQRFY5bmFqTHJpblpfNTZPaTc5amJSRHBVTkd2Sk5rN1VMR055dVAyX0NwOGx4Rk1xYVZXU1hlZnNJelRsczJiX05MSGNXNTgxWEs1dVVXdmxnTG40VWxlZS0zWFpzdURFNzhXWjk?oc=5",
+              "title": "U.S. House Passes Cargo Theft Legislation - Railway Track and Structures",
+              "summary": null,
+              "timestamp": "2026-05-13T07:00:00.000Z",
+              "foundAt": "2026-11-02T15:20:13.798Z",
+              "location": null,
+              "category": "Cargo Theft",
+              "severity": "high",
+              "source": "Railway Track and Structures",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5kNUU3cE50cFIxS0Y3OWxQRFY5bmFqTHJpblpfNTZPaTc5amJSRHBVTkd2Sk5rN1VMR055dVAyX0NwOGx4Rk1xYVZXU1hlZnNJelRsczJiX05MSGNXNTgxWEs1dVVXdmxnTG40VWxlZS0zWFpzdURFNzhXWjk?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNOEZPYWN5RnZ2UVdFRDhwVzhXaGQzR1RSS0xyZnVKaXRHZ1hEMEJ6SVlUaWN1NFhpOUlKNmYwaWliYmtWWlZabElZTjNwSU1TWEpONVdnSFpvSmZfR2JHdlJuTXNJOUpPR2ZLd3NvQ01ERUJfWG1jNmg0SHBHaXF4cDkwY3F0bUQyd1cxTm1hSllpNVNoWUctYlpEM1JQNHpkMzJReUNUcERyLVc5?oc=5",
+              "title": "Protecting Small Trucking Fleets from Scammers: Lessons from the Insurance Frontlines - Heavy Duty Trucking",
+              "summary": null,
+              "timestamp": "2025-08-22T07:00:00.000Z",
+              "foundAt": "2026-11-02T15:20:13.798Z",
+              "location": null,
+              "category": "Carrier / Freight Fraud",
+              "severity": "medium",
+              "source": "Heavy Duty Trucking",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNOEZPYWN5RnZ2UVdFRDhwVzhXaGQzR1RSS0xyZnVKaXRHZ1hEMEJ6SVlUaWN1NFhpOUlKNmYwaWliYmtWWlZabElZTjNwSU1TWEpONVdnSFpvSmZfR2JHdlJuTXNJOUpPR2ZLd3NvQ01ERUJfWG1jNmg0SHBHaXF4cDkwY3F0bUQyd1cxTm1hSllpNVNoWUctYlpEM1JQNHpkMzJReUNUcERyLVc5?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQb2ZBUm81Qlg0bDdLbU83YzhJenlCc2tzSVNLZzdRNzhtLVoybU1qNFF4dU1SSkZBQ0pMTTItS2lKdDhmTGFuRVNZa0trWkpyb195TFBQVFRLOGNieW12Y21yUW1ZNXVXa2lnZHRYdmE2WnFWWlJzSlZNVmhlV05pU1lndw?oc=5",
+              "title": "Opel pays $75M fine over diesel emissions - Automotive News",
+              "summary": null,
+              "timestamp": "2021-10-19T07:00:00.000Z",
+              "foundAt": "2026-11-02T15:20:13.798Z",
+              "location": null,
+              "category": "Regulatory / Compliance Risk",
+              "severity": "medium",
+              "source": "Automotive News",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQb2ZBUm81Qlg0bDdLbU83YzhJenlCc2tzSVNLZzdRNzhtLVoybU1qNFF4dU1SSkZBQ0pMTTItS2lKdDhmTGFuRVNZa0trWkpyb195TFBQVFRLOGNieW12Y21yUW1ZNXVXa2lnZHRYdmE2WnFWWlJzSlZNVmhlV05pU1lndw?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNdkZHTldWVURlVDhLaFpDcGdMaC1PVUpPR0lobm1zVGE5UlFvNmNSd21RZ3NsTzhJY1Q0UnhqLWk2d2RCSnF4UEtVZ3F1SU5YM1ZxbjhzM3pRdEdKbnZOSjllZUMyajdCMEhCNnl2YnFrbUd5bGVfeGtmTDI0ZHY4aWxUQjZfVVV0RFgyb2VnM2NFbUlwS2drc1hxaXV0aDFCQWVxVVRhZXR5SXV1SzZB?oc=5",
+              "title": "Insolvenz bei Fiege nach Galeria-Pleite: 1.250 Arbeitsplätze in Unna gefährdet - Eurotransport",
+              "summary": null,
+              "timestamp": "2026-10-30T08:20:38.000Z",
+              "foundAt": "2026-11-02T15:20:13.798Z",
+              "location": null,
+              "category": "Corporate Insolvency",
+              "severity": "critical",
+              "source": "Eurotransport",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNdkZHTldWVURlVDhLaFpDcGdMaC1PVUpPR0lobm1zVGE5UlFvNmNSd21RZ3NsTzhJY1Q0UnhqLWk2d2RCSnF4UEtVZ3F1SU5YM1ZxbjhzM3pRdEdKbnZOSjllZUMyajdCMEhCNnl2YnFrbUd5bGVfeGtmTDI0ZHY4aWxUQjZfVVV0RFgyb2VnM2NFbUlwS2drc1hxaXV0aDFCQWVxVVRhZXR5SXV1SzZB?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZWtDa2JmUnFRRENlQ0RoX2hseFpyajltZE5vbjUwdnlDeTQ5M01zanFrNTBJcE1NV0RwZGFCd29LQXZQN2RYd3pBZnhNbU91eEdZalRSbVpXbTdnS2VXMXNaWE9ZdV9tSHVub29PUy1kX3BFYTNZUWM2NFpTLTZTWGdLX2hTXzYxR2JPanVaeVowcVZmMTZubVZxZE9QSjFPYmVuQjJFVVZqTUJKRUlMclM0NGM4YTNzMmR0ZUdR?oc=5",
+              "title": "EXCLUSIVE: Pentagon treating military base freezer malfunctions as suspected cyberattack, officials say - Reuters",
+              "summary": null,
+              "timestamp": "2026-10-29T22:39:05.000Z",
+              "foundAt": "2026-11-02T15:20:13.798Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "Reuters",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZWtDa2JmUnFRRENlQ0RoX2hseFpyajltZE5vbjUwdnlDeTQ5M01zanFrNTBJcE1NV0RwZGFCd29LQXZQN2RYd3pBZnhNbU91eEdZalRSbVpXbTdnS2VXMXNaWE9ZdV9tSHVub29PUy1kX3BFYTNZUWM2NFpTLTZTWGdLX2hTXzYxR2JPanVaeVowcVZmMTZubVZxZE9QSjFPYmVuQjJFVVZqTUJKRUlMclM0NGM4YTNzMmR0ZUdR?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE14cERCNmZUcnBWbGcwSUozRlpTc0VGazlHV2ZHMm4wMFYzTGYxZHVOTk1yUHZWM2NCZElsZHU1T1AxUDhuMWNHbE5pdWg3RVZmQmc3LXIyM0o1WHhIU1E?oc=5",
+              "title": "Prepare for supply chain disruption from cyber or climate emergencies, Streeting warns - BBC",
+              "summary": null,
+              "timestamp": "2026-10-22T07:00:00.000Z",
+              "foundAt": "2026-11-02T15:20:13.798Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "medium",
+              "source": "BBC",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE14cERCNmZUcnBWbGcwSUozRlpTc0VGazlHV2ZHMm4wMFYzTGYxZHVOTk1yUHZWM2NCZElsZHU1T1AxUDhuMWNHbE5pdWg3RVZmQmc3LXIyM0o1WHhIU1E?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNejJzY3pOV2J1aklzX0tBVmhpeUxxaXhDWE5jWGI4b2wtaFVPZG9GbUk3ZVNIbC1KTHp4SWVTUllPUVJUTlhFQWNKbjRqSXp6cDEzMERWTU5FM182OWd0dVJWLVFKTGJtSy13dzg2MDdMaVBtV2xCRG5JbElhenBZX1phSkp3dXJscXpTTHJQYmxVcDdVZE1zTGtTUEkwbFROUkNDRGozdFdhbFdadF95OFVYbkxoMHJxUk9zQWlMdkdSb05SSnQwbGlXaXRJUmJ3bFlIY3pfOWIybl9CZzVUcVNicTV0STV5?oc=5",
+              "title": "Rheinmetall Destinus Strike Systems sets out its program priorities - Rheinmetall",
+              "summary": null,
+              "timestamp": "2026-06-17T07:00:00.000Z",
+              "foundAt": "2026-11-02T15:20:13.798Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "Rheinmetall",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNejJzY3pOV2J1aklzX0tBVmhpeUxxaXhDWE5jWGI4b2wtaFVPZG9GbUk3ZVNIbC1KTHp4SWVTUllPUVJUTlhFQWNKbjRqSXp6cDEzMERWTU5FM182OWd0dVJWLVFKTGJtSy13dzg2MDdMaVBtV2xCRG5JbElhenBZX1phSkp3dXJscXpTTHJQYmxVcDdVZE1zTGtTUEkwbFROUkNDRGozdFdhbFdadF95OFVYbkxoMHJxUk9zQWlMdkdSb05SSnQwbGlXaXRJUmJ3bFlIY3pfOWIybl9CZzVUcVNicTV0STV5?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOMU5mTEFMeXJ0RkluNDJtSkQ3RktpYU1mS2owT0FQam91dl9Nb2Q1aGpsMzhHLWstSnhmMU5mQmJ0MUduOXUzcEVZV2tIUWsyemFqQWt6SUNlVEVmTnAxa3JGdFRZQkdNaHduUE1ubklraWZpQ3ctQTd4V293WnFtRWJvNWlhRzJBZU1YbUh2alV3T3E4S1FsM0RHYnNXa2JTd2RnejhTSkR4Z3VfdGtzMXM2dl9YLTVTT3hHVU1Dc2M0YjFQdndRVGQtdXBKdDliRzlDc01yZUdWX01K?oc=5",
+              "title": "Die Insolvenz von Ziegler Belgium: Ein Dominoeffekt für die europäische Logistik und eine Lektion im Risikomanagement - Eurodebt.eu",
+              "summary": null,
+              "timestamp": "2026-06-02T07:00:00.000Z",
+              "foundAt": "2026-11-02T05:27:22.120Z",
+              "location": null,
+              "category": "Corporate Insolvency",
+              "severity": "high",
+              "source": "Eurodebt.eu",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOMU5mTEFMeXJ0RkluNDJtSkQ3RktpYU1mS2owT0FQam91dl9Nb2Q1aGpsMzhHLWstSnhmMU5mQmJ0MUduOXUzcEVZV2tIUWsyemFqQWt6SUNlVEVmTnAxa3JGdFRZQkdNaHduUE1ubklraWZpQ3ctQTd4V293WnFtRWJvNWlhRzJBZU1YbUh2alV3T3E4S1FsM0RHYnNXa2JTd2RnejhTSkR4Z3VfdGtzMXM2dl9YLTVTT3hHVU1Dc2M0YjFQdndRVGQtdXBKdDliRzlDc01yZUdWX01K?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB1UkNSdWZLYUltV2lOX2w4YTJiWDJpLTVjRkl6UGtjMFNpVU5GVkVnZmNYeFUwOFpMQWRuVmM4SEdxSm5CeE9vczFtdmRJSEZkbXVPVW1qQ2FZX0FwdmhsS2Y1M2VZM0I3dXluODBjbjZ6aUtCNU03R3QzNFVKYUk?oc=5",
+              "title": "Prävention gegen Ladungsdiebstahl - stores+shops",
+              "summary": null,
+              "timestamp": "2018-10-31T07:00:00.000Z",
+              "foundAt": "2026-11-01T21:53:38.077Z",
+              "location": null,
+              "category": "Cargo Theft",
+              "severity": "high",
+              "source": "stores+shops",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB1UkNSdWZLYUltV2lOX2w4YTJiWDJpLTVjRkl6UGtjMFNpVU5GVkVnZmNYeFUwOFpMQWRuVmM4SEdxSm5CeE9vczFtdmRJSEZkbXVPVW1qQ2FZX0FwdmhsS2Y1M2VZM0I3dXluODBjbjZ6aUtCNU03R3QzNFVKYUk?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE11dk03eVI0Z3pUV2N2WG01eXBqdzBwTDBzZm5jWV9HVnMwcnNRZVJ3VGhuWjh1elhLT2swOElHQVRTUTc5eURpZWo2WndmUmZORlpWeWd0VVBMbnUtUWVndA?oc=5",
+              "title": "ESG bereitet Unternehmen weiterhin Schwierigkeiten - Trans.INFO",
+              "summary": null,
+              "timestamp": "2023-06-23T07:00:00.000Z",
+              "foundAt": "2026-11-01T21:53:38.077Z",
+              "location": null,
+              "category": "Regulatory / Compliance Risk",
+              "severity": "low",
+              "source": "Trans.INFO",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE11dk03eVI0Z3pUV2N2WG01eXBqdzBwTDBzZm5jWV9HVnMwcnNRZVJ3VGhuWjh1elhLT2swOElHQVRTUTc5eURpZWo2WndmUmZORlpWeWd0VVBMbnUtUWVndA?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPbGdsUVVYYlJ0WXIzUDQ5S01SMWNjMktpRFhJdVBUaHBEajZXdERtdE5uVVA5X21Zakh0RHczYWM0M2JCbkRxbTQ0dWdZeUtKQjdyeWp6X1AzeUx1czFzSHBPSG1BOUYyR2MzaUd3Q3hzX0NMWnQ2cUxZUWptOUNLUGtnV2EtTUs0WEFuUUJjQ3FYMVZlVVNxSFBlanJ4MWlFQjI5YkxiRE9RY3ZZUFFEUTRPdENKLVNGaWY3engtTFN1MV9fZW5uZlRZUkNPdEJ4M1dpSHhXZ0FPSUZnZ3hRcC1LNmFfWm1yM1otRkxPbndjbEpvblVIS3poSXk?oc=5",
+              "title": "Nothegger Transport in a restructuring trap: €86 million in disputed debts and restructuring plan postponed until 2026 - Eurodebt.eu",
+              "summary": null,
+              "timestamp": "2026-10-21T07:00:00.000Z",
+              "foundAt": "2026-11-01T21:53:38.077Z",
+              "location": null,
+              "category": "Corporate Insolvency",
+              "severity": "medium",
+              "source": "Eurodebt.eu",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPbGdsUVVYYlJ0WXIzUDQ5S01SMWNjMktpRFhJdVBUaHBEajZXdERtdE5uVVA5X21Zakh0RHczYWM0M2JCbkRxbTQ0dWdZeUtKQjdyeWp6X1AzeUx1czFzSHBPSG1BOUYyR2MzaUd3Q3hzX0NMWnQ2cUxZUWptOUNLUGtnV2EtTUs0WEFuUUJjQ3FYMVZlVVNxSFBlanJ4MWlFQjI5YkxiRE9RY3ZZUFFEUTRPdENKLVNGaWY3engtTFN1MV9fZW5uZlRZUkNPdEJ4M1dpSHhXZ0FPSUZnZ3hRcC1LNmFfWm1yM1otRkxPbndjbEpvblVIS3poSXk?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeUMzOXhBNlNfWVZOa1U5eHdmNm9yTl81SlZLWTJxTEpuQk1XR3U3aVY0S3h4SGVkaWRnMjdZZnktTVhuOExNeXR6amE1enVINk5NZThIT0tDbzJWTUtTTjR2N1VDc05WQ2I1RFlJeWp5OVpub2pwa1ZMMU1kbUktQzV5REtLU21BVlItTVlHN29ZdEhwT0U3cjBGSHhDUFpfRFVVVXdUSnFjaDJXUW1VSW85VWt1eUY2d2dVdHNlbXdHZw?oc=5",
+              "title": "German port workers move towards strike ballot after rejecting wage offer - FreshPlaza",
+              "summary": null,
+              "timestamp": "2026-09-16T07:00:00.000Z",
+              "foundAt": "2026-11-01T21:53:38.077Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "FreshPlaza",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeUMzOXhBNlNfWVZOa1U5eHdmNm9yTl81SlZLWTJxTEpuQk1XR3U3aVY0S3h4SGVkaWRnMjdZZnktTVhuOExNeXR6amE1enVINk5NZThIT0tDbzJWTUtTTjR2N1VDc05WQ2I1RFlJeWp5OVpub2pwa1ZMMU1kbUktQzV5REtLU21BVlItTVlHN29ZdEhwT0U3cjBGSHhDUFpfRFVVVXdUSnFjaDJXUW1VSW85VWt1eUY2d2dVdHNlbXdHZw?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
             {
               "id": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZFNjaDJtZG1pQnk1VWxwcVM3QW9Md3dvLWhkMGMyNDlldzZrazd0WUVQQXVrSmp4QUFKUEpNWWlQU1ZBenhWNGhkNmRJNkVZYWZMOHEtWjUyblVJVl9oSHBoeWhXQjdQTTRXVHBFMWF3aWdLemk2S3I5YlRrY0RocEpQaWk5ZzR0SzdMdzZraUdZeTdHQ2RJb1d4cm5KREJWNHlsYUE1NmV3cjBJREJUUkd3WFhQczk1b281M0k5ZUI?oc=5",
               "title": "Das Lieferkettensorgfaltspflichtengesetz - Teil 2 - Simmons & Simmons",
@@ -23854,9 +24131,9 @@
       {
         "id": "fraud-watch:briefing",
         "sourceProject": "Fraud Watch",
-        "timestamp": "2026-11-01T16:31:05.920Z",
+        "timestamp": "2026-11-02T19:54:20.129Z",
         "title": "Fraud Watch simulation state changed",
-        "summary": "Synthetic simulation day 41 contains 13 candidate methods of operation and 1 open investigation.",
+        "summary": "Synthetic simulation day 42 contains 13 candidate methods of operation and 3 open investigations.",
         "category": "risk-intelligence",
         "importance": "medium",
         "evidenceType": "SIMULATION",
@@ -23885,24 +24162,24 @@
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
           ],
-          "retrievedAt": "2026-11-01T16:31:05.920Z",
+          "retrievedAt": "2026-11-02T19:54:20.129Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp simulation day 41, 00:00:00",
+          "freshness": "source timestamp simulation day 42, 00:00:00",
           "changedRecords": [
-            "MO-0071",
-            "MO-0067",
-            "MO-0069",
-            "MO-0070"
+            "MO-0072",
+            "MO-0073",
+            "MO-0074",
+            "MO-0071"
           ]
         },
         "details": {
           "simulation": {
-            "day": 41,
+            "day": 42,
             "timeOfDay": "00:00:00",
-            "activeSignals": 1,
-            "openInvestigations": 1,
-            "totalCases": 71
+            "activeSignals": 2,
+            "openInvestigations": 3,
+            "totalCases": 74
           },
           "candidates": [
             {
@@ -23972,193 +24249,6 @@
             }
           ],
           "methods": [
-            {
-              "id": "MO-0060",
-              "status": "DISMISSED",
-              "classification": "MO_VARIANT",
-              "confidenceBand": "MINIMAL",
-              "noveltyScore": 100,
-              "signature": "FALSE_MILESTONE_STAMP+GPS_SIGNAL_LOST+HANDOVER_GAP",
-              "entities": {
-                "truckId": "TRU-009",
-                "driverId": "DRI-031",
-                "trailerId": "TRA-034",
-                "carrierId": "CAR-007",
-                "facilityId": null
-              },
-              "timeline": [
-                {
-                  "t": 3038453,
-                  "type": "HANDOVER_GAP"
-                },
-                {
-                  "t": 3038700,
-                  "type": "FALSE_MILESTONE_STAMP"
-                },
-                {
-                  "t": 3043500,
-                  "type": "GPS_SIGNAL_LOST"
-                }
-              ],
-              "evidence": [
-                {
-                  "signalId": "SIG-002054",
-                  "signalType": "HANDOVER_GAP",
-                  "contribution": 1.1,
-                  "reliability": 0.55,
-                  "at": 3038453,
-                  "facilityId": "FAC-009",
-                  "facilityName": "Inland Depot Sud"
-                },
-                {
-                  "signalId": "SIG-002053",
-                  "signalType": "FALSE_MILESTONE_STAMP",
-                  "contribution": 1.7,
-                  "reliability": 0.55,
-                  "at": 3038700,
-                  "facilityId": "FAC-009",
-                  "facilityName": "Inland Depot Sud"
-                },
-                {
-                  "signalId": "SIG-002056",
-                  "signalType": "GPS_SIGNAL_LOST",
-                  "contribution": 1.2,
-                  "reliability": 0.6,
-                  "at": 3043500,
-                  "facilityId": null,
-                  "facilityName": null
-                }
-              ]
-            },
-            {
-              "id": "MO-0061",
-              "status": "DISMISSED",
-              "classification": "KNOWN_MO",
-              "confidenceBand": "MINIMAL",
-              "noveltyScore": 10,
-              "signature": "FALSE_MILESTONE_STAMP+HANDOVER_GAP",
-              "entities": {
-                "truckId": "TRU-010",
-                "driverId": "DRI-023",
-                "trailerId": "TRA-025",
-                "carrierId": "CAR-004",
-                "facilityId": null
-              },
-              "timeline": [
-                {
-                  "t": 3047788,
-                  "type": "HANDOVER_GAP"
-                },
-                {
-                  "t": 3048000,
-                  "type": "FALSE_MILESTONE_STAMP"
-                },
-                {
-                  "t": 3049257,
-                  "type": "HANDOVER_GAP"
-                },
-                {
-                  "t": 3049500,
-                  "type": "FALSE_MILESTONE_STAMP"
-                }
-              ],
-              "evidence": [
-                {
-                  "signalId": "SIG-002059",
-                  "signalType": "HANDOVER_GAP",
-                  "contribution": 1.1,
-                  "reliability": 0.55,
-                  "at": 3047788,
-                  "facilityId": null,
-                  "facilityName": null
-                },
-                {
-                  "signalId": "SIG-002058",
-                  "signalType": "FALSE_MILESTONE_STAMP",
-                  "contribution": 1.7,
-                  "reliability": 0.55,
-                  "at": 3048000,
-                  "facilityId": null,
-                  "facilityName": null
-                },
-                {
-                  "signalId": "SIG-002063",
-                  "signalType": "HANDOVER_GAP",
-                  "contribution": 1.1,
-                  "reliability": 0.55,
-                  "at": 3049257,
-                  "facilityId": null,
-                  "facilityName": null
-                },
-                {
-                  "signalId": "SIG-002062",
-                  "signalType": "FALSE_MILESTONE_STAMP",
-                  "contribution": 1.7,
-                  "reliability": 0.55,
-                  "at": 3049500,
-                  "facilityId": null,
-                  "facilityName": null
-                }
-              ]
-            },
-            {
-              "id": "MO-0062",
-              "status": "DISMISSED",
-              "classification": "MO_VARIANT",
-              "confidenceBand": "ELEVATED",
-              "noveltyScore": 100,
-              "signature": "EQUIPMENT_CARRIER_MISMATCH+MANIFEST_CHANGED+STAGED_BREAKDOWN",
-              "entities": {
-                "truckId": "TRU-015",
-                "driverId": "DRI-026",
-                "trailerId": "TRA-015",
-                "carrierId": "CAR-003",
-                "facilityId": null
-              },
-              "timeline": [
-                {
-                  "t": 3132900,
-                  "type": "STAGED_BREAKDOWN"
-                },
-                {
-                  "t": 3135721,
-                  "type": "MANIFEST_CHANGED"
-                },
-                {
-                  "t": 3135900,
-                  "type": "EQUIPMENT_CARRIER_MISMATCH"
-                }
-              ],
-              "evidence": [
-                {
-                  "signalId": "SIG-002120",
-                  "signalType": "STAGED_BREAKDOWN",
-                  "contribution": 1,
-                  "reliability": 0.5,
-                  "at": 3132900,
-                  "facilityId": null,
-                  "facilityName": null
-                },
-                {
-                  "signalId": "SIG-002124",
-                  "signalType": "MANIFEST_CHANGED",
-                  "contribution": 1.3,
-                  "reliability": 0.65,
-                  "at": 3135721,
-                  "facilityId": "FAC-018",
-                  "facilityName": "Central Gate"
-                },
-                {
-                  "signalId": "SIG-002123",
-                  "signalType": "EQUIPMENT_CARRIER_MISMATCH",
-                  "contribution": 2.1,
-                  "reliability": 0.7,
-                  "at": 3135900,
-                  "facilityId": "FAC-018",
-                  "facilityName": "Central Gate"
-                }
-              ]
-            },
             {
               "id": "MO-0063",
               "status": "DISMISSED",
@@ -24703,7 +24793,7 @@
             },
             {
               "id": "MO-0071",
-              "status": "NEW",
+              "status": "DISMISSED",
               "classification": "MO_VARIANT",
               "confidenceBand": "MINIMAL",
               "noveltyScore": 100,
@@ -24758,6 +24848,258 @@
                   "facilityName": null
                 }
               ]
+            },
+            {
+              "id": "MO-0072",
+              "status": "NEW",
+              "classification": "KNOWN_MO",
+              "confidenceBand": "MINIMAL",
+              "noveltyScore": 46,
+              "signature": "CARRIER_UNRESPONSIVE+FALSE_MILESTONE_STAMP+HANDOVER_GAP",
+              "entities": {
+                "truckId": "TRU-013",
+                "driverId": "DRI-013",
+                "trailerId": "TRA-033",
+                "carrierId": "CAR-008",
+                "facilityId": null
+              },
+              "timeline": [
+                {
+                  "t": 3464334,
+                  "type": "HANDOVER_GAP"
+                },
+                {
+                  "t": 3464400,
+                  "type": "FALSE_MILESTONE_STAMP"
+                },
+                {
+                  "t": 3468300,
+                  "type": "CARRIER_UNRESPONSIVE"
+                },
+                {
+                  "t": 3498300,
+                  "type": "TRAILER_SWAPPED"
+                },
+                {
+                  "t": 3512400,
+                  "type": "ACCOUNT_TAKEOVER"
+                },
+                {
+                  "t": 3532800,
+                  "type": "DUPLICATE_ASSET_ID"
+                },
+                {
+                  "t": 3538800,
+                  "type": "TRAILER_SWAPPED"
+                }
+              ],
+              "evidence": [
+                {
+                  "signalId": "SIG-002352",
+                  "signalType": "HANDOVER_GAP",
+                  "contribution": 1.1,
+                  "reliability": 0.55,
+                  "at": 3464334,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-002351",
+                  "signalType": "FALSE_MILESTONE_STAMP",
+                  "contribution": 1.7,
+                  "reliability": 0.55,
+                  "at": 3464400,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-002355",
+                  "signalType": "CARRIER_UNRESPONSIVE",
+                  "contribution": 1,
+                  "reliability": 0.5,
+                  "at": 3468300,
+                  "facilityId": "FAC-002",
+                  "facilityName": "South Gate"
+                },
+                {
+                  "signalId": "SIG-002376",
+                  "signalType": "TRAILER_SWAPPED",
+                  "contribution": 0.5,
+                  "reliability": 0.5,
+                  "at": 3498300,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-002388",
+                  "signalType": "ACCOUNT_TAKEOVER",
+                  "contribution": 1.8,
+                  "reliability": 0.6,
+                  "at": 3512400,
+                  "facilityId": "FAC-016",
+                  "facilityName": "Inland Depot West"
+                },
+                {
+                  "signalId": "SIG-002397",
+                  "signalType": "DUPLICATE_ASSET_ID",
+                  "contribution": 2,
+                  "reliability": 0.65,
+                  "at": 3532800,
+                  "facilityId": "FAC-002",
+                  "facilityName": "South Gate"
+                },
+                {
+                  "signalId": "SIG-002407",
+                  "signalType": "TRAILER_SWAPPED",
+                  "contribution": 0.5,
+                  "reliability": 0.5,
+                  "at": 3538800,
+                  "facilityId": null,
+                  "facilityName": null
+                }
+              ]
+            },
+            {
+              "id": "MO-0073",
+              "status": "NEW",
+              "classification": "MO_VARIANT",
+              "confidenceBand": "WATCH",
+              "noveltyScore": 100,
+              "signature": "ACCOUNT_TAKEOVER+EQUIPMENT_CARRIER_MISMATCH+MANIFEST_CHANGED+TRAILER_SWAPPED",
+              "entities": {
+                "truckId": "TRU-011",
+                "driverId": "DRI-024",
+                "trailerId": "TRA-003",
+                "carrierId": "CAR-003",
+                "facilityId": null
+              },
+              "timeline": [
+                {
+                  "t": 3502500,
+                  "type": "TRAILER_SWAPPED"
+                },
+                {
+                  "t": 3507900,
+                  "type": "ACCOUNT_TAKEOVER"
+                },
+                {
+                  "t": 3508076,
+                  "type": "MANIFEST_CHANGED"
+                },
+                {
+                  "t": 3508200,
+                  "type": "EQUIPMENT_CARRIER_MISMATCH"
+                }
+              ],
+              "evidence": [
+                {
+                  "signalId": "SIG-002378",
+                  "signalType": "TRAILER_SWAPPED",
+                  "contribution": 0.5,
+                  "reliability": 0.5,
+                  "at": 3502500,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-002381",
+                  "signalType": "ACCOUNT_TAKEOVER",
+                  "contribution": 1.8,
+                  "reliability": 0.6,
+                  "at": 3507900,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-002383",
+                  "signalType": "MANIFEST_CHANGED",
+                  "contribution": 1.3,
+                  "reliability": 0.65,
+                  "at": 3508076,
+                  "facilityId": "FAC-002",
+                  "facilityName": "South Gate"
+                },
+                {
+                  "signalId": "SIG-002382",
+                  "signalType": "EQUIPMENT_CARRIER_MISMATCH",
+                  "contribution": 2.1,
+                  "reliability": 0.7,
+                  "at": 3508200,
+                  "facilityId": "FAC-002",
+                  "facilityName": "South Gate"
+                }
+              ]
+            },
+            {
+              "id": "MO-0074",
+              "status": "NEW",
+              "classification": "KNOWN_MO",
+              "confidenceBand": "MINIMAL",
+              "noveltyScore": 46,
+              "signature": "FALSE_MILESTONE_STAMP+HANDOVER_GAP+STAGED_BREAKDOWN+UNEXPECTED_STOP",
+              "entities": {
+                "truckId": "TRU-008",
+                "driverId": "DRI-005",
+                "trailerId": "TRA-032",
+                "carrierId": "CAR-005",
+                "facilityId": null
+              },
+              "timeline": [
+                {
+                  "t": 3532947,
+                  "type": "UNEXPECTED_STOP"
+                },
+                {
+                  "t": 3533100,
+                  "type": "STAGED_BREAKDOWN"
+                },
+                {
+                  "t": 3534169,
+                  "type": "HANDOVER_GAP"
+                },
+                {
+                  "t": 3534300,
+                  "type": "FALSE_MILESTONE_STAMP"
+                }
+              ],
+              "evidence": [
+                {
+                  "signalId": "SIG-002399",
+                  "signalType": "UNEXPECTED_STOP",
+                  "contribution": 0.6,
+                  "reliability": 0.6,
+                  "at": 3532947,
+                  "facilityId": "FAC-001",
+                  "facilityName": "North Gate"
+                },
+                {
+                  "signalId": "SIG-002398",
+                  "signalType": "STAGED_BREAKDOWN",
+                  "contribution": 1,
+                  "reliability": 0.5,
+                  "at": 3533100,
+                  "facilityId": "FAC-001",
+                  "facilityName": "North Gate"
+                },
+                {
+                  "signalId": "SIG-002403",
+                  "signalType": "HANDOVER_GAP",
+                  "contribution": 1.1,
+                  "reliability": 0.55,
+                  "at": 3534169,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-002402",
+                  "signalType": "FALSE_MILESTONE_STAMP",
+                  "contribution": 1.7,
+                  "reliability": 0.55,
+                  "at": 3534300,
+                  "facilityId": null,
+                  "facilityName": null
+                }
+              ]
             }
           ],
           "label": "SYNTHETIC SIMULATION — not real-world fraud cases"
@@ -24767,9 +25109,9 @@
       {
         "id": "shadow-network:briefing",
         "sourceProject": "Shadow Network",
-        "timestamp": "2026-11-01T16:31:05.920Z",
+        "timestamp": "2026-11-02T19:54:20.129Z",
         "title": "Shadow Network synthetic snapshot changed",
-        "summary": "Synthetic network day 41 was refreshed: 0 incidents and 0 verdicts are recorded in the latest state.",
+        "summary": "Synthetic network day 42 was refreshed: 0 incidents and 0 verdicts are recorded in the latest state.",
         "category": "risk-intelligence",
         "importance": "low",
         "evidenceType": "SIMULATION",
@@ -24792,17 +25134,17 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
           ],
-          "retrievedAt": "2026-11-01T16:31:05.920Z",
+          "retrievedAt": "2026-11-02T19:54:20.129Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp 2026-11-01T10:37:21.446Z",
+          "freshness": "source timestamp 2026-11-02T11:24:19.909Z",
           "changedRecords": [
             "snapshot"
           ]
         },
         "details": {
-          "day": 41,
-          "generatedAt": "2026-11-01T10:37:21.446Z",
+          "day": 42,
+          "generatedAt": "2026-11-02T11:24:19.909Z",
           "incidents": [],
           "verdicts": [],
           "carrierCount": 120,
@@ -24956,7 +25298,7 @@
       {
         "id": "risk-ring:briefing",
         "sourceProject": "Risk Ring",
-        "timestamp": "2026-10-26T16:22:43.958Z",
+        "timestamp": "2026-11-02T19:54:20.129Z",
         "title": "Risk Ring synthetic analysis changed",
         "summary": "Synthetic analysis contains 30 alerts across 20 rings; graph recovery covers 20 of 20 synthetic rings.",
         "category": "risk-intelligence",
@@ -24991,7 +25333,7 @@
             "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/metrics.json",
             "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/graph_metrics.json"
           ],
-          "retrievedAt": "2026-10-26T16:22:43.958Z",
+          "retrievedAt": "2026-11-02T19:54:20.129Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
           "freshness": "timestamp not supplied by source",
@@ -25010,27 +25352,27 @@
               "test_rows": 6112
             },
             "logistic_regression": {
-              "precision": 0.8021,
-              "recall": 0.9934,
-              "f1": 0.8876,
-              "roc_auc": 0.9993,
-              "pr_auc": 0.9624
+              "precision": 0.7588,
+              "recall": 1,
+              "f1": 0.8629,
+              "roc_auc": 0.9994,
+              "pr_auc": 0.9629
             },
             "xgboost": {
-              "precision": 0.8207,
+              "precision": 0.8531,
               "recall": 1,
-              "f1": 0.9015,
-              "roc_auc": 0.9998,
-              "pr_auc": 0.9939
+              "f1": 0.9207,
+              "roc_auc": 0.9999,
+              "pr_auc": 0.9962
             }
           },
           "graphMetrics": {
             "seed_percentile": 0.95,
-            "subgraph_nodes": 2101,
-            "subgraph_edges": 10336,
-            "communities_detected": 226,
-            "avg_ring_recall": 0.779,
-            "avg_ring_precision": 0.807,
+            "subgraph_nodes": 2104,
+            "subgraph_edges": 10370,
+            "communities_detected": 228,
+            "avg_ring_recall": 0.774,
+            "avg_ring_precision": 0.832,
             "rings_recovered_ge_30pct": 20,
             "total_true_rings": 20,
             "per_ring": [
@@ -25045,8 +25387,8 @@
               {
                 "ring_id": "015",
                 "typology": "smurfing",
-                "recall": 0.545,
-                "precision": 0.6,
+                "recall": 0.455,
+                "precision": 0.5,
                 "true_size": 11,
                 "matched_community_size": 10
               },
@@ -25054,17 +25396,17 @@
                 "ring_id": "007",
                 "typology": "layering",
                 "recall": 1,
-                "precision": 0.545,
+                "precision": 0.857,
                 "true_size": 6,
-                "matched_community_size": 11
+                "matched_community_size": 7
               },
               {
                 "ring_id": "013",
                 "typology": "layering",
                 "recall": 0.833,
-                "precision": 0.625,
+                "precision": 0.833,
                 "true_size": 6,
-                "matched_community_size": 8
+                "matched_community_size": 6
               },
               {
                 "ring_id": "000",
@@ -25094,9 +25436,9 @@
                 "ring_id": "001",
                 "typology": "layering",
                 "recall": 0.833,
-                "precision": 0.5,
+                "precision": 1,
                 "true_size": 6,
-                "matched_community_size": 10
+                "matched_community_size": 5
               },
               {
                 "ring_id": "005",
@@ -25110,25 +25452,25 @@
                 "ring_id": "012",
                 "typology": "smurfing",
                 "recall": 0.444,
-                "precision": 0.444,
+                "precision": 0.667,
                 "true_size": 9,
-                "matched_community_size": 9
+                "matched_community_size": 6
               },
               {
                 "ring_id": "009",
                 "typology": "smurfing",
                 "recall": 0.455,
-                "precision": 0.833,
+                "precision": 0.625,
                 "true_size": 11,
-                "matched_community_size": 6
+                "matched_community_size": 8
               },
               {
                 "ring_id": "019",
                 "typology": "layering",
                 "recall": 0.833,
-                "precision": 1,
+                "precision": 0.833,
                 "true_size": 6,
-                "matched_community_size": 5
+                "matched_community_size": 6
               },
               {
                 "ring_id": "017",
@@ -25142,9 +25484,9 @@
                 "ring_id": "006",
                 "typology": "smurfing",
                 "recall": 0.5,
-                "precision": 0.857,
+                "precision": 0.6,
                 "true_size": 12,
-                "matched_community_size": 7
+                "matched_community_size": 10
               },
               {
                 "ring_id": "011",
@@ -25198,10 +25540,10 @@
           },
           "alerts": [
             {
-              "tx_id": "T0016245",
-              "orig": "R004_hop1",
-              "dest": "R004_hop2",
-              "amount": 38019.52,
+              "tx_id": "T0016252",
+              "orig": "R004_hop2",
+              "dest": "R004_hop3",
+              "amount": 35985.14,
               "tx_type": "TRANSFER",
               "risk_score": 1,
               "is_fraud_ground_truth": 1,
@@ -25210,48 +25552,19 @@
               "top_factors": [
                 {
                   "feature": "amount",
-                  "shap_value": 5.8938
+                  "shap_value": 5.7376
                 },
                 {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 4.214
+                  "shap_value": 3.7405
                 },
                 {
                   "feature": "pair_prior_count",
-                  "shap_value": 2.6903
-                },
-                {
-                  "feature": "dest_fanin_prior",
-                  "shap_value": -1.2097
-                }
-              ]
-            },
-            {
-              "tx_id": "T0018003",
-              "orig": "R005_loop1",
-              "dest": "R005_loop2",
-              "amount": 5442.63,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "005",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 4.2735
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.4529
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.4443
+                  "shap_value": 2.8051
                 },
                 {
                   "feature": "near_threshold",
-                  "shap_value": 0.7147
+                  "shap_value": 1.124
                 }
               ]
             },
@@ -25268,48 +25581,48 @@
               "top_factors": [
                 {
                   "feature": "amount",
-                  "shap_value": 5.8619
+                  "shap_value": 5.7315
                 },
                 {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 4.8265
+                  "shap_value": 3.8778
                 },
                 {
                   "feature": "pair_prior_count",
-                  "shap_value": 3.4306
+                  "shap_value": 3.742
                 },
                 {
-                  "feature": "dest_fanin_prior",
-                  "shap_value": -1.6422
+                  "feature": "near_threshold",
+                  "shap_value": 1.0163
                 }
               ]
             },
             {
-              "tx_id": "T0015523",
-              "orig": "R004_hop1",
-              "dest": "R004_hop2",
-              "amount": 37840.75,
+              "tx_id": "T0018385",
+              "orig": "R016_hop1",
+              "dest": "R016_hop2",
+              "amount": 22421.81,
               "tx_type": "TRANSFER",
               "risk_score": 1,
               "is_fraud_ground_truth": 1,
-              "ring_id": "004",
+              "ring_id": "016",
               "typology": "layering",
               "top_factors": [
                 {
                   "feature": "amount",
-                  "shap_value": 5.9826
+                  "shap_value": 5.1493
                 },
                 {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 3.5721
+                  "shap_value": 3.8375
                 },
                 {
                   "feature": "pair_prior_count",
-                  "shap_value": 2.6144
+                  "shap_value": 3.5686
                 },
                 {
-                  "feature": "dest_fanin_prior",
-                  "shap_value": -1.0467
+                  "feature": "near_threshold",
+                  "shap_value": 0.7604
                 }
               ]
             },
@@ -25326,143 +25639,27 @@
               "top_factors": [
                 {
                   "feature": "pair_prior_count",
-                  "shap_value": 3.5947
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.4414
+                  "shap_value": 4.2214
                 },
                 {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 2.846
-                },
-                {
-                  "feature": "dest_fanin_prior",
-                  "shap_value": 1.3812
-                }
-              ]
-            },
-            {
-              "tx_id": "T0014390",
-              "orig": "R011_loop2",
-              "dest": "R011_loop0",
-              "amount": 6231.03,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "011",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.7683
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.6492
+                  "shap_value": 3.8245
                 },
                 {
                   "feature": "amount",
-                  "shap_value": 3.3786
+                  "shap_value": 3.5838
                 },
                 {
                   "feature": "near_threshold",
-                  "shap_value": 0.7116
+                  "shap_value": 1.1507
                 }
               ]
             },
             {
-              "tx_id": "T0017069",
-              "orig": "R002_loop0",
-              "dest": "R002_loop1",
-              "amount": 7137.04,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "002",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.8674
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.801
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.3579
-                },
-                {
-                  "feature": "near_threshold",
-                  "shap_value": 0.8171
-                }
-              ]
-            },
-            {
-              "tx_id": "T0016108",
-              "orig": "R002_loop0",
-              "dest": "R002_loop1",
-              "amount": 5062.95,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "002",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.7908
-                },
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.7783
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.3779
-                },
-                {
-                  "feature": "near_threshold",
-                  "shap_value": 0.9234
-                }
-              ]
-            },
-            {
-              "tx_id": "T0017895",
-              "orig": "R017_loop3",
-              "dest": "R017_loop0",
-              "amount": 6083.72,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "017",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 4.9789
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.8118
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.3615
-                },
-                {
-                  "feature": "dest_fanin_prior",
-                  "shap_value": -1.0629
-                }
-              ]
-            },
-            {
-              "tx_id": "T0015895",
-              "orig": "R005_loop1",
-              "dest": "R005_loop2",
-              "amount": 5202.1,
+              "tx_id": "T0017181",
+              "orig": "R005_loop0",
+              "dest": "R005_loop1",
+              "amount": 7304.57,
               "tx_type": "TRANSFER",
               "risk_score": 1,
               "is_fraud_ground_truth": 1,
@@ -25471,19 +25668,48 @@
               "top_factors": [
                 {
                   "feature": "pair_prior_count",
-                  "shap_value": 3.6945
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.4774
+                  "shap_value": 4.667
                 },
                 {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 2.5776
+                  "shap_value": 4.0087
                 },
                 {
-                  "feature": "dest_fanin_prior",
-                  "shap_value": 1.4149
+                  "feature": "amount",
+                  "shap_value": 3.3506
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 0.8822
+                }
+              ]
+            },
+            {
+              "tx_id": "T0016571",
+              "orig": "R002_loop0",
+              "dest": "R002_loop1",
+              "amount": 5160.24,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "002",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 4.5595
+                },
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 3.9775
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.4942
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 1.3649
                 }
               ]
             },
@@ -25500,27 +25726,85 @@
               "top_factors": [
                 {
                   "feature": "pair_prior_count",
-                  "shap_value": 3.821
+                  "shap_value": 4.4941
                 },
                 {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 3.7023
+                  "shap_value": 3.9712
                 },
                 {
                   "feature": "amount",
-                  "shap_value": 3.3654
+                  "shap_value": 3.5414
                 },
                 {
                   "feature": "near_threshold",
-                  "shap_value": 0.8393
+                  "shap_value": 1.2809
                 }
               ]
             },
             {
-              "tx_id": "T0018277",
-              "orig": "R005_loop3",
-              "dest": "R005_loop0",
-              "amount": 5435.54,
+              "tx_id": "T0016108",
+              "orig": "R002_loop0",
+              "dest": "R002_loop1",
+              "amount": 5062.95,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "002",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 4.4819
+                },
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 3.9467
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.5282
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 1.3438
+                }
+              ]
+            },
+            {
+              "tx_id": "T0017233",
+              "orig": "R017_loop0",
+              "dest": "R017_loop1",
+              "amount": 6289.91,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "017",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 4.3527
+                },
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 4.018
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.5152
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 1.0614
+                }
+              ]
+            },
+            {
+              "tx_id": "T0018003",
+              "orig": "R005_loop1",
+              "dest": "R005_loop2",
+              "amount": 5442.63,
               "tx_type": "TRANSFER",
               "risk_score": 1,
               "is_fraud_ground_truth": 1,
@@ -25528,20 +25812,78 @@
               "typology": "round_trip",
               "top_factors": [
                 {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 4.3665
-                },
-                {
                   "feature": "pair_prior_count",
-                  "shap_value": 3.7832
+                  "shap_value": 4.2181
                 },
                 {
                   "feature": "amount",
-                  "shap_value": 3.3411
+                  "shap_value": 3.5621
                 },
                 {
-                  "feature": "dest_fanin_prior",
-                  "shap_value": -1.2993
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 3.5556
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 1.0252
+                }
+              ]
+            },
+            {
+              "tx_id": "T0017069",
+              "orig": "R002_loop0",
+              "dest": "R002_loop1",
+              "amount": 7137.04,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "002",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 4.4466
+                },
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 4.1123
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.4784
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 1.2809
+                }
+              ]
+            },
+            {
+              "tx_id": "T0018260",
+              "orig": "R017_loop2",
+              "dest": "R017_loop3",
+              "amount": 7316.84,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "017",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 4.3342
+                },
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 4.196
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.351
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 1.0614
                 }
               ]
             }
@@ -25554,27 +25896,22 @@
               "precision": 0.625,
               "nodes": [
                 {
-                  "id": "R010_hop0"
+                  "id": "R010_hop2"
                 },
                 {
-                  "id": "R010_hop2"
+                  "id": "R010_hop1"
                 },
                 {
                   "id": "R010_hop3"
                 },
                 {
-                  "id": "R010_hop4"
+                  "id": "R010_hop0"
                 },
                 {
-                  "id": "R010_hop1"
+                  "id": "R010_hop4"
                 }
               ],
               "edges": [
-                {
-                  "source": "R010_hop0",
-                  "target": "R010_hop1",
-                  "weight": 5
-                },
                 {
                   "source": "R010_hop2",
                   "target": "R010_hop1",
@@ -25583,6 +25920,11 @@
                 {
                   "source": "R010_hop2",
                   "target": "R010_hop3",
+                  "weight": 5
+                },
+                {
+                  "source": "R010_hop1",
+                  "target": "R010_hop0",
                   "weight": 5
                 },
                 {
@@ -25595,46 +25937,46 @@
             {
               "ring_id": "015",
               "typology": "smurfing",
-              "recall": 0.545,
-              "precision": 0.6,
+              "recall": 0.455,
+              "precision": 0.5,
               "nodes": [
                 {
-                  "id": "A01101"
+                  "id": "A01703"
                 },
                 {
                   "id": "A01881"
                 },
                 {
-                  "id": "R015_smurf4"
-                },
-                {
-                  "id": "R015_collector"
-                },
-                {
                   "id": "A00886"
-                },
-                {
-                  "id": "R015_smurf1"
-                },
-                {
-                  "id": "A01703"
-                },
-                {
-                  "id": "R015_smurf3"
                 },
                 {
                   "id": "R015_smurf2"
                 },
                 {
+                  "id": "A00116"
+                },
+                {
                   "id": "R015_smurf0"
                 },
                 {
-                  "id": "A00116"
+                  "id": "R015_smurf4"
+                },
+                {
+                  "id": "R015_smurf1"
+                },
+                {
+                  "id": "R015_smurf3"
+                },
+                {
+                  "id": "R015_collector"
+                },
+                {
+                  "id": "A01101"
                 }
               ],
               "edges": [
                 {
-                  "source": "A01101",
+                  "source": "A01703",
                   "target": "R015_collector",
                   "weight": 1
                 },
@@ -25644,43 +25986,43 @@
                   "weight": 1
                 },
                 {
+                  "source": "A00886",
+                  "target": "R015_collector",
+                  "weight": 1
+                },
+                {
+                  "source": "R015_smurf2",
+                  "target": "R015_collector",
+                  "weight": 5
+                },
+                {
+                  "source": "A00116",
+                  "target": "R015_collector",
+                  "weight": 1
+                },
+                {
+                  "source": "R015_smurf0",
+                  "target": "R015_collector",
+                  "weight": 5
+                },
+                {
                   "source": "R015_smurf4",
                   "target": "R015_collector",
                   "weight": 3
                 },
                 {
-                  "source": "R015_collector",
-                  "target": "R015_smurf2",
+                  "source": "R015_smurf1",
+                  "target": "R015_collector",
                   "weight": 5
                 },
                 {
-                  "source": "R015_collector",
-                  "target": "R015_smurf1",
-                  "weight": 5
-                },
-                {
-                  "source": "R015_collector",
-                  "target": "R015_smurf0",
-                  "weight": 5
-                },
-                {
-                  "source": "R015_collector",
-                  "target": "R015_smurf3",
+                  "source": "R015_smurf3",
+                  "target": "R015_collector",
                   "weight": 4
                 },
                 {
                   "source": "R015_collector",
-                  "target": "A00116",
-                  "weight": 1
-                },
-                {
-                  "source": "R015_collector",
-                  "target": "A00886",
-                  "weight": 1
-                },
-                {
-                  "source": "R015_collector",
-                  "target": "A01703",
+                  "target": "A01101",
                   "weight": 1
                 }
               ]
@@ -25689,31 +26031,31 @@
               "ring_id": "007",
               "typology": "layering",
               "recall": 1,
-              "precision": 0.545,
+              "precision": 0.857,
               "nodes": [
-                {
-                  "id": "R007_hop1"
-                },
-                {
-                  "id": "R007_hop5"
-                },
                 {
                   "id": "R007_hop0"
                 },
                 {
-                  "id": "R007_hop3"
+                  "id": "R007_hop1"
+                },
+                {
+                  "id": "R007_hop2"
                 },
                 {
                   "id": "R007_hop4"
                 },
                 {
-                  "id": "R007_hop2"
+                  "id": "R007_hop3"
+                },
+                {
+                  "id": "R007_hop5"
                 }
               ],
               "edges": [
                 {
-                  "source": "R007_hop1",
-                  "target": "R007_hop0",
+                  "source": "R007_hop0",
+                  "target": "R007_hop1",
                   "weight": 3
                 },
                 {
@@ -25722,18 +26064,18 @@
                   "weight": 3
                 },
                 {
-                  "source": "R007_hop5",
-                  "target": "R007_hop4",
+                  "source": "R007_hop2",
+                  "target": "R007_hop3",
                   "weight": 3
                 },
                 {
-                  "source": "R007_hop3",
-                  "target": "R007_hop2",
+                  "source": "R007_hop4",
+                  "target": "R007_hop3",
                   "weight": 3
                 },
                 {
-                  "source": "R007_hop3",
-                  "target": "R007_hop4",
+                  "source": "R007_hop4",
+                  "target": "R007_hop5",
                   "weight": 3
                 }
               ]
@@ -25742,52 +26084,52 @@
               "ring_id": "013",
               "typology": "layering",
               "recall": 0.833,
-              "precision": 0.625,
+              "precision": 0.833,
               "nodes": [
                 {
+                  "id": "R013_hop0"
+                },
+                {
+                  "id": "R013_hop3"
+                },
+                {
                   "id": "R013_hop2"
+                },
+                {
+                  "id": "R013_hop4"
                 },
                 {
                   "id": "R013_hop1"
                 },
                 {
                   "id": "R013_hop5"
-                },
-                {
-                  "id": "R013_hop0"
-                },
-                {
-                  "id": "R013_hop4"
-                },
-                {
-                  "id": "R013_hop3"
                 }
               ],
               "edges": [
+                {
+                  "source": "R013_hop0",
+                  "target": "R013_hop1",
+                  "weight": 6
+                },
+                {
+                  "source": "R013_hop3",
+                  "target": "R013_hop2",
+                  "weight": 6
+                },
+                {
+                  "source": "R013_hop3",
+                  "target": "R013_hop4",
+                  "weight": 4
+                },
                 {
                   "source": "R013_hop2",
                   "target": "R013_hop1",
                   "weight": 6
                 },
                 {
-                  "source": "R013_hop2",
-                  "target": "R013_hop3",
-                  "weight": 6
-                },
-                {
-                  "source": "R013_hop1",
-                  "target": "R013_hop0",
-                  "weight": 6
-                },
-                {
-                  "source": "R013_hop5",
-                  "target": "R013_hop4",
-                  "weight": 1
-                },
-                {
                   "source": "R013_hop4",
-                  "target": "R013_hop3",
-                  "weight": 4
+                  "target": "R013_hop5",
+                  "weight": 1
                 }
               ]
             },
@@ -25798,10 +26140,25 @@
               "precision": 0.636,
               "nodes": [
                 {
-                  "id": "A01693"
+                  "id": "R000_collector"
+                },
+                {
+                  "id": "R000_smurf3"
+                },
+                {
+                  "id": "A01525"
                 },
                 {
                   "id": "A01046"
+                },
+                {
+                  "id": "R000_smurf2"
+                },
+                {
+                  "id": "R000_smurf5"
+                },
+                {
+                  "id": "R000_smurf4"
                 },
                 {
                   "id": "A01293"
@@ -25810,60 +26167,30 @@
                   "id": "R000_smurf0"
                 },
                 {
-                  "id": "R000_collector"
-                },
-                {
-                  "id": "A01559"
-                },
-                {
-                  "id": "R000_smurf5"
-                },
-                {
-                  "id": "A01913"
-                },
-                {
-                  "id": "A00764"
-                },
-                {
-                  "id": "R000_smurf3"
+                  "id": "A01693"
                 },
                 {
                   "id": "R000_smurf1"
                 },
                 {
-                  "id": "R000_smurf2"
+                  "id": "A00764"
                 },
                 {
-                  "id": "R000_smurf4"
+                  "id": "A01913"
                 },
                 {
-                  "id": "A01525"
+                  "id": "A01559"
                 }
               ],
               "edges": [
                 {
-                  "source": "A01693",
-                  "target": "R000_collector",
-                  "weight": 1
-                },
-                {
-                  "source": "A01046",
-                  "target": "R000_collector",
-                  "weight": 1
-                },
-                {
-                  "source": "A01293",
-                  "target": "R000_collector",
-                  "weight": 1
-                },
-                {
-                  "source": "R000_smurf0",
-                  "target": "R000_collector",
+                  "source": "R000_collector",
+                  "target": "R000_smurf2",
                   "weight": 7
                 },
                 {
                   "source": "R000_collector",
-                  "target": "R000_smurf2",
+                  "target": "R000_smurf0",
                   "weight": 7
                 },
                 {
@@ -25880,6 +26207,11 @@
                   "source": "R000_collector",
                   "target": "R000_smurf3",
                   "weight": 5
+                },
+                {
+                  "source": "R000_collector",
+                  "target": "A01293",
+                  "weight": 1
                 },
                 {
                   "source": "R000_collector",
@@ -25903,7 +26235,17 @@
                 },
                 {
                   "source": "R000_collector",
+                  "target": "A01693",
+                  "weight": 1
+                },
+                {
+                  "source": "R000_collector",
                   "target": "A01525",
+                  "weight": 1
+                },
+                {
+                  "source": "R000_collector",
+                  "target": "A01046",
                   "weight": 1
                 }
               ]
@@ -25915,49 +26257,49 @@
               "precision": 1,
               "nodes": [
                 {
-                  "id": "R004_hop4"
-                },
-                {
                   "id": "R004_hop0"
-                },
-                {
-                  "id": "R004_hop3"
                 },
                 {
                   "id": "R004_hop2"
                 },
                 {
-                  "id": "R004_hop5"
+                  "id": "R004_hop3"
+                },
+                {
+                  "id": "R004_hop4"
                 },
                 {
                   "id": "R004_hop1"
+                },
+                {
+                  "id": "R004_hop5"
                 }
               ],
               "edges": [
-                {
-                  "source": "R004_hop4",
-                  "target": "R004_hop3",
-                  "weight": 5
-                },
-                {
-                  "source": "R004_hop4",
-                  "target": "R004_hop5",
-                  "weight": 2
-                },
                 {
                   "source": "R004_hop0",
                   "target": "R004_hop1",
                   "weight": 7
                 },
                 {
-                  "source": "R004_hop3",
-                  "target": "R004_hop2",
+                  "source": "R004_hop2",
+                  "target": "R004_hop1",
                   "weight": 7
                 },
                 {
                   "source": "R004_hop2",
-                  "target": "R004_hop1",
+                  "target": "R004_hop3",
                   "weight": 7
+                },
+                {
+                  "source": "R004_hop3",
+                  "target": "R004_hop4",
+                  "weight": 5
+                },
+                {
+                  "source": "R004_hop4",
+                  "target": "R004_hop5",
+                  "weight": 2
                 }
               ]
             },
@@ -25968,29 +26310,29 @@
               "precision": 1,
               "nodes": [
                 {
+                  "id": "R008_loop1"
+                },
+                {
                   "id": "R008_loop2"
                 },
                 {
                   "id": "R008_loop0"
-                },
-                {
-                  "id": "R008_loop1"
                 }
               ],
               "edges": [
                 {
-                  "source": "R008_loop2",
-                  "target": "R008_loop1",
+                  "source": "R008_loop1",
+                  "target": "R008_loop0",
+                  "weight": 9
+                },
+                {
+                  "source": "R008_loop1",
+                  "target": "R008_loop2",
                   "weight": 9
                 },
                 {
                   "source": "R008_loop2",
                   "target": "R008_loop0",
-                  "weight": 9
-                },
-                {
-                  "source": "R008_loop0",
-                  "target": "R008_loop1",
                   "weight": 9
                 }
               ]
@@ -25999,38 +26341,28 @@
               "ring_id": "001",
               "typology": "layering",
               "recall": 0.833,
-              "precision": 0.5,
+              "precision": 1,
               "nodes": [
                 {
-                  "id": "R001_hop1"
+                  "id": "R001_hop3"
                 },
                 {
-                  "id": "R001_hop3"
+                  "id": "R001_hop1"
                 },
                 {
                   "id": "R001_hop0"
                 },
                 {
-                  "id": "R001_hop2"
+                  "id": "R001_hop5"
                 },
                 {
-                  "id": "R001_hop5"
+                  "id": "R001_hop2"
                 },
                 {
                   "id": "R001_hop4"
                 }
               ],
               "edges": [
-                {
-                  "source": "R001_hop1",
-                  "target": "R001_hop0",
-                  "weight": 4
-                },
-                {
-                  "source": "R001_hop1",
-                  "target": "R001_hop2",
-                  "weight": 4
-                },
                 {
                   "source": "R001_hop3",
                   "target": "R001_hop2",
@@ -26040,6 +26372,16 @@
                   "source": "R001_hop3",
                   "target": "R001_hop4",
                   "weight": 3
+                },
+                {
+                  "source": "R001_hop1",
+                  "target": "R001_hop0",
+                  "weight": 4
+                },
+                {
+                  "source": "R001_hop1",
+                  "target": "R001_hop2",
+                  "weight": 4
                 },
                 {
                   "source": "R001_hop5",
@@ -26056,7 +26398,7 @@
       {
         "id": "forecast-ledger:briefing",
         "sourceProject": "Forecast Ledger",
-        "timestamp": "2026-10-26T16:22:43.958Z",
+        "timestamp": "2026-11-02T19:54:20.129Z",
         "title": "Forecast Ledger refresh completed",
         "summary": "1 forecast sealed, 0 graded, and 1 explicitly refused by the eligibility rules.",
         "category": "risk-intelligence",
@@ -26085,10 +26427,10 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/Forecast-Ledger/main/site/data.json"
           ],
-          "retrievedAt": "2026-10-26T16:22:43.958Z",
+          "retrievedAt": "2026-11-02T19:54:20.129Z",
           "status": "OFFICIAL",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp 2026-10-24T11:00:00+0200",
+          "freshness": "source timestamp 2026-11-02T11:00:00+0100",
           "changedRecords": [
             "ledger"
           ]
@@ -26130,16 +26472,16 @@
           ],
           "series": [
             {
+              "dataset": "sts_trtu_q",
+              "seriesId": "sts_trtu_q.EU27_2020.G47.VOL_SLS.I21.SCA",
+              "role": "forecastable",
+              "fetchedAt": "2026-11-02T13:55:02.437356+00:00"
+            },
+            {
               "dataset": "road_go_ta_tott",
               "seriesId": "road_go_ta_tott.DE.TOTAL.TOTAL.MIO_TKM",
               "role": "refusal_demo",
               "fetchedAt": "2026-10-02T11:49:52.894762+00:00"
-            },
-            {
-              "dataset": "sts_trtu_q",
-              "seriesId": "sts_trtu_q.EU27_2020.G47.VOL_SLS.I21.SCA",
-              "role": "forecastable",
-              "fetchedAt": "2026-10-26T11:36:30.901915+00:00"
             }
           ],
           "label": "OFFICIAL PUBLIC DATA + DETERMINISTIC LEDGER — refusal is not a forecast"

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-11-07T15:58:30.055Z",
+  "generated_at": "2026-11-08T16:27:24.241Z",
   "sourceStates": {
     "fomo": {
       "id": "fomo",
@@ -14,15 +14,15 @@
         "new external freight-risk signals",
         "source titles and links"
       ],
-      "retrievedAt": "2026-11-07T15:58:30.055Z",
+      "retrievedAt": "2026-11-08T16:27:24.241Z",
       "sourceTimestamp": "2026-11-05T15:11:31.000Z",
-      "freshness": "source timestamp 2026-11-05T15:11:31.000Z; checked 2026-11-07T15:58:30.055Z",
+      "freshness": "source timestamp 2026-11-05T15:11:31.000Z; checked 2026-11-08T16:27:24.241Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
       ],
       "origin": "GitHub raw snapshot",
-      "recordCount": 1266,
-      "fingerprint": "c29be7a689442299704022c080039e0cee807dd0db8a1c8d0cfa9776411852a5",
+      "recordCount": 1269,
+      "fingerprint": "a3c641b049136585a6ddb9e891f4e69f404e8646b052bd688230d2c1feb429d4",
       "records": {
         "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBGQTJVX2Uxajk1OU95QjlCanZtR01rZ0k4T0k1SDdNTDBlM3B6d3RLMVpXc056eTlkOFJOYWtkMktmdzFTbnJ6X1RtYi04Ymo3SVZTZFRmcw?oc=5": "6d0448978fb26ed82decc3444796019c52412248179b5157ba609a0101b0cf0c",
         "https://news.google.com/rss/articles/CBMigAFBVV95cUxQMWd5SUtZcC1BUmVvdkxPU1BPdWJDWUpNMGpua3pKMDl5ZFhJZkJSaVNacWhIUktHVjhVajdNQ3RWTGFJSFZ1Y0lfM0Z6RmxoYW9yOTBfSmZ4OV8xbVZaZ21yZ25jN1A5UUN5djBTV3d3aTJpdUVVTHRSNEJvVzBRcg?oc=5": "64eb9fbfbd598648f99d5c973780aab2529733f101fb5135c16d681da833bb5b",
@@ -1289,7 +1289,10 @@
         "https://news.google.com/rss/articles/CBMihwFBVV95cUxPOERQUl81V0twaG9KMk1sVk9ldU5hWEFtOVk0S2huams3eDMxOWFSRk5jTWVINWRQbGRhZkpza3R2djBxT1pNM05LbzV2Z1ZWOTF1M2JvNG41WTlZeDNzSlVZRGM3Zkh5MXMtWm05OGpIYlNyaXZjcmNjODZsYkdQcDVzMTNPNmM?oc=5": "bc3718ac0fd5b7fb90d02885101322daaa9bc13e8575a16805c18e54b4497c4f",
         "https://news.google.com/rss/articles/CBMiywFBVV95cUxOaDk2UjFnckhsRUxINFNUeVJCU2xWRlJhNXBkaFJNMl9vLXFLUm1NN3JRbU1pdEpIMm5fUWRvbFRJNmthSVN5TXNOdGoxMHYwaUxQMlJqeXZFSUk5TzROdktMbzJ5ckZfbjN5aDhfTFF4dVkycjIxY1NUakN3YkVMdEdqdG5ybVkzV2VvR24ydzBJOHY2UGxJSWJLa29LWE1wRFVXQWNzVlR5UHlzVjBEVk9xU0JNRVZ4LWN0UzlOdHZIWWg1ZEE4NzVlWQ?oc=5": "8a4e20f7766d6580e4c93ff9ce49c2cc120f58849d8795f7b0227dc84386ae03",
         "https://news.google.com/rss/articles/CBMitAFBVV95cUxPRC1DQWVUUFdlVGozYUdORVpwMHJNaXdDSlJKaUxlYVBpUm9UbGZCNjZQS1FKRV9haWNNTVdfQXBnUjFUelZJeERuc2hnNWVhM19pRkJZSkEtTHBsQ1VwdVpXQi0tMHc4UG5uZ0NuVWttRFp6eUE5S3ZFRFFsMTdGZmw3REhDMXNDVEs5emExUlBzX2d0ZkV6bWN1VTFOczd6M0ZDSFNRcVlWRzgzVzdBaFFiX0U?oc=5": "a7550f274ed13cac812b8a5d70043f160b2bcdca3959590b468ac838a8b2dc10",
-        "https://news.google.com/rss/articles/CBMihAFBVV95cUxPM2pFMjVFdG5UUVRMZS00cHo2ZVQwZW1EallwaGY0ckFjckJJdk4yUTBNTllIbU5vSHdwVkVLSDZpM09IVHJyaFd3aXAzWTZ2TkdWczVGVUlqYldLX3EwOGl0UmZCOXJFandtZzBsQjk0T3pDaVV5ZWVYbWEtZVpQbzdBX0s?oc=5": "66978a0bbe2529b6d230132398342469708c9bb1ade87e158339d2a79da8dfd8"
+        "https://news.google.com/rss/articles/CBMihAFBVV95cUxPM2pFMjVFdG5UUVRMZS00cHo2ZVQwZW1EallwaGY0ckFjckJJdk4yUTBNTllIbU5vSHdwVkVLSDZpM09IVHJyaFd3aXAzWTZ2TkdWczVGVUlqYldLX3EwOGl0UmZCOXJFandtZzBsQjk0T3pDaVV5ZWVYbWEtZVpQbzdBX0s?oc=5": "66978a0bbe2529b6d230132398342469708c9bb1ade87e158339d2a79da8dfd8",
+        "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOajFPc3lfdzRhR2JxMnFOdzI5VTd0TmMyNVcwbS1fYUhEX09zMWQ4bFlzQjZua3IyVDRjZU4yQVZ6LVMxZGQwMmFocnFaUko4Z3RCc280Wnp5NnAzYXY1UHBXZGtycm91TEtGRzZLMU16RXN2dHJuY19EcV8xUGhJcmxmWXJSV2NfN3hBY0xybV9GSDh1V0Y5Y0hCTVFrSGlDMi13dHVOakZRWnBvV280bWpOM3VYZ2x1?oc=5": "c9f85012a8bcf8b47482afcd941b590c235d136b54f2bb2e81926494960611c8",
+        "https://news.google.com/rss/articles/CBMitwFBVV95cUxNX1dsZXozWmQ0Y3hKcUN5TVJtZGUxQ0RQQ1VKa0poUmtxWEtiaGxGSkRTWFZhUkpUajBQZklrYjlpYkdWX25EUnNfcGRGdi1qY1RPTXI4bkI0X0FmYzJQWHVGeU9oLWI0R3k2eVczLTdjTy1Od0VuSWdTRVZvX1JvTUdsSklPS1lXOXdTcWs3bG41S3NQaXB0N3BJVEhNNU9QLUs2QTRCazR5cWFxclFPN2dnMGRzRTQ?oc=5": "60899e092cd09e3366e6df2dfec500b0bb6cd48f17c651a0dea43771a953ed02",
+        "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQM2JjUEVQNzRILTg3RVkxUThRckVPNGFZQmRIWF9XbzhlN1hHMzZsbzhGRW9BMWRLc0oyWnp5NHRSMDlzVFRoLWw1dE43SGkxY2pQRXBtRnBlaDdTV0hZOVlWdnhnc2s3dUFzMDVWUzJFQUNydWM4WnN1Qk9SUmtiSnFSOGJCY3Q5X2UwaHI2RGRiczhHTUdiUTI4SzFIUUZzcVhESU9Tc3ltMFRKbDV6N1pYNlBvZlRYMF8tM2Z1dEFKZGZWLUprVzBHc1hwTGI2dVE?oc=5": "b8a7ea987bc1cb6bfb6cb90b3866c2721e368288b844b4f94849129660a27b17"
       },
       "error": null
     },
@@ -1305,17 +1308,17 @@
         "synthetic MO and candidate counts",
         "simulation freshness and state"
       ],
-      "retrievedAt": "2026-11-07T15:58:30.055Z",
-      "sourceTimestamp": "simulation day 47, 12:00:00",
-      "freshness": "source timestamp simulation day 47, 12:00:00; checked 2026-11-07T15:58:30.055Z",
+      "retrievedAt": "2026-11-08T16:27:24.241Z",
+      "sourceTimestamp": "simulation day 48, 06:00:00",
+      "freshness": "source timestamp simulation day 48, 06:00:00; checked 2026-11-08T16:27:24.241Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 95,
-      "simulationDay": 47,
-      "fingerprint": "452e4f06ab01d6e0b1500a55392e57134ff38593bc31624e55edfb117e5e7d42",
+      "simulationDay": 48,
+      "fingerprint": "b478692e8957fdf6a0400c95bf9ca837590a3e836bfdc8a35e21f2cce47ca828",
       "records": {
         "MO-0001": "0feb7d5b5575064bfb3b54504f56dbe31c377f593a989fab72e8962e0bf7f548",
         "MO-0002": "1c57dce81bfef1cfc493e2e6a7b537a4a1c12ef1d29e196d24f1a4bb1a89a4c0",
@@ -1427,18 +1430,18 @@
         "synthetic day, incidents and verdicts",
         "carrier-network snapshot"
       ],
-      "retrievedAt": "2026-11-07T15:58:30.055Z",
-      "sourceTimestamp": "2026-11-07T10:25:04.055Z",
-      "freshness": "source timestamp 2026-11-07T10:25:04.055Z; checked 2026-11-07T15:58:30.055Z",
+      "retrievedAt": "2026-11-08T16:27:24.241Z",
+      "sourceTimestamp": "2026-11-08T10:33:40.976Z",
+      "freshness": "source timestamp 2026-11-08T10:33:40.976Z; checked 2026-11-08T16:27:24.241Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 1,
-      "simulationDay": 47,
-      "fingerprint": "8f8a8bdc91decf5aa887cf42b63e2fbf23555f5dcdbb257bd09617d691ffed40",
+      "simulationDay": 48,
+      "fingerprint": "100734a593f0890216c9d105fe1ff9f445eb94bfcce3368a9c963cf5ac46a0fb",
       "records": {
-        "snapshot": "99b38e1ac2ca0b08894931b76511d7b8248a004ec5036c91a7ac8d5ba6d4e73f"
+        "snapshot": "9b37b7a579e88876f44d229bd09fe441698f086843fff5ec93da7e9f839a6eba"
       },
       "error": null
     },
@@ -1586,7 +1589,7 @@
   },
   "payload": {
     "schema_version": "1.2",
-    "generatedAt": "2026-11-07T15:58:30.055Z",
+    "generatedAt": "2026-11-08T16:27:24.241Z",
     "headline": "Good morning, Jeevan. 7 source updates are ready.",
     "sources": [
       {
@@ -1601,14 +1604,14 @@
           "new external freight-risk signals",
           "source titles and links"
         ],
-        "retrievedAt": "2026-11-07T15:58:30.055Z",
+        "retrievedAt": "2026-11-08T16:27:24.241Z",
         "sourceTimestamp": "2026-11-05T15:11:31.000Z",
-        "freshness": "source timestamp 2026-11-05T15:11:31.000Z; checked 2026-11-07T15:58:30.055Z",
+        "freshness": "source timestamp 2026-11-05T15:11:31.000Z; checked 2026-11-08T16:27:24.241Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
         ],
         "origin": "GitHub raw snapshot",
-        "recordCount": 1266,
+        "recordCount": 1269,
         "error": null
       },
       {
@@ -1623,16 +1626,16 @@
           "synthetic MO and candidate counts",
           "simulation freshness and state"
         ],
-        "retrievedAt": "2026-11-07T15:58:30.055Z",
-        "sourceTimestamp": "simulation day 47, 12:00:00",
-        "freshness": "source timestamp simulation day 47, 12:00:00; checked 2026-11-07T15:58:30.055Z",
+        "retrievedAt": "2026-11-08T16:27:24.241Z",
+        "sourceTimestamp": "simulation day 48, 06:00:00",
+        "freshness": "source timestamp simulation day 48, 06:00:00; checked 2026-11-08T16:27:24.241Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
         ],
         "origin": "GitHub raw snapshot",
         "recordCount": 95,
-        "simulationDay": 47,
+        "simulationDay": 48,
         "error": null
       },
       {
@@ -1647,15 +1650,15 @@
           "synthetic day, incidents and verdicts",
           "carrier-network snapshot"
         ],
-        "retrievedAt": "2026-11-07T15:58:30.055Z",
-        "sourceTimestamp": "2026-11-07T10:25:04.055Z",
-        "freshness": "source timestamp 2026-11-07T10:25:04.055Z; checked 2026-11-07T15:58:30.055Z",
+        "retrievedAt": "2026-11-08T16:27:24.241Z",
+        "sourceTimestamp": "2026-11-08T10:33:40.976Z",
+        "freshness": "source timestamp 2026-11-08T10:33:40.976Z; checked 2026-11-08T16:27:24.241Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
         ],
         "origin": "GitHub raw snapshot",
         "recordCount": 1,
-        "simulationDay": 47,
+        "simulationDay": 48,
         "error": null
       },
       {
@@ -1787,9 +1790,9 @@
       {
         "id": "fomo:briefing",
         "sourceProject": "FOMO",
-        "timestamp": "2026-11-07T15:58:30.055Z",
+        "timestamp": "2026-11-08T16:27:24.241Z",
         "title": "New external freight-risk signals",
-        "summary": "2 new and 0 updated external freight-risk reports detected.",
+        "summary": "3 new and 0 updated external freight-risk reports detected.",
         "category": "risk-intelligence",
         "importance": "high",
         "evidenceType": "EXTERNAL_SOURCE",
@@ -1812,20 +1815,75 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
           ],
-          "retrievedAt": "2026-11-07T15:58:30.055Z",
+          "retrievedAt": "2026-11-08T16:27:24.241Z",
           "status": "SNAPSHOT",
           "origin": "GitHub raw snapshot",
           "freshness": "source timestamp 2026-11-05T15:11:31.000Z",
           "changedRecords": [
-            "https://news.google.com/rss/articles/CBMitAFBVV95cUxPRC1DQWVUUFdlVGozYUdORVpwMHJNaXdDSlJKaUxlYVBpUm9UbGZCNjZQS1FKRV9haWNNTVdfQXBnUjFUelZJeERuc2hnNWVhM19pRkJZSkEtTHBsQ1VwdVpXQi0tMHc4UG5uZ0NuVWttRFp6eUE5S3ZFRFFsMTdGZmw3REhDMXNDVEs5emExUlBzX2d0ZkV6bWN1VTFOczd6M0ZDSFNRcVlWRzgzVzdBaFFiX0U?oc=5",
-            "https://news.google.com/rss/articles/CBMihAFBVV95cUxPM2pFMjVFdG5UUVRMZS00cHo2ZVQwZW1EallwaGY0ckFjckJJdk4yUTBNTllIbU5vSHdwVkVLSDZpM09IVHJyaFd3aXAzWTZ2TkdWczVGVUlqYldLX3EwOGl0UmZCOXJFandtZzBsQjk0T3pDaVV5ZWVYbWEtZVpQbzdBX0s?oc=5"
+            "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOajFPc3lfdzRhR2JxMnFOdzI5VTd0TmMyNVcwbS1fYUhEX09zMWQ4bFlzQjZua3IyVDRjZU4yQVZ6LVMxZGQwMmFocnFaUko4Z3RCc280Wnp5NnAzYXY1UHBXZGtycm91TEtGRzZLMU16RXN2dHJuY19EcV8xUGhJcmxmWXJSV2NfN3hBY0xybV9GSDh1V0Y5Y0hCTVFrSGlDMi13dHVOakZRWnBvV280bWpOM3VYZ2x1?oc=5",
+            "https://news.google.com/rss/articles/CBMitwFBVV95cUxNX1dsZXozWmQ0Y3hKcUN5TVJtZGUxQ0RQQ1VKa0poUmtxWEtiaGxGSkRTWFZhUkpUajBQZklrYjlpYkdWX25EUnNfcGRGdi1qY1RPTXI4bkI0X0FmYzJQWHVGeU9oLWI0R3k2eVczLTdjTy1Od0VuSWdTRVZvX1JvTUdsSklPS1lXOXdTcWs3bG41S3NQaXB0N3BJVEhNNU9QLUs2QTRCazR5cWFxclFPN2dnMGRzRTQ?oc=5",
+            "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQM2JjUEVQNzRILTg3RVkxUThRckVPNGFZQmRIWF9XbzhlN1hHMzZsbzhGRW9BMWRLc0oyWnp5NHRSMDlzVFRoLWw1dE43SGkxY2pQRXBtRnBlaDdTV0hZOVlWdnhnc2s3dUFzMDVWUzJFQUNydWM4WnN1Qk9SUmtiSnFSOGJCY3Q5X2UwaHI2RGRiczhHTUdiUTI4SzFIUUZzcVhESU9Tc3ltMFRKbDV6N1pYNlBvZlRYMF8tM2Z1dEFKZGZWLUprVzBHc1hwTGI2dVE?oc=5"
           ]
         },
         "details": {
-          "recordCount": 1266,
-          "newCount": 2,
+          "recordCount": 1269,
+          "newCount": 3,
           "updatedCount": 0,
           "records": [
+            {
+              "id": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQM2JjUEVQNzRILTg3RVkxUThRckVPNGFZQmRIWF9XbzhlN1hHMzZsbzhGRW9BMWRLc0oyWnp5NHRSMDlzVFRoLWw1dE43SGkxY2pQRXBtRnBlaDdTV0hZOVlWdnhnc2s3dUFzMDVWUzJFQUNydWM4WnN1Qk9SUmtiSnFSOGJCY3Q5X2UwaHI2RGRiczhHTUdiUTI4SzFIUUZzcVhESU9Tc3ltMFRKbDV6N1pYNlBvZlRYMF8tM2Z1dEFKZGZWLUprVzBHc1hwTGI2dVE?oc=5",
+              "title": "Tarifstreit eskaliert: Verdi kündigt Warnstreiks in Seehäfen an - verkehrsrundschau.de",
+              "summary": null,
+              "timestamp": "2026-08-17T07:00:00.000Z",
+              "foundAt": "2026-11-08T13:03:51.706Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "verkehrsrundschau.de",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQM2JjUEVQNzRILTg3RVkxUThRckVPNGFZQmRIWF9XbzhlN1hHMzZsbzhGRW9BMWRLc0oyWnp5NHRSMDlzVFRoLWw1dE43SGkxY2pQRXBtRnBlaDdTV0hZOVlWdnhnc2s3dUFzMDVWUzJFQUNydWM4WnN1Qk9SUmtiSnFSOGJCY3Q5X2UwaHI2RGRiczhHTUdiUTI4SzFIUUZzcVhESU9Tc3ltMFRKbDV6N1pYNlBvZlRYMF8tM2Z1dEFKZGZWLUprVzBHc1hwTGI2dVE?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOajFPc3lfdzRhR2JxMnFOdzI5VTd0TmMyNVcwbS1fYUhEX09zMWQ4bFlzQjZua3IyVDRjZU4yQVZ6LVMxZGQwMmFocnFaUko4Z3RCc280Wnp5NnAzYXY1UHBXZGtycm91TEtGRzZLMU16RXN2dHJuY19EcV8xUGhJcmxmWXJSV2NfN3hBY0xybV9GSDh1V0Y5Y0hCTVFrSGlDMi13dHVOakZRWnBvV280bWpOM3VYZ2x1?oc=5",
+              "title": "Global logistics giant Expeditors suffers cyberattack, shuts down operations systems - FreightWaves",
+              "summary": null,
+              "timestamp": "2022-02-21T08:00:00.000Z",
+              "foundAt": "2026-11-08T05:30:35.829Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "FreightWaves",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOajFPc3lfdzRhR2JxMnFOdzI5VTd0TmMyNVcwbS1fYUhEX09zMWQ4bFlzQjZua3IyVDRjZU4yQVZ6LVMxZGQwMmFocnFaUko4Z3RCc280Wnp5NnAzYXY1UHBXZGtycm91TEtGRzZLMU16RXN2dHJuY19EcV8xUGhJcmxmWXJSV2NfN3hBY0xybV9GSDh1V0Y5Y0hCTVFrSGlDMi13dHVOakZRWnBvV280bWpOM3VYZ2x1?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNX1dsZXozWmQ0Y3hKcUN5TVJtZGUxQ0RQQ1VKa0poUmtxWEtiaGxGSkRTWFZhUkpUajBQZklrYjlpYkdWX25EUnNfcGRGdi1qY1RPTXI4bkI0X0FmYzJQWHVGeU9oLWI0R3k2eVczLTdjTy1Od0VuSWdTRVZvX1JvTUdsSklPS1lXOXdTcWs3bG41S3NQaXB0N3BJVEhNNU9QLUs2QTRCazR5cWFxclFPN2dnMGRzRTQ?oc=5",
+              "title": "Verdi ruft Streikwoche bei Autobahn GmbH aus - verkehrsrundschau.de",
+              "summary": null,
+              "timestamp": "2026-02-17T08:00:00.000Z",
+              "foundAt": "2026-11-08T05:30:35.829Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "verkehrsrundschau.de",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNX1dsZXozWmQ0Y3hKcUN5TVJtZGUxQ0RQQ1VKa0poUmtxWEtiaGxGSkRTWFZhUkpUajBQZklrYjlpYkdWX25EUnNfcGRGdi1qY1RPTXI4bkI0X0FmYzJQWHVGeU9oLWI0R3k2eVczLTdjTy1Od0VuSWdTRVZvX1JvTUdsSklPS1lXOXdTcWs3bG41S3NQaXB0N3BJVEhNNU9QLUs2QTRCazR5cWFxclFPN2dnMGRzRTQ?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
             {
               "id": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPM2pFMjVFdG5UUVRMZS00cHo2ZVQwZW1EallwaGY0ckFjckJJdk4yUTBNTllIbU5vSHdwVkVLSDZpM09IVHJyaFd3aXAzWTZ2TkdWczVGVUlqYldLX3EwOGl0UmZCOXJFandtZzBsQjk0T3pDaVV5ZWVYbWEtZVpQbzdBX0s?oc=5",
               "title": "Lieferkettengesetz - Taylor Wessing",
@@ -24621,9 +24679,9 @@
       {
         "id": "fraud-watch:briefing",
         "sourceProject": "Fraud Watch",
-        "timestamp": "2026-11-07T15:58:30.055Z",
+        "timestamp": "2026-11-08T16:27:24.241Z",
         "title": "Fraud Watch simulation state changed",
-        "summary": "Synthetic simulation day 47 contains 13 candidate methods of operation and 0 open investigations.",
+        "summary": "Synthetic simulation day 48 contains 13 candidate methods of operation and 0 open investigations.",
         "category": "risk-intelligence",
         "importance": "medium",
         "evidenceType": "SIMULATION",
@@ -24652,21 +24710,17 @@
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
           ],
-          "retrievedAt": "2026-11-07T15:58:30.055Z",
+          "retrievedAt": "2026-11-08T16:27:24.241Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp simulation day 47, 12:00:00",
-          "changedRecords": [
-            "MO-0080",
-            "MO-0081",
-            "MO-0082"
-          ]
+          "freshness": "source timestamp simulation day 48, 06:00:00",
+          "changedRecords": []
         },
         "details": {
           "simulation": {
-            "day": 47,
-            "timeOfDay": "12:00:00",
-            "activeSignals": 2,
+            "day": 48,
+            "timeOfDay": "06:00:00",
+            "activeSignals": 3,
             "openInvestigations": 0,
             "totalCases": 82
           },
@@ -25632,16 +25686,16 @@
           ],
           "label": "SYNTHETIC SIMULATION — not real-world fraud cases"
         },
-        "status": "NEW"
+        "status": "UNCHANGED"
       },
       {
         "id": "shadow-network:briefing",
         "sourceProject": "Shadow Network",
-        "timestamp": "2026-11-07T15:58:30.055Z",
+        "timestamp": "2026-11-08T16:27:24.241Z",
         "title": "Shadow Network synthetic snapshot changed",
-        "summary": "Synthetic network day 47 was refreshed: 1 incident and 1 verdict are recorded in the latest state.",
+        "summary": "Synthetic network day 48 was refreshed: 0 incidents and 0 verdicts are recorded in the latest state.",
         "category": "risk-intelligence",
-        "importance": "medium",
+        "importance": "low",
         "evidenceType": "SIMULATION",
         "sourceType": "SYNTHETIC",
         "links": [
@@ -25662,59 +25716,19 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
           ],
-          "retrievedAt": "2026-11-07T15:58:30.055Z",
+          "retrievedAt": "2026-11-08T16:27:24.241Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp 2026-11-07T10:25:04.055Z",
+          "freshness": "source timestamp 2026-11-08T10:33:40.976Z",
           "changedRecords": [
             "snapshot"
           ]
         },
         "details": {
-          "day": 47,
-          "generatedAt": "2026-11-07T10:25:04.055Z",
-          "incidents": [
-            {
-              "id": "INC-47-1",
-              "day": 47,
-              "kind": "anomaly",
-              "severity": "low",
-              "carrierIds": [
-                "CAR-0091"
-              ],
-              "laneId": "LN-010",
-              "groundTruthFraud": false,
-              "causalTrace": [
-                "Carrier CAR-0091 legitimacy 74.5 is well above the corruption threshold.",
-                "A one-off operational anomaly on lane LN-010 tripped a detection rule with no corroborating signal."
-              ]
-            }
-          ],
-          "verdicts": [
-            {
-              "event": {
-                "id": "INC-47-1",
-                "day": 47,
-                "kind": "anomaly",
-                "severity": "low",
-                "carrierIds": [
-                  "CAR-0091"
-                ],
-                "laneId": "LN-010",
-                "groundTruthFraud": false,
-                "causalTrace": [
-                  "Carrier CAR-0091 legitimacy 74.5 is well above the corruption threshold.",
-                  "A one-off operational anomaly on lane LN-010 tripped a detection rule with no corroborating signal."
-                ]
-              },
-              "verdict": {
-                "eventId": "INC-47-1",
-                "decision": "clear",
-                "confidence": 0.86,
-                "reasoning": "CAR-0091 shows an average legitimacy signal of 74.5 on a low severity flag. Recommending clear."
-              }
-            }
-          ],
+          "day": 48,
+          "generatedAt": "2026-11-08T10:33:40.976Z",
+          "incidents": [],
+          "verdicts": [],
           "carrierCount": 120,
           "relationshipCount": 0,
           "label": "SYNTHETIC SIMULATION — not real carrier-network intelligence"

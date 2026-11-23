@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-11-22T17:29:47.208Z",
+  "generated_at": "2026-11-23T21:49:55.136Z",
   "sourceStates": {
     "fomo": {
       "id": "fomo",
@@ -14,15 +14,15 @@
         "new external freight-risk signals",
         "source titles and links"
       ],
-      "retrievedAt": "2026-11-22T17:29:47.208Z",
+      "retrievedAt": "2026-11-23T21:49:55.136Z",
       "sourceTimestamp": "2026-11-20T19:21:50.000Z",
-      "freshness": "source timestamp 2026-11-20T19:21:50.000Z; checked 2026-11-22T17:29:47.208Z",
+      "freshness": "source timestamp 2026-11-20T19:21:50.000Z; checked 2026-11-23T21:49:55.136Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
       ],
       "origin": "GitHub raw snapshot",
-      "recordCount": 1325,
-      "fingerprint": "2345bff8a4d9e8d24974c1cadea886dc76f97a5821ed94c2a456335136f2fe36",
+      "recordCount": 1340,
+      "fingerprint": "14d76d816ee02a10bbc4f9192c8852f022794dca446dea1689d45d8e5f461b4a",
       "records": {
         "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBGQTJVX2Uxajk1OU95QjlCanZtR01rZ0k4T0k1SDdNTDBlM3B6d3RLMVpXc056eTlkOFJOYWtkMktmdzFTbnJ6X1RtYi04Ymo3SVZTZFRmcw?oc=5": "6d0448978fb26ed82decc3444796019c52412248179b5157ba609a0101b0cf0c",
         "https://news.google.com/rss/articles/CBMigAFBVV95cUxQMWd5SUtZcC1BUmVvdkxPU1BPdWJDWUpNMGpua3pKMDl5ZFhJZkJSaVNacWhIUktHVjhVajdNQ3RWTGFJSFZ1Y0lfM0Z6RmxoYW9yOTBfSmZ4OV8xbVZaZ21yZ25jN1A5UUN5djBTV3d3aTJpdUVVTHRSNEJvVzBRcg?oc=5": "64eb9fbfbd598648f99d5c973780aab2529733f101fb5135c16d681da833bb5b",
@@ -1348,7 +1348,22 @@
         "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQYUxUQk40RzFyTVJIZ3ZEYk4zbVJWUy1YQnpTcG80WnE3cFBtODlYc2dIaTlnaS1aNEpUYjJnckZQR2ZGN1MxN3dGdTNMWWM1UVJyZFYxSHJxMXh3WXFHcGktWUlGQURZMUxpVjREZGtCUGhkN01IZzdiY1lncjlxSklpeEsyeDBoMXlDcXVXLWZRNVc3WWQ0NENwNzRZTnB5TWJSMmlXNHVjOEFxZUgzV2RZT1dJXzJS?oc=5": "8681f019aeebe5a49da6d6e63384012440b2906fa59b78ee21dbf96961e39a8e",
         "https://news.google.com/rss/articles/CBMi6AJBVV95cUxONWRia3BYZGd2aFR3QVlkaW9RbWUwSF9vb1FpQ3NLTFd6R1NuUHlKdWdjV2RVOWxhbWY0d1haOTF5NjdCYkxLTEtUczZjZDlqQWRVTTlsM09BY1VuR1VzSW5kUmp1MGhjQTR2UGd6X3Fkd3pYOS1OVzlFcmFrc1N0YXp6WHBuOGNFbGpEOXNSNGhiWk9BTElQTGlVZHlDdDRIMi1ZQVhlU3RiWVhtdzk5eHgwdjNqWlBXandMZUFJZ24wY0lwSTN1VWl5YzA0Z2t4S1poS0pmYy1FcHZzckpsUmpNLXNzUUJqMC14UzAwZkhmRUlJYWZRamw3Ul91SFVyaFdGcEJJZWZmRDB0eHQ4NzVFRC15WlduWHpEWEhGTjdIVkVKZXQtQlhyaURKa0gyN0hjakhTeTdWSlh4ejRwLVd0ak55QnRUanE2d0VuZV9BVUtUQVg5NGdsSk0tWTdnVWZnQV9RbDE?oc=5": "6d2a59c087db4e5ab8566a40e5602d017b0a86d69101e851f5a64a9021c08d0f",
         "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNNnhtejJSSU5qZy1ENzJ6cGRxeDlKSzdQM0ZjVjZORlBkZmpqbzZaZHNpTzhyVGZoaFo4a3BDZXdjam9XVklsTkdZdER0Q25qNF9GSFFtVXpPdERGSXlOODZ0NWVwX2tDcTNVeEhWSmFjQXViVjdEWEtwYWY2cDBYVXhsMERZOWRzclpubXR2OGRSQTJDS1R6Yllibm5YbWk2YUdQMi1PZmRFczR2RFV6N1Z6c0hQZXpLbTIw?oc=5": "6f4d93d00f69cf9bfe04424e203bac255c4c3be4adb43b6b19628f3e6c624b77",
-        "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOVUdPSThzRVBaT0pVN0dWVUtrMXNCRk0ybmJ4Tm1yUmhSa3B2ZXlXYUdUU1pyaVlFSndweG9CR3AzdHgtb1NtS0NkSUNKNUp4ZWc5N25vZU9vQW8zYUZGTEZrSDRXaExXZXBGVnN4T0EzZE5zQVlhSzJlWm1aY3Zjb0p2VXZmSmRHT1NFYTRBX24zblBtX2xfZzR3R2tmQVFuZmwzczRLakVXNUhMRDJhV1N6OEVOcDhU?oc=5": "9a95c968b0120426527cf4f79defdf8ebb4f0082e622d1684f51a52f8725d8e3"
+        "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOVUdPSThzRVBaT0pVN0dWVUtrMXNCRk0ybmJ4Tm1yUmhSa3B2ZXlXYUdUU1pyaVlFSndweG9CR3AzdHgtb1NtS0NkSUNKNUp4ZWc5N25vZU9vQW8zYUZGTEZrSDRXaExXZXBGVnN4T0EzZE5zQVlhSzJlWm1aY3Zjb0p2VXZmSmRHT1NFYTRBX24zblBtX2xfZzR3R2tmQVFuZmwzczRLakVXNUhMRDJhV1N6OEVOcDhU?oc=5": "9a95c968b0120426527cf4f79defdf8ebb4f0082e622d1684f51a52f8725d8e3",
+        "https://news.google.com/rss/articles/CBMizgFBVV95cUxNeHJlVWNNd3dMdjJQbmozeDM1cjZEM2JHWGlraVQwb0laU01lQksxREtESEdpZ2hZUXF0OHlNNU1nN0tWRjRfWXZJeEp3WDlqU0MwQ1o0TnVnb0YzcDRxWHdKTkx0ZUZkUXpWckxfN2QtejEyNllvU0JVTjhyczFLVGtPRGI2YUgxVHA0WV9sQkxLRjZRckN2anphc3VNamtxX1ZYR1M4XzZjTjU4c3RpVVBGNzEzTHNSOHBmM0daa3dYb0QzTWJ2RDNLRElRQQ?oc=5": "537e0a960e46ed6e0372c91d0fa3e225be8b76a208c02970c9f2f782e8de1b3e",
+        "https://news.google.com/rss/articles/CBMihwJBVV95cUxPU2EzM25xQnJzWmZYWE80dURnOUJVcUVUN2RQallScEh4UndZUWNOMGVoTml0MElsc3g3dHpnT0JWVGFRSUJfcHBPV2hSQURza20yT04zQ1QyNXR3SkVERm9zUGVXM0pWalJ5TzhfdkxRUk5BTjJlbUVtQmJyWUhleHFvdmV2R3ZYcTFNQmI2NFVZUlhhd0piRFcybTg4RzFvVkYzelJDZnhlX2lqSEhOZEZMTXlMcTM5RTJURDdNdXNNT2hESlRuTlZRSERLS0RxNDlyRXlmYlN6MGRwbGlWVnNMWkdKYzhUNXlnTVBadUJ0d2tCcjc5UUo1eWR3S0plRWk1a2MxOA?oc=5": "247f23ea0c89bc0699ef1d14b82ebb9c6607a1df26964ec48da2758d5f51bee1",
+        "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNeHYzQUI5Q3hJWWdJQm5qUm9yRXctOW5xcEg4TUlvaDFrbFhPQ2pwbC1Yd0RxTlFVaU5MTEh1OUxPeVluN2hzZEYzaExMUWdISzloLTNOQjNXZFR5UjJaVG5UbE5XTWgtTHZJZHBQRmNmRG5yRDVtazdCQ0VuYzZsLWZ6eEQ0STNpSDJSenl5UGF3YXlJWHBVeE1jZTZfcHZMWmxhY0llUUE2MXlxeE9Eem9OUjhNcDBidEhuSmE2RllUVDVhYXRPM1YwTVdLR05VemNfVm5mVmR3Mm1UQTNqaw?oc=5": "5d10ee1c9c6e0e01c5a35527a31ba304a5f1c47110a6a6be1ba2da4b1900451f",
+        "https://news.google.com/rss/articles/CBMizgFBVV95cUxPRThOb1BhampGUUd4SHN2SVlhZExkbEVvaXZHSTZXUFRwSWxqN1N5aE9CdnFJM28yeEdOWkdRNDBFMS1nU3BNQV9sVzJtb0pjRF9JczlMRWxTT21nUVlxemlVZ2xwYmtnSGNDSjREME94cnFhYk56RDFNMGZMUWRvZUtLbVFTdGdYVEowd3pWbUdJWHFlNGdOYmJNdkdkVndVWTU5MEQwcktpX1g5UjVKdDN2bThNNXNhSXhUMk1rY3QzUmZ5MFhpdGJ2OE1zd9IB0gFBVV95cUxNU1M0bWdaZGMzRGhCYVljb3FMYzBwQ2puUGpRUEhvNGZjMmZ5NzlIdjc1WUJBX1FIQ09EVUUwQm9NYng5a3MtLWg1ZEJXOWFoNmdJY1pDWkplWktTdEhoeUttN0ViaG5PVnBsTE5PR1hWM1dBVktLSk9YNjR5WDluLXljMzVmNjQ5MzNMbXU3X2k1NVJQQVRvdWg5TWFqR3VEUW5FSDlsSnRPdlhvRV9jSXJPZF9DUGk5WUQzb3VtbnZFSXVUMjVtZkZCd1o5RmJaY0E?oc=5": "ab4c643ce77c7fe631a0a665bcdb37b65a9b531d534b45459197c105e2015e57",
+        "https://news.google.com/rss/articles/CBMi1AFBVV95cUxON1ZxUFZrTHZyUEY4eXV1OVpfb0VsWmFncVF3aHpvUWNSQUxyNDNkaGFmdlNnOTZaQzhsaHl6QUFDSVRIRkJyUEpPUUlvNW9EU1NTeUw3RVBTTngwMFozWFF2NWk5SXBnTFlxWmNFVnMwT3pOaUtsa0h6anRaM1ZXd2x2VG9sNEtyclhMQ2xlRnVRbjNZQ1lHVFQwRk5pakV5NWtKNEh5YndxTXVoLURULU9pTFVZX3VVQkxhU01mbmh4TDQ5NERiWkY0S3pwZ3Z1WDJhcw?oc=5": "32bd38d4dee108bd0223012a8335e8d8d94002d703b5877d3873a72aede06746",
+        "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONHlQZWpWeENzbzhDbEZRVS1sN2l3MlNqNDQ5SzNFQV8wMm92Sml3bnNiT0J2M09jSnlwaXNhczJGUmpEWjZoREN4d29BUXFyekRNUWR5Q1dXb2FrbUpLTXg3aTM5NS1lbmdOQjlaQXJkRWZLREpRbVdKd21QVVlPUWFqcDA0WGtFV3kzLVN0dFMxbjlHSHIwZG56TGFFWHBRYko3YkZ2VkZyVEZtQWtpZjdWbzVGamVWc0Q1cTk2ZUgtejNiOXFjdmY2YkUyYmpMaXI0ZG51OUFsYmJO?oc=5": "a936fd37c884f69aebab799ab8905cbd9ac33c6befaebb4c136b54a2cabd2c0e",
+        "https://news.google.com/rss/articles/CBMijgFBVV95cUxQT2tFd3RfTmhPdUVYZm9VNVpuSGpUa3RtVmZZa3dIX054RWtEV200MEs2RVh2TXQxclo0TnVBQnpvb2o1STloZmE0enRDcU1BeEpUZGVoRG81Smc1NkdwYk9YcXJsMGpiZVZ5UVE2dUNVSlI1S0tCc1EzYlhyZjNrUkVkNFlZX2hhaDMwNEFn?oc=5": "91bfaa8024511ab1fe737bf26c2ad59455ee244cddda79f04765e986fe36177f",
+        "https://news.google.com/rss/articles/CBMitAFBVV95cUxON2ZKZWRyTVNVVnMzaWlkSDR6ZUxwUEhZdEtjRk5kOHVvcm5IZzJrQlNxOGl3SVROQnFHcVk0MEhaQlJETm9oYzVOMkZIRUlmSmJUTFZJUjBWV3VhM1NNUXpSb296TDBZTjNaUjh3eUl0NjVlcjVyNEU5WF9DNmVIZkN4b1BZS18xQlRjeUpxOU9DVmRwRFEtcjBqUmptOVVYWnFNSHpXVTFvMHpWUS1rUnctOXQ?oc=5": "241c139f6c55ed1278247cd23d0e113136f46ec2c876b6b6432a05719d57e5f0",
+        "https://news.google.com/rss/articles/CBMitAFBVV95cUxOOE53VFpMT2JtR192b1duREVyOHM5YW1YbDJGN0RjQUQwM1JFbHZYb0N5Yk9pT1RNcGdVZy0yS3V2eTV4M1V3RkJzaWx2YnByd0tXN0VjZGM3TGhHQjJmQzlNVWw4LU5SNlhQdWlVdjZkbkdoR1RtS0phcFNKeHBfSFRwTWRpamk4T2ZURUQtX2pwaFF3c3AwU0dyTFZCWkZvYjVtbVg4YXpBYTd4WGI5UjdnajM?oc=5": "10eaa5d375a142ef1dfc0931d35ca971e65c2df747be1c2ec85f872a1bf3d037",
+        "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOVV9TaUVIbXI5cnJmZFc0WF9yWV9Gb2Njdk8yTnBtbzlOTTFDbGt4Y194T3lsNzBxRVF0NFAzTjlBMzFtSENHSXJqTEtVLUVZQ3FwMnVJVXpidDk4VWttbk1aSG81MGx4Ym1rSU9zcG9PM2tYV3NxTUk5MUtfTk12aS1yVzIyQ1RBNVpoYkZRTHZKODFKVkYxVUZsT3hZSUdtMUcwRG1Ua2x0WGZIWmxkdDRicGw4RUNEQ3VVT1ZQUC0ya29PTDRiUEwxQ25vMW11?oc=5": "d49e8eefc185303f6af4ee5c9d1703985f97710cbd6a9cc548f321991a5ca1ed",
+        "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOQTM4XzBOLXhOcG90R25obEV1ZUNtX3ZrczdjeXB4TXA2ZHRjeHBHM0NtRlhzcWtvdVltLU5JVXRWWDJKN1h4aFpBRlV5aUJGVVQyWnV3ZkpzeXZfRlZBaV9VY0ZkdjVWU3VEeEtlWVg3enE0NWQ3UlNkSmFYNVktcGtKRVpxQmNNWVZRWkdsakhuMTJQeUZaaExFaE5oQmtnOXV0YWkzb3c3VC1xOFZERUN5T0hKVEl4?oc=5": "122b0f60146e2c6c4eda0ce00982cf2dbacabbb09c7fe21593db699ebec91a8b",
+        "https://news.google.com/rss/articles/CBMilwFBVV95cUxPbXVBeWEzMG51TFRsdVNRbUdidWZSN2JhTGZEelZic1c4aG9OTW02SEZaMnYzdmZVX0FqS25JbzRNU2hpa1RyY3hyUzhoa0VzOUhNQklVeHg1Uk4zbzNWSmVJVDVidkVHM2ZLODNfN1ZmNUNtNTJibkFNdWdGMURMX0hBNDlfZEFvVzMyTUZfZnBoazlyMDlz0gGXAUFVX3lxTE10SWhGdG1QUmtCMWdpWmhkemczal9sdUJlSGNTWFl0ODM0ZFgteEVmb2h1ajl6QVlXMHJObzNOYW9yNnVPN3BRYldoYm85VkpHaDQyTFRIZVpTeTJkNllhVDVPX2RuQXJvSHAzaEFqYW1URGhJYWlFYWhjU0lkeFFMS1N2UGc3Mzc4cUpKRlNOQ3MwNnFXSWc?oc=5": "bf66d4c6000c53fe84d0d3df86768f32c7de551f0c0a37b9c7b4e2d3faabb805",
+        "https://news.google.com/rss/articles/CBMigwFBVV95cUxPUDFfZ1RUWGdhaXJ1dncxelQ1Z3U1dFgySUxWSXVYdktHa1gtRE02c0wtWWRhSUVkV1RmQ0Y4WGZXNkxiVWpyQjZRS19ZT0tJSjBzeDBPc0VUdmdtUjRRbC1XVWdiVzZnMzFIZ0RKUlFHWTJwMnRZbGVnb3gtZF9saTI3NA?oc=5": "06f38ee7b25212abdced0cf511c7ba6d5417abcd155e63443cf113335b7da2b9",
+        "https://news.google.com/rss/articles/CBMiaEFVX3lxTFB1SEVpODUyWDRiemFsaDB1ODhfQnVUbFBZT2VSLWI5SUNyVzdzYmNrUUxPNnJUNnU3Q01WSG5GOTZKX0twdGh2OHJoSlB2MVpxYldEc1hBYXhGajg1OFJmQTlYbmFDdGh3?oc=5": "106c5684431a14fca74bf893b5689800fb9eeca01166fe03427f1ef2e6ff3f74",
+        "https://news.google.com/rss/articles/CBMikgFBVV95cUxPZVRtTFN3bEhDcTRLaE1hR1ZnbXplNGhsWUpaNzkxM0xLb3dEUl9EQ3VpR3BJNTd5MWMzY25ydWJyclZWY2lyZjBFWVN1Y0xkaXNfbnZYWi16YW93V3hWQk5OaGEtalhHSmU4eXhWcEwtcW1tNDBVT1RTNmtlbm9NcUhTdmFYZ3JqYVY1N0NTQXRJUQ?oc=5": "f24c680c9c9241b10abea5ae0bc0ba3e7654f9651d5564109e1728929d46943a"
       },
       "error": null
     },
@@ -1364,17 +1379,17 @@
         "synthetic MO and candidate counts",
         "simulation freshness and state"
       ],
-      "retrievedAt": "2026-11-22T17:29:47.208Z",
-      "sourceTimestamp": "simulation day 62, 00:00:00",
-      "freshness": "source timestamp simulation day 62, 00:00:00; checked 2026-11-22T17:29:47.208Z",
+      "retrievedAt": "2026-11-23T21:49:55.136Z",
+      "sourceTimestamp": "simulation day 63, 00:00:00",
+      "freshness": "source timestamp simulation day 63, 00:00:00; checked 2026-11-23T21:49:55.136Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
         "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
       ],
       "origin": "GitHub raw snapshot",
-      "recordCount": 126,
-      "simulationDay": 62,
-      "fingerprint": "1b86db8b65ee2f2f61152dd18563ce9d7370e6e7b9b7f8f473aae7247e394a1b",
+      "recordCount": 128,
+      "simulationDay": 63,
+      "fingerprint": "711c194315a3d83829a9417ab74f0dbc8ec2a813cd9a5c9a61f98e6b6a764f60",
       "records": {
         "MO-0001": "0feb7d5b5575064bfb3b54504f56dbe31c377f593a989fab72e8962e0bf7f548",
         "MO-0002": "1c57dce81bfef1cfc493e2e6a7b537a4a1c12ef1d29e196d24f1a4bb1a89a4c0",
@@ -1481,7 +1496,9 @@
         "MO-0103": "5f62b8dc0f36adadefa2f31394cdd740b7be9218e893cc04180d09bf47fd40b8",
         "MO-0104": "25da5d233c57b4dbd26853d1b139bc3fc8e955178ef73a5e0df5c37a294120cc",
         "MO-0105": "753cf77bf4f4877531cfa9bd17a6723e1b55acc0418971417421da19cb0cfd6b",
-        "MO-0106": "16de90db3c8f9c37bb7a2ae94897cbddca3b0197c457618017aa82565cc335ef",
+        "MO-0106": "d20dce866de524bd3004ac0ded822d062d71072aa924ae61aff86567d0f214ac",
+        "MO-0107": "25fca6352a9098911270c31d761e82144b819c929b7b527c48fbf95210ec0e95",
+        "MO-0108": "b4d1d4c5bf511001a0eed9bc3a07eb620e75629acbaee5d5e14dc7f2c10bb432",
         "fraud-watch:EQUIPMENT_CARRIER_MISMATCH+FALSE_MILESTONE_STAMP+HANDOVER_GAP+MANIFEST_CHANGED": "315d0ddbe5e150bbabdd5c50a243af93934c253224131d9ff656f01939007e5e",
         "fraud-watch:FALSE_MILESTONE_STAMP+HANDOVER_GAP+STAGED_BREAKDOWN+UNEXPECTED_STOP": "d07e41fe4ea1b0fd276782c28adcb60cb1e86d488adf55f69a065087d8023cb4",
         "fraud-watch:CARRIER_UNRESPONSIVE+FALSE_MILESTONE_STAMP+HANDOVER_GAP": "2f7060f90d7f25327b5711aabe7d9336c4f6e97a3cc82bf08e7bd31bd865e62a",
@@ -1517,18 +1534,18 @@
         "synthetic day, incidents and verdicts",
         "carrier-network snapshot"
       ],
-      "retrievedAt": "2026-11-22T17:29:47.208Z",
-      "sourceTimestamp": "2026-11-22T11:38:38.879Z",
-      "freshness": "source timestamp 2026-11-22T11:38:38.879Z; checked 2026-11-22T17:29:47.208Z",
+      "retrievedAt": "2026-11-23T21:49:55.136Z",
+      "sourceTimestamp": "2026-11-23T13:09:25.975Z",
+      "freshness": "source timestamp 2026-11-23T13:09:25.975Z; checked 2026-11-23T21:49:55.136Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 1,
-      "simulationDay": 62,
-      "fingerprint": "e6d70186ae892cc7b5c9be39746743d44f386bfe3f37a3c97f69af688c6b7ce3",
+      "simulationDay": 63,
+      "fingerprint": "4229cee300e3fc58ceb08beea7272ef7b918b56ab3cc559e8fd45c294dd8722f",
       "records": {
-        "snapshot": "9600cc4bce3ad6b69553e2442c16d57dedc71d20ac82f34a20a7ca6e33b7e25a"
+        "snapshot": "17675a898c06481712a22746315127fc5413818633d1ba6db84273c89dda0de5"
       },
       "error": null
     },
@@ -1573,9 +1590,9 @@
         "synthetic alerts and rings",
         "model and graph metrics"
       ],
-      "retrievedAt": "2026-11-16T19:55:58.403Z",
+      "retrievedAt": "2026-11-23T21:49:55.136Z",
       "sourceTimestamp": null,
-      "freshness": "checked 2026-11-16T19:55:58.403Z",
+      "freshness": "checked 2026-11-23T21:49:55.136Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/alerts.json",
         "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/rings.json",
@@ -1584,9 +1601,9 @@
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 50,
-      "fingerprint": "6bcd3398224f555db94821a11fe97369feaada6969f956091b466196d293b2c7",
+      "fingerprint": "6700a5114b02b935a704f53d12b86acf0cb781b9dcaf40bd1cfcf76aac1af9ee",
       "records": {
-        "analysis": "ebf2701330241e50b785d86158dd4422defceb12232a4e679c9af9d8d991e33b"
+        "analysis": "adfd1788e44ceb362bcb5c2e1929cbbcb6c338443c6920be3e83add84c8c8a09"
       },
       "error": null
     },
@@ -1602,17 +1619,17 @@
         "sealed and graded forecast counts",
         "explicit eligibility refusals"
       ],
-      "retrievedAt": "2026-11-16T19:55:58.403Z",
-      "sourceTimestamp": "2026-11-14T11:00:00+0100",
-      "freshness": "source timestamp 2026-11-14T11:00:00+0100; checked 2026-11-16T19:55:58.403Z",
+      "retrievedAt": "2026-11-23T21:49:55.136Z",
+      "sourceTimestamp": "2026-11-21T11:00:00+0100",
+      "freshness": "source timestamp 2026-11-21T11:00:00+0100; checked 2026-11-23T21:49:55.136Z",
       "sourceUrls": [
         "https://raw.githubusercontent.com/Jeevan-0508/Forecast-Ledger/main/site/data.json"
       ],
       "origin": "GitHub raw snapshot",
       "recordCount": 2,
-      "fingerprint": "31ac00d6d99e9c287867c063309f1db57af1e11b54b13706615acd97c32ff8de",
+      "fingerprint": "2bd9171bf6a143f5758eb49a9cedd2ad370e217b56f69cfb9c98c01e624461db",
       "records": {
-        "ledger": "98c83d3c86997f3dec16818ef45597fe9e61fe6bfac63bf6f87fdc61b3f65308"
+        "ledger": "974b5c4ed57b9de5022e08b9edcca7595afa696e10ce0eba2b955d89172e39ab"
       },
       "error": null
     },
@@ -1676,7 +1693,7 @@
   },
   "payload": {
     "schema_version": "1.2",
-    "generatedAt": "2026-11-22T17:29:47.208Z",
+    "generatedAt": "2026-11-23T21:49:55.136Z",
     "headline": "Good morning, Jeevan. 7 source updates are ready.",
     "sources": [
       {
@@ -1691,14 +1708,14 @@
           "new external freight-risk signals",
           "source titles and links"
         ],
-        "retrievedAt": "2026-11-22T17:29:47.208Z",
+        "retrievedAt": "2026-11-23T21:49:55.136Z",
         "sourceTimestamp": "2026-11-20T19:21:50.000Z",
-        "freshness": "source timestamp 2026-11-20T19:21:50.000Z; checked 2026-11-22T17:29:47.208Z",
+        "freshness": "source timestamp 2026-11-20T19:21:50.000Z; checked 2026-11-23T21:49:55.136Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
         ],
         "origin": "GitHub raw snapshot",
-        "recordCount": 1325,
+        "recordCount": 1340,
         "error": null
       },
       {
@@ -1713,16 +1730,16 @@
           "synthetic MO and candidate counts",
           "simulation freshness and state"
         ],
-        "retrievedAt": "2026-11-22T17:29:47.208Z",
-        "sourceTimestamp": "simulation day 62, 00:00:00",
-        "freshness": "source timestamp simulation day 62, 00:00:00; checked 2026-11-22T17:29:47.208Z",
+        "retrievedAt": "2026-11-23T21:49:55.136Z",
+        "sourceTimestamp": "simulation day 63, 00:00:00",
+        "freshness": "source timestamp simulation day 63, 00:00:00; checked 2026-11-23T21:49:55.136Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
           "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
         ],
         "origin": "GitHub raw snapshot",
-        "recordCount": 126,
-        "simulationDay": 62,
+        "recordCount": 128,
+        "simulationDay": 63,
         "error": null
       },
       {
@@ -1737,15 +1754,15 @@
           "synthetic day, incidents and verdicts",
           "carrier-network snapshot"
         ],
-        "retrievedAt": "2026-11-22T17:29:47.208Z",
-        "sourceTimestamp": "2026-11-22T11:38:38.879Z",
-        "freshness": "source timestamp 2026-11-22T11:38:38.879Z; checked 2026-11-22T17:29:47.208Z",
+        "retrievedAt": "2026-11-23T21:49:55.136Z",
+        "sourceTimestamp": "2026-11-23T13:09:25.975Z",
+        "freshness": "source timestamp 2026-11-23T13:09:25.975Z; checked 2026-11-23T21:49:55.136Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
         ],
         "origin": "GitHub raw snapshot",
         "recordCount": 1,
-        "simulationDay": 62,
+        "simulationDay": 63,
         "error": null
       },
       {
@@ -1784,9 +1801,9 @@
           "synthetic alerts and rings",
           "model and graph metrics"
         ],
-        "retrievedAt": "2026-11-16T19:55:58.403Z",
+        "retrievedAt": "2026-11-23T21:49:55.136Z",
         "sourceTimestamp": null,
-        "freshness": "checked 2026-11-16T19:55:58.403Z",
+        "freshness": "checked 2026-11-23T21:49:55.136Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/alerts.json",
           "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/rings.json",
@@ -1809,9 +1826,9 @@
           "sealed and graded forecast counts",
           "explicit eligibility refusals"
         ],
-        "retrievedAt": "2026-11-16T19:55:58.403Z",
-        "sourceTimestamp": "2026-11-14T11:00:00+0100",
-        "freshness": "source timestamp 2026-11-14T11:00:00+0100; checked 2026-11-16T19:55:58.403Z",
+        "retrievedAt": "2026-11-23T21:49:55.136Z",
+        "sourceTimestamp": "2026-11-21T11:00:00+0100",
+        "freshness": "source timestamp 2026-11-21T11:00:00+0100; checked 2026-11-23T21:49:55.136Z",
         "sourceUrls": [
           "https://raw.githubusercontent.com/Jeevan-0508/Forecast-Ledger/main/site/data.json"
         ],
@@ -1877,9 +1894,9 @@
       {
         "id": "fomo:briefing",
         "sourceProject": "FOMO",
-        "timestamp": "2026-11-22T17:29:47.208Z",
+        "timestamp": "2026-11-23T21:49:55.136Z",
         "title": "New external freight-risk signals",
-        "summary": "2 new and 0 updated external freight-risk reports detected.",
+        "summary": "15 new and 0 updated external freight-risk reports detected.",
         "category": "risk-intelligence",
         "importance": "high",
         "evidenceType": "EXTERNAL_SOURCE",
@@ -1902,20 +1919,303 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/FOMO/main/data/signals.json"
           ],
-          "retrievedAt": "2026-11-22T17:29:47.208Z",
+          "retrievedAt": "2026-11-23T21:49:55.136Z",
           "status": "SNAPSHOT",
           "origin": "GitHub raw snapshot",
           "freshness": "source timestamp 2026-11-20T19:21:50.000Z",
           "changedRecords": [
-            "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNNnhtejJSSU5qZy1ENzJ6cGRxeDlKSzdQM0ZjVjZORlBkZmpqbzZaZHNpTzhyVGZoaFo4a3BDZXdjam9XVklsTkdZdER0Q25qNF9GSFFtVXpPdERGSXlOODZ0NWVwX2tDcTNVeEhWSmFjQXViVjdEWEtwYWY2cDBYVXhsMERZOWRzclpubXR2OGRSQTJDS1R6Yllibm5YbWk2YUdQMi1PZmRFczR2RFV6N1Z6c0hQZXpLbTIw?oc=5",
-            "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOVUdPSThzRVBaT0pVN0dWVUtrMXNCRk0ybmJ4Tm1yUmhSa3B2ZXlXYUdUU1pyaVlFSndweG9CR3AzdHgtb1NtS0NkSUNKNUp4ZWc5N25vZU9vQW8zYUZGTEZrSDRXaExXZXBGVnN4T0EzZE5zQVlhSzJlWm1aY3Zjb0p2VXZmSmRHT1NFYTRBX24zblBtX2xfZzR3R2tmQVFuZmwzczRLakVXNUhMRDJhV1N6OEVOcDhU?oc=5"
+            "https://news.google.com/rss/articles/CBMizgFBVV95cUxNeHJlVWNNd3dMdjJQbmozeDM1cjZEM2JHWGlraVQwb0laU01lQksxREtESEdpZ2hZUXF0OHlNNU1nN0tWRjRfWXZJeEp3WDlqU0MwQ1o0TnVnb0YzcDRxWHdKTkx0ZUZkUXpWckxfN2QtejEyNllvU0JVTjhyczFLVGtPRGI2YUgxVHA0WV9sQkxLRjZRckN2anphc3VNamtxX1ZYR1M4XzZjTjU4c3RpVVBGNzEzTHNSOHBmM0daa3dYb0QzTWJ2RDNLRElRQQ?oc=5",
+            "https://news.google.com/rss/articles/CBMihwJBVV95cUxPU2EzM25xQnJzWmZYWE80dURnOUJVcUVUN2RQallScEh4UndZUWNOMGVoTml0MElsc3g3dHpnT0JWVGFRSUJfcHBPV2hSQURza20yT04zQ1QyNXR3SkVERm9zUGVXM0pWalJ5TzhfdkxRUk5BTjJlbUVtQmJyWUhleHFvdmV2R3ZYcTFNQmI2NFVZUlhhd0piRFcybTg4RzFvVkYzelJDZnhlX2lqSEhOZEZMTXlMcTM5RTJURDdNdXNNT2hESlRuTlZRSERLS0RxNDlyRXlmYlN6MGRwbGlWVnNMWkdKYzhUNXlnTVBadUJ0d2tCcjc5UUo1eWR3S0plRWk1a2MxOA?oc=5",
+            "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNeHYzQUI5Q3hJWWdJQm5qUm9yRXctOW5xcEg4TUlvaDFrbFhPQ2pwbC1Yd0RxTlFVaU5MTEh1OUxPeVluN2hzZEYzaExMUWdISzloLTNOQjNXZFR5UjJaVG5UbE5XTWgtTHZJZHBQRmNmRG5yRDVtazdCQ0VuYzZsLWZ6eEQ0STNpSDJSenl5UGF3YXlJWHBVeE1jZTZfcHZMWmxhY0llUUE2MXlxeE9Eem9OUjhNcDBidEhuSmE2RllUVDVhYXRPM1YwTVdLR05VemNfVm5mVmR3Mm1UQTNqaw?oc=5",
+            "https://news.google.com/rss/articles/CBMizgFBVV95cUxPRThOb1BhampGUUd4SHN2SVlhZExkbEVvaXZHSTZXUFRwSWxqN1N5aE9CdnFJM28yeEdOWkdRNDBFMS1nU3BNQV9sVzJtb0pjRF9JczlMRWxTT21nUVlxemlVZ2xwYmtnSGNDSjREME94cnFhYk56RDFNMGZMUWRvZUtLbVFTdGdYVEowd3pWbUdJWHFlNGdOYmJNdkdkVndVWTU5MEQwcktpX1g5UjVKdDN2bThNNXNhSXhUMk1rY3QzUmZ5MFhpdGJ2OE1zd9IB0gFBVV95cUxNU1M0bWdaZGMzRGhCYVljb3FMYzBwQ2puUGpRUEhvNGZjMmZ5NzlIdjc1WUJBX1FIQ09EVUUwQm9NYng5a3MtLWg1ZEJXOWFoNmdJY1pDWkplWktTdEhoeUttN0ViaG5PVnBsTE5PR1hWM1dBVktLSk9YNjR5WDluLXljMzVmNjQ5MzNMbXU3X2k1NVJQQVRvdWg5TWFqR3VEUW5FSDlsSnRPdlhvRV9jSXJPZF9DUGk5WUQzb3VtbnZFSXVUMjVtZkZCd1o5RmJaY0E?oc=5",
+            "https://news.google.com/rss/articles/CBMi1AFBVV95cUxON1ZxUFZrTHZyUEY4eXV1OVpfb0VsWmFncVF3aHpvUWNSQUxyNDNkaGFmdlNnOTZaQzhsaHl6QUFDSVRIRkJyUEpPUUlvNW9EU1NTeUw3RVBTTngwMFozWFF2NWk5SXBnTFlxWmNFVnMwT3pOaUtsa0h6anRaM1ZXd2x2VG9sNEtyclhMQ2xlRnVRbjNZQ1lHVFQwRk5pakV5NWtKNEh5YndxTXVoLURULU9pTFVZX3VVQkxhU01mbmh4TDQ5NERiWkY0S3pwZ3Z1WDJhcw?oc=5",
+            "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONHlQZWpWeENzbzhDbEZRVS1sN2l3MlNqNDQ5SzNFQV8wMm92Sml3bnNiT0J2M09jSnlwaXNhczJGUmpEWjZoREN4d29BUXFyekRNUWR5Q1dXb2FrbUpLTXg3aTM5NS1lbmdOQjlaQXJkRWZLREpRbVdKd21QVVlPUWFqcDA0WGtFV3kzLVN0dFMxbjlHSHIwZG56TGFFWHBRYko3YkZ2VkZyVEZtQWtpZjdWbzVGamVWc0Q1cTk2ZUgtejNiOXFjdmY2YkUyYmpMaXI0ZG51OUFsYmJO?oc=5",
+            "https://news.google.com/rss/articles/CBMijgFBVV95cUxQT2tFd3RfTmhPdUVYZm9VNVpuSGpUa3RtVmZZa3dIX054RWtEV200MEs2RVh2TXQxclo0TnVBQnpvb2o1STloZmE0enRDcU1BeEpUZGVoRG81Smc1NkdwYk9YcXJsMGpiZVZ5UVE2dUNVSlI1S0tCc1EzYlhyZjNrUkVkNFlZX2hhaDMwNEFn?oc=5",
+            "https://news.google.com/rss/articles/CBMitAFBVV95cUxON2ZKZWRyTVNVVnMzaWlkSDR6ZUxwUEhZdEtjRk5kOHVvcm5IZzJrQlNxOGl3SVROQnFHcVk0MEhaQlJETm9oYzVOMkZIRUlmSmJUTFZJUjBWV3VhM1NNUXpSb296TDBZTjNaUjh3eUl0NjVlcjVyNEU5WF9DNmVIZkN4b1BZS18xQlRjeUpxOU9DVmRwRFEtcjBqUmptOVVYWnFNSHpXVTFvMHpWUS1rUnctOXQ?oc=5",
+            "https://news.google.com/rss/articles/CBMitAFBVV95cUxOOE53VFpMT2JtR192b1duREVyOHM5YW1YbDJGN0RjQUQwM1JFbHZYb0N5Yk9pT1RNcGdVZy0yS3V2eTV4M1V3RkJzaWx2YnByd0tXN0VjZGM3TGhHQjJmQzlNVWw4LU5SNlhQdWlVdjZkbkdoR1RtS0phcFNKeHBfSFRwTWRpamk4T2ZURUQtX2pwaFF3c3AwU0dyTFZCWkZvYjVtbVg4YXpBYTd4WGI5UjdnajM?oc=5",
+            "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOVV9TaUVIbXI5cnJmZFc0WF9yWV9Gb2Njdk8yTnBtbzlOTTFDbGt4Y194T3lsNzBxRVF0NFAzTjlBMzFtSENHSXJqTEtVLUVZQ3FwMnVJVXpidDk4VWttbk1aSG81MGx4Ym1rSU9zcG9PM2tYV3NxTUk5MUtfTk12aS1yVzIyQ1RBNVpoYkZRTHZKODFKVkYxVUZsT3hZSUdtMUcwRG1Ua2x0WGZIWmxkdDRicGw4RUNEQ3VVT1ZQUC0ya29PTDRiUEwxQ25vMW11?oc=5",
+            "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOQTM4XzBOLXhOcG90R25obEV1ZUNtX3ZrczdjeXB4TXA2ZHRjeHBHM0NtRlhzcWtvdVltLU5JVXRWWDJKN1h4aFpBRlV5aUJGVVQyWnV3ZkpzeXZfRlZBaV9VY0ZkdjVWU3VEeEtlWVg3enE0NWQ3UlNkSmFYNVktcGtKRVpxQmNNWVZRWkdsakhuMTJQeUZaaExFaE5oQmtnOXV0YWkzb3c3VC1xOFZERUN5T0hKVEl4?oc=5",
+            "https://news.google.com/rss/articles/CBMilwFBVV95cUxPbXVBeWEzMG51TFRsdVNRbUdidWZSN2JhTGZEelZic1c4aG9OTW02SEZaMnYzdmZVX0FqS25JbzRNU2hpa1RyY3hyUzhoa0VzOUhNQklVeHg1Uk4zbzNWSmVJVDVidkVHM2ZLODNfN1ZmNUNtNTJibkFNdWdGMURMX0hBNDlfZEFvVzMyTUZfZnBoazlyMDlz0gGXAUFVX3lxTE10SWhGdG1QUmtCMWdpWmhkemczal9sdUJlSGNTWFl0ODM0ZFgteEVmb2h1ajl6QVlXMHJObzNOYW9yNnVPN3BRYldoYm85VkpHaDQyTFRIZVpTeTJkNllhVDVPX2RuQXJvSHAzaEFqYW1URGhJYWlFYWhjU0lkeFFMS1N2UGc3Mzc4cUpKRlNOQ3MwNnFXSWc?oc=5",
+            "https://news.google.com/rss/articles/CBMigwFBVV95cUxPUDFfZ1RUWGdhaXJ1dncxelQ1Z3U1dFgySUxWSXVYdktHa1gtRE02c0wtWWRhSUVkV1RmQ0Y4WGZXNkxiVWpyQjZRS19ZT0tJSjBzeDBPc0VUdmdtUjRRbC1XVWdiVzZnMzFIZ0RKUlFHWTJwMnRZbGVnb3gtZF9saTI3NA?oc=5",
+            "https://news.google.com/rss/articles/CBMiaEFVX3lxTFB1SEVpODUyWDRiemFsaDB1ODhfQnVUbFBZT2VSLWI5SUNyVzdzYmNrUUxPNnJUNnU3Q01WSG5GOTZKX0twdGh2OHJoSlB2MVpxYldEc1hBYXhGajg1OFJmQTlYbmFDdGh3?oc=5",
+            "https://news.google.com/rss/articles/CBMikgFBVV95cUxPZVRtTFN3bEhDcTRLaE1hR1ZnbXplNGhsWUpaNzkxM0xLb3dEUl9EQ3VpR3BJNTd5MWMzY25ydWJyclZWY2lyZjBFWVN1Y0xkaXNfbnZYWi16YW93V3hWQk5OaGEtalhHSmU4eXhWcEwtcW1tNDBVT1RTNmtlbm9NcUhTdmFYZ3JqYVY1N0NTQXRJUQ?oc=5"
           ]
         },
         "details": {
-          "recordCount": 1325,
-          "newCount": 2,
+          "recordCount": 1340,
+          "newCount": 15,
           "updatedCount": 0,
           "records": [
+            {
+              "id": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNeHJlVWNNd3dMdjJQbmozeDM1cjZEM2JHWGlraVQwb0laU01lQksxREtESEdpZ2hZUXF0OHlNNU1nN0tWRjRfWXZJeEp3WDlqU0MwQ1o0TnVnb0YzcDRxWHdKTkx0ZUZkUXpWckxfN2QtejEyNllvU0JVTjhyczFLVGtPRGI2YUgxVHA0WV9sQkxLRjZRckN2anphc3VNamtxX1ZYR1M4XzZjTjU4c3RpVVBGNzEzTHNSOHBmM0daa3dYb0QzTWJ2RDNLRElRQQ?oc=5",
+              "title": "Germany on the brink: 25,900 company insolvencies in 2026 — the transport and logistics sector under fire - Eurodebt.eu",
+              "summary": null,
+              "timestamp": "2026-10-29T07:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Corporate Insolvency",
+              "severity": "medium",
+              "source": "Eurodebt.eu",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNeHJlVWNNd3dMdjJQbmozeDM1cjZEM2JHWGlraVQwb0laU01lQksxREtESEdpZ2hZUXF0OHlNNU1nN0tWRjRfWXZJeEp3WDlqU0MwQ1o0TnVnb0YzcDRxWHdKTkx0ZUZkUXpWckxfN2QtejEyNllvU0JVTjhyczFLVGtPRGI2YUgxVHA0WV9sQkxLRjZRckN2anphc3VNamtxX1ZYR1M4XzZjTjU4c3RpVVBGNzEzTHNSOHBmM0daa3dYb0QzTWJ2RDNLRElRQQ?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPU2EzM25xQnJzWmZYWE80dURnOUJVcUVUN2RQallScEh4UndZUWNOMGVoTml0MElsc3g3dHpnT0JWVGFRSUJfcHBPV2hSQURza20yT04zQ1QyNXR3SkVERm9zUGVXM0pWalJ5TzhfdkxRUk5BTjJlbUVtQmJyWUhleHFvdmV2R3ZYcTFNQmI2NFVZUlhhd0piRFcybTg4RzFvVkYzelJDZnhlX2lqSEhOZEZMTXlMcTM5RTJURDdNdXNNT2hESlRuTlZRSERLS0RxNDlyRXlmYlN6MGRwbGlWVnNMWkdKYzhUNXlnTVBadUJ0d2tCcjc5UUo1eWR3S0plRWk1a2MxOA?oc=5",
+              "title": "Wave of insolvencies in Germany: 25 900 bankruptcies annually through 2027 — the transport, shipping and logistics sector at the heart of the crisis - Eurodebt.eu",
+              "summary": null,
+              "timestamp": "2026-10-28T07:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Corporate Insolvency",
+              "severity": "medium",
+              "source": "Eurodebt.eu",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPU2EzM25xQnJzWmZYWE80dURnOUJVcUVUN2RQallScEh4UndZUWNOMGVoTml0MElsc3g3dHpnT0JWVGFRSUJfcHBPV2hSQURza20yT04zQ1QyNXR3SkVERm9zUGVXM0pWalJ5TzhfdkxRUk5BTjJlbUVtQmJyWUhleHFvdmV2R3ZYcTFNQmI2NFVZUlhhd0piRFcybTg4RzFvVkYzelJDZnhlX2lqSEhOZEZMTXlMcTM5RTJURDdNdXNNT2hESlRuTlZRSERLS0RxNDlyRXlmYlN6MGRwbGlWVnNMWkdKYzhUNXlnTVBadUJ0d2tCcjc5UUo1eWR3S0plRWk1a2MxOA?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNeHYzQUI5Q3hJWWdJQm5qUm9yRXctOW5xcEg4TUlvaDFrbFhPQ2pwbC1Yd0RxTlFVaU5MTEh1OUxPeVluN2hzZEYzaExMUWdISzloLTNOQjNXZFR5UjJaVG5UbE5XTWgtTHZJZHBQRmNmRG5yRDVtazdCQ0VuYzZsLWZ6eEQ0STNpSDJSenl5UGF3YXlJWHBVeE1jZTZfcHZMWmxhY0llUUE2MXlxeE9Eem9OUjhNcDBidEhuSmE2RllUVDVhYXRPM1YwTVdLR05VemNfVm5mVmR3Mm1UQTNqaw?oc=5",
+              "title": "Buyer Found for Germany's Bankrupt Wholesaler - Publishers Weekly",
+              "summary": null,
+              "timestamp": "2019-06-26T07:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Corporate Insolvency",
+              "severity": "medium",
+              "source": "Publishers Weekly",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNeHYzQUI5Q3hJWWdJQm5qUm9yRXctOW5xcEg4TUlvaDFrbFhPQ2pwbC1Yd0RxTlFVaU5MTEh1OUxPeVluN2hzZEYzaExMUWdISzloLTNOQjNXZFR5UjJaVG5UbE5XTWgtTHZJZHBQRmNmRG5yRDVtazdCQ0VuYzZsLWZ6eEQ0STNpSDJSenl5UGF3YXlJWHBVeE1jZTZfcHZMWmxhY0llUUE2MXlxeE9Eem9OUjhNcDBidEhuSmE2RllUVDVhYXRPM1YwTVdLR05VemNfVm5mVmR3Mm1UQTNqaw?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPRThOb1BhampGUUd4SHN2SVlhZExkbEVvaXZHSTZXUFRwSWxqN1N5aE9CdnFJM28yeEdOWkdRNDBFMS1nU3BNQV9sVzJtb0pjRF9JczlMRWxTT21nUVlxemlVZ2xwYmtnSGNDSjREME94cnFhYk56RDFNMGZMUWRvZUtLbVFTdGdYVEowd3pWbUdJWHFlNGdOYmJNdkdkVndVWTU5MEQwcktpX1g5UjVKdDN2bThNNXNhSXhUMk1rY3QzUmZ5MFhpdGJ2OE1zd9IB0gFBVV95cUxNU1M0bWdaZGMzRGhCYVljb3FMYzBwQ2puUGpRUEhvNGZjMmZ5NzlIdjc1WUJBX1FIQ09EVUUwQm9NYng5a3MtLWg1ZEJXOWFoNmdJY1pDWkplWktTdEhoeUttN0ViaG5PVnBsTE5PR1hWM1dBVktLSk9YNjR5WDluLXljMzVmNjQ5MzNMbXU3X2k1NVJQQVRvdWg5TWFqR3VEUW5FSDlsSnRPdlhvRV9jSXJPZF9DUGk5WUQzb3VtbnZFSXVUMjVtZkZCd1o5RmJaY0E?oc=5",
+              "title": "COVID-19 impact: Minda's German subsidiary files for insolvency - ET Auto",
+              "summary": null,
+              "timestamp": "2020-06-10T07:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Corporate Insolvency",
+              "severity": "medium",
+              "source": "ET Auto",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPRThOb1BhampGUUd4SHN2SVlhZExkbEVvaXZHSTZXUFRwSWxqN1N5aE9CdnFJM28yeEdOWkdRNDBFMS1nU3BNQV9sVzJtb0pjRF9JczlMRWxTT21nUVlxemlVZ2xwYmtnSGNDSjREME94cnFhYk56RDFNMGZMUWRvZUtLbVFTdGdYVEowd3pWbUdJWHFlNGdOYmJNdkdkVndVWTU5MEQwcktpX1g5UjVKdDN2bThNNXNhSXhUMk1rY3QzUmZ5MFhpdGJ2OE1zd9IB0gFBVV95cUxNU1M0bWdaZGMzRGhCYVljb3FMYzBwQ2puUGpRUEhvNGZjMmZ5NzlIdjc1WUJBX1FIQ09EVUUwQm9NYng5a3MtLWg1ZEJXOWFoNmdJY1pDWkplWktTdEhoeUttN0ViaG5PVnBsTE5PR1hWM1dBVktLSk9YNjR5WDluLXljMzVmNjQ5MzNMbXU3X2k1NVJQQVRvdWg5TWFqR3VEUW5FSDlsSnRPdlhvRV9jSXJPZF9DUGk5WUQzb3VtbnZFSXVUMjVtZkZCd1o5RmJaY0E?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxON1ZxUFZrTHZyUEY4eXV1OVpfb0VsWmFncVF3aHpvUWNSQUxyNDNkaGFmdlNnOTZaQzhsaHl6QUFDSVRIRkJyUEpPUUlvNW9EU1NTeUw3RVBTTngwMFozWFF2NWk5SXBnTFlxWmNFVnMwT3pOaUtsa0h6anRaM1ZXd2x2VG9sNEtyclhMQ2xlRnVRbjNZQ1lHVFQwRk5pakV5NWtKNEh5YndxTXVoLURULU9pTFVZX3VVQkxhU01mbmh4TDQ5NERiWkY0S3pwZ3Z1WDJhcw?oc=5",
+              "title": "German Supply Chain Act: What Supply Chain Entities In Germany And India Should Know - Legal 500",
+              "summary": null,
+              "timestamp": "2022-10-10T07:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Regulatory / Compliance Risk",
+              "severity": "low",
+              "source": "Legal 500",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxON1ZxUFZrTHZyUEY4eXV1OVpfb0VsWmFncVF3aHpvUWNSQUxyNDNkaGFmdlNnOTZaQzhsaHl6QUFDSVRIRkJyUEpPUUlvNW9EU1NTeUw3RVBTTngwMFozWFF2NWk5SXBnTFlxWmNFVnMwT3pOaUtsa0h6anRaM1ZXd2x2VG9sNEtyclhMQ2xlRnVRbjNZQ1lHVFQwRk5pakV5NWtKNEh5YndxTXVoLURULU9pTFVZX3VVQkxhU01mbmh4TDQ5NERiWkY0S3pwZ3Z1WDJhcw?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONHlQZWpWeENzbzhDbEZRVS1sN2l3MlNqNDQ5SzNFQV8wMm92Sml3bnNiT0J2M09jSnlwaXNhczJGUmpEWjZoREN4d29BUXFyekRNUWR5Q1dXb2FrbUpLTXg3aTM5NS1lbmdOQjlaQXJkRWZLREpRbVdKd21QVVlPUWFqcDA0WGtFV3kzLVN0dFMxbjlHSHIwZG56TGFFWHBRYko3YkZ2VkZyVEZtQWtpZjdWbzVGamVWc0Q1cTk2ZUgtejNiOXFjdmY2YkUyYmpMaXI0ZG51OUFsYmJO?oc=5",
+              "title": "German Government Follows Up On Promise To Change German Supply Chain Act - Legal 500",
+              "summary": null,
+              "timestamp": "2026-10-08T03:22:38.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Regulatory / Compliance Risk",
+              "severity": "low",
+              "source": "Legal 500",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONHlQZWpWeENzbzhDbEZRVS1sN2l3MlNqNDQ5SzNFQV8wMm92Sml3bnNiT0J2M09jSnlwaXNhczJGUmpEWjZoREN4d29BUXFyekRNUWR5Q1dXb2FrbUpLTXg3aTM5NS1lbmdOQjlaQXJkRWZLREpRbVdKd21QVVlPUWFqcDA0WGtFV3kzLVN0dFMxbjlHSHIwZG56TGFFWHBRYko3YkZ2VkZyVEZtQWtpZjdWbzVGamVWc0Q1cTk2ZUgtejNiOXFjdmY2YkUyYmpMaXI0ZG51OUFsYmJO?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQT2tFd3RfTmhPdUVYZm9VNVpuSGpUa3RtVmZZa3dIX054RWtEV200MEs2RVh2TXQxclo0TnVBQnpvb2o1STloZmE0enRDcU1BeEpUZGVoRG81Smc1NkdwYk9YcXJsMGpiZVZ5UVE2dUNVSlI1S0tCc1EzYlhyZjNrUkVkNFlZX2hhaDMwNEFn?oc=5",
+              "title": "EU Forced Labour Regulation - Fieldfisher",
+              "summary": null,
+              "timestamp": "2025-09-24T07:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Regulatory / Compliance Risk",
+              "severity": "low",
+              "source": "Fieldfisher",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQT2tFd3RfTmhPdUVYZm9VNVpuSGpUa3RtVmZZa3dIX054RWtEV200MEs2RVh2TXQxclo0TnVBQnpvb2o1STloZmE0enRDcU1BeEpUZGVoRG81Smc1NkdwYk9YcXJsMGpiZVZ5UVE2dUNVSlI1S0tCc1EzYlhyZjNrUkVkNFlZX2hhaDMwNEFn?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMitAFBVV95cUxON2ZKZWRyTVNVVnMzaWlkSDR6ZUxwUEhZdEtjRk5kOHVvcm5IZzJrQlNxOGl3SVROQnFHcVk0MEhaQlJETm9oYzVOMkZIRUlmSmJUTFZJUjBWV3VhM1NNUXpSb296TDBZTjNaUjh3eUl0NjVlcjVyNEU5WF9DNmVIZkN4b1BZS18xQlRjeUpxOU9DVmRwRFEtcjBqUmptOVVYWnFNSHpXVTFvMHpWUS1rUnctOXQ?oc=5",
+              "title": "German government requires enhanced ESG responsibility - Dentons",
+              "summary": null,
+              "timestamp": "2023-08-31T07:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Regulatory / Compliance Risk",
+              "severity": "low",
+              "source": "Dentons",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxON2ZKZWRyTVNVVnMzaWlkSDR6ZUxwUEhZdEtjRk5kOHVvcm5IZzJrQlNxOGl3SVROQnFHcVk0MEhaQlJETm9oYzVOMkZIRUlmSmJUTFZJUjBWV3VhM1NNUXpSb296TDBZTjNaUjh3eUl0NjVlcjVyNEU5WF9DNmVIZkN4b1BZS18xQlRjeUpxOU9DVmRwRFEtcjBqUmptOVVYWnFNSHpXVTFvMHpWUS1rUnctOXQ?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOOE53VFpMT2JtR192b1duREVyOHM5YW1YbDJGN0RjQUQwM1JFbHZYb0N5Yk9pT1RNcGdVZy0yS3V2eTV4M1V3RkJzaWx2YnByd0tXN0VjZGM3TGhHQjJmQzlNVWw4LU5SNlhQdWlVdjZkbkdoR1RtS0phcFNKeHBfSFRwTWRpamk4T2ZURUQtX2pwaFF3c3AwU0dyTFZCWkZvYjVtbVg4YXpBYTd4WGI5UjdnajM?oc=5",
+              "title": "US launches Section 301 probe into Germany over drug pricing policies - Supply Chain Dive",
+              "summary": null,
+              "timestamp": "2026-06-22T07:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Carrier / Freight Fraud",
+              "severity": "medium",
+              "source": "Supply Chain Dive",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOOE53VFpMT2JtR192b1duREVyOHM5YW1YbDJGN0RjQUQwM1JFbHZYb0N5Yk9pT1RNcGdVZy0yS3V2eTV4M1V3RkJzaWx2YnByd0tXN0VjZGM3TGhHQjJmQzlNVWw4LU5SNlhQdWlVdjZkbkdoR1RtS0phcFNKeHBfSFRwTWRpamk4T2ZURUQtX2pwaFF3c3AwU0dyTFZCWkZvYjVtbVg4YXpBYTd4WGI5UjdnajM?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOVV9TaUVIbXI5cnJmZFc0WF9yWV9Gb2Njdk8yTnBtbzlOTTFDbGt4Y194T3lsNzBxRVF0NFAzTjlBMzFtSENHSXJqTEtVLUVZQ3FwMnVJVXpidDk4VWttbk1aSG81MGx4Ym1rSU9zcG9PM2tYV3NxTUk5MUtfTk12aS1yVzIyQ1RBNVpoYkZRTHZKODFKVkYxVUZsT3hZSUdtMUcwRG1Ua2x0WGZIWmxkdDRicGw4RUNEQ3VVT1ZQUC0ya29PTDRiUEwxQ25vMW11?oc=5",
+              "title": "Deutsche Bahn Loses Court Bid to Block Train-Drivers’ Strike - SupplyChainBrain",
+              "summary": null,
+              "timestamp": "2024-03-12T07:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "SupplyChainBrain",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOVV9TaUVIbXI5cnJmZFc0WF9yWV9Gb2Njdk8yTnBtbzlOTTFDbGt4Y194T3lsNzBxRVF0NFAzTjlBMzFtSENHSXJqTEtVLUVZQ3FwMnVJVXpidDk4VWttbk1aSG81MGx4Ym1rSU9zcG9PM2tYV3NxTUk5MUtfTk12aS1yVzIyQ1RBNVpoYkZRTHZKODFKVkYxVUZsT3hZSUdtMUcwRG1Ua2x0WGZIWmxkdDRicGw4RUNEQ3VVT1ZQUC0ya29PTDRiUEwxQ25vMW11?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOQTM4XzBOLXhOcG90R25obEV1ZUNtX3ZrczdjeXB4TXA2ZHRjeHBHM0NtRlhzcWtvdVltLU5JVXRWWDJKN1h4aFpBRlV5aUJGVVQyWnV3ZkpzeXZfRlZBaV9VY0ZkdjVWU3VEeEtlWVg3enE0NWQ3UlNkSmFYNVktcGtKRVpxQmNNWVZRWkdsakhuMTJQeUZaaExFaE5oQmtnOXV0YWkzb3c3VC1xOFZERUN5T0hKVEl4?oc=5",
+              "title": "The Middle East conflict continues to escalate and disrupt shipping routes: Why supply chain resilience is the new normal and three ways to do so - Marsh",
+              "summary": null,
+              "timestamp": "2026-03-22T08:06:21.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "medium",
+              "source": "Marsh",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOQTM4XzBOLXhOcG90R25obEV1ZUNtX3ZrczdjeXB4TXA2ZHRjeHBHM0NtRlhzcWtvdVltLU5JVXRWWDJKN1h4aFpBRlV5aUJGVVQyWnV3ZkpzeXZfRlZBaV9VY0ZkdjVWU3VEeEtlWVg3enE0NWQ3UlNkSmFYNVktcGtKRVpxQmNNWVZRWkdsakhuMTJQeUZaaExFaE5oQmtnOXV0YWkzb3c3VC1xOFZERUN5T0hKVEl4?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPbXVBeWEzMG51TFRsdVNRbUdidWZSN2JhTGZEelZic1c4aG9OTW02SEZaMnYzdmZVX0FqS25JbzRNU2hpa1RyY3hyUzhoa0VzOUhNQklVeHg1Uk4zbzNWSmVJVDVidkVHM2ZLODNfN1ZmNUNtNTJibkFNdWdGMURMX0hBNDlfZEFvVzMyTUZfZnBoazlyMDlz0gGXAUFVX3lxTE10SWhGdG1QUmtCMWdpWmhkemczal9sdUJlSGNTWFl0ODM0ZFgteEVmb2h1ajl6QVlXMHJObzNOYW9yNnVPN3BRYldoYm85VkpHaDQyTFRIZVpTeTJkNllhVDVPX2RuQXJvSHAzaEFqYW1URGhJYWlFYWhjU0lkeFFMS1N2UGc3Mzc4cUpKRlNOQ3MwNnFXSWc?oc=5",
+              "title": "How will German carmakers be affected by US port strikes? - DW.com",
+              "summary": null,
+              "timestamp": "2024-10-02T07:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "DW.com",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPbXVBeWEzMG51TFRsdVNRbUdidWZSN2JhTGZEelZic1c4aG9OTW02SEZaMnYzdmZVX0FqS25JbzRNU2hpa1RyY3hyUzhoa0VzOUhNQklVeHg1Uk4zbzNWSmVJVDVidkVHM2ZLODNfN1ZmNUNtNTJibkFNdWdGMURMX0hBNDlfZEFvVzMyTUZfZnBoazlyMDlz0gGXAUFVX3lxTE10SWhGdG1QUmtCMWdpWmhkemczal9sdUJlSGNTWFl0ODM0ZFgteEVmb2h1ajl6QVlXMHJObzNOYW9yNnVPN3BRYldoYm85VkpHaDQyTFRIZVpTeTJkNllhVDVPX2RuQXJvSHAzaEFqYW1URGhJYWlFYWhjU0lkeFFMS1N2UGc3Mzc4cUpKRlNOQ3MwNnFXSWc?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPUDFfZ1RUWGdhaXJ1dncxelQ1Z3U1dFgySUxWSXVYdktHa1gtRE02c0wtWWRhSUVkV1RmQ0Y4WGZXNkxiVWpyQjZRS19ZT0tJSjBzeDBPc0VUdmdtUjRRbC1XVWdiVzZnMzFIZ0RKUlFHWTJwMnRZbGVnb3gtZF9saTI3NA?oc=5",
+              "title": "Nexperia crisis: VW said to secure access to new chip supply - Automotive News",
+              "summary": null,
+              "timestamp": "2025-10-23T07:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Corporate Insolvency",
+              "severity": "medium",
+              "source": "Automotive News",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPUDFfZ1RUWGdhaXJ1dncxelQ1Z3U1dFgySUxWSXVYdktHa1gtRE02c0wtWWRhSUVkV1RmQ0Y4WGZXNkxiVWpyQjZRS19ZT0tJSjBzeDBPc0VUdmdtUjRRbC1XVWdiVzZnMzFIZ0RKUlFHWTJwMnRZbGVnb3gtZF9saTI3NA?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFB1SEVpODUyWDRiemFsaDB1ODhfQnVUbFBZT2VSLWI5SUNyVzdzYmNrUUxPNnJUNnU3Q01WSG5GOTZKX0twdGh2OHJoSlB2MVpxYldEc1hBYXhGajg1OFJmQTlYbmFDdGh3?oc=5",
+              "title": "Electrical retailer AO backs ‘digital first marketing’ as supply chain crisis bites - Marketing Week",
+              "summary": null,
+              "timestamp": "2021-11-23T08:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Corporate Insolvency",
+              "severity": "medium",
+              "source": "Marketing Week",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFB1SEVpODUyWDRiemFsaDB1ODhfQnVUbFBZT2VSLWI5SUNyVzdzYmNrUUxPNnJUNnU3Q01WSG5GOTZKX0twdGh2OHJoSlB2MVpxYldEc1hBYXhGajg1OFJmQTlYbmFDdGh3?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
+            {
+              "id": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPZVRtTFN3bEhDcTRLaE1hR1ZnbXplNGhsWUpaNzkxM0xLb3dEUl9EQ3VpR3BJNTd5MWMzY25ydWJyclZWY2lyZjBFWVN1Y0xkaXNfbnZYWi16YW93V3hWQk5OaGEtalhHSmU4eXhWcEwtcW1tNDBVT1RTNmtlbm9NcUhTdmFYZ3JqYVY1N0NTQXRJUQ?oc=5",
+              "title": "Verdi-Streik in Bremerhaven: Logistik-Mitarbeiter fordern Tarifvertrag - buten un binnen",
+              "summary": null,
+              "timestamp": "2025-04-02T07:00:00.000Z",
+              "foundAt": "2026-11-23T06:55:49.979Z",
+              "location": null,
+              "category": "Operational Disruption",
+              "severity": "high",
+              "source": "buten un binnen",
+              "links": [
+                {
+                  "label": "Open original source",
+                  "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPZVRtTFN3bEhDcTRLaE1hR1ZnbXplNGhsWUpaNzkxM0xLb3dEUl9EQ3VpR3BJNTd5MWMzY25ydWJyclZWY2lyZjBFWVN1Y0xkaXNfbnZYWi16YW93V3hWQk5OaGEtalhHSmU4eXhWcEwtcW1tNDBVT1RTNmtlbm9NcUhTdmFYZ3JqYVY1N0NTQXRJUQ?oc=5"
+                }
+              ],
+              "classification": "REAL_WORLD_SIGNAL"
+            },
             {
               "id": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNNnhtejJSSU5qZy1ENzJ6cGRxeDlKSzdQM0ZjVjZORlBkZmpqbzZaZHNpTzhyVGZoaFo4a3BDZXdjam9XVklsTkdZdER0Q25qNF9GSFFtVXpPdERGSXlOODZ0NWVwX2tDcTNVeEhWSmFjQXViVjdEWEtwYWY2cDBYVXhsMERZOWRzclpubXR2OGRSQTJDS1R6Yllibm5YbWk2YUdQMi1PZmRFczR2RFV6N1Z6c0hQZXpLbTIw?oc=5",
               "title": "Inside California's $22.5 Million Train Heist: 14 Charged Over Plot to Steal Nike Sneakers and Power Tools - International Business Times, Singapore Edition",
@@ -25773,9 +26073,9 @@
       {
         "id": "fraud-watch:briefing",
         "sourceProject": "Fraud Watch",
-        "timestamp": "2026-11-22T17:29:47.208Z",
+        "timestamp": "2026-11-23T21:49:55.136Z",
         "title": "Fraud Watch simulation state changed",
-        "summary": "Synthetic simulation day 62 contains 20 candidate methods of operation and 1 open investigation.",
+        "summary": "Synthetic simulation day 63 contains 20 candidate methods of operation and 2 open investigations.",
         "category": "risk-intelligence",
         "importance": "medium",
         "evidenceType": "SIMULATION",
@@ -25804,22 +26104,23 @@
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/dashboard-summary.json",
             "https://raw.githubusercontent.com/Jeevan-0508/fraud-watch/main/data/world-state.json"
           ],
-          "retrievedAt": "2026-11-22T17:29:47.208Z",
+          "retrievedAt": "2026-11-23T21:49:55.136Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp simulation day 62, 00:00:00",
+          "freshness": "source timestamp simulation day 63, 00:00:00",
           "changedRecords": [
-            "MO-0106",
-            "fraud-watch:EQUIPMENT_CARRIER_MISMATCH+GPS_SIGNAL_LOST+MANIFEST_CHANGED"
+            "MO-0107",
+            "MO-0108",
+            "MO-0106"
           ]
         },
         "details": {
           "simulation": {
-            "day": 62,
+            "day": 63,
             "timeOfDay": "00:00:00",
-            "activeSignals": 2,
-            "openInvestigations": 1,
-            "totalCases": 106
+            "activeSignals": 1,
+            "openInvestigations": 2,
+            "totalCases": 108
           },
           "candidates": [
             {
@@ -25924,148 +26225,6 @@
             }
           ],
           "methods": [
-            {
-              "id": "MO-0095",
-              "status": "DISMISSED",
-              "classification": "POTENTIAL_NEW_MO",
-              "confidenceBand": "MINIMAL",
-              "noveltyScore": 64,
-              "signature": "MANIFEST_CHANGED+SEAL_MISMATCH",
-              "entities": {
-                "truckId": "TRU-019",
-                "driverId": "DRI-017",
-                "trailerId": "TRA-030",
-                "carrierId": "CAR-007",
-                "facilityId": null
-              },
-              "timeline": [
-                {
-                  "t": 4498800,
-                  "type": "SEAL_MISMATCH"
-                },
-                {
-                  "t": 4503300,
-                  "type": "MANIFEST_CHANGED"
-                },
-                {
-                  "t": 4527492,
-                  "type": "HANDOVER_GAP"
-                },
-                {
-                  "t": 4527600,
-                  "type": "FALSE_MILESTONE_STAMP"
-                },
-                {
-                  "t": 4561200,
-                  "type": "GPS_SIGNAL_LOST"
-                }
-              ],
-              "evidence": [
-                {
-                  "signalId": "SIG-003005",
-                  "signalType": "SEAL_MISMATCH",
-                  "contribution": 2.3,
-                  "reliability": 0.75,
-                  "at": 4498800,
-                  "facilityId": "FAC-001",
-                  "facilityName": "North Gate"
-                },
-                {
-                  "signalId": "SIG-003006",
-                  "signalType": "MANIFEST_CHANGED",
-                  "contribution": 1.3,
-                  "reliability": 0.65,
-                  "at": 4503300,
-                  "facilityId": null,
-                  "facilityName": null
-                },
-                {
-                  "signalId": "SIG-003024",
-                  "signalType": "HANDOVER_GAP",
-                  "contribution": 1.1,
-                  "reliability": 0.55,
-                  "at": 4527492,
-                  "facilityId": "FAC-018",
-                  "facilityName": "Central Gate"
-                },
-                {
-                  "signalId": "SIG-003023",
-                  "signalType": "FALSE_MILESTONE_STAMP",
-                  "contribution": 1.7,
-                  "reliability": 0.55,
-                  "at": 4527600,
-                  "facilityId": "FAC-018",
-                  "facilityName": "Central Gate"
-                },
-                {
-                  "signalId": "SIG-003048",
-                  "signalType": "GPS_SIGNAL_LOST",
-                  "contribution": 1.2,
-                  "reliability": 0.6,
-                  "at": 4561200,
-                  "facilityId": "FAC-001",
-                  "facilityName": "North Gate"
-                }
-              ]
-            },
-            {
-              "id": "MO-0096",
-              "status": "DISMISSED",
-              "classification": "POTENTIAL_NEW_MO",
-              "confidenceBand": "ELEVATED",
-              "noveltyScore": 64,
-              "signature": "EQUIPMENT_CARRIER_MISMATCH+HANDOVER_GAP+MANIFEST_CHANGED",
-              "entities": {
-                "truckId": "TRU-015",
-                "driverId": "DRI-019",
-                "trailerId": "TRA-018",
-                "carrierId": "CAR-003",
-                "facilityId": null
-              },
-              "timeline": [
-                {
-                  "t": 4549793,
-                  "type": "HANDOVER_GAP"
-                },
-                {
-                  "t": 4555095,
-                  "type": "MANIFEST_CHANGED"
-                },
-                {
-                  "t": 4555200,
-                  "type": "EQUIPMENT_CARRIER_MISMATCH"
-                }
-              ],
-              "evidence": [
-                {
-                  "signalId": "SIG-003037",
-                  "signalType": "HANDOVER_GAP",
-                  "contribution": 1.1,
-                  "reliability": 0.55,
-                  "at": 4549793,
-                  "facilityId": null,
-                  "facilityName": null
-                },
-                {
-                  "signalId": "SIG-003045",
-                  "signalType": "MANIFEST_CHANGED",
-                  "contribution": 1.3,
-                  "reliability": 0.65,
-                  "at": 4555095,
-                  "facilityId": "FAC-001",
-                  "facilityName": "North Gate"
-                },
-                {
-                  "signalId": "SIG-003044",
-                  "signalType": "EQUIPMENT_CARRIER_MISMATCH",
-                  "contribution": 2.1,
-                  "reliability": 0.7,
-                  "at": 4555200,
-                  "facilityId": "FAC-001",
-                  "facilityName": "North Gate"
-                }
-              ]
-            },
             {
               "id": "MO-0097",
               "status": "DISMISSED",
@@ -26759,7 +26918,7 @@
             },
             {
               "id": "MO-0106",
-              "status": "NEW",
+              "status": "DISMISSED",
               "classification": "POTENTIAL_NEW_MO",
               "confidenceBand": "MINIMAL",
               "noveltyScore": 64,
@@ -26827,6 +26986,148 @@
                   "facilityName": null
                 }
               ]
+            },
+            {
+              "id": "MO-0107",
+              "status": "NEW",
+              "classification": "KNOWN_MO",
+              "confidenceBand": "WATCH",
+              "noveltyScore": 10,
+              "signature": "ACCOUNT_TAKEOVER+SEAL_MISMATCH",
+              "entities": {
+                "truckId": "TRU-021",
+                "driverId": "DRI-020",
+                "trailerId": "TRA-023",
+                "carrierId": "CAR-006",
+                "facilityId": null
+              },
+              "timeline": [
+                {
+                  "t": 5322600,
+                  "type": "ACCOUNT_TAKEOVER"
+                },
+                {
+                  "t": 5328900,
+                  "type": "SEAL_MISMATCH"
+                },
+                {
+                  "t": 5338200,
+                  "type": "HANDOVER_GAP"
+                },
+                {
+                  "t": 5341500,
+                  "type": "SEAL_MISMATCH"
+                },
+                {
+                  "t": 5350500,
+                  "type": "ACCOUNT_TAKEOVER"
+                }
+              ],
+              "evidence": [
+                {
+                  "signalId": "SIG-003542",
+                  "signalType": "ACCOUNT_TAKEOVER",
+                  "contribution": 1.8,
+                  "reliability": 0.6,
+                  "at": 5322600,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-003551",
+                  "signalType": "SEAL_MISMATCH",
+                  "contribution": 2.3,
+                  "reliability": 0.75,
+                  "at": 5328900,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-003561",
+                  "signalType": "HANDOVER_GAP",
+                  "contribution": 1.1,
+                  "reliability": 0.55,
+                  "at": 5338200,
+                  "facilityId": null,
+                  "facilityName": null
+                },
+                {
+                  "signalId": "SIG-003567",
+                  "signalType": "SEAL_MISMATCH",
+                  "contribution": 2.3,
+                  "reliability": 0.75,
+                  "at": 5341500,
+                  "facilityId": "FAC-014",
+                  "facilityName": "Cross-dock C (east)"
+                },
+                {
+                  "signalId": "SIG-003576",
+                  "signalType": "ACCOUNT_TAKEOVER",
+                  "contribution": 1.8,
+                  "reliability": 0.6,
+                  "at": 5350500,
+                  "facilityId": null,
+                  "facilityName": null
+                }
+              ]
+            },
+            {
+              "id": "MO-0108",
+              "status": "NEW",
+              "classification": "KNOWN_MO",
+              "confidenceBand": "MINIMAL",
+              "noveltyScore": 46,
+              "signature": "FALSE_MILESTONE_STAMP+HANDOVER_GAP+ROUTE_DEVIATION",
+              "entities": {
+                "truckId": "TRU-016",
+                "driverId": "DRI-001",
+                "trailerId": "TRA-011",
+                "carrierId": "CAR-007",
+                "facilityId": null
+              },
+              "timeline": [
+                {
+                  "t": 5337234,
+                  "type": "HANDOVER_GAP"
+                },
+                {
+                  "t": 5337300,
+                  "type": "FALSE_MILESTONE_STAMP"
+                },
+                {
+                  "t": 5339700,
+                  "type": "ROUTE_DEVIATION"
+                }
+              ],
+              "evidence": [
+                {
+                  "signalId": "SIG-003560",
+                  "signalType": "HANDOVER_GAP",
+                  "contribution": 1.1,
+                  "reliability": 0.55,
+                  "at": 5337234,
+                  "facilityId": "FAC-010",
+                  "facilityName": "East Gate"
+                },
+                {
+                  "signalId": "SIG-003559",
+                  "signalType": "FALSE_MILESTONE_STAMP",
+                  "contribution": 1.7,
+                  "reliability": 0.55,
+                  "at": 5337300,
+                  "facilityId": "FAC-010",
+                  "facilityName": "East Gate"
+                },
+                {
+                  "signalId": "SIG-003564",
+                  "signalType": "ROUTE_DEVIATION",
+                  "contribution": 1.4,
+                  "reliability": 0.7,
+                  "at": 5339700,
+                  "facilityId": "FAC-002",
+                  "facilityName": "South Gate"
+                }
+              ]
             }
           ],
           "label": "SYNTHETIC SIMULATION — not real-world fraud cases"
@@ -26836,9 +27137,9 @@
       {
         "id": "shadow-network:briefing",
         "sourceProject": "Shadow Network",
-        "timestamp": "2026-11-22T17:29:47.208Z",
+        "timestamp": "2026-11-23T21:49:55.136Z",
         "title": "Shadow Network synthetic snapshot changed",
-        "summary": "Synthetic network day 62 was refreshed: 0 incidents and 0 verdicts are recorded in the latest state.",
+        "summary": "Synthetic network day 63 was refreshed: 0 incidents and 0 verdicts are recorded in the latest state.",
         "category": "risk-intelligence",
         "importance": "low",
         "evidenceType": "SIMULATION",
@@ -26861,17 +27162,17 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/shadow-network/main/data/latest.json"
           ],
-          "retrievedAt": "2026-11-22T17:29:47.208Z",
+          "retrievedAt": "2026-11-23T21:49:55.136Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp 2026-11-22T11:38:38.879Z",
+          "freshness": "source timestamp 2026-11-23T13:09:25.975Z",
           "changedRecords": [
             "snapshot"
           ]
         },
         "details": {
-          "day": 62,
-          "generatedAt": "2026-11-22T11:38:38.879Z",
+          "day": 63,
+          "generatedAt": "2026-11-23T13:09:25.975Z",
           "incidents": [],
           "verdicts": [],
           "carrierCount": 120,
@@ -27042,7 +27343,7 @@
       {
         "id": "risk-ring:briefing",
         "sourceProject": "Risk Ring",
-        "timestamp": "2026-11-16T19:55:58.403Z",
+        "timestamp": "2026-11-23T21:49:55.136Z",
         "title": "Risk Ring synthetic analysis changed",
         "summary": "Synthetic analysis contains 30 alerts across 20 rings; graph recovery covers 20 of 20 synthetic rings.",
         "category": "risk-intelligence",
@@ -27077,7 +27378,7 @@
             "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/metrics.json",
             "https://raw.githubusercontent.com/Jeevan-0508/risk-ring/main/data/graph_metrics.json"
           ],
-          "retrievedAt": "2026-11-16T19:55:58.403Z",
+          "retrievedAt": "2026-11-23T21:49:55.136Z",
           "status": "SIMULATED",
           "origin": "GitHub raw snapshot",
           "freshness": "timestamp not supplied by source",
@@ -27096,16 +27397,16 @@
               "test_rows": 6112
             },
             "logistic_regression": {
-              "precision": 0.7989,
+              "precision": 0.7402,
               "recall": 1,
-              "f1": 0.8882,
+              "f1": 0.8507,
               "roc_auc": 0.9994,
-              "pr_auc": 0.9645
+              "pr_auc": 0.9615
             },
             "xgboost": {
-              "precision": 0.7947,
-              "recall": 1,
-              "f1": 0.8856,
+              "precision": 0.7853,
+              "recall": 0.9934,
+              "f1": 0.8772,
               "roc_auc": 0.9998,
               "pr_auc": 0.9937
             }
@@ -27113,10 +27414,10 @@
           "graphMetrics": {
             "seed_percentile": 0.95,
             "subgraph_nodes": 2104,
-            "subgraph_edges": 10317,
-            "communities_detected": 225,
-            "avg_ring_recall": 0.783,
-            "avg_ring_precision": 0.759,
+            "subgraph_edges": 10322,
+            "communities_detected": 223,
+            "avg_ring_recall": 0.758,
+            "avg_ring_precision": 0.772,
             "rings_recovered_ge_30pct": 20,
             "total_true_rings": 20,
             "per_ring": [
@@ -27124,33 +27425,33 @@
                 "ring_id": "010",
                 "typology": "layering",
                 "recall": 1,
-                "precision": 0.455,
+                "precision": 0.714,
                 "true_size": 5,
-                "matched_community_size": 11
+                "matched_community_size": 7
               },
               {
                 "ring_id": "015",
                 "typology": "smurfing",
                 "recall": 0.545,
-                "precision": 0.6,
+                "precision": 0.667,
                 "true_size": 11,
-                "matched_community_size": 10
+                "matched_community_size": 9
               },
               {
                 "ring_id": "007",
                 "typology": "layering",
-                "recall": 1,
-                "precision": 0.6,
+                "recall": 0.667,
+                "precision": 0.333,
                 "true_size": 6,
-                "matched_community_size": 10
+                "matched_community_size": 12
               },
               {
                 "ring_id": "013",
                 "typology": "layering",
                 "recall": 0.833,
-                "precision": 0.833,
+                "precision": 0.714,
                 "true_size": 6,
-                "matched_community_size": 6
+                "matched_community_size": 7
               },
               {
                 "ring_id": "000",
@@ -27164,9 +27465,9 @@
                 "ring_id": "004",
                 "typology": "layering",
                 "recall": 1,
-                "precision": 0.75,
+                "precision": 1,
                 "true_size": 6,
-                "matched_community_size": 8
+                "matched_community_size": 6
               },
               {
                 "ring_id": "008",
@@ -27180,9 +27481,9 @@
                 "ring_id": "001",
                 "typology": "layering",
                 "recall": 0.833,
-                "precision": 0.5,
+                "precision": 0.625,
                 "true_size": 6,
-                "matched_community_size": 10
+                "matched_community_size": 8
               },
               {
                 "ring_id": "005",
@@ -27196,25 +27497,25 @@
                 "ring_id": "012",
                 "typology": "smurfing",
                 "recall": 0.444,
-                "precision": 0.333,
+                "precision": 0.444,
                 "true_size": 9,
-                "matched_community_size": 12
+                "matched_community_size": 9
               },
               {
                 "ring_id": "009",
                 "typology": "smurfing",
-                "recall": 0.455,
-                "precision": 0.833,
+                "recall": 0.364,
+                "precision": 0.571,
                 "true_size": 11,
-                "matched_community_size": 6
+                "matched_community_size": 7
               },
               {
                 "ring_id": "019",
                 "typology": "layering",
                 "recall": 0.833,
-                "precision": 0.5,
+                "precision": 0.833,
                 "true_size": 6,
-                "matched_community_size": 10
+                "matched_community_size": 6
               },
               {
                 "ring_id": "017",
@@ -27228,9 +27529,9 @@
                 "ring_id": "006",
                 "typology": "smurfing",
                 "recall": 0.5,
-                "precision": 0.75,
+                "precision": 0.857,
                 "true_size": 12,
-                "matched_community_size": 8
+                "matched_community_size": 7
               },
               {
                 "ring_id": "011",
@@ -27260,15 +27561,15 @@
                 "ring_id": "003",
                 "typology": "smurfing",
                 "recall": 0.5,
-                "precision": 1,
+                "precision": 0.833,
                 "true_size": 10,
-                "matched_community_size": 5
+                "matched_community_size": 6
               },
               {
                 "ring_id": "018",
                 "typology": "smurfing",
-                "recall": 0.462,
-                "precision": 1,
+                "recall": 0.385,
+                "precision": 0.833,
                 "true_size": 13,
                 "matched_community_size": 6
               },
@@ -27284,39 +27585,10 @@
           },
           "alerts": [
             {
-              "tx_id": "T0018003",
-              "orig": "R005_loop1",
-              "dest": "R005_loop2",
-              "amount": 5442.63,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "005",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.8891
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.5618
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 2.9627
-                },
-                {
-                  "feature": "near_threshold",
-                  "shap_value": 0.9585
-                }
-              ]
-            },
-            {
-              "tx_id": "T0015895",
-              "orig": "R005_loop1",
-              "dest": "R005_loop2",
-              "amount": 5202.1,
+              "tx_id": "T0017875",
+              "orig": "R005_loop0",
+              "dest": "R005_loop1",
+              "amount": 5462.27,
               "tx_type": "TRANSFER",
               "risk_score": 1,
               "is_fraud_ground_truth": 1,
@@ -27325,27 +27597,27 @@
               "top_factors": [
                 {
                   "feature": "amount",
-                  "shap_value": 3.6637
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.536
+                  "shap_value": 3.8878
                 },
                 {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 2.435
+                  "shap_value": 3.8857
                 },
                 {
-                  "feature": "dest_fanin_prior",
-                  "shap_value": 1.3086
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.8298
+                },
+                {
+                  "feature": "orig_tx_count_prior",
+                  "shap_value": 1.213
                 }
               ]
             },
             {
-              "tx_id": "T0017094",
-              "orig": "R002_loop1",
-              "dest": "R002_loop2",
-              "amount": 7232.79,
+              "tx_id": "T0016571",
+              "orig": "R002_loop0",
+              "dest": "R002_loop1",
+              "amount": 5160.24,
               "tx_type": "TRANSFER",
               "risk_score": 1,
               "is_fraud_ground_truth": 1,
@@ -27353,107 +27625,20 @@
               "typology": "round_trip",
               "top_factors": [
                 {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 4.4397
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.8207
                 },
                 {
                   "feature": "amount",
-                  "shap_value": 3.4961
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.3817
-                },
-                {
-                  "feature": "near_threshold",
-                  "shap_value": 1.0916
-                }
-              ]
-            },
-            {
-              "tx_id": "T0017306",
-              "orig": "R005_loop1",
-              "dest": "R005_loop2",
-              "amount": 7156.25,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "005",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "amount",
-                  "shap_value": 3.6651
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.3481
+                  "shap_value": 3.6336
                 },
                 {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 2.5451
+                  "shap_value": 3.5567
                 },
                 {
-                  "feature": "dest_fanin_prior",
-                  "shap_value": 1.21
-                }
-              ]
-            },
-            {
-              "tx_id": "T0016984",
-              "orig": "R002_loop2",
-              "dest": "R002_loop0",
-              "amount": 5281.3,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "002",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "amount",
-                  "shap_value": 3.463
-                },
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.4616
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.1411
-                },
-                {
-                  "feature": "near_threshold",
-                  "shap_value": 0.9722
-                }
-              ]
-            },
-            {
-              "tx_id": "T0017547",
-              "orig": "R017_loop0",
-              "dest": "R017_loop1",
-              "amount": 6243.02,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "017",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 4.2123
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.4489
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.3898
-                },
-                {
-                  "feature": "near_threshold",
-                  "shap_value": 1.0916
+                  "feature": "orig_tx_count_prior",
+                  "shap_value": 1.4118
                 }
               ]
             },
@@ -27470,48 +27655,19 @@
               "top_factors": [
                 {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 4.7644
-                },
-                {
-                  "feature": "amount",
-                  "shap_value": 3.4755
+                  "shap_value": 4.1713
                 },
                 {
                   "feature": "pair_prior_count",
-                  "shap_value": 3.4333
-                },
-                {
-                  "feature": "dest_fanin_prior",
-                  "shap_value": -1.4178
-                }
-              ]
-            },
-            {
-              "tx_id": "T0018023",
-              "orig": "R017_loop0",
-              "dest": "R017_loop1",
-              "amount": 7287.59,
-              "tx_type": "TRANSFER",
-              "risk_score": 1,
-              "is_fraud_ground_truth": 1,
-              "ring_id": "017",
-              "typology": "round_trip",
-              "top_factors": [
-                {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 3.7709
+                  "shap_value": 3.9263
                 },
                 {
                   "feature": "amount",
-                  "shap_value": 3.4821
+                  "shap_value": 3.4057
                 },
                 {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.2541
-                },
-                {
-                  "feature": "near_threshold",
-                  "shap_value": 0.954
+                  "feature": "orig_tx_count_prior",
+                  "shap_value": 1.0936
                 }
               ]
             },
@@ -27528,48 +27684,77 @@
               "top_factors": [
                 {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 4.6201
+                  "shap_value": 3.9971
                 },
                 {
                   "feature": "pair_prior_count",
-                  "shap_value": 3.5262
+                  "shap_value": 3.6965
                 },
                 {
                   "feature": "amount",
-                  "shap_value": 3.4317
+                  "shap_value": 3.5955
                 },
                 {
-                  "feature": "dest_fanin_prior",
-                  "shap_value": -1.4905
+                  "feature": "orig_tx_count_prior",
+                  "shap_value": 1.3101
                 }
               ]
             },
             {
-              "tx_id": "T0016108",
-              "orig": "R002_loop0",
-              "dest": "R002_loop1",
-              "amount": 5062.95,
+              "tx_id": "T0015895",
+              "orig": "R005_loop1",
+              "dest": "R005_loop2",
+              "amount": 5202.1,
               "tx_type": "TRANSFER",
               "risk_score": 1,
               "is_fraud_ground_truth": 1,
-              "ring_id": "002",
+              "ring_id": "005",
               "typology": "round_trip",
               "top_factors": [
                 {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 4.6133
+                  "shap_value": 3.96
                 },
                 {
                   "feature": "pair_prior_count",
-                  "shap_value": 3.5108
+                  "shap_value": 3.7601
                 },
                 {
                   "feature": "amount",
-                  "shap_value": 3.4384
+                  "shap_value": 3.6812
                 },
                 {
-                  "feature": "dest_fanin_prior",
-                  "shap_value": -1.4794
+                  "feature": "orig_tx_count_prior",
+                  "shap_value": 1.061
+                }
+              ]
+            },
+            {
+              "tx_id": "T0016252",
+              "orig": "R004_hop2",
+              "dest": "R004_hop3",
+              "amount": 35985.14,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "004",
+              "typology": "layering",
+              "top_factors": [
+                {
+                  "feature": "amount",
+                  "shap_value": 5.6848
+                },
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 3.2959
+                },
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 2.5014
+                },
+                {
+                  "feature": "near_threshold",
+                  "shap_value": 0.8997
                 }
               ]
             },
@@ -27585,28 +27770,28 @@
               "typology": "round_trip",
               "top_factors": [
                 {
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.7928
+                },
+                {
                   "feature": "dest_tx_count_prior",
-                  "shap_value": 3.3734
+                  "shap_value": 3.7418
                 },
                 {
                   "feature": "amount",
-                  "shap_value": 3.3303
-                },
-                {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.2151
+                  "shap_value": 3.541
                 },
                 {
                   "feature": "near_threshold",
-                  "shap_value": 0.743
+                  "shap_value": 0.8275
                 }
               ]
             },
             {
-              "tx_id": "T0016938",
-              "orig": "R002_loop1",
-              "dest": "R002_loop2",
-              "amount": 5056.63,
+              "tx_id": "T0016446",
+              "orig": "R002_loop0",
+              "dest": "R002_loop1",
+              "amount": 3380.04,
               "tx_type": "TRANSFER",
               "risk_score": 1,
               "is_fraud_ground_truth": 1,
@@ -27614,20 +27799,136 @@
               "typology": "round_trip",
               "top_factors": [
                 {
-                  "feature": "dest_tx_count_prior",
-                  "shap_value": 4.1575
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.8229
                 },
                 {
-                  "feature": "pair_prior_count",
-                  "shap_value": 3.553
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 3.2664
                 },
                 {
                   "feature": "amount",
-                  "shap_value": 3.1591
+                  "shap_value": 2.8619
+                },
+                {
+                  "feature": "orig_tx_count_prior",
+                  "shap_value": 1.6096
+                }
+              ]
+            },
+            {
+              "tx_id": "T0017233",
+              "orig": "R017_loop0",
+              "dest": "R017_loop1",
+              "amount": 6289.91,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "017",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.7241
+                },
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 3.6485
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.4459
+                },
+                {
+                  "feature": "orig_tx_count_prior",
+                  "shap_value": 1.2117
+                }
+              ]
+            },
+            {
+              "tx_id": "T0016382",
+              "orig": "R002_loop0",
+              "dest": "R002_loop1",
+              "amount": 4458.85,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "002",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 3.7987
+                },
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 3.6149
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 2.8195
+                },
+                {
+                  "feature": "orig_tx_count_prior",
+                  "shap_value": 1.1615
+                }
+              ]
+            },
+            {
+              "tx_id": "T0015756",
+              "orig": "R005_loop0",
+              "dest": "R005_loop1",
+              "amount": 5184.55,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "005",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 4.3628
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.896
+                },
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 1.6413
+                },
+                {
+                  "feature": "orig_tx_count_prior",
+                  "shap_value": 1.4087
+                }
+              ]
+            },
+            {
+              "tx_id": "T0017306",
+              "orig": "R005_loop1",
+              "dest": "R005_loop2",
+              "amount": 7156.25,
+              "tx_type": "TRANSFER",
+              "risk_score": 1,
+              "is_fraud_ground_truth": 1,
+              "ring_id": "005",
+              "typology": "round_trip",
+              "top_factors": [
+                {
+                  "feature": "pair_prior_count",
+                  "shap_value": 4.1471
+                },
+                {
+                  "feature": "dest_tx_count_prior",
+                  "shap_value": 3.9236
+                },
+                {
+                  "feature": "amount",
+                  "shap_value": 3.0968
                 },
                 {
                   "feature": "near_threshold",
-                  "shap_value": 1.0913
+                  "shap_value": 0.8261
                 }
               ]
             }
@@ -27637,13 +27938,10 @@
               "ring_id": "010",
               "typology": "layering",
               "recall": 1,
-              "precision": 0.455,
+              "precision": 0.714,
               "nodes": [
                 {
-                  "id": "R010_hop2"
-                },
-                {
-                  "id": "R010_hop1"
+                  "id": "R010_hop3"
                 },
                 {
                   "id": "R010_hop4"
@@ -27652,29 +27950,32 @@
                   "id": "R010_hop0"
                 },
                 {
-                  "id": "R010_hop3"
+                  "id": "R010_hop1"
+                },
+                {
+                  "id": "R010_hop2"
                 }
               ],
               "edges": [
                 {
-                  "source": "R010_hop2",
+                  "source": "R010_hop3",
+                  "target": "R010_hop2",
+                  "weight": 5
+                },
+                {
+                  "source": "R010_hop3",
+                  "target": "R010_hop4",
+                  "weight": 4
+                },
+                {
+                  "source": "R010_hop0",
                   "target": "R010_hop1",
                   "weight": 5
                 },
                 {
-                  "source": "R010_hop2",
-                  "target": "R010_hop3",
-                  "weight": 5
-                },
-                {
                   "source": "R010_hop1",
-                  "target": "R010_hop0",
+                  "target": "R010_hop2",
                   "weight": 5
-                },
-                {
-                  "source": "R010_hop4",
-                  "target": "R010_hop3",
-                  "weight": 4
                 }
               ]
             },
@@ -27682,62 +27983,47 @@
               "ring_id": "015",
               "typology": "smurfing",
               "recall": 0.545,
-              "precision": 0.6,
+              "precision": 0.667,
               "nodes": [
                 {
-                  "id": "A01703"
-                },
-                {
                   "id": "R015_smurf0"
-                },
-                {
-                  "id": "R015_smurf4"
-                },
-                {
-                  "id": "A01101"
                 },
                 {
                   "id": "A01881"
                 },
                 {
-                  "id": "R015_smurf3"
-                },
-                {
-                  "id": "A00886"
+                  "id": "A01101"
                 },
                 {
                   "id": "R015_smurf1"
                 },
                 {
+                  "id": "R015_smurf4"
+                },
+                {
+                  "id": "R015_smurf3"
+                },
+                {
                   "id": "R015_smurf2"
+                },
+                {
+                  "id": "A00116"
                 },
                 {
                   "id": "R015_collector"
                 },
                 {
-                  "id": "A00116"
+                  "id": "A01703"
+                },
+                {
+                  "id": "A00886"
                 }
               ],
               "edges": [
                 {
-                  "source": "A01703",
-                  "target": "R015_collector",
-                  "weight": 1
-                },
-                {
                   "source": "R015_smurf0",
                   "target": "R015_collector",
                   "weight": 5
-                },
-                {
-                  "source": "R015_smurf4",
-                  "target": "R015_collector",
-                  "weight": 3
-                },
-                {
-                  "source": "A01101",
-                  "target": "R015_collector",
-                  "weight": 1
                 },
                 {
                   "source": "A01881",
@@ -27745,12 +28031,7 @@
                   "weight": 1
                 },
                 {
-                  "source": "R015_smurf3",
-                  "target": "R015_collector",
-                  "weight": 4
-                },
-                {
-                  "source": "A00886",
+                  "source": "A01101",
                   "target": "R015_collector",
                   "weight": 1
                 },
@@ -27760,13 +28041,33 @@
                   "weight": 5
                 },
                 {
+                  "source": "R015_smurf4",
+                  "target": "R015_collector",
+                  "weight": 3
+                },
+                {
+                  "source": "R015_smurf3",
+                  "target": "R015_collector",
+                  "weight": 4
+                },
+                {
                   "source": "R015_smurf2",
                   "target": "R015_collector",
                   "weight": 5
                 },
                 {
+                  "source": "A00116",
+                  "target": "R015_collector",
+                  "weight": 1
+                },
+                {
                   "source": "R015_collector",
-                  "target": "A00116",
+                  "target": "A00886",
+                  "weight": 1
+                },
+                {
+                  "source": "R015_collector",
+                  "target": "A01703",
                   "weight": 1
                 }
               ]
@@ -27774,18 +28075,9 @@
             {
               "ring_id": "007",
               "typology": "layering",
-              "recall": 1,
-              "precision": 0.6,
+              "recall": 0.667,
+              "precision": 0.333,
               "nodes": [
-                {
-                  "id": "R007_hop1"
-                },
-                {
-                  "id": "R007_hop0"
-                },
-                {
-                  "id": "R007_hop2"
-                },
                 {
                   "id": "R007_hop3"
                 },
@@ -27793,23 +28085,22 @@
                   "id": "R007_hop5"
                 },
                 {
+                  "id": "R007_hop0"
+                },
+                {
+                  "id": "R007_hop1"
+                },
+                {
+                  "id": "R007_hop2"
+                },
+                {
                   "id": "R007_hop4"
                 }
               ],
               "edges": [
                 {
-                  "source": "R007_hop1",
-                  "target": "R007_hop0",
-                  "weight": 3
-                },
-                {
-                  "source": "R007_hop1",
+                  "source": "R007_hop3",
                   "target": "R007_hop2",
-                  "weight": 3
-                },
-                {
-                  "source": "R007_hop2",
-                  "target": "R007_hop3",
                   "weight": 3
                 },
                 {
@@ -27821,6 +28112,16 @@
                   "source": "R007_hop5",
                   "target": "R007_hop4",
                   "weight": 3
+                },
+                {
+                  "source": "R007_hop0",
+                  "target": "R007_hop1",
+                  "weight": 3
+                },
+                {
+                  "source": "R007_hop1",
+                  "target": "R007_hop2",
+                  "weight": 3
                 }
               ]
             },
@@ -27828,10 +28129,13 @@
               "ring_id": "013",
               "typology": "layering",
               "recall": 0.833,
-              "precision": 0.833,
+              "precision": 0.714,
               "nodes": [
                 {
                   "id": "R013_hop1"
+                },
+                {
+                  "id": "R013_hop0"
                 },
                 {
                   "id": "R013_hop2"
@@ -27841,9 +28145,6 @@
                 },
                 {
                   "id": "R013_hop4"
-                },
-                {
-                  "id": "R013_hop0"
                 },
                 {
                   "id": "R013_hop3"
@@ -27884,68 +28185,73 @@
               "precision": 0.6,
               "nodes": [
                 {
-                  "id": "A00764"
-                },
-                {
-                  "id": "R000_smurf4"
-                },
-                {
                   "id": "A01913"
-                },
-                {
-                  "id": "R000_collector"
-                },
-                {
-                  "id": "R000_smurf2"
-                },
-                {
-                  "id": "R000_smurf0"
-                },
-                {
-                  "id": "R000_smurf5"
-                },
-                {
-                  "id": "R000_smurf3"
-                },
-                {
-                  "id": "A01046"
-                },
-                {
-                  "id": "A01293"
                 },
                 {
                   "id": "A01525"
                 },
                 {
-                  "id": "R000_smurf1"
+                  "id": "R000_smurf2"
+                },
+                {
+                  "id": "A00764"
+                },
+                {
+                  "id": "A01293"
+                },
+                {
+                  "id": "R000_collector"
+                },
+                {
+                  "id": "A01693"
+                },
+                {
+                  "id": "R000_smurf0"
                 },
                 {
                   "id": "A01559"
                 },
                 {
-                  "id": "A01693"
+                  "id": "R000_smurf4"
+                },
+                {
+                  "id": "R000_smurf1"
+                },
+                {
+                  "id": "R000_smurf5"
+                },
+                {
+                  "id": "A01046"
+                },
+                {
+                  "id": "R000_smurf3"
                 }
               ],
               "edges": [
-                {
-                  "source": "A00764",
-                  "target": "R000_collector",
-                  "weight": 1
-                },
-                {
-                  "source": "R000_smurf4",
-                  "target": "R000_collector",
-                  "weight": 4
-                },
                 {
                   "source": "A01913",
                   "target": "R000_collector",
                   "weight": 1
                 },
                 {
-                  "source": "R000_collector",
-                  "target": "R000_smurf2",
+                  "source": "A01525",
+                  "target": "R000_collector",
+                  "weight": 1
+                },
+                {
+                  "source": "R000_smurf2",
+                  "target": "R000_collector",
                   "weight": 7
+                },
+                {
+                  "source": "A00764",
+                  "target": "R000_collector",
+                  "weight": 1
+                },
+                {
+                  "source": "A01293",
+                  "target": "R000_collector",
+                  "weight": 1
                 },
                 {
                   "source": "R000_collector",
@@ -27964,8 +28270,8 @@
                 },
                 {
                   "source": "R000_collector",
-                  "target": "A01293",
-                  "weight": 1
+                  "target": "R000_smurf4",
+                  "weight": 4
                 },
                 {
                   "source": "R000_collector",
@@ -27984,11 +28290,6 @@
                 },
                 {
                   "source": "R000_collector",
-                  "target": "A01525",
-                  "weight": 1
-                },
-                {
-                  "source": "R000_collector",
                   "target": "A01046",
                   "weight": 1
                 }
@@ -27998,28 +28299,43 @@
               "ring_id": "004",
               "typology": "layering",
               "recall": 1,
-              "precision": 0.75,
+              "precision": 1,
               "nodes": [
-                {
-                  "id": "R004_hop2"
-                },
-                {
-                  "id": "R004_hop1"
-                },
-                {
-                  "id": "R004_hop4"
-                },
-                {
-                  "id": "R004_hop3"
-                },
                 {
                   "id": "R004_hop5"
                 },
                 {
                   "id": "R004_hop0"
+                },
+                {
+                  "id": "R004_hop4"
+                },
+                {
+                  "id": "R004_hop2"
+                },
+                {
+                  "id": "R004_hop3"
+                },
+                {
+                  "id": "R004_hop1"
                 }
               ],
               "edges": [
+                {
+                  "source": "R004_hop5",
+                  "target": "R004_hop4",
+                  "weight": 2
+                },
+                {
+                  "source": "R004_hop0",
+                  "target": "R004_hop1",
+                  "weight": 7
+                },
+                {
+                  "source": "R004_hop4",
+                  "target": "R004_hop3",
+                  "weight": 5
+                },
                 {
                   "source": "R004_hop2",
                   "target": "R004_hop1",
@@ -28029,21 +28345,6 @@
                   "source": "R004_hop2",
                   "target": "R004_hop3",
                   "weight": 7
-                },
-                {
-                  "source": "R004_hop1",
-                  "target": "R004_hop0",
-                  "weight": 7
-                },
-                {
-                  "source": "R004_hop4",
-                  "target": "R004_hop3",
-                  "weight": 5
-                },
-                {
-                  "source": "R004_hop4",
-                  "target": "R004_hop5",
-                  "weight": 2
                 }
               ]
             },
@@ -28054,29 +28355,29 @@
               "precision": 1,
               "nodes": [
                 {
+                  "id": "R008_loop1"
+                },
+                {
                   "id": "R008_loop2"
                 },
                 {
                   "id": "R008_loop0"
-                },
-                {
-                  "id": "R008_loop1"
                 }
               ],
               "edges": [
                 {
-                  "source": "R008_loop2",
-                  "target": "R008_loop1",
+                  "source": "R008_loop1",
+                  "target": "R008_loop0",
+                  "weight": 9
+                },
+                {
+                  "source": "R008_loop1",
+                  "target": "R008_loop2",
                   "weight": 9
                 },
                 {
                   "source": "R008_loop2",
                   "target": "R008_loop0",
-                  "weight": 9
-                },
-                {
-                  "source": "R008_loop0",
-                  "target": "R008_loop1",
                   "weight": 9
                 }
               ]
@@ -28085,25 +28386,25 @@
               "ring_id": "001",
               "typology": "layering",
               "recall": 0.833,
-              "precision": 0.5,
+              "precision": 0.625,
               "nodes": [
                 {
                   "id": "R001_hop2"
                 },
                 {
-                  "id": "R001_hop4"
-                },
-                {
-                  "id": "R001_hop0"
-                },
-                {
                   "id": "R001_hop3"
+                },
+                {
+                  "id": "R001_hop4"
                 },
                 {
                   "id": "R001_hop1"
                 },
                 {
                   "id": "R001_hop5"
+                },
+                {
+                  "id": "R001_hop0"
                 }
               ],
               "edges": [
@@ -28118,8 +28419,8 @@
                   "weight": 4
                 },
                 {
-                  "source": "R001_hop4",
-                  "target": "R001_hop3",
+                  "source": "R001_hop3",
+                  "target": "R001_hop4",
                   "weight": 3
                 },
                 {
@@ -28128,8 +28429,8 @@
                   "weight": 1
                 },
                 {
-                  "source": "R001_hop0",
-                  "target": "R001_hop1",
+                  "source": "R001_hop1",
+                  "target": "R001_hop0",
                   "weight": 4
                 }
               ]
@@ -28142,7 +28443,7 @@
       {
         "id": "forecast-ledger:briefing",
         "sourceProject": "Forecast Ledger",
-        "timestamp": "2026-11-16T19:55:58.403Z",
+        "timestamp": "2026-11-23T21:49:55.136Z",
         "title": "Forecast Ledger refresh completed",
         "summary": "2 forecasts sealed, 1 graded, and 1 explicitly refused by the eligibility rules.",
         "category": "risk-intelligence",
@@ -28171,10 +28472,10 @@
           "sourceUrls": [
             "https://raw.githubusercontent.com/Jeevan-0508/Forecast-Ledger/main/site/data.json"
           ],
-          "retrievedAt": "2026-11-16T19:55:58.403Z",
+          "retrievedAt": "2026-11-23T21:49:55.136Z",
           "status": "OFFICIAL",
           "origin": "GitHub raw snapshot",
-          "freshness": "source timestamp 2026-11-14T11:00:00+0100",
+          "freshness": "source timestamp 2026-11-21T11:00:00+0100",
           "changedRecords": [
             "ledger"
           ]
@@ -28219,7 +28520,7 @@
               "dataset": "sts_trtu_q",
               "seriesId": "sts_trtu_q.EU27_2020.G47.VOL_SLS.I21.SCA",
               "role": "forecastable",
-              "fetchedAt": "2026-11-16T14:03:40.970315+00:00"
+              "fetchedAt": "2026-11-23T16:34:29.672273+00:00"
             },
             {
               "dataset": "road_go_ta_tott",
